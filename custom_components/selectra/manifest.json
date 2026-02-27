@@ -5,9 +5,9 @@
   "config_flow": true,
   "dependencies": [],
   "documentation": "https://github.com/Selectra-Dev/selectra-ha",
-  "issue_tracker": "https://github.com/Selectra-Dev/selectra-ha/issues",
   "integration_type": "service",
   "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Selectra-Dev/selectra-ha/issues",
   "requirements": [],
   "version": "1.1.0"
 }
