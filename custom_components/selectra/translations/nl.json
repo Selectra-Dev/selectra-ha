@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API-token",
+        "description": "Voer je Selectra API-token in om te beginnen.",
+        "data": {
+          "token": "API-token"
+        }
+      },
+      "qualification": {
+        "title": "Offertekwalificatie",
+        "data": {
+          "country_code": "Land",
+          "postcode": "Postcode",
+          "provider_id": "Elektriciteitsleverancier",
+          "offer_id": "Aanbod",
+          "option_id": "Tariefoptie",
+          "province_id": "Provincie / Gebied",
+          "off_peak_hours_id": "Daluren",
+          "power_id": "Gecontracteerd vermogen"
+        }
+      },
+      "select_periods": {
+        "title": "Selecteer actieve perioden",
+        "description": "Selecteer de perioden waarin je apparaten moeten draaien.",
+        "data": {
+          "selected_periods": "Actieve perioden"
+        }
+      },
+      "strategy": {
+        "title": "Optimalisatiestrategie",
+        "description": "Kies hoe het beste moment voor je apparaten wordt bepaald.",
+        "data": {
+          "strategy": "Strategie"
+        }
+      },
+      "strategy_value": {
+        "title": "Strategieconfiguratie",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Waarde"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Ongeldige of ontbrekende API-sleutel. Neem contact op met ha-support@selectra.info om uw gratis sleutel te ontvangen.",
+      "cannot_connect": "Kan geen verbinding maken met de Selectra API. Probeer het later opnieuw.",
+      "invalid_percent": "Voer een waarde in tussen 1 en 100.",
+      "invalid_hours": "Voer een waarde in tussen 1 en 24."
+    },
+    "abort": {
+      "api_error": "Er is een fout opgetreden bij de communicatie met de Selectra API.",
+      "no_questions": "Geen kwalificatievragen ontvangen van de API.",
+      "reconfigure_successful": "Configuratie succesvol bijgewerkt."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "Goedkoopste X% van de dag",
+        "cheapest_consecutive": "Goedkoopste X opeenvolgende uren"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Gepland gebruik"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Huidige prijs"
+      },
+      "provider": {
+        "name": "Leverancier"
+      },
+      "offer": {
+        "name": "Aanbod"
+      },
+      "option": {
+        "name": "Optie"
+      }
+    }
+  }
+}

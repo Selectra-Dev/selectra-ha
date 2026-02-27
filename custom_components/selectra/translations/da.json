@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API-token",
+        "description": "Indtast dit Selectra API-token for at komme i gang.",
+        "data": {
+          "token": "API-token"
+        }
+      },
+      "qualification": {
+        "title": "Tilbudskvalifikation",
+        "data": {
+          "country_code": "Land",
+          "postcode": "Postnummer",
+          "provider_id": "Elleverandør",
+          "offer_id": "Tilbud",
+          "option_id": "Tarifmulighed",
+          "province_id": "Region / Område",
+          "off_peak_hours_id": "Lavlasttimer",
+          "power_id": "Abonneret effekt"
+        }
+      },
+      "select_periods": {
+        "title": "Vælg aktive perioder",
+        "description": "Vælg de perioder, hvor dine enheder skal køre.",
+        "data": {
+          "selected_periods": "Aktive perioder"
+        }
+      },
+      "strategy": {
+        "title": "Optimeringsstrategi",
+        "description": "Vælg hvordan det bedste tidspunkt for dine enheder bestemmes.",
+        "data": {
+          "strategy": "Strategi"
+        }
+      },
+      "strategy_value": {
+        "title": "Strategikonfiguration",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Værdi"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Ugyldig eller manglende API-nøgle. Kontakt ha-support@selectra.info for at få din gratis nøgle.",
+      "cannot_connect": "Kan ikke oprette forbindelse til Selectra API. Prøv igen senere.",
+      "invalid_percent": "Indtast en værdi mellem 1 og 100.",
+      "invalid_hours": "Indtast en værdi mellem 1 og 24."
+    },
+    "abort": {
+      "api_error": "Der opstod en fejl under kommunikationen med Selectra API.",
+      "no_questions": "Ingen kvalifikationsspørgsmål modtaget fra API.",
+      "reconfigure_successful": "Konfigurationen er opdateret."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "Billigste X% af dagen",
+        "cheapest_consecutive": "Billigste X sammenhængende timer"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Planlagt drift"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Aktuel pris"
+      },
+      "provider": {
+        "name": "Leverandør"
+      },
+      "offer": {
+        "name": "Tilbud"
+      },
+      "option": {
+        "name": "Mulighed"
+      }
+    }
+  }
+}

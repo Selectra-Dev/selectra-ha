@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API টোকেন",
+        "description": "শুরু করতে আপনার Selectra API টোকেন লিখুন।",
+        "data": {
+          "token": "API টোকেন"
+        }
+      },
+      "qualification": {
+        "title": "অফার যোগ্যতা",
+        "data": {
+          "country_code": "দেশ",
+          "postcode": "পোস্টাল কোড",
+          "provider_id": "বিদ্যুৎ সরবরাহকারী",
+          "offer_id": "অফার",
+          "option_id": "মূল্য বিকল্প",
+          "province_id": "বিভাগ / অঞ্চল",
+          "off_peak_hours_id": "অফ-পিক সময়",
+          "power_id": "চুক্তিবদ্ধ বিদ্যুৎ"
+        }
+      },
+      "select_periods": {
+        "title": "সক্রিয় সময়কাল নির্বাচন করুন",
+        "description": "আপনার ডিভাইসগুলি যে সময়কালে চলা উচিত তা নির্বাচন করুন।",
+        "data": {
+          "selected_periods": "সক্রিয় সময়কাল"
+        }
+      },
+      "strategy": {
+        "title": "অপ্টিমাইজেশন কৌশল",
+        "description": "আপনার ডিভাইসগুলি চালানোর সেরা সময় কীভাবে নির্ধারণ করবেন তা চয়ন করুন।",
+        "data": {
+          "strategy": "কৌশল"
+        }
+      },
+      "strategy_value": {
+        "title": "কৌশল কনফিগারেশন",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "মান"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "API কী অবৈধ বা অনুপস্থিত। আপনার বিনামূল্যে কী পেতে ha-support@selectra.info-এ যোগাযোগ করুন।",
+      "cannot_connect": "Selectra API-এ সংযোগ করা যাচ্ছে না। অনুগ্রহ করে পরে আবার চেষ্টা করুন।",
+      "invalid_percent": "অনুগ্রহ করে ১ থেকে ১০০ এর মধ্যে একটি মান লিখুন।",
+      "invalid_hours": "অনুগ্রহ করে ১ থেকে ২৪ এর মধ্যে একটি মান লিখুন।"
+    },
+    "abort": {
+      "api_error": "Selectra API-এর সাথে যোগাযোগের সময় একটি ত্রুটি ঘটেছে।",
+      "no_questions": "API থেকে কোনো যোগ্যতা প্রশ্ন পাওয়া যায়নি।",
+      "reconfigure_successful": "কনফিগারেশন সফলভাবে আপডেট হয়েছে।"
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "দিনের সবচেয়ে সস্তা X%",
+        "cheapest_consecutive": "সবচেয়ে সস্তা পরপর X ঘণ্টা"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "পরিকল্পিত পরিচালনা"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "বর্তমান মূল্য"
+      },
+      "provider": {
+        "name": "সরবরাহকারী"
+      },
+      "offer": {
+        "name": "অফার"
+      },
+      "option": {
+        "name": "বিকল্প"
+      }
+    }
+  }
+}

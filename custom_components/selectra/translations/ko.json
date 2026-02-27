@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API 토큰",
+        "description": "시작하려면 Selectra API 토큰을 입력하세요.",
+        "data": {
+          "token": "API 토큰"
+        }
+      },
+      "qualification": {
+        "title": "요금제 자격 확인",
+        "data": {
+          "country_code": "국가",
+          "postcode": "우편번호",
+          "provider_id": "전력 공급사",
+          "offer_id": "요금제",
+          "option_id": "요금 옵션",
+          "province_id": "시/도 / 지역",
+          "off_peak_hours_id": "비첨두 시간대",
+          "power_id": "계약 전력"
+        }
+      },
+      "select_periods": {
+        "title": "활성 기간 선택",
+        "description": "기기가 작동해야 하는 기간을 선택하세요.",
+        "data": {
+          "selected_periods": "활성 기간"
+        }
+      },
+      "strategy": {
+        "title": "최적화 전략",
+        "description": "기기를 작동시킬 최적의 시간을 결정하는 방법을 선택하세요.",
+        "data": {
+          "strategy": "전략"
+        }
+      },
+      "strategy_value": {
+        "title": "전략 설정",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "값"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "API 키가 유효하지 않거나 누락되었습니다. ha-support@selectra.info로 연락하여 무료 키를 받으세요.",
+      "cannot_connect": "Selectra API에 연결할 수 없습니다. 나중에 다시 시도해 주세요.",
+      "invalid_percent": "1에서 100 사이의 값을 입력하세요.",
+      "invalid_hours": "1에서 24 사이의 값을 입력하세요."
+    },
+    "abort": {
+      "api_error": "Selectra API와 통신 중 오류가 발생했습니다.",
+      "no_questions": "API에서 자격 확인 질문을 받지 못했습니다.",
+      "reconfigure_successful": "설정이 성공적으로 업데이트되었습니다."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "하루 중 가장 저렴한 X%",
+        "cheapest_consecutive": "가장 저렴한 연속 X시간"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "계획된 가동"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "현재 가격"
+      },
+      "provider": {
+        "name": "공급사"
+      },
+      "offer": {
+        "name": "요금제"
+      },
+      "option": {
+        "name": "옵션"
+      }
+    }
+  }
+}

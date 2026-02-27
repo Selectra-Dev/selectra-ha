@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API Anahtarı",
+        "description": "Başlamak için Selectra API anahtarınızı girin.",
+        "data": {
+          "token": "API Anahtarı"
+        }
+      },
+      "qualification": {
+        "title": "Teklif Yeterliliği",
+        "data": {
+          "country_code": "Ülke",
+          "postcode": "Posta kodu",
+          "provider_id": "Elektrik sağlayıcısı",
+          "offer_id": "Teklif",
+          "option_id": "Tarife seçeneği",
+          "province_id": "İl / Bölge",
+          "off_peak_hours_id": "Gece saatleri",
+          "power_id": "Sözleşme gücü"
+        }
+      },
+      "select_periods": {
+        "title": "Aktif Dönemleri Seçin",
+        "description": "Cihazlarınızın çalışması gereken dönemleri seçin.",
+        "data": {
+          "selected_periods": "Aktif dönemler"
+        }
+      },
+      "strategy": {
+        "title": "Optimizasyon Stratejisi",
+        "description": "Cihazlarınızı çalıştırmak için en iyi zamanın nasıl belirleneceğini seçin.",
+        "data": {
+          "strategy": "Strateji"
+        }
+      },
+      "strategy_value": {
+        "title": "Strateji Yapılandırması",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Değer"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Geçersiz veya eksik API anahtarı. Ücretsiz anahtarınızı almak için ha-support@selectra.info ile iletişime geçin.",
+      "cannot_connect": "Selectra API'sine bağlanılamıyor. Lütfen daha sonra tekrar deneyin.",
+      "invalid_percent": "Lütfen 1 ile 100 arasında bir değer girin.",
+      "invalid_hours": "Lütfen 1 ile 24 arasında bir değer girin."
+    },
+    "abort": {
+      "api_error": "Selectra API ile iletişim sırasında bir hata oluştu.",
+      "no_questions": "API'den yeterlilik sorusu alınamadı.",
+      "reconfigure_successful": "Yapılandırma başarıyla güncellendi."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "Günün en ucuz %X'i",
+        "cheapest_consecutive": "En ucuz ardışık X saat"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Planlı çalışma"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Güncel fiyat"
+      },
+      "provider": {
+        "name": "Sağlayıcı"
+      },
+      "offer": {
+        "name": "Teklif"
+      },
+      "option": {
+        "name": "Seçenek"
+      }
+    }
+  }
+}

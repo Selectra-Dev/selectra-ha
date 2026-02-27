@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API token",
+        "description": "Unesite svoj Selectra API token za početak.",
+        "data": {
+          "token": "API token"
+        }
+      },
+      "qualification": {
+        "title": "Kvalifikacija ponude",
+        "data": {
+          "country_code": "Država",
+          "postcode": "Poštanski broj",
+          "provider_id": "Opskrbljivač električne energije",
+          "offer_id": "Ponuda",
+          "option_id": "Tarifna opcija",
+          "province_id": "Županija / Regija",
+          "off_peak_hours_id": "Izvanvršni sati",
+          "power_id": "Ugovorena snaga"
+        }
+      },
+      "select_periods": {
+        "title": "Odaberite aktivna razdoblja",
+        "description": "Odaberite razdoblja tijekom kojih vaši uređaji trebaju raditi.",
+        "data": {
+          "selected_periods": "Aktivna razdoblja"
+        }
+      },
+      "strategy": {
+        "title": "Strategija optimizacije",
+        "description": "Odaberite kako odrediti najbolje vrijeme za rad vaših uređaja.",
+        "data": {
+          "strategy": "Strategija"
+        }
+      },
+      "strategy_value": {
+        "title": "Konfiguracija strategije",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Vrijednost"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Nevažeći ili nedostajući API ključ. Kontaktirajte ha-support@selectra.info za besplatni ključ.",
+      "cannot_connect": "Nije moguće povezati se sa Selectra API-jem. Pokušajte ponovno kasnije.",
+      "invalid_percent": "Unesite vrijednost između 1 i 100.",
+      "invalid_hours": "Unesite vrijednost između 1 i 24."
+    },
+    "abort": {
+      "api_error": "Došlo je do pogreške pri komunikaciji sa Selectra API-jem.",
+      "no_questions": "Nisu primljena pitanja za kvalifikaciju od API-ja.",
+      "reconfigure_successful": "Konfiguracija je uspješno ažurirana."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "Najjeftinijih X% dana",
+        "cheapest_consecutive": "Najjeftinijih X uzastopnih sati"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Planirani rad"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Trenutna cijena"
+      },
+      "provider": {
+        "name": "Opskrbljivač"
+      },
+      "offer": {
+        "name": "Ponuda"
+      },
+      "option": {
+        "name": "Opcija"
+      }
+    }
+  }
+}

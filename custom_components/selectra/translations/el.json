@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Διακριτικό API Selectra",
+        "description": "Εισαγάγετε το διακριτικό API Selectra για να ξεκινήσετε.",
+        "data": {
+          "token": "Διακριτικό API"
+        }
+      },
+      "qualification": {
+        "title": "Προσόντα προσφοράς",
+        "data": {
+          "country_code": "Χώρα",
+          "postcode": "Ταχυδρομικός κώδικας",
+          "provider_id": "Πάροχος ηλεκτρικής ενέργειας",
+          "offer_id": "Προσφορά",
+          "option_id": "Επιλογή τιμολόγησης",
+          "province_id": "Περιφέρεια / Περιοχή",
+          "off_peak_hours_id": "Ώρες εκτός αιχμής",
+          "power_id": "Συμβατική ισχύς"
+        }
+      },
+      "select_periods": {
+        "title": "Επιλογή ενεργών περιόδων",
+        "description": "Επιλέξτε τις περιόδους κατά τις οποίες θα λειτουργούν οι συσκευές σας.",
+        "data": {
+          "selected_periods": "Ενεργές περίοδοι"
+        }
+      },
+      "strategy": {
+        "title": "Στρατηγική βελτιστοποίησης",
+        "description": "Επιλέξτε πώς θα καθοριστεί η καλύτερη ώρα λειτουργίας των συσκευών σας.",
+        "data": {
+          "strategy": "Στρατηγική"
+        }
+      },
+      "strategy_value": {
+        "title": "Ρύθμιση στρατηγικής",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Τιμή"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Μη έγκυρο ή ελλείπον κλειδί API. Επικοινωνήστε με ha-support@selectra.info για να λάβετε το δωρεάν κλειδί σας.",
+      "cannot_connect": "Αδυναμία σύνδεσης με το API Selectra. Δοκιμάστε ξανά αργότερα.",
+      "invalid_percent": "Εισαγάγετε μια τιμή μεταξύ 1 και 100.",
+      "invalid_hours": "Εισαγάγετε μια τιμή μεταξύ 1 και 24."
+    },
+    "abort": {
+      "api_error": "Παρουσιάστηκε σφάλμα κατά την επικοινωνία με το API Selectra.",
+      "no_questions": "Δεν ελήφθησαν ερωτήσεις προσόντων από το API.",
+      "reconfigure_successful": "Η ρύθμιση ενημερώθηκε επιτυχώς."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "Φθηνότερο X% της ημέρας",
+        "cheapest_consecutive": "Φθηνότερες X συνεχόμενες ώρες"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Προγραμματισμένη λειτουργία"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Τρέχουσα τιμή"
+      },
+      "provider": {
+        "name": "Πάροχος"
+      },
+      "offer": {
+        "name": "Προσφορά"
+      },
+      "option": {
+        "name": "Επιλογή"
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API-Token",
+        "description": "Geben Sie Ihren Selectra API-Token ein, um zu beginnen.",
+        "data": {
+          "token": "API-Token"
+        }
+      },
+      "qualification": {
+        "title": "Angebotsqualifikation",
+        "data": {
+          "country_code": "Land",
+          "postcode": "Postleitzahl",
+          "provider_id": "Stromanbieter",
+          "offer_id": "Angebot",
+          "option_id": "Tarifoption",
+          "province_id": "Bundesland / Gebiet",
+          "off_peak_hours_id": "Schwachlastzeiten",
+          "power_id": "Vertragsleistung"
+        }
+      },
+      "select_periods": {
+        "title": "Aktive Zeiträume auswählen",
+        "description": "Wählen Sie die Zeiträume aus, in denen Ihre Geräte laufen sollen.",
+        "data": {
+          "selected_periods": "Aktive Zeiträume"
+        }
+      },
+      "strategy": {
+        "title": "Optimierungsstrategie",
+        "description": "Wählen Sie, wie der beste Zeitpunkt für Ihre Geräte bestimmt werden soll.",
+        "data": {
+          "strategy": "Strategie"
+        }
+      },
+      "strategy_value": {
+        "title": "Strategiekonfiguration",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Wert"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Ungültiger oder fehlender API-Schlüssel. Kontaktieren Sie ha-support@selectra.info, um Ihren kostenlosen Schlüssel zu erhalten.",
+      "cannot_connect": "Verbindung zur Selectra API nicht möglich. Bitte versuchen Sie es später erneut.",
+      "invalid_percent": "Bitte geben Sie einen Wert zwischen 1 und 100 ein.",
+      "invalid_hours": "Bitte geben Sie einen Wert zwischen 1 und 24 ein."
+    },
+    "abort": {
+      "api_error": "Bei der Kommunikation mit der Selectra API ist ein Fehler aufgetreten.",
+      "no_questions": "Keine Qualifikationsfragen von der API erhalten.",
+      "reconfigure_successful": "Konfiguration erfolgreich aktualisiert."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "Günstigste X% des Tages",
+        "cheapest_consecutive": "Günstigste X aufeinanderfolgende Stunden"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Geplanter Betrieb"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Aktueller Preis"
+      },
+      "provider": {
+        "name": "Anbieter"
+      },
+      "offer": {
+        "name": "Angebot"
+      },
+      "option": {
+        "name": "Option"
+      }
+    }
+  }
+}

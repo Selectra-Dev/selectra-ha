@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Token API Selectra",
+        "description": "Introduceți tokenul API Selectra pentru a începe.",
+        "data": {
+          "token": "Token API"
+        }
+      },
+      "qualification": {
+        "title": "Calificarea ofertei",
+        "data": {
+          "country_code": "Țară",
+          "postcode": "Cod poștal",
+          "provider_id": "Furnizor de electricitate",
+          "offer_id": "Ofertă",
+          "option_id": "Opțiune tarifară",
+          "province_id": "Județ / Regiune",
+          "off_peak_hours_id": "Ore de vârf redus",
+          "power_id": "Putere contractată"
+        }
+      },
+      "select_periods": {
+        "title": "Selectați perioadele active",
+        "description": "Selectați perioadele în care dispozitivele dvs. ar trebui să funcționeze.",
+        "data": {
+          "selected_periods": "Perioade active"
+        }
+      },
+      "strategy": {
+        "title": "Strategie de optimizare",
+        "description": "Alegeți cum să se determine cel mai bun moment pentru funcționarea dispozitivelor dvs.",
+        "data": {
+          "strategy": "Strategie"
+        }
+      },
+      "strategy_value": {
+        "title": "Configurarea strategiei",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Valoare"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Cheie API invalidă sau lipsă. Contactați ha-support@selectra.info pentru a obține cheia gratuită.",
+      "cannot_connect": "Nu se poate conecta la API-ul Selectra. Încercați din nou mai târziu.",
+      "invalid_percent": "Introduceți o valoare între 1 și 100.",
+      "invalid_hours": "Introduceți o valoare între 1 și 24."
+    },
+    "abort": {
+      "api_error": "A apărut o eroare la comunicarea cu API-ul Selectra.",
+      "no_questions": "Nu s-au primit întrebări de calificare de la API.",
+      "reconfigure_successful": "Configurația a fost actualizată cu succes."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "Cele mai ieftine X% din zi",
+        "cheapest_consecutive": "Cele mai ieftine X ore consecutive"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Funcționare planificată"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Preț curent"
+      },
+      "provider": {
+        "name": "Furnizor"
+      },
+      "offer": {
+        "name": "Ofertă"
+      },
+      "option": {
+        "name": "Opțiune"
+      }
+    }
+  }
+}

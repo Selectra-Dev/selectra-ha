@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "โทเค็น API ของ Selectra",
+        "description": "กรอกโทเค็น API ของ Selectra เพื่อเริ่มต้นใช้งาน",
+        "data": {
+          "token": "โทเค็น API"
+        }
+      },
+      "qualification": {
+        "title": "คุณสมบัติแผนราคา",
+        "data": {
+          "country_code": "ประเทศ",
+          "postcode": "รหัสไปรษณีย์",
+          "provider_id": "ผู้ให้บริการไฟฟ้า",
+          "offer_id": "แผนราคา",
+          "option_id": "ตัวเลือกอัตราค่าไฟ",
+          "province_id": "จังหวัด / พื้นที่",
+          "off_peak_hours_id": "ชั่วโมงนอกพีค",
+          "power_id": "กำลังไฟที่สัญญา"
+        }
+      },
+      "select_periods": {
+        "title": "เลือกช่วงเวลาที่ใช้งาน",
+        "description": "เลือกช่วงเวลาที่อุปกรณ์ของคุณควรทำงาน",
+        "data": {
+          "selected_periods": "ช่วงเวลาที่ใช้งาน"
+        }
+      },
+      "strategy": {
+        "title": "กลยุทธ์การเพิ่มประสิทธิภาพ",
+        "description": "เลือกวิธีกำหนดเวลาที่ดีที่สุดสำหรับการทำงานของอุปกรณ์",
+        "data": {
+          "strategy": "กลยุทธ์"
+        }
+      },
+      "strategy_value": {
+        "title": "การตั้งค่ากลยุทธ์",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "ค่า"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "คีย์ API ไม่ถูกต้องหรือขาดหายไป ติดต่อ ha-support@selectra.info เพื่อรับคีย์ฟรีของคุณ",
+      "cannot_connect": "ไม่สามารถเชื่อมต่อกับ API ของ Selectra ได้ กรุณาลองใหม่ภายหลัง",
+      "invalid_percent": "กรุณากรอกค่าระหว่าง 1 ถึง 100",
+      "invalid_hours": "กรุณากรอกค่าระหว่าง 1 ถึง 24"
+    },
+    "abort": {
+      "api_error": "เกิดข้อผิดพลาดขณะสื่อสารกับ API ของ Selectra",
+      "no_questions": "ไม่ได้รับคำถามคุณสมบัติจาก API",
+      "reconfigure_successful": "อัปเดตการตั้งค่าเรียบร้อยแล้ว"
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "X% ที่ถูกที่สุดของวัน",
+        "cheapest_consecutive": "X ชั่วโมงติดต่อกันที่ถูกที่สุด"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "การทำงานตามแผน"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "ราคาปัจจุบัน"
+      },
+      "provider": {
+        "name": "ผู้ให้บริการ"
+      },
+      "offer": {
+        "name": "แผนราคา"
+      },
+      "option": {
+        "name": "ตัวเลือก"
+      }
+    }
+  }
+}

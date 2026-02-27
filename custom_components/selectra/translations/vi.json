@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mã API Selectra",
+        "description": "Nhập mã API Selectra của bạn để bắt đầu.",
+        "data": {
+          "token": "Mã API"
+        }
+      },
+      "qualification": {
+        "title": "Xác nhận gói cước",
+        "data": {
+          "country_code": "Quốc gia",
+          "postcode": "Mã bưu chính",
+          "provider_id": "Nhà cung cấp điện",
+          "offer_id": "Gói cước",
+          "option_id": "Tùy chọn giá",
+          "province_id": "Tỉnh / Khu vực",
+          "off_peak_hours_id": "Giờ thấp điểm",
+          "power_id": "Công suất đăng ký"
+        }
+      },
+      "select_periods": {
+        "title": "Chọn các khoảng thời gian hoạt động",
+        "description": "Chọn các khoảng thời gian mà thiết bị của bạn cần hoạt động.",
+        "data": {
+          "selected_periods": "Khoảng thời gian hoạt động"
+        }
+      },
+      "strategy": {
+        "title": "Chiến lược tối ưu hóa",
+        "description": "Chọn cách xác định thời điểm tốt nhất để vận hành thiết bị của bạn.",
+        "data": {
+          "strategy": "Chiến lược"
+        }
+      },
+      "strategy_value": {
+        "title": "Cấu hình chiến lược",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Giá trị"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Khóa API không hợp lệ hoặc bị thiếu. Liên hệ ha-support@selectra.info để nhận khóa miễn phí của bạn.",
+      "cannot_connect": "Không thể kết nối với API Selectra. Vui lòng thử lại sau.",
+      "invalid_percent": "Vui lòng nhập giá trị từ 1 đến 100.",
+      "invalid_hours": "Vui lòng nhập giá trị từ 1 đến 24."
+    },
+    "abort": {
+      "api_error": "Đã xảy ra lỗi khi giao tiếp với API Selectra.",
+      "no_questions": "Không nhận được câu hỏi xác nhận từ API.",
+      "reconfigure_successful": "Cấu hình đã được cập nhật thành công."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "X% rẻ nhất trong ngày",
+        "cheapest_consecutive": "X giờ liên tiếp rẻ nhất"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Vận hành theo kế hoạch"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Giá hiện tại"
+      },
+      "provider": {
+        "name": "Nhà cung cấp"
+      },
+      "offer": {
+        "name": "Gói cước"
+      },
+      "option": {
+        "name": "Tùy chọn"
+      }
+    }
+  }
+}

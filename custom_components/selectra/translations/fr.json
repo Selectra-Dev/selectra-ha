@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Clé API Selectra",
+        "description": "Entrez votre clé API Selectra pour commencer.",
+        "data": {
+          "token": "Clé API"
+        }
+      },
+      "qualification": {
+        "title": "Qualification de l'offre",
+        "data": {
+          "country_code": "Pays",
+          "postcode": "Code postal",
+          "provider_id": "Fournisseur d'électricité",
+          "offer_id": "Offre",
+          "option_id": "Option tarifaire",
+          "province_id": "Province / Zone",
+          "off_peak_hours_id": "Plage heures creuses",
+          "power_id": "Puissance souscrite"
+        }
+      },
+      "select_periods": {
+        "title": "S\u00e9lection des p\u00e9riodes actives",
+        "description": "S\u00e9lectionnez les p\u00e9riodes pendant lesquelles vos appareils doivent fonctionner.",
+        "data": {
+          "selected_periods": "P\u00e9riodes actives"
+        }
+      },
+      "strategy": {
+        "title": "Strat\u00e9gie d'optimisation",
+        "description": "Choisissez comment d\u00e9terminer le meilleur moment pour faire fonctionner vos appareils.",
+        "data": {
+          "strategy": "Strat\u00e9gie"
+        }
+      },
+      "strategy_value": {
+        "title": "Configuration de la strat\u00e9gie",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Valeur"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Cl\u00e9 API invalide ou manquante. Contactez ha-support@selectra.info pour obtenir votre cl\u00e9 gratuite.",
+      "cannot_connect": "Impossible de se connecter \u00e0 l'API Selectra. Veuillez r\u00e9essayer plus tard.",
+      "invalid_percent": "Veuillez entrer une valeur entre 1 et 100.",
+      "invalid_hours": "Veuillez entrer une valeur entre 1 et 24."
+    },
+    "abort": {
+      "api_error": "Une erreur est survenue lors de la communication avec l'API Selectra.",
+      "no_questions": "Aucune question de qualification re\u00e7ue de l'API.",
+      "reconfigure_successful": "Configuration mise \u00e0 jour avec succ\u00e8s."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "X% les moins chers de la journ\u00e9e",
+        "cheapest_consecutive": "X heures cons\u00e9cutives les moins ch\u00e8res"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Marche planifi\u00e9e"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Prix actuel"
+      },
+      "provider": {
+        "name": "Fournisseur"
+      },
+      "offer": {
+        "name": "Offre"
+      },
+      "option": {
+        "name": "Option"
+      }
+    }
+  }
+}

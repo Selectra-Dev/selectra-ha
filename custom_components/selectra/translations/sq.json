@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tokeni API i Selectra",
+        "description": "Vendosni tokenin tuaj API të Selectra për të filluar.",
+        "data": {
+          "token": "Tokeni API"
+        }
+      },
+      "qualification": {
+        "title": "Kualifikimi i ofertës",
+        "data": {
+          "country_code": "Shteti",
+          "postcode": "Kodi postar",
+          "provider_id": "Furnizuesi i energjisë elektrike",
+          "offer_id": "Oferta",
+          "option_id": "Opsioni i tarifës",
+          "province_id": "Rajoni / Zona",
+          "off_peak_hours_id": "Orët jashtë pikut",
+          "power_id": "Fuqia e kontraktuar"
+        }
+      },
+      "select_periods": {
+        "title": "Zgjidhni periudhat aktive",
+        "description": "Zgjidhni periudhat gjatë të cilave pajisjet tuaja duhet të funksionojnë.",
+        "data": {
+          "selected_periods": "Periudhat aktive"
+        }
+      },
+      "strategy": {
+        "title": "Strategjia e optimizimit",
+        "description": "Zgjidhni si të përcaktohet koha më e mirë për funksionimin e pajisjeve tuaja.",
+        "data": {
+          "strategy": "Strategjia"
+        }
+      },
+      "strategy_value": {
+        "title": "Konfigurimi i strategjisë",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Vlera"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Çelësi API i pavlefshëm ose mungon. Kontaktoni ha-support@selectra.info për të marrë çelësin tuaj falas.",
+      "cannot_connect": "Nuk mund të lidhet me API-në e Selectra. Provoni përsëri më vonë.",
+      "invalid_percent": "Vendosni një vlerë midis 1 dhe 100.",
+      "invalid_hours": "Vendosni një vlerë midis 1 dhe 24."
+    },
+    "abort": {
+      "api_error": "Ndodhi një gabim gjatë komunikimit me API-në e Selectra.",
+      "no_questions": "Nuk u morën pyetje kualifikimi nga API.",
+      "reconfigure_successful": "Konfigurimi u përditësua me sukses."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "X% më e lirë e ditës",
+        "cheapest_consecutive": "X orët e njëpasnjëshme më të lira"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Funksionimi i planifikuar"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Çmimi aktual"
+      },
+      "provider": {
+        "name": "Furnizuesi"
+      },
+      "offer": {
+        "name": "Oferta"
+      },
+      "option": {
+        "name": "Opsioni"
+      }
+    }
+  }
+}

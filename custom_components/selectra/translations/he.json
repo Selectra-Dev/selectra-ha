@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "טוקן API של Selectra",
+        "description": "הזן את טוקן ה-API של Selectra כדי להתחיל.",
+        "data": {
+          "token": "טוקן API"
+        }
+      },
+      "qualification": {
+        "title": "התאמת מסלול",
+        "data": {
+          "country_code": "מדינה",
+          "postcode": "מיקוד",
+          "provider_id": "ספק חשמל",
+          "offer_id": "מסלול",
+          "option_id": "אפשרות תעריף",
+          "province_id": "מחוז / אזור",
+          "off_peak_hours_id": "שעות שפל",
+          "power_id": "הספק מנוי"
+        }
+      },
+      "select_periods": {
+        "title": "בחירת תקופות פעילות",
+        "description": "בחר את התקופות שבהן המכשירים שלך צריכים לפעול.",
+        "data": {
+          "selected_periods": "תקופות פעילות"
+        }
+      },
+      "strategy": {
+        "title": "אסטרטגיית אופטימיזציה",
+        "description": "בחר כיצד לקבוע את הזמן הטוב ביותר להפעלת המכשירים שלך.",
+        "data": {
+          "strategy": "אסטרטגיה"
+        }
+      },
+      "strategy_value": {
+        "title": "הגדרת אסטרטגיה",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "ערך"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "מפתח API לא תקין או חסר. צרו קשר עם ha-support@selectra.info כדי לקבל את המפתח החינמי שלכם.",
+      "cannot_connect": "לא ניתן להתחבר ל-API של Selectra. נסה שוב מאוחר יותר.",
+      "invalid_percent": "הזן ערך בין 1 ל-100.",
+      "invalid_hours": "הזן ערך בין 1 ל-24."
+    },
+    "abort": {
+      "api_error": "אירעה שגיאה בתקשורת עם ה-API של Selectra.",
+      "no_questions": "לא התקבלו שאלות התאמה מה-API.",
+      "reconfigure_successful": "ההגדרות עודכנו בהצלחה."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "X% הזולים ביותר ביום",
+        "cheapest_consecutive": "X השעות הרצופות הזולות ביותר"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "הפעלה מתוכננת"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "מחיר נוכחי"
+      },
+      "provider": {
+        "name": "ספק"
+      },
+      "offer": {
+        "name": "מסלול"
+      },
+      "option": {
+        "name": "אפשרות"
+      }
+    }
+  }
+}

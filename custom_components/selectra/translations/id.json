@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Token API Selectra",
+        "description": "Masukkan token API Selectra Anda untuk memulai.",
+        "data": {
+          "token": "Token API"
+        }
+      },
+      "qualification": {
+        "title": "Kualifikasi Penawaran",
+        "data": {
+          "country_code": "Negara",
+          "postcode": "Kode pos",
+          "provider_id": "Penyedia listrik",
+          "offer_id": "Penawaran",
+          "option_id": "Opsi tarif",
+          "province_id": "Provinsi / Wilayah",
+          "off_peak_hours_id": "Jam luar puncak",
+          "power_id": "Daya terpasang"
+        }
+      },
+      "select_periods": {
+        "title": "Pilih Periode Aktif",
+        "description": "Pilih periode saat perangkat Anda harus beroperasi.",
+        "data": {
+          "selected_periods": "Periode aktif"
+        }
+      },
+      "strategy": {
+        "title": "Strategi Optimasi",
+        "description": "Pilih cara menentukan waktu terbaik untuk menjalankan perangkat Anda.",
+        "data": {
+          "strategy": "Strategi"
+        }
+      },
+      "strategy_value": {
+        "title": "Konfigurasi Strategi",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Nilai"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Kunci API tidak valid atau tidak ada. Hubungi ha-support@selectra.info untuk mendapatkan kunci gratis Anda.",
+      "cannot_connect": "Tidak dapat terhubung ke API Selectra. Silakan coba lagi nanti.",
+      "invalid_percent": "Masukkan nilai antara 1 dan 100.",
+      "invalid_hours": "Masukkan nilai antara 1 dan 24."
+    },
+    "abort": {
+      "api_error": "Terjadi kesalahan saat berkomunikasi dengan API Selectra.",
+      "no_questions": "Tidak ada pertanyaan kualifikasi yang diterima dari API.",
+      "reconfigure_successful": "Konfigurasi berhasil diperbarui."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "X% termurah dalam sehari",
+        "cheapest_consecutive": "X jam berturut-turut termurah"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Operasi terjadwal"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Harga saat ini"
+      },
+      "provider": {
+        "name": "Penyedia"
+      },
+      "offer": {
+        "name": "Penawaran"
+      },
+      "option": {
+        "name": "Opsi"
+      }
+    }
+  }
+}

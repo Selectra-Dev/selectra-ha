@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API 令牌",
+        "description": "请输入您的 Selectra API 令牌以开始。",
+        "data": {
+          "token": "API 令牌"
+        }
+      },
+      "qualification": {
+        "title": "套餐资格确认",
+        "data": {
+          "country_code": "国家",
+          "postcode": "邮政编码",
+          "provider_id": "电力供应商",
+          "offer_id": "套餐",
+          "option_id": "资费选项",
+          "province_id": "省份 / 地区",
+          "off_peak_hours_id": "非高峰时段",
+          "power_id": "签约功率"
+        }
+      },
+      "select_periods": {
+        "title": "选择活跃时段",
+        "description": "选择您的设备应该运行的时段。",
+        "data": {
+          "selected_periods": "活跃时段"
+        }
+      },
+      "strategy": {
+        "title": "优化策略",
+        "description": "选择如何确定设备运行的最佳时间。",
+        "data": {
+          "strategy": "策略"
+        }
+      },
+      "strategy_value": {
+        "title": "策略配置",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "值"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "API 密钥无效或缺失。请联系 ha-support@selectra.info 获取您的免费密钥。",
+      "cannot_connect": "无法连接到 Selectra API。请稍后重试。",
+      "invalid_percent": "请输入 1 到 100 之间的值。",
+      "invalid_hours": "请输入 1 到 24 之间的值。"
+    },
+    "abort": {
+      "api_error": "与 Selectra API 通信时发生错误。",
+      "no_questions": "未从 API 收到资格确认问题。",
+      "reconfigure_successful": "配置已成功更新。"
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "当天最便宜的 X%",
+        "cheapest_consecutive": "最便宜的连续 X 小时"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "计划运行"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "当前价格"
+      },
+      "provider": {
+        "name": "供应商"
+      },
+      "offer": {
+        "name": "套餐"
+      },
+      "option": {
+        "name": "选项"
+      }
+    }
+  }
+}

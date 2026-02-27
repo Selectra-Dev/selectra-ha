@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra API токен",
+        "description": "Внесете го вашиот Selectra API токен за да започнете.",
+        "data": {
+          "token": "API токен"
+        }
+      },
+      "qualification": {
+        "title": "Квалификација на понуда",
+        "data": {
+          "country_code": "Држава",
+          "postcode": "Поштенски број",
+          "provider_id": "Снабдувач со електрична енергија",
+          "offer_id": "Понуда",
+          "option_id": "Тарифна опција",
+          "province_id": "Регион / Област",
+          "off_peak_hours_id": "Вонвршни часови",
+          "power_id": "Договорена моќност"
+        }
+      },
+      "select_periods": {
+        "title": "Изберете активни периоди",
+        "description": "Изберете ги периодите во кои вашите уреди треба да работат.",
+        "data": {
+          "selected_periods": "Активни периоди"
+        }
+      },
+      "strategy": {
+        "title": "Стратегија за оптимизација",
+        "description": "Изберете како да се одреди најдоброто време за работа на вашите уреди.",
+        "data": {
+          "strategy": "Стратегија"
+        }
+      },
+      "strategy_value": {
+        "title": "Поставување на стратегија",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Вредност"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Невалиден или недостасува API клуч. Контактирајте ha-support@selectra.info за да го добиете вашиот бесплатен клуч.",
+      "cannot_connect": "Не може да се поврзе со Selectra API. Обидете се повторно подоцна.",
+      "invalid_percent": "Внесете вредност помеѓу 1 и 100.",
+      "invalid_hours": "Внесете вредност помеѓу 1 и 24."
+    },
+    "abort": {
+      "api_error": "Настана грешка при комуникацијата со Selectra API.",
+      "no_questions": "Не се примени прашања за квалификација од API.",
+      "reconfigure_successful": "Конфигурацијата е успешно ажурирана."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "Најевтините X% од денот",
+        "cheapest_consecutive": "Најевтините X последователни часови"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Планирана работа"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Тековна цена"
+      },
+      "provider": {
+        "name": "Снабдувач"
+      },
+      "offer": {
+        "name": "Понуда"
+      },
+      "option": {
+        "name": "Опција"
+      }
+    }
+  }
+}

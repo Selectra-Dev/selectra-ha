@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "رمز API الخاص بـ Selectra",
+        "description": "أدخل رمز API الخاص بـ Selectra للبدء.",
+        "data": {
+          "token": "رمز API"
+        }
+      },
+      "qualification": {
+        "title": "تأهيل العرض",
+        "data": {
+          "country_code": "البلد",
+          "postcode": "الرمز البريدي",
+          "provider_id": "مزود الكهرباء",
+          "offer_id": "العرض",
+          "option_id": "خيار التعريفة",
+          "province_id": "المحافظة / المنطقة",
+          "off_peak_hours_id": "ساعات خارج الذروة",
+          "power_id": "القدرة المتعاقد عليها"
+        }
+      },
+      "select_periods": {
+        "title": "اختيار الفترات النشطة",
+        "description": "اختر الفترات التي يجب أن تعمل فيها أجهزتك.",
+        "data": {
+          "selected_periods": "الفترات النشطة"
+        }
+      },
+      "strategy": {
+        "title": "استراتيجية التحسين",
+        "description": "اختر كيفية تحديد أفضل وقت لتشغيل أجهزتك.",
+        "data": {
+          "strategy": "الاستراتيجية"
+        }
+      },
+      "strategy_value": {
+        "title": "إعداد الاستراتيجية",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "القيمة"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "مفتاح API غير صالح أو مفقود. تواصل مع ha-support@selectra.info للحصول على مفتاحك المجاني.",
+      "cannot_connect": "تعذر الاتصال بواجهة Selectra API. يرجى المحاولة مرة أخرى لاحقًا.",
+      "invalid_percent": "يرجى إدخال قيمة بين 1 و 100.",
+      "invalid_hours": "يرجى إدخال قيمة بين 1 و 24."
+    },
+    "abort": {
+      "api_error": "حدث خطأ أثناء الاتصال بواجهة Selectra API.",
+      "no_questions": "لم يتم استلام أسئلة التأهيل من واجهة API.",
+      "reconfigure_successful": "تم تحديث الإعدادات بنجاح."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "أرخص X% من اليوم",
+        "cheapest_consecutive": "أرخص X ساعات متتالية"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "تشغيل مخطط"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "السعر الحالي"
+      },
+      "provider": {
+        "name": "المزود"
+      },
+      "offer": {
+        "name": "العرض"
+      },
+      "option": {
+        "name": "الخيار"
+      }
+    }
+  }
+}

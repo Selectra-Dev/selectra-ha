@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Token de API Selectra",
+        "description": "Introduce tu token de API Selectra para empezar.",
+        "data": {
+          "token": "Token de API"
+        }
+      },
+      "qualification": {
+        "title": "Cualificación de la oferta",
+        "data": {
+          "country_code": "País",
+          "postcode": "Código postal",
+          "provider_id": "Proveedor de electricidad",
+          "offer_id": "Oferta",
+          "option_id": "Opción tarifaria",
+          "province_id": "Provincia / Zona",
+          "off_peak_hours_id": "Franja de horas valle",
+          "power_id": "Potencia contratada"
+        }
+      },
+      "select_periods": {
+        "title": "Seleccionar periodos activos",
+        "description": "Selecciona los periodos en los que tus dispositivos deben funcionar.",
+        "data": {
+          "selected_periods": "Periodos activos"
+        }
+      },
+      "strategy": {
+        "title": "Estrategia de optimización",
+        "description": "Elige cómo determinar el mejor momento para hacer funcionar tus dispositivos.",
+        "data": {
+          "strategy": "Estrategia"
+        }
+      },
+      "strategy_value": {
+        "title": "Configuración de la estrategia",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "Valor"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Clave API no válida o ausente. Contacte ha-support@selectra.info para obtener su clave gratuita.",
+      "cannot_connect": "No se puede conectar con la API de Selectra. Inténtalo de nuevo más tarde.",
+      "invalid_percent": "Introduce un valor entre 1 y 100.",
+      "invalid_hours": "Introduce un valor entre 1 y 24."
+    },
+    "abort": {
+      "api_error": "Se ha producido un error al comunicarse con la API de Selectra.",
+      "no_questions": "No se han recibido preguntas de cualificación de la API.",
+      "reconfigure_successful": "Configuración actualizada correctamente."
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "X% más baratos del día",
+        "cheapest_consecutive": "X horas consecutivas más baratas"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "Funcionamiento planificado"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "Precio actual"
+      },
+      "provider": {
+        "name": "Proveedor"
+      },
+      "offer": {
+        "name": "Oferta"
+      },
+      "option": {
+        "name": "Opción"
+      }
+    }
+  }
+}

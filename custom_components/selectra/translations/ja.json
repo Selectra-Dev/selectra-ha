@@ -1,0 +1,87 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Selectra APIトークン",
+        "description": "Selectra APIトークンを入力して開始してください。",
+        "data": {
+          "token": "APIトークン"
+        }
+      },
+      "qualification": {
+        "title": "プラン資格確認",
+        "data": {
+          "country_code": "国",
+          "postcode": "郵便番号",
+          "provider_id": "電力会社",
+          "offer_id": "プラン",
+          "option_id": "料金オプション",
+          "province_id": "都道府県 / 地域",
+          "off_peak_hours_id": "オフピーク時間帯",
+          "power_id": "契約電力"
+        }
+      },
+      "select_periods": {
+        "title": "アクティブ期間の選択",
+        "description": "デバイスを稼働させる期間を選択してください。",
+        "data": {
+          "selected_periods": "アクティブ期間"
+        }
+      },
+      "strategy": {
+        "title": "最適化戦略",
+        "description": "デバイスを稼働させる最適な時間帯の決定方法を選択してください。",
+        "data": {
+          "strategy": "戦略"
+        }
+      },
+      "strategy_value": {
+        "title": "戦略の設定",
+        "description": "{value_description}",
+        "data": {
+          "strategy_value": "値"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "APIキーが無効または未入力です。ha-support@selectra.info に連絡して無料キーを取得してください。",
+      "cannot_connect": "Selectra APIに接続できません。後でもう一度お試しください。",
+      "invalid_percent": "1から100の間の値を入力してください。",
+      "invalid_hours": "1から24の間の値を入力してください。"
+    },
+    "abort": {
+      "api_error": "Selectra APIとの通信中にエラーが発生しました。",
+      "no_questions": "APIから資格確認の質問が受信されませんでした。",
+      "reconfigure_successful": "設定が正常に更新されました。"
+    }
+  },
+  "selector": {
+    "strategy": {
+      "options": {
+        "cheapest_percent": "1日の最安X%",
+        "cheapest_consecutive": "最安の連続X時間"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "planned_run": {
+        "name": "計画稼働"
+      }
+    },
+    "sensor": {
+      "current_price": {
+        "name": "現在の価格"
+      },
+      "provider": {
+        "name": "電力会社"
+      },
+      "offer": {
+        "name": "プラン"
+      },
+      "option": {
+        "name": "オプション"
+      }
+    }
+  }
+}
