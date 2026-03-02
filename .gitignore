@@ -17,6 +17,9 @@ venv/
 # Claude Code
 .claude/
 
+# Docs
+README_EN.md
+
 # OS
 Thumbs.db
 Desktop.ini
