@@ -39,11 +39,11 @@ Can't find your provider or plan? [Open an issue](../../issues) and we'll look i
 ### Via HACS (recommended)
 
 1. Open HACS in Home Assistant.
-2. Go to **Integrations** and click the **three-dot menu** → **Custom repositories**.
-3. Add this repository URL and select **Integration** as the category.
-4. Search for **Selectra** in HACS and install it.
-5. Restart Home Assistant.
-6. Go to **Settings** → **Devices & Services** → **Add Integration** → search for **Selectra**.
+2. Search for **Selectra** and install it.
+3. Restart Home Assistant.
+4. Go to **Settings** → **Devices & Services** → **Add Integration** → search for **Selectra**.
+
+> **Not finding it?** Go to HACS → three-dot menu → *Custom repositories*, paste `https://github.com/Selectra-Dev/selectra-ha` and select *Integration*.
 
 ### Manual installation
 
@@ -56,9 +56,11 @@ Can't find your provider or plan? [Open an issue](../../issues) and we'll look i
 
 After installing, add the integration through the Home Assistant UI. You will be prompted to select your country, energy provider, and electricity plan.
 
-## 📡 Data Source
+## 📡 Data Source & API Access
 
 All electricity pricing data is provided by the [Selectra Electricity Planning API](https://api.selectra.com/electricity_planning).
+
+This integration requires an API token from Selectra. Don't have one yet? Contact us at **support.home-assistant@selectra.info** and we'll get you set up.
 
 ## 🤝 Contributing
 
