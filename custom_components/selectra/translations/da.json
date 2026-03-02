@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Selectra API-token",
-        "description": "Indtast dit Selectra API-token for at komme i gang.",
+        "description": "Indtast dit Selectra API-token for at komme i gang.\nHar du ikke et API-token? Kontakt support.home-assistant@selectra.info",
         "data": {
           "token": "API-token"
         }
       },
       "qualification": {
         "title": "Tilbudskvalifikation",
+        "description": "Besvar følgende spørgsmål for at finde det bedste eltilbud til dig.",
         "data": {
           "country_code": "Land",
           "postcode": "Postnummer",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Ugyldig eller manglende API-nøgle. Kontakt ha-support@selectra.info for at få din gratis nøgle.",
+      "invalid_auth": "Ugyldig eller manglende API-nøgle. Kontakt support.home-assistant@selectra.info for at få din gratis nøgle.",
       "cannot_connect": "Kan ikke oprette forbindelse til Selectra API. Prøv igen senere.",
       "invalid_percent": "Indtast en værdi mellem 1 og 100.",
       "invalid_hours": "Indtast en værdi mellem 1 og 24."

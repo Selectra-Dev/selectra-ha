@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Token API Selectra",
-        "description": "Masukkan token API Selectra Anda untuk memulai.",
+        "description": "Masukkan token API Selectra Anda untuk memulai.\nBelum punya token API? Hubungi support.home-assistant@selectra.info",
         "data": {
           "token": "Token API"
         }
       },
       "qualification": {
         "title": "Kualifikasi Penawaran",
+        "description": "Jawab pertanyaan berikut untuk menemukan penawaran listrik terbaik untuk Anda.",
         "data": {
           "country_code": "Negara",
           "postcode": "Kode pos",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Kunci API tidak valid atau tidak ada. Hubungi ha-support@selectra.info untuk mendapatkan kunci gratis Anda.",
+      "invalid_auth": "Kunci API tidak valid atau tidak ada. Hubungi support.home-assistant@selectra.info untuk mendapatkan kunci gratis Anda.",
       "cannot_connect": "Tidak dapat terhubung ke API Selectra. Silakan coba lagi nanti.",
       "invalid_percent": "Masukkan nilai antara 1 dan 100.",
       "invalid_hours": "Masukkan nilai antara 1 dan 24."

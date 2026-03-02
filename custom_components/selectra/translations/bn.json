@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Selectra API টোকেন",
-        "description": "শুরু করতে আপনার Selectra API টোকেন লিখুন।",
+        "description": "শুরু করতে আপনার Selectra API টোকেন লিখুন।\nAPI টোকেন নেই? support.home-assistant@selectra.info-এ যোগাযোগ করুন",
         "data": {
           "token": "API টোকেন"
         }
       },
       "qualification": {
         "title": "অফার যোগ্যতা",
+        "description": "আপনার জন্য সেরা বিদ্যুৎ অফার খুঁজে পেতে নিম্নলিখিত প্রশ্নগুলির উত্তর দিন।",
         "data": {
           "country_code": "দেশ",
           "postcode": "পোস্টাল কোড",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "API কী অবৈধ বা অনুপস্থিত। আপনার বিনামূল্যে কী পেতে ha-support@selectra.info-এ যোগাযোগ করুন।",
+      "invalid_auth": "API কী অবৈধ বা অনুপস্থিত। আপনার বিনামূল্যে কী পেতে support.home-assistant@selectra.info-এ যোগাযোগ করুন।",
       "cannot_connect": "Selectra API-এ সংযোগ করা যাচ্ছে না। অনুগ্রহ করে পরে আবার চেষ্টা করুন।",
       "invalid_percent": "অনুগ্রহ করে ১ থেকে ১০০ এর মধ্যে একটি মান লিখুন।",
       "invalid_hours": "অনুগ্রহ করে ১ থেকে ২৪ এর মধ্যে একটি মান লিখুন।"

@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "رمز API الخاص بـ Selectra",
-        "description": "أدخل رمز API الخاص بـ Selectra للبدء.",
+        "description": "أدخل رمز API الخاص بـ Selectra للبدء.\nليس لديك رمز API؟ تواصل مع support.home-assistant@selectra.info",
         "data": {
           "token": "رمز API"
         }
       },
       "qualification": {
         "title": "تأهيل العرض",
+        "description": "أجب عن الأسئلة التالية للعثور على أفضل عرض كهرباء لك.",
         "data": {
           "country_code": "البلد",
           "postcode": "الرمز البريدي",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "مفتاح API غير صالح أو مفقود. تواصل مع ha-support@selectra.info للحصول على مفتاحك المجاني.",
+      "invalid_auth": "مفتاح API غير صالح أو مفقود. تواصل مع support.home-assistant@selectra.info للحصول على مفتاحك المجاني.",
       "cannot_connect": "تعذر الاتصال بواجهة Selectra API. يرجى المحاولة مرة أخرى لاحقًا.",
       "invalid_percent": "يرجى إدخال قيمة بين 1 و 100.",
       "invalid_hours": "يرجى إدخال قيمة بين 1 و 24."

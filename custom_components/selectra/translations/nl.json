@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Selectra API-token",
-        "description": "Voer je Selectra API-token in om te beginnen.",
+        "description": "Voer je Selectra API-token in om te beginnen.\nHeb je geen API-token? Neem contact op met support.home-assistant@selectra.info",
         "data": {
           "token": "API-token"
         }
       },
       "qualification": {
         "title": "Offertekwalificatie",
+        "description": "Beantwoord de volgende vragen om het beste elektriciteitsaanbod voor u te vinden.",
         "data": {
           "country_code": "Land",
           "postcode": "Postcode",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Ongeldige of ontbrekende API-sleutel. Neem contact op met ha-support@selectra.info om uw gratis sleutel te ontvangen.",
+      "invalid_auth": "Ongeldige of ontbrekende API-sleutel. Neem contact op met support.home-assistant@selectra.info om uw gratis sleutel te ontvangen.",
       "cannot_connect": "Kan geen verbinding maken met de Selectra API. Probeer het later opnieuw.",
       "invalid_percent": "Voer een waarde in tussen 1 en 100.",
       "invalid_hours": "Voer een waarde in tussen 1 en 24."

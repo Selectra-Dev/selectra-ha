@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "โทเค็น API ของ Selectra",
-        "description": "กรอกโทเค็น API ของ Selectra เพื่อเริ่มต้นใช้งาน",
+        "description": "กรอกโทเค็น API ของ Selectra เพื่อเริ่มต้นใช้งาน\nไม่มีโทเค็น API? ติดต่อ support.home-assistant@selectra.info",
         "data": {
           "token": "โทเค็น API"
         }
       },
       "qualification": {
         "title": "คุณสมบัติแผนราคา",
+        "description": "ตอบคำถามต่อไปนี้เพื่อค้นหาข้อเสนอไฟฟ้าที่ดีที่สุดสำหรับคุณ",
         "data": {
           "country_code": "ประเทศ",
           "postcode": "รหัสไปรษณีย์",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "คีย์ API ไม่ถูกต้องหรือขาดหายไป ติดต่อ ha-support@selectra.info เพื่อรับคีย์ฟรีของคุณ",
+      "invalid_auth": "คีย์ API ไม่ถูกต้องหรือขาดหายไป ติดต่อ support.home-assistant@selectra.info เพื่อรับคีย์ฟรีของคุณ",
       "cannot_connect": "ไม่สามารถเชื่อมต่อกับ API ของ Selectra ได้ กรุณาลองใหม่ภายหลัง",
       "invalid_percent": "กรุณากรอกค่าระหว่าง 1 ถึง 100",
       "invalid_hours": "กรุณากรอกค่าระหว่าง 1 ถึง 24"

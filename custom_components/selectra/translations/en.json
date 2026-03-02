@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Selectra API Token",
-        "description": "Enter your Selectra API token to get started.",
+        "description": "Enter your Selectra API token to get started.\nDon't have an API token? Contact support.home-assistant@selectra.info",
         "data": {
           "token": "API Token"
         }
       },
       "qualification": {
         "title": "Offer Qualification",
+        "description": "Answer the following questions to find the best electricity offer for you.",
         "data": {
           "country_code": "Country",
           "postcode": "Postal code",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Invalid or missing API key. Contact ha-support@selectra.info to get your free key.",
+      "invalid_auth": "Invalid or missing API key. Contact support.home-assistant@selectra.info to get your free key.",
       "cannot_connect": "Cannot connect to the Selectra API. Please try again later.",
       "invalid_percent": "Please enter a value between 1 and 100.",
       "invalid_hours": "Please enter a value between 1 and 24."

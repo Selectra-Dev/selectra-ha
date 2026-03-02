@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "טוקן API של Selectra",
-        "description": "הזן את טוקן ה-API של Selectra כדי להתחיל.",
+        "description": "הזן את טוקן ה-API של Selectra כדי להתחיל.\nאין לך טוקן API? צרו קשר עם support.home-assistant@selectra.info",
         "data": {
           "token": "טוקן API"
         }
       },
       "qualification": {
         "title": "התאמת מסלול",
+        "description": "ענו על השאלות הבאות כדי למצוא את הצעת החשמל הטובה ביותר עבורכם.",
         "data": {
           "country_code": "מדינה",
           "postcode": "מיקוד",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "מפתח API לא תקין או חסר. צרו קשר עם ha-support@selectra.info כדי לקבל את המפתח החינמי שלכם.",
+      "invalid_auth": "מפתח API לא תקין או חסר. צרו קשר עם support.home-assistant@selectra.info כדי לקבל את המפתח החינמי שלכם.",
       "cannot_connect": "לא ניתן להתחבר ל-API של Selectra. נסה שוב מאוחר יותר.",
       "invalid_percent": "הזן ערך בין 1 ל-100.",
       "invalid_hours": "הזן ערך בין 1 ל-24."

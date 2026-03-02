@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Selectra API 令牌",
-        "description": "请输入您的 Selectra API 令牌以开始。",
+        "description": "请输入您的 Selectra API 令牌以开始。\n没有 API 令牌？请联系 support.home-assistant@selectra.info",
         "data": {
           "token": "API 令牌"
         }
       },
       "qualification": {
         "title": "套餐资格确认",
+        "description": "回答以下问题，为您找到最佳电力套餐。",
         "data": {
           "country_code": "国家",
           "postcode": "邮政编码",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "API 密钥无效或缺失。请联系 ha-support@selectra.info 获取您的免费密钥。",
+      "invalid_auth": "API 密钥无效或缺失。请联系 support.home-assistant@selectra.info 获取您的免费密钥。",
       "cannot_connect": "无法连接到 Selectra API。请稍后重试。",
       "invalid_percent": "请输入 1 到 100 之间的值。",
       "invalid_hours": "请输入 1 到 24 之间的值。"

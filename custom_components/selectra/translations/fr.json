@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Clé API Selectra",
-        "description": "Entrez votre clé API Selectra pour commencer.",
+        "description": "Entrez votre clé API Selectra pour commencer.\nVous n'avez pas de clé API ? Contactez support.home-assistant@selectra.info",
         "data": {
           "token": "Clé API"
         }
       },
       "qualification": {
         "title": "Qualification de l'offre",
+        "description": "Répondez aux questions suivantes pour trouver la meilleure offre d'électricité pour vous.",
         "data": {
           "country_code": "Pays",
           "postcode": "Code postal",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Cl\u00e9 API invalide ou manquante. Contactez ha-support@selectra.info pour obtenir votre cl\u00e9 gratuite.",
+      "invalid_auth": "Cl\u00e9 API invalide ou manquante. Contactez support.home-assistant@selectra.info pour obtenir votre cl\u00e9 gratuite.",
       "cannot_connect": "Impossible de se connecter \u00e0 l'API Selectra. Veuillez r\u00e9essayer plus tard.",
       "invalid_percent": "Veuillez entrer une valeur entre 1 et 100.",
       "invalid_hours": "Veuillez entrer une valeur entre 1 et 24."

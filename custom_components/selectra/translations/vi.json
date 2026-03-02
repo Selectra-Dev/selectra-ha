@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Mã API Selectra",
-        "description": "Nhập mã API Selectra của bạn để bắt đầu.",
+        "description": "Nhập mã API Selectra của bạn để bắt đầu.\nChưa có mã API? Liên hệ support.home-assistant@selectra.info",
         "data": {
           "token": "Mã API"
         }
       },
       "qualification": {
         "title": "Xác nhận gói cước",
+        "description": "Trả lời các câu hỏi sau để tìm ưu đãi điện tốt nhất cho bạn.",
         "data": {
           "country_code": "Quốc gia",
           "postcode": "Mã bưu chính",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Khóa API không hợp lệ hoặc bị thiếu. Liên hệ ha-support@selectra.info để nhận khóa miễn phí của bạn.",
+      "invalid_auth": "Khóa API không hợp lệ hoặc bị thiếu. Liên hệ support.home-assistant@selectra.info để nhận khóa miễn phí của bạn.",
       "cannot_connect": "Không thể kết nối với API Selectra. Vui lòng thử lại sau.",
       "invalid_percent": "Vui lòng nhập giá trị từ 1 đến 100.",
       "invalid_hours": "Vui lòng nhập giá trị từ 1 đến 24."

@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "Selectra APIトークン",
-        "description": "Selectra APIトークンを入力して開始してください。",
+        "description": "Selectra APIトークンを入力して開始してください。\nAPIトークンをお持ちでないですか？support.home-assistant@selectra.info までお問い合わせください",
         "data": {
           "token": "APIトークン"
         }
       },
       "qualification": {
         "title": "プラン資格確認",
+        "description": "以下の質問に答えて、最適な電力プランを見つけましょう。",
         "data": {
           "country_code": "国",
           "postcode": "郵便番号",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "APIキーが無効または未入力です。ha-support@selectra.info に連絡して無料キーを取得してください。",
+      "invalid_auth": "APIキーが無効または未入力です。support.home-assistant@selectra.info に連絡して無料キーを取得してください。",
       "cannot_connect": "Selectra APIに接続できません。後でもう一度お試しください。",
       "invalid_percent": "1から100の間の値を入力してください。",
       "invalid_hours": "1から24の間の値を入力してください。"

@@ -3,13 +3,14 @@
     "step": {
       "user": {
         "title": "API токен на Selectra",
-        "description": "Въведете вашия API токен на Selectra, за да започнете.",
+        "description": "Въведете вашия API токен на Selectra, за да започнете.\nНямате API токен? Свържете се с support.home-assistant@selectra.info",
         "data": {
           "token": "API токен"
         }
       },
       "qualification": {
         "title": "Квалификация на оферта",
+        "description": "Отговорете на следните въпроси, за да намерите най-добрата оферта за електроенергия за вас.",
         "data": {
           "country_code": "Държава",
           "postcode": "Пощенски код",
@@ -44,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Невалиден или липсващ API ключ. Свържете се с ha-support@selectra.info, за да получите безплатния си ключ.",
+      "invalid_auth": "Невалиден или липсващ API ключ. Свържете се с support.home-assistant@selectra.info, за да получите безплатния си ключ.",
       "cannot_connect": "Неуспешно свързване с API на Selectra. Опитайте отново по-късно.",
       "invalid_percent": "Въведете стойност между 1 и 100.",
       "invalid_hours": "Въведете стойност между 1 и 24."
