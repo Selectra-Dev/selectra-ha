@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Qualification de l'offre",
-        "description": "Répondez aux questions suivantes pour trouver la meilleure offre d'électricité pour vous.",
+        "description": "Renseignez les informations de votre contrat d'électricité.",
         "data": {
           "country_code": "Pays",
           "postcode": "Code postal",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "S\u00e9lection des p\u00e9riodes actives",
-        "description": "S\u00e9lectionnez les p\u00e9riodes pendant lesquelles vos appareils doivent fonctionner.",
+        "description": "Cochez les p\u00e9riodes pendant lesquelles vos appareils doivent fonctionner. Le capteur 'Marche planifi\u00e9e' sera actif pendant ces p\u00e9riodes.",
         "data": {
           "selected_periods": "P\u00e9riodes actives"
         }

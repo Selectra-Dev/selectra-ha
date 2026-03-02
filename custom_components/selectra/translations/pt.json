@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Qualificação da oferta",
-        "description": "Responda às seguintes perguntas para encontrar a melhor oferta de eletricidade para si.",
+        "description": "Introduza os dados do seu contrato de eletricidade.",
         "data": {
           "country_code": "País",
           "postcode": "Código postal",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Selecionar períodos ativos",
-        "description": "Selecione os períodos durante os quais os seus dispositivos devem funcionar.",
+        "description": "Selecione os períodos durante os quais os seus dispositivos devem funcionar. O sensor 'Funcionamento planeado' estará ativo durante estes períodos.",
         "data": {
           "selected_periods": "Períodos ativos"
         }

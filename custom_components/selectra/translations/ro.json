@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Calificarea ofertei",
-        "description": "Răspundeți la următoarele întrebări pentru a găsi cea mai bună ofertă de electricitate pentru dvs.",
+        "description": "Introduceți detaliile contractului dvs. de electricitate.",
         "data": {
           "country_code": "Țară",
           "postcode": "Cod poștal",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Selectați perioadele active",
-        "description": "Selectați perioadele în care dispozitivele dvs. ar trebui să funcționeze.",
+        "description": "Bifați perioadele în care dispozitivele dvs. ar trebui să funcționeze. Senzorul 'Funcționare planificată' va fi activ în aceste perioade.",
         "data": {
           "selected_periods": "Perioade active"
         }

@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Kualifikimi i ofertës",
-        "description": "Përgjigjuni pyetjeve të mëposhtme për të gjetur ofertën më të mirë të energjisë elektrike për ju.",
+        "description": "Vendosni detajet e kontratës suaj të energjisë elektrike.",
         "data": {
           "country_code": "Shteti",
           "postcode": "Kodi postar",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Zgjidhni periudhat aktive",
-        "description": "Zgjidhni periudhat gjatë të cilave pajisjet tuaja duhet të funksionojnë.",
+        "description": "Zgjidhni periudhat gjatë të cilave pajisjet tuaja duhet të funksionojnë. Sensori 'Funksionimi i planifikuar' do të jetë aktiv gjatë këtyre periudhave.",
         "data": {
           "selected_periods": "Periudhat aktive"
         }

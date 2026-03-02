@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Kelayakan Tawaran",
-        "description": "Jawab soalan berikut untuk mencari tawaran elektrik terbaik untuk anda.",
+        "description": "Masukkan butiran kontrak elektrik anda.",
         "data": {
           "country_code": "Negara",
           "postcode": "Poskod",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Pilih Tempoh Aktif",
-        "description": "Pilih tempoh di mana peranti anda perlu beroperasi.",
+        "description": "Tandakan tempoh di mana peranti anda perlu beroperasi. Sensor 'Operasi berjadual' akan aktif semasa tempoh ini.",
         "data": {
           "selected_periods": "Tempoh aktif"
         }

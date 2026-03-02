@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Qualificazione offerta",
-        "description": "Rispondi alle seguenti domande per trovare la migliore offerta di elettricità per te.",
+        "description": "Inserisci i dati del tuo contratto di elettricità.",
         "data": {
           "country_code": "Paese",
           "postcode": "Codice postale",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Seleziona periodi attivi",
-        "description": "Seleziona i periodi durante i quali i tuoi dispositivi devono funzionare.",
+        "description": "Seleziona i periodi durante i quali i tuoi dispositivi devono funzionare. Il sensore 'Funzionamento pianificato' sarà attivo durante questi periodi.",
         "data": {
           "selected_periods": "Periodi attivi"
         }

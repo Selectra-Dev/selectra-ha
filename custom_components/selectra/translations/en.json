@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Offer Qualification",
-        "description": "Answer the following questions to find the best electricity offer for you.",
+        "description": "Enter your electricity contract details.",
         "data": {
           "country_code": "Country",
           "postcode": "Postal code",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Select Active Periods",
-        "description": "Select the periods during which your devices should run.",
+        "description": "Check the periods during which your devices should run. The 'Planned Run' sensor will be active during these periods.",
         "data": {
           "selected_periods": "Active periods"
         }

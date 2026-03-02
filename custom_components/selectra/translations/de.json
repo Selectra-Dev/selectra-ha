@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Angebotsqualifikation",
-        "description": "Beantworten Sie die folgenden Fragen, um das beste Stromangebot für Sie zu finden.",
+        "description": "Geben Sie die Daten Ihres Stromvertrags ein.",
         "data": {
           "country_code": "Land",
           "postcode": "Postleitzahl",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Aktive Zeiträume auswählen",
-        "description": "Wählen Sie die Zeiträume aus, in denen Ihre Geräte laufen sollen.",
+        "description": "Wählen Sie die Zeiträume aus, in denen Ihre Geräte laufen sollen. Der Sensor 'Geplanter Betrieb' wird während dieser Zeiträume aktiv sein.",
         "data": {
           "selected_periods": "Aktive Zeiträume"
         }

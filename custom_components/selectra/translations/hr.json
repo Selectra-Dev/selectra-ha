@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Kvalifikacija ponude",
-        "description": "Odgovorite na sljedeća pitanja kako biste pronašli najbolju ponudu električne energije za vas.",
+        "description": "Unesite podatke o svom ugovoru za električnu energiju.",
         "data": {
           "country_code": "Država",
           "postcode": "Poštanski broj",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Odaberite aktivna razdoblja",
-        "description": "Odaberite razdoblja tijekom kojih vaši uređaji trebaju raditi.",
+        "description": "Označite razdoblja tijekom kojih vaši uređaji trebaju raditi. Senzor 'Planirani rad' bit će aktivan tijekom tih razdoblja.",
         "data": {
           "selected_periods": "Aktivna razdoblja"
         }

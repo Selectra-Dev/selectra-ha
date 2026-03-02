@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Xác nhận gói cước",
-        "description": "Trả lời các câu hỏi sau để tìm ưu đãi điện tốt nhất cho bạn.",
+        "description": "Nhập thông tin hợp đồng điện của bạn.",
         "data": {
           "country_code": "Quốc gia",
           "postcode": "Mã bưu chính",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Chọn các khoảng thời gian hoạt động",
-        "description": "Chọn các khoảng thời gian mà thiết bị của bạn cần hoạt động.",
+        "description": "Chọn các khoảng thời gian mà thiết bị của bạn cần hoạt động. Cảm biến 'Vận hành theo kế hoạch' sẽ hoạt động trong các khoảng thời gian này.",
         "data": {
           "selected_periods": "Khoảng thời gian hoạt động"
         }

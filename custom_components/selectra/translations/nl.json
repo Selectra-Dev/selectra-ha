@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Offertekwalificatie",
-        "description": "Beantwoord de volgende vragen om het beste elektriciteitsaanbod voor u te vinden.",
+        "description": "Voer de gegevens van uw elektriciteitscontract in.",
         "data": {
           "country_code": "Land",
           "postcode": "Postcode",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Selecteer actieve perioden",
-        "description": "Selecteer de perioden waarin je apparaten moeten draaien.",
+        "description": "Selecteer de perioden waarin je apparaten moeten draaien. De sensor 'Gepland gebruik' zal actief zijn tijdens deze perioden.",
         "data": {
           "selected_periods": "Actieve perioden"
         }

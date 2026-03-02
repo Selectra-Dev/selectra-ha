@@ -2,6 +2,24 @@
 
 ## [1.1.0] - 2026-02-26
 
+### Descriptions & email de support (2026-03-02)
+
+#### Descriptions ajoutées/améliorées dans toutes les étapes
+
+- **Step `user` (token)** : ajout de "Don't have an API token? Contact support.home-assistant@selectra.info" dans la description (28 langues)
+- **Step `qualification`** : ajout d'une description courte et neutre — "Renseignez les informations de votre contrat d'électricité." (28 langues)
+- **Step `select_periods`** : description enrichie pour mentionner le capteur — "Cochez les périodes pendant lesquelles vos appareils doivent fonctionner. Le capteur 'Marche planifiée' sera actif pendant ces périodes." (28 langues)
+
+#### Correction de l'email de support
+
+Remplacement de `ha-support@selectra.info` par `support.home-assistant@selectra.info` dans tous les fichiers de traduction (step `user` description + erreur `invalid_auth`).
+
+#### Suppression de `README_EN.md`
+
+Fichier supprimé du repo et ajouté au `.gitignore`.
+
+---
+
 ### Traductions & UX du config flow
 
 #### 1. `custom_components/selectra/translations/fr.json` — Modifié

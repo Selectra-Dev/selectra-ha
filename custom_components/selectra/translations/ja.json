@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "プラン資格確認",
-        "description": "以下の質問に答えて、最適な電力プランを見つけましょう。",
+        "description": "電力契約の情報を入力してください。",
         "data": {
           "country_code": "国",
           "postcode": "郵便番号",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "アクティブ期間の選択",
-        "description": "デバイスを稼働させる期間を選択してください。",
+        "description": "デバイスを稼働させる期間にチェックを入れてください。'計画稼働'センサーがこれらの期間中にアクティブになります。",
         "data": {
           "selected_periods": "アクティブ期間"
         }

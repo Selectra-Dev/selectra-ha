@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Kualifikasi Penawaran",
-        "description": "Jawab pertanyaan berikut untuk menemukan penawaran listrik terbaik untuk Anda.",
+        "description": "Masukkan detail kontrak listrik Anda.",
         "data": {
           "country_code": "Negara",
           "postcode": "Kode pos",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Pilih Periode Aktif",
-        "description": "Pilih periode saat perangkat Anda harus beroperasi.",
+        "description": "Centang periode saat perangkat Anda harus beroperasi. Sensor 'Operasi terjadwal' akan aktif selama periode ini.",
         "data": {
           "selected_periods": "Periode aktif"
         }

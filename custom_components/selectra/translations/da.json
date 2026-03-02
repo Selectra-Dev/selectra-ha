@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Tilbudskvalifikation",
-        "description": "Besvar følgende spørgsmål for at finde det bedste eltilbud til dig.",
+        "description": "Indtast oplysningerne om din elaftale.",
         "data": {
           "country_code": "Land",
           "postcode": "Postnummer",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Vælg aktive perioder",
-        "description": "Vælg de perioder, hvor dine enheder skal køre.",
+        "description": "Markér de perioder, hvor dine enheder skal køre. Sensoren 'Planlagt drift' vil være aktiv i disse perioder.",
         "data": {
           "selected_periods": "Aktive perioder"
         }

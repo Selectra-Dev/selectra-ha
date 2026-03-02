@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "套餐资格确认",
-        "description": "回答以下问题，为您找到最佳电力套餐。",
+        "description": "请输入您的电力合同信息。",
         "data": {
           "country_code": "国家",
           "postcode": "邮政编码",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "选择活跃时段",
-        "description": "选择您的设备应该运行的时段。",
+        "description": "勾选您的设备应该运行的时段。'计划运行'传感器将在这些时段内激活。",
         "data": {
           "selected_periods": "活跃时段"
         }

@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Teklif Yeterliliği",
-        "description": "Sizin için en iyi elektrik teklifini bulmak için aşağıdaki soruları cevaplayın.",
+        "description": "Elektrik sözleşmenizin bilgilerini girin.",
         "data": {
           "country_code": "Ülke",
           "postcode": "Posta kodu",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Aktif Dönemleri Seçin",
-        "description": "Cihazlarınızın çalışması gereken dönemleri seçin.",
+        "description": "Cihazlarınızın çalışması gereken dönemleri işaretleyin. 'Planlı çalışma' sensörü bu dönemlerde aktif olacaktır.",
         "data": {
           "selected_periods": "Aktif dönemler"
         }

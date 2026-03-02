@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Kwalifikacja oferty",
-        "description": "Odpowiedz na poniższe pytania, aby znaleźć najlepszą ofertę energii elektrycznej dla siebie.",
+        "description": "Wprowadź dane swojej umowy na energię elektryczną.",
         "data": {
           "country_code": "Kraj",
           "postcode": "Kod pocztowy",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "Wybierz aktywne okresy",
-        "description": "Wybierz okresy, w których Twoje urządzenia powinny działać.",
+        "description": "Zaznacz okresy, w których Twoje urządzenia powinny działać. Czujnik 'Zaplanowane uruchomienie' będzie aktywny w tych okresach.",
         "data": {
           "selected_periods": "Aktywne okresy"
         }

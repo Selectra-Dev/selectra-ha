@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "요금제 자격 확인",
-        "description": "다음 질문에 답하여 최적의 전기 요금제를 찾으세요.",
+        "description": "전기 계약 정보를 입력하세요.",
         "data": {
           "country_code": "국가",
           "postcode": "우편번호",
@@ -24,7 +24,7 @@
       },
       "select_periods": {
         "title": "활성 기간 선택",
-        "description": "기기가 작동해야 하는 기간을 선택하세요.",
+        "description": "기기가 작동해야 하는 기간을 선택하세요. '계획된 가동' 센서가 해당 기간 동안 활성화됩니다.",
         "data": {
           "selected_periods": "활성 기간"
         }
