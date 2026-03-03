@@ -58,9 +58,11 @@ After installing, add the integration through the Home Assistant UI. You will be
 
 ## 📡 Data Source & API Access
 
-All electricity pricing data is provided by the [Selectra Electricity Planning API](https://api.selectra.com/electricity_planning).
+All electricity pricing data is provided by the Selectra Electricity Planning API.
 
-This integration requires an API token from Selectra. Don't have one yet? Contact us at **support.home-assistant@selectra.info** and we'll get you set up.
+This integration requires an API token. To get one, visit the [Selectra Electricity Planning API](https://api.selectra.com/electricity_planning) and follow the instructions to request access.
+
+Need help? Contact us at **support.home-assistant@selectra.info**.
 
 ## 🤝 Contributing
 
