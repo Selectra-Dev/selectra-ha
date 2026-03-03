@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Selectra API-token",
-        "description": "Indtast dit Selectra API-token for at komme i gang.\n\nHar du ikke et token endnu? [Registrer dig her](https://api.selectra.com/ha/register) for at få din gratis API-nøgle.\n\nBrug for hjælp? Kontakt support.home-assistant@selectra.info",
+        "description": "Indtast dit Selectra API-token for at komme i gang.\n\nHar du ikke et token endnu? Registrer dig på {register_url} for at få din gratis API-nøgle.\n\nBrug for hjælp? Kontakt {support_email}",
         "data": {
           "token": "API-token"
         }
@@ -45,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Ugyldig eller manglende API-nøgle. [Registrer dig her](https://api.selectra.com/ha/register) for at få din gratis nøgle eller kontakt support.home-assistant@selectra.info for hjælp.",
+      "invalid_auth": "Ugyldig eller manglende API-nøgle. Registrer dig på {register_url} for at få din gratis nøgle eller kontakt {support_email} for hjælp.",
       "cannot_connect": "Kan ikke oprette forbindelse til Selectra API. Prøv igen senere.",
       "invalid_percent": "Indtast en værdi mellem 1 og 100.",
       "invalid_hours": "Indtast en værdi mellem 1 og 24.",

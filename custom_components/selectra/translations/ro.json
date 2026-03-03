@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Token API Selectra",
-        "description": "Introduceți tokenul API Selectra pentru a începe.\n\nNu aveți încă un token? [Înregistrați-vă aici](https://api.selectra.com/ha/register) pentru a obține cheia API gratuită.\n\nAveți nevoie de ajutor? Contactați support.home-assistant@selectra.info",
+        "description": "Introduceți tokenul API Selectra pentru a începe.\n\nNu aveți încă un token? Înregistrați-vă pe {register_url} pentru a obține cheia API gratuită.\n\nAveți nevoie de ajutor? Contactați {support_email}",
         "data": {
           "token": "Token API"
         }
@@ -45,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Cheie API invalidă sau lipsă. [Înregistrați-vă aici](https://api.selectra.com/ha/register) pentru a obține cheia gratuită sau contactați support.home-assistant@selectra.info pentru ajutor.",
+      "invalid_auth": "Cheie API invalidă sau lipsă. Înregistrați-vă pe {register_url} pentru a obține cheia gratuită sau contactați {support_email} pentru ajutor.",
       "cannot_connect": "Nu se poate conecta la API-ul Selectra. Încercați din nou mai târziu.",
       "invalid_percent": "Introduceți o valoare între 1 și 100.",
       "invalid_hours": "Introduceți o valoare între 1 și 24.",

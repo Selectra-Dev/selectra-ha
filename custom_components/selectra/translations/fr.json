@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Clé API Selectra",
-        "description": "Entrez votre clé API Selectra pour commencer.\n\nVous n'avez pas encore de clé ? [Inscrivez-vous ici](https://api.selectra.com/ha/register) pour obtenir votre clé API gratuite.\n\nBesoin d'aide ? Contactez support.home-assistant@selectra.info",
+        "description": "Entrez votre clé API Selectra pour commencer.\n\nVous n'avez pas encore de clé ? Inscrivez-vous sur {register_url} pour obtenir votre clé API gratuite.\n\nBesoin d'aide ? Contactez {support_email}",
         "data": {
           "token": "Clé API"
         }
@@ -45,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Clé API invalide ou manquante. [Inscrivez-vous ici](https://api.selectra.com/ha/register) pour obtenir votre clé gratuite ou contactez support.home-assistant@selectra.info pour de l'aide.",
+      "invalid_auth": "Clé API invalide ou manquante. Inscrivez-vous sur {register_url} pour obtenir votre clé gratuite ou contactez {support_email} pour de l'aide.",
       "cannot_connect": "Impossible de se connecter \u00e0 l'API Selectra. Veuillez r\u00e9essayer plus tard.",
       "invalid_percent": "Veuillez entrer une valeur entre 1 et 100.",
       "invalid_hours": "Veuillez entrer une valeur entre 1 et 24.",

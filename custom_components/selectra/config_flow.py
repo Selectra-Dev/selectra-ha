@@ -172,6 +172,10 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                 {vol.Required(CONF_TOKEN): TextSelector()}
             ),
             errors=errors,
+            description_placeholders={
+                "register_url": "https://api.selectra.com/ha/register",
+                "support_email": "support.home-assistant@selectra.info",
+            },
         )
 
     async def async_step_qualification(

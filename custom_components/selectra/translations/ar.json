@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "رمز API الخاص بـ Selectra",
-        "description": "أدخل رمز API الخاص بـ Selectra للبدء.\n\nليس لديك رمز بعد؟ [سجّل هنا](https://api.selectra.com/ha/register) للحصول على مفتاح API المجاني.\n\nتحتاج مساعدة؟ تواصل مع support.home-assistant@selectra.info",
+        "description": "أدخل رمز API الخاص بـ Selectra للبدء.\n\nليس لديك رمز بعد؟ سجّل في {register_url} للحصول على مفتاح API المجاني.\n\nتحتاج مساعدة؟ تواصل مع {support_email}",
         "data": {
           "token": "رمز API"
         }
@@ -45,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "مفتاح API غير صالح أو مفقود. [سجّل هنا](https://api.selectra.com/ha/register) للحصول على مفتاحك المجاني أو تواصل مع support.home-assistant@selectra.info للمساعدة.",
+      "invalid_auth": "مفتاح API غير صالح أو مفقود. سجّل في {register_url} للحصول على مفتاحك المجاني أو تواصل مع {support_email} للمساعدة.",
       "cannot_connect": "تعذر الاتصال بواجهة Selectra API. يرجى المحاولة مرة أخرى لاحقًا.",
       "invalid_percent": "يرجى إدخال قيمة بين 1 و 100.",
       "invalid_hours": "يرجى إدخال قيمة بين 1 و 24.",

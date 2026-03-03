@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Mã API Selectra",
-        "description": "Nhập mã API Selectra của bạn để bắt đầu.\n\nChưa có mã? [Đăng ký tại đây](https://api.selectra.com/ha/register) để nhận khóa API miễn phí của bạn.\n\nCần trợ giúp? Liên hệ support.home-assistant@selectra.info",
+        "description": "Nhập mã API Selectra của bạn để bắt đầu.\n\nChưa có mã? Đăng ký tại {register_url} để nhận khóa API miễn phí của bạn.\n\nCần trợ giúp? Liên hệ {support_email}",
         "data": {
           "token": "Mã API"
         }
@@ -45,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Khóa API không hợp lệ hoặc bị thiếu. [Đăng ký tại đây](https://api.selectra.com/ha/register) để nhận khóa miễn phí của bạn hoặc liên hệ support.home-assistant@selectra.info để được trợ giúp.",
+      "invalid_auth": "Khóa API không hợp lệ hoặc bị thiếu. Đăng ký tại {register_url} để nhận khóa miễn phí của bạn hoặc liên hệ {support_email} để được trợ giúp.",
       "cannot_connect": "Không thể kết nối với API Selectra. Vui lòng thử lại sau.",
       "invalid_percent": "Vui lòng nhập giá trị từ 1 đến 100.",
       "invalid_hours": "Vui lòng nhập giá trị từ 1 đến 24.",

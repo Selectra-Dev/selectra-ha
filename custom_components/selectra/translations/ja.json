@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Selectra APIトークン",
-        "description": "Selectra APIトークンを入力して開始してください。\n\nまだトークンをお持ちでないですか？[こちらから登録](https://api.selectra.com/ha/register)して無料のAPIキーを取得してください。\n\nお困りですか？support.home-assistant@selectra.info までお問い合わせください",
+        "description": "Selectra APIトークンを入力して開始してください。\n\nまだトークンをお持ちでないですか？{register_url} で登録して無料のAPIキーを取得してください。\n\nお困りですか？{support_email} までお問い合わせください",
         "data": {
           "token": "APIトークン"
         }
@@ -45,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "APIキーが無効または未入力です。[こちらから登録](https://api.selectra.com/ha/register)して無料キーを取得するか、support.home-assistant@selectra.info にお問い合わせください。",
+      "invalid_auth": "APIキーが無効または未入力です。{register_url} で登録して無料キーを取得するか、{support_email} にお問い合わせください。",
       "cannot_connect": "Selectra APIに接続できません。後でもう一度お試しください。",
       "invalid_percent": "1から100の間の値を入力してください。",
       "invalid_hours": "1から24の間の値を入力してください。",

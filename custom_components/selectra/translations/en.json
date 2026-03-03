@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Selectra API Token",
-        "description": "Enter your Selectra API token to get started.\n\nDon't have a token yet? [Register here](https://api.selectra.com/ha/register) to get your free API key.\n\nNeed help? Contact support.home-assistant@selectra.info",
+        "description": "Enter your Selectra API token to get started.\n\nDon't have a token yet? Register at {register_url} to get your free API key.\n\nNeed help? Contact {support_email}",
         "data": {
           "token": "API Token"
         }
@@ -45,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Invalid or missing API key. [Register here](https://api.selectra.com/ha/register) to get your free key or contact support.home-assistant@selectra.info for help.",
+      "invalid_auth": "Invalid or missing API key. Register at {register_url} to get your free key or contact {support_email} for help.",
       "cannot_connect": "Cannot connect to the Selectra API. Please try again later.",
       "invalid_percent": "Please enter a value between 1 and 100.",
       "invalid_hours": "Please enter a value between 1 and 24.",

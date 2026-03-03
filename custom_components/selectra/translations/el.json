@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Διακριτικό API Selectra",
-        "description": "Εισαγάγετε το διακριτικό API Selectra για να ξεκινήσετε.\n\nΔεν έχετε ακόμα διακριτικό; [Εγγραφείτε εδώ](https://api.selectra.com/ha/register) για να αποκτήσετε το δωρεάν κλειδί API σας.\n\nΧρειάζεστε βοήθεια; Επικοινωνήστε με support.home-assistant@selectra.info",
+        "description": "Εισαγάγετε το διακριτικό API Selectra για να ξεκινήσετε.\n\nΔεν έχετε ακόμα διακριτικό; Εγγραφείτε στο {register_url} για να αποκτήσετε το δωρεάν κλειδί API σας.\n\nΧρειάζεστε βοήθεια; Επικοινωνήστε με {support_email}",
         "data": {
           "token": "Διακριτικό API"
         }
@@ -45,7 +45,7 @@
       }
     },
     "error": {
-      "invalid_auth": "Μη έγκυρο ή ελλείπον κλειδί API. [Εγγραφείτε εδώ](https://api.selectra.com/ha/register) για να αποκτήσετε το δωρεάν κλειδί σας ή επικοινωνήστε με support.home-assistant@selectra.info για βοήθεια.",
+      "invalid_auth": "Μη έγκυρο ή ελλείπον κλειδί API. Εγγραφείτε στο {register_url} για να αποκτήσετε το δωρεάν κλειδί σας ή επικοινωνήστε με {support_email} για βοήθεια.",
       "cannot_connect": "Αδυναμία σύνδεσης με το API Selectra. Δοκιμάστε ξανά αργότερα.",
       "invalid_percent": "Εισαγάγετε μια τιμή μεταξύ 1 και 100.",
       "invalid_hours": "Εισαγάγετε μια τιμή μεταξύ 1 και 24.",
