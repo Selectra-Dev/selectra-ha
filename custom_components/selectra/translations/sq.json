@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Tokeni API i Selectra",
-        "description": "Vendosni tokenin tuaj API të Selectra për të filluar.\nNuk keni token API? Kontaktoni support.home-assistant@selectra.info",
+        "description": "Vendosni tokenin tuaj API të Selectra për të filluar.\n\nNuk keni ende token? [Regjistrohuni këtu](https://api.selectra.com/ha/register) për të marrë çelësin tuaj API falas.\n\nKeni nevojë për ndihmë? Kontaktoni support.home-assistant@selectra.info",
         "data": {
           "token": "Tokeni API"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "Çelësi API i pavlefshëm ose mungon. Kontaktoni support.home-assistant@selectra.info për të marrë çelësin tuaj falas.",
+      "invalid_auth": "Çelësi API i pavlefshëm ose mungon. [Regjistrohuni këtu](https://api.selectra.com/ha/register) për të marrë çelësin tuaj falas ose kontaktoni support.home-assistant@selectra.info për ndihmë.",
       "cannot_connect": "Nuk mund të lidhet me API-në e Selectra. Provoni përsëri më vonë.",
       "invalid_percent": "Vendosni një vlerë midis 1 dhe 100.",
-      "invalid_hours": "Vendosni një vlerë midis 1 dhe 24."
+      "invalid_hours": "Vendosni një vlerë midis 1 dhe 24.",
+      "qualification_error": "Opsioni i zgjedhur nuk është i disponueshëm. Ju lutem provoni një zgjedhje tjetër."
     },
     "abort": {
       "api_error": "Ndodhi një gabim gjatë komunikimit me API-në e Selectra.",

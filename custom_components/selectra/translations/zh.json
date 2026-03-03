@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Selectra API 令牌",
-        "description": "请输入您的 Selectra API 令牌以开始。\n没有 API 令牌？请联系 support.home-assistant@selectra.info",
+        "description": "请输入您的 Selectra API 令牌以开始。\n\n还没有令牌？[在此注册](https://api.selectra.com/ha/register) 获取您的免费 API 密钥。\n\n需要帮助？请联系 support.home-assistant@selectra.info",
         "data": {
           "token": "API 令牌"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "API 密钥无效或缺失。请联系 support.home-assistant@selectra.info 获取您的免费密钥。",
+      "invalid_auth": "API 密钥无效或缺失。[在此注册](https://api.selectra.com/ha/register) 获取您的免费密钥，或联系 support.home-assistant@selectra.info 获取帮助。",
       "cannot_connect": "无法连接到 Selectra API。请稍后重试。",
       "invalid_percent": "请输入 1 到 100 之间的值。",
-      "invalid_hours": "请输入 1 到 24 之间的值。"
+      "invalid_hours": "请输入 1 到 24 之间的值。",
+      "qualification_error": "所选选项不可用。请尝试其他选择。"
     },
     "abort": {
       "api_error": "与 Selectra API 通信时发生错误。",

@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Selectra API токен",
-        "description": "Унесите ваш Selectra API токен да бисте почели.\nНемате API токен? Контактирајте support.home-assistant@selectra.info",
+        "description": "Унесите ваш Selectra API токен да бисте почели.\n\nЈош немате токен? [Региструјте се овде](https://api.selectra.com/ha/register) да бисте добили бесплатан API кључ.\n\nТреба вам помоћ? Контактирајте support.home-assistant@selectra.info",
         "data": {
           "token": "API токен"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "Неважећи или недостајући API кључ. Контактирајте support.home-assistant@selectra.info да добијете бесплатан кључ.",
+      "invalid_auth": "Неважећи или недостајући API кључ. [Региструјте се овде](https://api.selectra.com/ha/register) да добијете бесплатан кључ или контактирајте support.home-assistant@selectra.info за помоћ.",
       "cannot_connect": "Није могуће повезати се са Selectra API. Покушајте поново касније.",
       "invalid_percent": "Унесите вредност између 1 и 100.",
-      "invalid_hours": "Унесите вредност између 1 и 24."
+      "invalid_hours": "Унесите вредност између 1 и 24.",
+      "qualification_error": "Изабрана опција није доступна. Покушајте са другим избором."
     },
     "abort": {
       "api_error": "Дошло је до грешке при комуникацији са Selectra API.",

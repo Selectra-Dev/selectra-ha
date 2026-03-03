@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "טוקן API של Selectra",
-        "description": "הזן את טוקן ה-API של Selectra כדי להתחיל.\nאין לך טוקן API? צרו קשר עם support.home-assistant@selectra.info",
+        "description": "הזן את טוקן ה-API של Selectra כדי להתחיל.\n\nעדיין אין לך טוקן? [הירשם כאן](https://api.selectra.com/ha/register) כדי לקבל את מפתח ה-API החינמי שלך.\n\nצריך עזרה? צרו קשר עם support.home-assistant@selectra.info",
         "data": {
           "token": "טוקן API"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "מפתח API לא תקין או חסר. צרו קשר עם support.home-assistant@selectra.info כדי לקבל את המפתח החינמי שלכם.",
+      "invalid_auth": "מפתח API לא תקין או חסר. [הירשם כאן](https://api.selectra.com/ha/register) כדי לקבל את המפתח החינמי שלך או צרו קשר עם support.home-assistant@selectra.info לעזרה.",
       "cannot_connect": "לא ניתן להתחבר ל-API של Selectra. נסה שוב מאוחר יותר.",
       "invalid_percent": "הזן ערך בין 1 ל-100.",
-      "invalid_hours": "הזן ערך בין 1 ל-24."
+      "invalid_hours": "הזן ערך בין 1 ל-24.",
+      "qualification_error": "האפשרות שנבחרה אינה זמינה. אנא נסו בחירה אחרת."
     },
     "abort": {
       "api_error": "אירעה שגיאה בתקשורת עם ה-API של Selectra.",

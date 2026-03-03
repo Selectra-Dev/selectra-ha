@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Selectra API Anahtarı",
-        "description": "Başlamak için Selectra API anahtarınızı girin.\nAPI anahtarınız yok mu? support.home-assistant@selectra.info ile iletişime geçin",
+        "description": "Başlamak için Selectra API anahtarınızı girin.\n\nHenüz anahtarınız yok mu? Ücretsiz API anahtarınızı almak için [buradan kaydolun](https://api.selectra.com/ha/register).\n\nYardıma mı ihtiyacınız var? support.home-assistant@selectra.info ile iletişime geçin",
         "data": {
           "token": "API Anahtarı"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "Geçersiz veya eksik API anahtarı. Ücretsiz anahtarınızı almak için support.home-assistant@selectra.info ile iletişime geçin.",
+      "invalid_auth": "Geçersiz veya eksik API anahtarı. Ücretsiz anahtarınızı almak için [buradan kaydolun](https://api.selectra.com/ha/register) veya yardım için support.home-assistant@selectra.info ile iletişime geçin.",
       "cannot_connect": "Selectra API'sine bağlanılamıyor. Lütfen daha sonra tekrar deneyin.",
       "invalid_percent": "Lütfen 1 ile 100 arasında bir değer girin.",
-      "invalid_hours": "Lütfen 1 ile 24 arasında bir değer girin."
+      "invalid_hours": "Lütfen 1 ile 24 arasında bir değer girin.",
+      "qualification_error": "Seçilen seçenek mevcut değil. Lütfen farklı bir seçim deneyin."
     },
     "abort": {
       "api_error": "Selectra API ile iletişim sırasında bir hata oluştu.",

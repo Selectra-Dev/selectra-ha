@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Token API Selectra",
-        "description": "Wprowadź swój token API Selectra, aby rozpocząć.\nNie masz tokena API? Skontaktuj się z support.home-assistant@selectra.info",
+        "description": "Wprowadź swój token API Selectra, aby rozpocząć.\n\nNie masz jeszcze tokena? [Zarejestruj się tutaj](https://api.selectra.com/ha/register), aby otrzymać darmowy klucz API.\n\nPotrzebujesz pomocy? Skontaktuj się z support.home-assistant@selectra.info",
         "data": {
           "token": "Token API"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "Nieprawidłowy lub brakujący klucz API. Skontaktuj się z support.home-assistant@selectra.info, aby otrzymać darmowy klucz.",
+      "invalid_auth": "Nieprawidłowy lub brakujący klucz API. [Zarejestruj się tutaj](https://api.selectra.com/ha/register), aby otrzymać darmowy klucz, lub skontaktuj się z support.home-assistant@selectra.info po pomoc.",
       "cannot_connect": "Nie można połączyć się z API Selectra. Spróbuj ponownie później.",
       "invalid_percent": "Wprowadź wartość od 1 do 100.",
-      "invalid_hours": "Wprowadź wartość od 1 do 24."
+      "invalid_hours": "Wprowadź wartość od 1 do 24.",
+      "qualification_error": "Wybrana opcja nie jest dostępna. Spróbuj innego wyboru."
     },
     "abort": {
       "api_error": "Wystąpił błąd podczas komunikacji z API Selectra.",

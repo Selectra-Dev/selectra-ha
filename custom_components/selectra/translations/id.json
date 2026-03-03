@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Token API Selectra",
-        "description": "Masukkan token API Selectra Anda untuk memulai.\nBelum punya token API? Hubungi support.home-assistant@selectra.info",
+        "description": "Masukkan token API Selectra Anda untuk memulai.\n\nBelum punya token? [Daftar di sini](https://api.selectra.com/ha/register) untuk mendapatkan kunci API gratis Anda.\n\nButuh bantuan? Hubungi support.home-assistant@selectra.info",
         "data": {
           "token": "Token API"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "Kunci API tidak valid atau tidak ada. Hubungi support.home-assistant@selectra.info untuk mendapatkan kunci gratis Anda.",
+      "invalid_auth": "Kunci API tidak valid atau tidak ada. [Daftar di sini](https://api.selectra.com/ha/register) untuk mendapatkan kunci gratis Anda atau hubungi support.home-assistant@selectra.info untuk bantuan.",
       "cannot_connect": "Tidak dapat terhubung ke API Selectra. Silakan coba lagi nanti.",
       "invalid_percent": "Masukkan nilai antara 1 dan 100.",
-      "invalid_hours": "Masukkan nilai antara 1 dan 24."
+      "invalid_hours": "Masukkan nilai antara 1 dan 24.",
+      "qualification_error": "Opsi yang dipilih tidak tersedia. Silakan coba pilihan lain."
     },
     "abort": {
       "api_error": "Terjadi kesalahan saat berkomunikasi dengan API Selectra.",

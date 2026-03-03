@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Selectra API 토큰",
-        "description": "시작하려면 Selectra API 토큰을 입력하세요.\nAPI 토큰이 없으신가요? support.home-assistant@selectra.info로 문의하세요",
+        "description": "시작하려면 Selectra API 토큰을 입력하세요.\n\n아직 토큰이 없으신가요? [여기에서 등록](https://api.selectra.com/ha/register)하여 무료 API 키를 받으세요.\n\n도움이 필요하신가요? support.home-assistant@selectra.info로 문의하세요",
         "data": {
           "token": "API 토큰"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "API 키가 유효하지 않거나 누락되었습니다. support.home-assistant@selectra.info로 연락하여 무료 키를 받으세요.",
+      "invalid_auth": "API 키가 유효하지 않거나 누락되었습니다. [여기에서 등록](https://api.selectra.com/ha/register)하여 무료 키를 받거나 support.home-assistant@selectra.info로 문의하세요.",
       "cannot_connect": "Selectra API에 연결할 수 없습니다. 나중에 다시 시도해 주세요.",
       "invalid_percent": "1에서 100 사이의 값을 입력하세요.",
-      "invalid_hours": "1에서 24 사이의 값을 입력하세요."
+      "invalid_hours": "1에서 24 사이의 값을 입력하세요.",
+      "qualification_error": "선택한 옵션을 사용할 수 없습니다. 다른 선택을 시도해 주세요."
     },
     "abort": {
       "api_error": "Selectra API와 통신 중 오류가 발생했습니다.",

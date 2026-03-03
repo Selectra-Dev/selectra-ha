@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Selectra API টোকেন",
-        "description": "শুরু করতে আপনার Selectra API টোকেন লিখুন।\nAPI টোকেন নেই? support.home-assistant@selectra.info-এ যোগাযোগ করুন",
+        "description": "শুরু করতে আপনার Selectra API টোকেন লিখুন।\n\nএখনও টোকেন নেই? আপনার বিনামূল্যে API কী পেতে [এখানে নিবন্ধন করুন](https://api.selectra.com/ha/register)।\n\nসাহায্য দরকার? support.home-assistant@selectra.info-এ যোগাযোগ করুন",
         "data": {
           "token": "API টোকেন"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "API কী অবৈধ বা অনুপস্থিত। আপনার বিনামূল্যে কী পেতে support.home-assistant@selectra.info-এ যোগাযোগ করুন।",
+      "invalid_auth": "API কী অবৈধ বা অনুপস্থিত। আপনার বিনামূল্যে কী পেতে [এখানে নিবন্ধন করুন](https://api.selectra.com/ha/register) অথবা সাহায্যের জন্য support.home-assistant@selectra.info-এ যোগাযোগ করুন।",
       "cannot_connect": "Selectra API-এ সংযোগ করা যাচ্ছে না। অনুগ্রহ করে পরে আবার চেষ্টা করুন।",
       "invalid_percent": "অনুগ্রহ করে ১ থেকে ১০০ এর মধ্যে একটি মান লিখুন।",
-      "invalid_hours": "অনুগ্রহ করে ১ থেকে ২৪ এর মধ্যে একটি মান লিখুন।"
+      "invalid_hours": "অনুগ্রহ করে ১ থেকে ২৪ এর মধ্যে একটি মান লিখুন।",
+      "qualification_error": "নির্বাচিত বিকল্পটি উপলব্ধ নয়। অনুগ্রহ করে অন্য একটি নির্বাচন চেষ্টা করুন।"
     },
     "abort": {
       "api_error": "Selectra API-এর সাথে যোগাযোগের সময় একটি ত্রুটি ঘটেছে।",

@@ -122,6 +122,7 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
                 notification_id=NOTIFICATION_ID,
             )
             data.requalification = True
+            self.update_interval = timedelta(hours=1)
             return data
         except SelectraAuthError as err:
             _LOGGER.error("Authentication error: %s", err)
@@ -132,6 +133,7 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
                 notification_id=AUTH_NOTIFICATION_ID,
             )
             data.requalification = True
+            self.update_interval = None
             return data
         except SelectraApiError as err:
             self._consecutive_failures += 1

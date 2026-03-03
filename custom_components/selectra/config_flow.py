@@ -178,7 +178,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         """Handle dynamic qualification steps."""
-        api_error_message = ""
+        errors: dict[str, str] = {}
 
         if user_input is not None:
             previous_inputs = dict(self._qualification_inputs)
@@ -193,10 +193,12 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
 
                 if not isinstance(result, dict):
                     self._qualification_inputs = previous_inputs
-                    api_error_message = f"Unexpected API response: {result}"
+                    _LOGGER.warning("Unexpected API response: %s", result)
+                    errors["base"] = "qualification_error"
                 elif result.get("message"):
                     self._qualification_inputs = previous_inputs
-                    api_error_message = result["message"]
+                    _LOGGER.warning("Qualification API message: %s", result["message"])
+                    errors["base"] = "qualification_error"
                 elif result.get("done"):
                     self._qualification_inputs = result.get(
                         "inputs", self._qualification_inputs
@@ -208,7 +210,8 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
 
             except SelectraApiError as err:
                 self._qualification_inputs = previous_inputs
-                api_error_message = str(err)
+                _LOGGER.warning("Qualification API error: %s", err)
+                errors["base"] = "qualification_error"
 
         if not self._questions:
             return self.async_abort(reason="no_questions")
@@ -218,7 +221,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="qualification",
             data_schema=schema,
-            errors={},
+            errors=errors,
         )
 
     async def _async_step_detect_mode(self) -> ConfigFlowResult:
@@ -235,7 +238,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
 
         if category == CATEGORY_FLAT_RATE:
             self._mode = MODE_FLAT
-            return self._create_entry()
+            return await self._create_entry()
         elif category == CATEGORY_DYNAMIC:
             self._mode = MODE_DYNAMIC
             return await self.async_step_strategy()
@@ -254,7 +257,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         """Classic mode: let user select which consumption periods to use."""
         if user_input is not None:
             selected = user_input.get("selected_periods", [])
-            return self._create_entry(selected_periods=selected)
+            return await self._create_entry(selected_periods=selected)
 
         period_options = [
             SelectOptionDict(
@@ -316,11 +319,11 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                 value = int(value)
             if self._strategy == STRATEGY_CHEAPEST_PERCENT:
                 if 1 <= value <= 100:
-                    return self._create_entry(strategy_value=value)
+                    return await self._create_entry(strategy_value=value)
                 errors["base"] = "invalid_percent"
             else:
                 if 1 <= value <= 24:
-                    return self._create_entry(strategy_value=value)
+                    return await self._create_entry(strategy_value=value)
                 errors["base"] = "invalid_hours"
 
         lang = _get_ha_language(self.hass)
@@ -361,7 +364,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
             errors=errors,
         )
 
-    def _create_entry(
+    async def _create_entry(
         self,
         selected_periods: list[str] | None = None,
         strategy_value: int | None = None,
@@ -405,7 +408,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                 data=data,
             )
 
-        self.async_set_unique_id(unique_id)
+        await self.async_set_unique_id(unique_id)
         self._abort_if_unique_id_configured()
 
         return self.async_create_entry(title=title, data=data)

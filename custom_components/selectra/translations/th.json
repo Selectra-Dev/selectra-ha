@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "โทเค็น API ของ Selectra",
-        "description": "กรอกโทเค็น API ของ Selectra เพื่อเริ่มต้นใช้งาน\nไม่มีโทเค็น API? ติดต่อ support.home-assistant@selectra.info",
+        "description": "กรอกโทเค็น API ของ Selectra เพื่อเริ่มต้นใช้งาน\n\nยังไม่มีโทเค็น? [ลงทะเบียนที่นี่](https://api.selectra.com/ha/register) เพื่อรับคีย์ API ฟรีของคุณ\n\nต้องการความช่วยเหลือ? ติดต่อ support.home-assistant@selectra.info",
         "data": {
           "token": "โทเค็น API"
         }
@@ -45,10 +45,11 @@
       }
     },
     "error": {
-      "invalid_auth": "คีย์ API ไม่ถูกต้องหรือขาดหายไป ติดต่อ support.home-assistant@selectra.info เพื่อรับคีย์ฟรีของคุณ",
+      "invalid_auth": "คีย์ API ไม่ถูกต้องหรือขาดหายไป [ลงทะเบียนที่นี่](https://api.selectra.com/ha/register) เพื่อรับคีย์ฟรีของคุณ หรือติดต่อ support.home-assistant@selectra.info เพื่อขอความช่วยเหลือ",
       "cannot_connect": "ไม่สามารถเชื่อมต่อกับ API ของ Selectra ได้ กรุณาลองใหม่ภายหลัง",
       "invalid_percent": "กรุณากรอกค่าระหว่าง 1 ถึง 100",
-      "invalid_hours": "กรุณากรอกค่าระหว่าง 1 ถึง 24"
+      "invalid_hours": "กรุณากรอกค่าระหว่าง 1 ถึง 24",
+      "qualification_error": "ตัวเลือกที่เลือกไม่พร้อมใช้งาน กรุณาลองเลือกตัวเลือกอื่น"
     },
     "abort": {
       "api_error": "เกิดข้อผิดพลาดขณะสื่อสารกับ API ของ Selectra",
