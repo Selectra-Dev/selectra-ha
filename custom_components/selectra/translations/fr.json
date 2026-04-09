@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Qualification de l'offre",
-        "description": "Renseignez les informations de votre contrat d'électricité.",
+        "description": "Renseignez les informations de votre contrat d'électricité.\n\n{question_labels}",
         "data": {
           "country_code": "Pays",
           "postcode": "Code postal",
@@ -19,7 +19,20 @@
           "option_id": "Option tarifaire",
           "province_id": "Province / Zone",
           "off_peak_hours_id": "Plage heures creuses",
-          "power_id": "Puissance souscrite"
+          "power_id": "Puissance souscrite",
+          "custom_off_peak_hours": "Heures creuses personnalisées"
+        }
+      },
+      "custom_off_peak": {
+        "title": "Heures creuses personnalisées",
+        "description": "Saisissez vos plages d'heures creuses. La plage 1 est obligatoire, les plages 2 et 3 sont optionnelles.",
+        "data": {
+          "off_peak_start_1": "Plage 1 — Début",
+          "off_peak_end_1": "Plage 1 — Fin",
+          "off_peak_start_2": "Plage 2 — Début (optionnel)",
+          "off_peak_end_2": "Plage 2 — Fin (optionnel)",
+          "off_peak_start_3": "Plage 3 — Début (optionnel)",
+          "off_peak_end_3": "Plage 3 — Fin (optionnel)"
         }
       },
       "select_periods": {
@@ -49,7 +62,8 @@
       "cannot_connect": "Impossible de se connecter \u00e0 l'API Selectra. Veuillez r\u00e9essayer plus tard.",
       "invalid_percent": "Veuillez entrer une valeur entre 1 et 100.",
       "invalid_hours": "Veuillez entrer une valeur entre 1 et 24.",
-      "qualification_error": "L'option sélectionnée n'est pas disponible. Veuillez essayer une autre sélection."
+      "qualification_error": "L'option sélectionnée n'est pas disponible. Veuillez essayer une autre sélection.",
+      "incomplete_off_peak_range": "Les heures de début et de fin doivent être renseignées pour chaque plage."
     },
     "abort": {
       "api_error": "Une erreur est survenue lors de la communication avec l'API Selectra.",

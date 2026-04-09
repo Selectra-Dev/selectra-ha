@@ -20,6 +20,8 @@ from homeassistant.helpers.selector import (
     SelectSelectorConfig,
     SelectSelectorMode,
     TextSelector,
+    TimeSelector,
+    TimeSelectorConfig,
 )
 
 from .api import SelectraApiClient, SelectraApiError, SelectraAuthError
@@ -44,6 +46,9 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
+MAX_OFF_PEAK_SLOTS = 3
+CUSTOM_OFF_PEAK_FIELD = "custom_off_peak_hours"
+
 
 def _get_ha_language(hass: HomeAssistant) -> str:
     """Get the 2-letter language code from HA config."""
@@ -53,12 +58,85 @@ def _get_ha_language(hass: HomeAssistant) -> str:
     return "en"
 
 
-def _build_schema_from_questions(questions: list[dict[str, Any]]) -> vol.Schema:
-    """Build a voluptuous schema from API questions using HA selectors."""
+def _collect_off_peak_ranges(
+    user_input: dict[str, Any],
+) -> list[dict[str, str]] | None:
+    """Collect time-range pairs from form fields and format for the API.
+
+    Pops off_peak_start_N / off_peak_end_N keys from user_input and returns
+    a list of {"start": "HH:MM", "end": "HH:MM"} dicts, or None if no
+    complete pair was found.
+    """
+    ranges: list[dict[str, str]] = []
+    for i in range(1, MAX_OFF_PEAK_SLOTS + 1):
+        start = user_input.pop(f"off_peak_start_{i}", None)
+        end = user_input.pop(f"off_peak_end_{i}", None)
+        if start and end:
+            # TimeSelector returns "HH:MM:SS" — trim to "HH:MM"
+            ranges.append({"start": start[:5], "end": end[:5]})
+    return ranges if ranges else None
+
+
+def _clean_question_label(question: dict[str, Any]) -> str | None:
+    """Normalize an API label for display in HA."""
+    raw_label = question.get("label")
+    if not raw_label:
+        return None
+
+    cleaned_label = (
+        raw_label.replace("<br>", "\n")
+        .replace("<br/>", "\n")
+        .replace("<br />", "\n")
+    )
+    api_placeholder = question.get("placeholder")
+    if api_placeholder:
+        cleaned_label += f" Ex : {api_placeholder}"
+    return cleaned_label
+
+
+def _make_unique_schema_key(base_key: str, used_keys: set[str]) -> str:
+    """Ensure a schema key is unique within the current HA form."""
+    schema_key = base_key
+    suffix = 2
+    while schema_key in used_keys:
+        schema_key = f"{base_key} ({suffix})"
+        suffix += 1
+    used_keys.add(schema_key)
+    return schema_key
+
+
+def _build_schema_from_questions(
+    questions: list[dict[str, Any]],
+) -> tuple[vol.Schema, dict[str, str], dict[str, str]]:
+    """Build a voluptuous schema from API questions using HA selectors.
+
+    Returns a tuple of (schema, description_placeholders, field_key_mapping).
+    Placeholders contain question labels from the API so they can be shown in
+    the step description. Field mappings translate dynamic form keys back to
+    the original API field names before submission.
+    """
     schema: dict = {}
+    labels: list[str] = []
+    field_key_mapping: dict[str, str] = {}
+    used_schema_keys: set[str] = set()
     for question in questions:
         q_type = question.get("type", "text")
         field = question["field"]
+        cleaned_label = _clean_question_label(question)
+        schema_key = field
+
+        # Collect the API label for display in the step description
+        if cleaned_label:
+            labels.append(cleaned_label)
+
+        # Dynamic text field names such as "prices:5" have no translation
+        # key in HA, so use the API label directly as the raw field label.
+        if q_type not in ("select", "checkbox") and ":" in field and cleaned_label:
+            schema_key = cleaned_label
+
+        schema_key = _make_unique_schema_key(schema_key, used_schema_keys)
+        if schema_key != field:
+            field_key_mapping[schema_key] = field
 
         if q_type == "select":
             options = question.get("options", [])
@@ -83,17 +161,28 @@ def _build_schema_from_questions(questions: list[dict[str, Any]]) -> vol.Schema:
                             SelectOptionDict(value=str(opt), label=str(opt))
                         )
 
-            schema[vol.Required(field)] = SelectSelector(
-                SelectSelectorConfig(options=select_options)
-            )
+            # Custom off-peak hours: render as radio list so both
+            # options ("no" / "yes") are visible at a glance
+            if field == CUSTOM_OFF_PEAK_FIELD:
+                schema[vol.Required(schema_key)] = SelectSelector(
+                    SelectSelectorConfig(
+                        options=select_options,
+                        mode=SelectSelectorMode.LIST,
+                    )
+                )
+            else:
+                schema[vol.Required(schema_key)] = SelectSelector(
+                    SelectSelectorConfig(options=select_options)
+                )
 
         elif q_type == "checkbox":
-            schema[vol.Optional(field, default=False)] = BooleanSelector()
+            schema[vol.Optional(schema_key, default=False)] = BooleanSelector()
 
         else:
-            schema[vol.Required(field)] = TextSelector()
+            schema[vol.Required(schema_key)] = TextSelector()
 
-    return vol.Schema(schema)
+    placeholders = {"question_labels": "\n".join(labels)}
+    return vol.Schema(schema), placeholders, field_key_mapping
 
 
 def _cast_select_values(
@@ -134,6 +223,8 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         self._consumption_features: list[dict[str, Any]] = []
         self._details: dict[str, Any] = {}
         self._strategy: str = ""
+        self._pending_qualification_input: dict[str, Any] = {}
+        self._field_key_mapping: dict[str, str] = {}
         self._is_reconfigure: bool = False
 
     def _get_client(self) -> SelectraApiClient:
@@ -185,7 +276,19 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
+            if self._field_key_mapping:
+                user_input = {
+                    self._field_key_mapping.get(key, key): value
+                    for key, value in user_input.items()
+                }
+
             previous_inputs = dict(self._qualification_inputs)
+
+            # Handle off-peak hours customization choice
+            if user_input.get(CUSTOM_OFF_PEAK_FIELD) == "yes":
+                user_input.pop(CUSTOM_OFF_PEAK_FIELD)
+                self._pending_qualification_input = dict(user_input)
+                return await self.async_step_custom_off_peak()
 
             try:
                 casted = _cast_select_values(user_input, self._questions)
@@ -220,11 +323,61 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         if not self._questions:
             return self.async_abort(reason="no_questions")
 
-        schema = _build_schema_from_questions(self._questions)
+        schema, placeholders, self._field_key_mapping = _build_schema_from_questions(
+            self._questions
+        )
 
         return self.async_show_form(
             step_id="qualification",
             data_schema=schema,
+            errors=errors,
+            description_placeholders=placeholders,
+        )
+
+    async def async_step_custom_off_peak(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Handle custom off-peak hours entry with time range selectors."""
+        errors: dict[str, str] = {}
+
+        if user_input is not None:
+            # Validate: if start is set, end must be too
+            for i in range(1, MAX_OFF_PEAK_SLOTS + 1):
+                start = user_input.get(f"off_peak_start_{i}")
+                end = user_input.get(f"off_peak_end_{i}")
+                if bool(start) != bool(end):
+                    errors["base"] = "incomplete_off_peak_range"
+                    break
+
+            if not errors:
+                off_peak_ranges = _collect_off_peak_ranges(user_input)
+                # Merge with pending qualification input and resume
+                merged = dict(self._pending_qualification_input)
+                merged[CUSTOM_OFF_PEAK_FIELD] = off_peak_ranges or []
+                return await self.async_step_qualification(merged)
+
+        schema: dict = {}
+        for i in range(1, MAX_OFF_PEAK_SLOTS + 1):
+            start_key = f"off_peak_start_{i}"
+            end_key = f"off_peak_end_{i}"
+            if i == 1:
+                schema[vol.Required(start_key)] = TimeSelector(
+                    TimeSelectorConfig()
+                )
+                schema[vol.Required(end_key)] = TimeSelector(
+                    TimeSelectorConfig()
+                )
+            else:
+                schema[vol.Optional(start_key)] = TimeSelector(
+                    TimeSelectorConfig()
+                )
+                schema[vol.Optional(end_key)] = TimeSelector(
+                    TimeSelectorConfig()
+                )
+
+        return self.async_show_form(
+            step_id="custom_off_peak",
+            data_schema=vol.Schema(schema),
             errors=errors,
         )
 
@@ -265,7 +418,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
 
         period_options = [
             SelectOptionDict(
-                value=f.get("key", f["name"]),
+                value=f["name"],
                 label=f["name"],
             )
             for f in self._consumption_features

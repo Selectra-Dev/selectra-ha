@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Offer Qualification",
-        "description": "Enter your electricity contract details.",
+        "description": "Enter your electricity contract details.\n\n{question_labels}",
         "data": {
           "country_code": "Country",
           "postcode": "Postal code",
@@ -19,7 +19,20 @@
           "option_id": "Pricing option",
           "province_id": "Province / Area",
           "off_peak_hours_id": "Off-peak hours",
-          "power_id": "Subscribed power"
+          "power_id": "Subscribed power",
+          "custom_off_peak_hours": "Custom off-peak hours"
+        }
+      },
+      "custom_off_peak": {
+        "title": "Custom Off-Peak Hours",
+        "description": "Enter your off-peak time ranges. Range 1 is required, ranges 2 and 3 are optional.",
+        "data": {
+          "off_peak_start_1": "Range 1 — Start",
+          "off_peak_end_1": "Range 1 — End",
+          "off_peak_start_2": "Range 2 — Start (optional)",
+          "off_peak_end_2": "Range 2 — End (optional)",
+          "off_peak_start_3": "Range 3 — Start (optional)",
+          "off_peak_end_3": "Range 3 — End (optional)"
         }
       },
       "select_periods": {
@@ -49,7 +62,8 @@
       "cannot_connect": "Cannot connect to the Selectra API. Please try again later.",
       "invalid_percent": "Please enter a value between 1 and 100.",
       "invalid_hours": "Please enter a value between 1 and 24.",
-      "qualification_error": "The selected option is not available. Please try a different selection."
+      "qualification_error": "The selected option is not available. Please try a different selection.",
+      "incomplete_off_peak_range": "Both start and end times must be provided for each off-peak range."
     },
     "abort": {
       "api_error": "An error occurred while communicating with the Selectra API.",

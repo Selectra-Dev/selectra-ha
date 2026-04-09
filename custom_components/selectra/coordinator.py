@@ -173,9 +173,20 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             data.active_periods = list(data.prices)
         elif self.mode == MODE_CLASSIC:
             selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
-            data.active_periods = _compute_classic_active(data.prices, selected)
+            # selected may contain feature keys (e.g. "hc") rather than
+            # price period names (e.g. "Heures Creuses").  Build a
+            # key→name mapping from the details features so both old
+            # (key-based) and new (name-based) configs work.
+            features = self._details.get("features", [])
+            key_to_name = {
+                f["key"]: f["name"]
+                for f in features
+                if "key" in f and "name" in f
+            }
+            resolved = [key_to_name.get(s, s) for s in selected]
+            data.active_periods = _compute_classic_active(data.prices, resolved)
             if data.current_period:
-                data.binary_state = data.current_period["name"] in selected
+                data.binary_state = data.current_period["name"] in resolved
             else:
                 data.binary_state = False
         else:
@@ -204,9 +215,9 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         # Normalize to UTC to avoid isoformat mismatch between timezones
         # (e.g. "2026-02-26T03:00:00+01:00" vs "2026-02-26T02:00:00+00:00")
         active_starts = {
-            p["start"].astimezone(dt_util.UTC)
+            p.get("_original_start", p["start"]).astimezone(dt_util.UTC)
             for p in data.active_periods
-            if isinstance(p["start"], datetime)
+            if isinstance(p.get("_original_start", p["start"]), datetime)
         }
         for p in data.prices:
             if isinstance(p["start"], datetime):
@@ -292,6 +303,7 @@ def _get_day_periods(
             day_periods.append(
                 {
                     **p,
+                    "_original_start": p["start"],
                     "start": clamped_start,
                     "end": clamped_end,
                 }
