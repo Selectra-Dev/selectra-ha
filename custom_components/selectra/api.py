@@ -32,6 +32,10 @@ class SelectraRequalificationError(SelectraApiError):
         self.reason = reason
 
 
+class SelectraRateLimitError(SelectraApiError):
+    """Raised when the API returns 429 Too Many Requests."""
+
+
 class SelectraApiClient:
     """Client for the Selectra Planning API."""
 
@@ -65,6 +69,11 @@ class SelectraApiClient:
                     raise SelectraAuthError(
                         "Authentication failed. Check your API token.",
                         status=resp.status,
+                    )
+                if resp.status == 429:
+                    raise SelectraRateLimitError(
+                        "Rate limited by the Selectra API.",
+                        status=429,
                     )
                 data = await resp.json()
                 if resp.status in (400, 422):

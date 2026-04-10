@@ -63,11 +63,13 @@
       "invalid_percent": "Please enter a value between 1 and 100.",
       "invalid_hours": "Please enter a value between 1 and 24.",
       "qualification_error": "The selected option is not available. Please try a different selection.",
-      "incomplete_off_peak_range": "Both start and end times must be provided for each off-peak range."
+      "incomplete_off_peak_range": "Both start and end times must be provided for each off-peak range.",
+      "rate_limited": "Too many requests to the Selectra API. Please wait a few minutes and try again."
     },
     "abort": {
       "api_error": "An error occurred while communicating with the Selectra API.",
       "no_questions": "No qualification questions received from the API.",
+      "rate_limited": "Too many requests to the Selectra API. Please wait and try again later.",
       "reconfigure_successful": "[%key:common::config_flow::abort::reconfigure_successful%]"
     }
   },

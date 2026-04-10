@@ -21,6 +21,7 @@ from .api import (
     SelectraApiClient,
     SelectraApiError,
     SelectraAuthError,
+    SelectraRateLimitError,
     SelectraRequalificationError,
 )
 from .const import (
@@ -135,8 +136,18 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             data.requalification = True
             self.update_interval = None
             return data
+        except SelectraRateLimitError as err:
+            _LOGGER.warning("Rate limited by Selectra API, next retry in 24h")
+            self.update_interval = timedelta(hours=24)
+            raise UpdateFailed("Rate limited by Selectra API") from err
         except SelectraApiError as err:
             self._consecutive_failures += 1
+            # Backoff exponentiel : double l'intervalle a chaque echec, max 24h
+            backoff_seconds = min(
+                DEFAULT_POLL_INTERVAL_SECONDS * (2 ** self._consecutive_failures),
+                86400,
+            )
+            self.update_interval = timedelta(seconds=backoff_seconds)
             if self._consecutive_failures >= 3:
                 _LOGGER.warning(
                     "Selectra API unreachable for %d consecutive attempts: %s",
@@ -153,6 +164,16 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         raw_prices = price_data.get("prices", [])
         data.currency = price_data.get("currency")
         data.prices = _parse_price_periods(raw_prices)
+
+        # Remplacer les noms bruts par les noms lisibles des features
+        features = self._details.get("features", [])
+        key_to_name = {
+            f["key"]: f["name"]
+            for f in features
+            if "key" in f and "name" in f
+        }
+        for p in data.prices:
+            p["name"] = key_to_name.get(p["name"], p["name"])
 
         # Parse next_update and adjust poll interval
         next_update_str = price_data.get("next_update")
@@ -173,16 +194,7 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             data.active_periods = list(data.prices)
         elif self.mode == MODE_CLASSIC:
             selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
-            # selected may contain feature keys (e.g. "hc") rather than
-            # price period names (e.g. "Heures Creuses").  Build a
-            # key→name mapping from the details features so both old
-            # (key-based) and new (name-based) configs work.
-            features = self._details.get("features", [])
-            key_to_name = {
-                f["key"]: f["name"]
-                for f in features
-                if "key" in f and "name" in f
-            }
+            # selected peut contenir des cles (ancien format) ou des noms lisibles
             resolved = [key_to_name.get(s, s) for s in selected]
             data.active_periods = _compute_classic_active(data.prices, resolved)
             if data.current_period:

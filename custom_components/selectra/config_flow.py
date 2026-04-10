@@ -24,7 +24,7 @@ from homeassistant.helpers.selector import (
     TimeSelectorConfig,
 )
 
-from .api import SelectraApiClient, SelectraApiError, SelectraAuthError
+from .api import SelectraApiClient, SelectraApiError, SelectraAuthError, SelectraRateLimitError
 from .const import (
     CATEGORY_DYNAMIC,
     CATEGORY_FLAT_RATE,
@@ -246,6 +246,8 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                 result = await client.qualify({}, lang=lang)
             except SelectraAuthError:
                 errors["base"] = "invalid_auth"
+            except SelectraRateLimitError:
+                errors["base"] = "rate_limited"
             except SelectraApiError:
                 errors["base"] = "cannot_connect"
             else:
@@ -315,6 +317,9 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                     self._qualification_inputs = result.get("inputs", {})
                     self._questions = result.get("questions", [])
 
+            except SelectraRateLimitError:
+                self._qualification_inputs = previous_inputs
+                errors["base"] = "rate_limited"
             except SelectraApiError as err:
                 self._qualification_inputs = previous_inputs
                 _LOGGER.warning("Qualification API error: %s", err)
@@ -387,6 +392,8 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
 
         try:
             self._details = await client.get_details(self._qualification_inputs)
+        except SelectraRateLimitError:
+            return self.async_abort(reason="rate_limited")
         except SelectraApiError as err:
             _LOGGER.error("Details API error: %s", err)
             return self.async_abort(reason="api_error")
@@ -582,6 +589,8 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         lang = _get_ha_language(self.hass)
         try:
             result = await client.qualify({}, lang=lang)
+        except SelectraRateLimitError:
+            return self.async_abort(reason="rate_limited")
         except SelectraApiError:
             return self.async_abort(reason="cannot_connect")
 

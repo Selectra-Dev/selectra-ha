@@ -63,11 +63,13 @@
       "invalid_percent": "Veuillez entrer une valeur entre 1 et 100.",
       "invalid_hours": "Veuillez entrer une valeur entre 1 et 24.",
       "qualification_error": "L'option sélectionnée n'est pas disponible. Veuillez essayer une autre sélection.",
-      "incomplete_off_peak_range": "Les heures de début et de fin doivent être renseignées pour chaque plage."
+      "incomplete_off_peak_range": "Les heures de début et de fin doivent être renseignées pour chaque plage.",
+      "rate_limited": "Trop de requêtes vers l'API Selectra. Veuillez patienter quelques minutes et réessayer."
     },
     "abort": {
       "api_error": "Une erreur est survenue lors de la communication avec l'API Selectra.",
       "no_questions": "Aucune question de qualification re\u00e7ue de l'API.",
+      "rate_limited": "Trop de requ\u00eates vers l'API Selectra. Veuillez patienter et r\u00e9essayer plus tard.",
       "reconfigure_successful": "Configuration mise \u00e0 jour avec succ\u00e8s."
     }
   },
