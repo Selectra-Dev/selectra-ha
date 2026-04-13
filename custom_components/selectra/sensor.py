@@ -2,11 +2,7 @@
 
 from __future__ import annotations
 
-from homeassistant.components.sensor import (
-    SensorDeviceClass,
-    SensorEntity,
-    SensorStateClass,
-)
+from homeassistant.components.sensor import SensorEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
@@ -44,7 +40,6 @@ class SelectraBaseSensor(CoordinatorEntity[SelectraCoordinator], SensorEntity):
         self, coordinator: SelectraCoordinator, entry: ConfigEntry
     ) -> None:
         super().__init__(coordinator)
-        self._entry = entry
 
     @property
     def available(self) -> bool:
@@ -57,8 +52,6 @@ class SelectraBaseSensor(CoordinatorEntity[SelectraCoordinator], SensorEntity):
 class SelectraCurrentPriceSensor(SelectraBaseSensor):
     """Sensor showing the current electricity price per kWh."""
 
-    _attr_device_class = SensorDeviceClass.MONETARY
-    _attr_state_class = SensorStateClass.TOTAL
     _attr_translation_key = "current_price"
 
     def __init__(

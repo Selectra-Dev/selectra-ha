@@ -16,8 +16,6 @@ MODE_DYNAMIC = "dynamic"
 MODE_FLAT = "flat"
 
 CATEGORY_FLAT_RATE = "flat_rate"
-CATEGORY_TIME_OF_USE = "time_of_use"
-CATEGORY_DEMAND_RESPONSE = "demand_response"
 CATEGORY_DYNAMIC = "dynamic"
 
 STRATEGY_CHEAPEST_PERCENT = "cheapest_percent"

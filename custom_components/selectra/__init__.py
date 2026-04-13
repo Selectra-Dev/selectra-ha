@@ -2,22 +2,28 @@
 
 from __future__ import annotations
 
-import logging
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 
-from .const import DOMAIN
+from .const import CONF_QUALIFICATION_INPUTS, DOMAIN
 from .coordinator import SelectraCoordinator
-
-_LOGGER = logging.getLogger(__name__)
 
 PLATFORMS: list[Platform] = [Platform.BINARY_SENSOR, Platform.SENSOR]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Selectra from a config entry."""
+    # Migration : renommer custom_off_peak_hours -> off_peak_hours
+    inputs = entry.data.get(CONF_QUALIFICATION_INPUTS, {})
+    if "custom_off_peak_hours" in inputs and "off_peak_hours" not in inputs:
+        new_inputs = dict(inputs)
+        new_inputs["off_peak_hours"] = new_inputs.pop("custom_off_peak_hours")
+        hass.config_entries.async_update_entry(
+            entry,
+            data={**entry.data, CONF_QUALIFICATION_INPUTS: new_inputs},
+        )
+
     coordinator = SelectraCoordinator(hass, entry)
 
     # Fetch initial details (offer info)

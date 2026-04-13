@@ -20,6 +20,8 @@ from homeassistant.helpers.selector import (
     SelectSelectorConfig,
     SelectSelectorMode,
     TextSelector,
+    TextSelectorConfig,
+    TextSelectorType,
     TimeSelector,
     TimeSelectorConfig,
 )
@@ -262,7 +264,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(
-                {vol.Required(CONF_TOKEN): TextSelector()}
+                {vol.Required(CONF_TOKEN): TextSelector(TextSelectorConfig(type=TextSelectorType.PASSWORD))}
             ),
             errors=errors,
             description_placeholders={
@@ -358,7 +360,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                 off_peak_ranges = _collect_off_peak_ranges(user_input)
                 # Merge with pending qualification input and resume
                 merged = dict(self._pending_qualification_input)
-                merged[CUSTOM_OFF_PEAK_FIELD] = off_peak_ranges or []
+                merged["off_peak_hours"] = off_peak_ranges or []
                 return await self.async_step_qualification(merged)
 
         schema: dict = {}

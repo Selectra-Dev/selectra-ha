@@ -12,8 +12,9 @@ from homeassistant.components.persistent_notification import (
     async_dismiss as pn_async_dismiss,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
+from homeassistant.core import CALLBACK_TYPE, HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.event import async_track_point_in_time
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from homeassistant.util import dt as dt_util
 
@@ -36,9 +37,7 @@ from .const import (
     DOMAIN,
     MIN_POLL_INTERVAL_SECONDS,
     MODE_CLASSIC,
-    MODE_DYNAMIC,
     MODE_FLAT,
-    STRATEGY_CHEAPEST_CONSECUTIVE,
     STRATEGY_CHEAPEST_PERCENT,
 )
 
@@ -55,13 +54,11 @@ class SelectraData:
     prices: list[dict[str, Any]] = field(default_factory=list)
     currency: str | None = None
     next_update: datetime | None = None
-    details: dict[str, Any] = field(default_factory=dict)
     binary_state: bool | None = None
     current_period: dict[str, Any] | None = None
     next_change: datetime | None = None
     active_periods: list[dict[str, Any]] = field(default_factory=list)
     requalification: bool = False
-    consecutive_failures: int = 0
 
 
 class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
@@ -76,10 +73,12 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         )
         self._details: dict[str, Any] = {}
         self._consecutive_failures = 0
+        self._next_change_unsub: CALLBACK_TYPE | None = None
 
         super().__init__(
             hass,
             _LOGGER,
+            config_entry=entry,
             name=DOMAIN,
             update_interval=timedelta(seconds=DEFAULT_POLL_INTERVAL_SECONDS),
         )
@@ -109,7 +108,6 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         """Fetch price data and compute binary sensor state."""
         inputs = self._entry.data[CONF_QUALIFICATION_INPUTS]
         data = SelectraData()
-        data.details = self._details
 
         try:
             price_data = await self._client.get_prices(inputs)
@@ -122,6 +120,7 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
                 title="Selectra: Reconfiguration Required",
                 notification_id=NOTIFICATION_ID,
             )
+            self._cancel_next_change_timer()
             data.requalification = True
             self.update_interval = timedelta(hours=1)
             return data
@@ -133,6 +132,7 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
                 title="Selectra: Authentication Error",
                 notification_id=AUTH_NOTIFICATION_ID,
             )
+            self._cancel_next_change_timer()
             data.requalification = True
             self.update_interval = None
             return data
@@ -160,87 +160,95 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         pn_async_dismiss(self.hass, NOTIFICATION_ID)
         pn_async_dismiss(self.hass, AUTH_NOTIFICATION_ID)
 
-        # Parse price periods
-        raw_prices = price_data.get("prices", [])
-        data.currency = price_data.get("currency")
-        data.prices = _parse_price_periods(raw_prices)
+        try:
+            # Parse price periods
+            raw_prices = price_data.get("prices", [])
+            data.currency = price_data.get("currency")
+            data.prices = _parse_price_periods(raw_prices)
 
-        # Remplacer les noms bruts par les noms lisibles des features
-        features = self._details.get("features", [])
-        key_to_name = {
-            f["key"]: f["name"]
-            for f in features
-            if "key" in f and "name" in f
-        }
-        for p in data.prices:
-            p["name"] = key_to_name.get(p["name"], p["name"])
+            # Remplacer les noms bruts par les noms lisibles des features
+            features = self._details.get("features", [])
+            key_to_name = {
+                f["key"]: f["name"]
+                for f in features
+                if "key" in f and "name" in f
+            }
+            for p in data.prices:
+                p["name"] = key_to_name.get(p["name"], p["name"])
 
-        # Parse next_update and adjust poll interval
-        next_update_str = price_data.get("next_update")
-        if next_update_str:
-            try:
-                data.next_update = datetime.fromisoformat(next_update_str)
-            except (ValueError, TypeError):
-                data.next_update = None
+            # Parse next_update and adjust poll interval
+            next_update_str = price_data.get("next_update")
+            if next_update_str:
+                try:
+                    data.next_update = datetime.fromisoformat(next_update_str)
+                except (ValueError, TypeError):
+                    data.next_update = None
 
-        self._update_poll_interval(data.next_update)
+            self._update_poll_interval(data.next_update)
 
-        # Compute binary sensor state
-        now = dt_util.now()
-        data.current_period = _find_current_period(data.prices, now)
+            # Compute binary sensor state
+            now = dt_util.now()
+            data.current_period = _find_current_period(data.prices, now)
 
-        if self.mode == MODE_FLAT:
-            data.binary_state = True
-            data.active_periods = list(data.prices)
-        elif self.mode == MODE_CLASSIC:
-            selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
-            # selected peut contenir des cles (ancien format) ou des noms lisibles
-            resolved = [key_to_name.get(s, s) for s in selected]
-            data.active_periods = _compute_classic_active(data.prices, resolved)
-            if data.current_period:
-                data.binary_state = data.current_period["name"] in resolved
+            if self.mode == MODE_FLAT:
+                data.binary_state = True
+                data.active_periods = list(data.prices)
+            elif self.mode == MODE_CLASSIC:
+                selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
+                # selected peut contenir des cles (ancien format) ou des noms lisibles
+                resolved = [key_to_name.get(s, s) for s in selected]
+                data.active_periods = _compute_classic_active(data.prices, resolved)
+                if data.current_period:
+                    data.binary_state = data.current_period["name"] in resolved
+                else:
+                    data.binary_state = False
             else:
-                data.binary_state = False
-        else:
-            strategy = self._entry.data.get(CONF_STRATEGY, STRATEGY_CHEAPEST_PERCENT)
-            value = self._entry.data.get(CONF_STRATEGY_VALUE, 30)
-            local_tz = dt_util.get_default_time_zone()
+                strategy = self._entry.data.get(CONF_STRATEGY, STRATEGY_CHEAPEST_PERCENT)
+                value = self._entry.data.get(CONF_STRATEGY_VALUE, 30)
+                local_tz = dt_util.get_default_time_zone()
 
-            today_periods = _get_day_periods(data.prices, now, local_tz)
+                today_periods = _get_day_periods(data.prices, now, local_tz)
 
-            if not today_periods:
-                _LOGGER.warning(
-                    "No price data available for today. Binary sensor set to unknown"
-                )
-                data.binary_state = None
-                data.active_periods = []
-            elif strategy == STRATEGY_CHEAPEST_PERCENT:
-                data.active_periods = _compute_cheapest_percent(today_periods, value)
-                data.binary_state = _is_in_active_periods(now, data.active_periods)
-            else:
-                data.active_periods = _compute_cheapest_consecutive(
-                    today_periods, value
-                )
-                data.binary_state = _is_in_active_periods(now, data.active_periods)
+                if not today_periods:
+                    _LOGGER.warning(
+                        "No price data available for today. Binary sensor set to unknown"
+                    )
+                    data.binary_state = None
+                    data.active_periods = []
+                elif strategy == STRATEGY_CHEAPEST_PERCENT:
+                    data.active_periods = _compute_cheapest_percent(today_periods, value)
+                    data.binary_state = _is_in_active_periods(now, data.active_periods)
+                else:
+                    data.active_periods = _compute_cheapest_consecutive(
+                        today_periods, value
+                    )
+                    data.binary_state = _is_in_active_periods(now, data.active_periods)
 
-        # Mark active flag on prices list
-        # Normalize to UTC to avoid isoformat mismatch between timezones
-        # (e.g. "2026-02-26T03:00:00+01:00" vs "2026-02-26T02:00:00+00:00")
-        active_starts = {
-            p.get("_original_start", p["start"]).astimezone(dt_util.UTC)
-            for p in data.active_periods
-            if isinstance(p.get("_original_start", p["start"]), datetime)
-        }
-        for p in data.prices:
-            if isinstance(p["start"], datetime):
-                p["is_active"] = p["start"].astimezone(dt_util.UTC) in active_starts
-            else:
-                p["is_active"] = False
+            # Mark active flag on prices list
+            # Normalize to UTC to avoid isoformat mismatch between timezones
+            # (e.g. "2026-02-26T03:00:00+01:00" vs "2026-02-26T02:00:00+00:00")
+            active_starts = {
+                p.get("_original_start", p["start"]).astimezone(dt_util.UTC)
+                for p in data.active_periods
+                if isinstance(p.get("_original_start", p["start"]), datetime)
+            }
+            for p in data.prices:
+                if isinstance(p["start"], datetime):
+                    p["is_active"] = p["start"].astimezone(dt_util.UTC) in active_starts
+                else:
+                    p["is_active"] = False
 
-        # Calculate next state change
-        data.next_change = _find_next_change(
-            data.prices, now, data.binary_state
-        )
+            # Calculate next state change
+            data.next_change = _find_next_change(
+                data.prices, now, data.binary_state
+            )
+
+            # Programmer un timer local sur la prochaine frontiere de periode
+            next_boundary = _find_next_period_boundary(data.prices, now)
+            self._schedule_next_change_timer(next_boundary)
+
+        except Exception as err:
+            raise UpdateFailed(f"Error processing Selectra data: {err}") from err
 
         return data
 
@@ -254,6 +262,102 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             interval = DEFAULT_POLL_INTERVAL_SECONDS
 
         self.update_interval = timedelta(seconds=interval)
+
+    async def async_shutdown(self) -> None:
+        """Cleanup a l'unload de l'entree."""
+        self._cancel_next_change_timer()
+        await super().async_shutdown()
+
+    def _cancel_next_change_timer(self) -> None:
+        """Annule le timer de transition local."""
+        if self._next_change_unsub is not None:
+            self._next_change_unsub()
+            self._next_change_unsub = None
+
+    def _schedule_next_change_timer(self, next_change: datetime | None) -> None:
+        """Programme un timer local au moment de la prochaine transition."""
+        self._cancel_next_change_timer()
+        if next_change is None:
+            return
+        _LOGGER.debug("Scheduling next change timer at %s", next_change)
+        self._next_change_unsub = async_track_point_in_time(
+            self.hass, self._handle_next_change, next_change
+        )
+
+    async def _handle_next_change(self, _now: datetime) -> None:
+        """Callback du timer : recalcule l'etat sans appel API."""
+        _LOGGER.debug("Timer fired, recalculating local state")
+        self._next_change_unsub = None
+        try:
+            self._recalculate_local_state()
+        except Exception:
+            _LOGGER.exception("Error in local state recalculation")
+
+    def _recalculate_local_state(self) -> None:
+        """Recalcule l'etat a partir des prix en memoire, sans appel API."""
+        if self.data is None or not self.data.prices:
+            return
+
+        now = dt_util.now()
+        data = self.data
+
+        data.current_period = _find_current_period(data.prices, now)
+
+        if self.mode == MODE_FLAT:
+            data.binary_state = True
+        elif self.mode == MODE_CLASSIC:
+            selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
+            key_to_name = {
+                f["key"]: f["name"]
+                for f in self._details.get("features", [])
+                if "key" in f and "name" in f
+            }
+            resolved = [key_to_name.get(s, s) for s in selected]
+            if data.current_period:
+                data.binary_state = data.current_period["name"] in resolved
+            else:
+                data.binary_state = False
+        else:
+            # Mode dynamique : recalculer active_periods pour le jour courant
+            strategy = self._entry.data.get(CONF_STRATEGY, STRATEGY_CHEAPEST_PERCENT)
+            value = self._entry.data.get(CONF_STRATEGY_VALUE, 30)
+            local_tz = dt_util.get_default_time_zone()
+            today_periods = _get_day_periods(data.prices, now, local_tz)
+
+            if not today_periods:
+                data.binary_state = None
+                data.active_periods = []
+            elif strategy == STRATEGY_CHEAPEST_PERCENT:
+                data.active_periods = _compute_cheapest_percent(today_periods, value)
+                data.binary_state = _is_in_active_periods(now, data.active_periods)
+            else:
+                data.active_periods = _compute_cheapest_consecutive(today_periods, value)
+                data.binary_state = _is_in_active_periods(now, data.active_periods)
+
+            # Mettre a jour les flags is_active sur les prix
+            active_starts = {
+                p.get("_original_start", p["start"]).astimezone(dt_util.UTC)
+                for p in data.active_periods
+                if isinstance(p.get("_original_start", p["start"]), datetime)
+            }
+            for p in data.prices:
+                if isinstance(p["start"], datetime):
+                    p["is_active"] = p["start"].astimezone(dt_util.UTC) in active_starts
+                else:
+                    p["is_active"] = False
+
+        data.next_change = _find_next_change(data.prices, now, data.binary_state)
+
+        self.async_update_listeners()
+
+        next_boundary = _find_next_period_boundary(data.prices, now)
+        _LOGGER.debug(
+            "Recalculated: period=%s, binary_state=%s, next_boundary=%s",
+            data.current_period.get("name") if data.current_period else None,
+            data.binary_state,
+            next_boundary,
+        )
+        self._schedule_next_change_timer(next_boundary)
 
 
 def _parse_price_periods(raw_prices: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -448,4 +552,19 @@ def _find_next_change(
             if is_active != current_state:
                 return p["start"]
 
+    return None
+
+
+def _find_next_period_boundary(
+    prices: list[dict[str, Any]], now: datetime
+) -> datetime | None:
+    """Retourne la fin de la periode courante (prochaine frontiere)."""
+    for p in prices:
+        if p["start"] <= now < p["end"]:
+            return p["end"]
+    # Pas dans une periode : retourner le debut de la prochaine
+    future = [p for p in prices if p["start"] > now]
+    if future:
+        future.sort(key=lambda p: p["start"])
+        return future[0]["start"]
     return None

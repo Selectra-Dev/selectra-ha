@@ -39,7 +39,6 @@ class SelectraPlannedRunSensor(
     ) -> None:
         super().__init__(coordinator)
         self._attr_unique_id = f"{entry.entry_id}_planned_run"
-        self._entry = entry
 
     @property
     def is_on(self) -> bool | None:

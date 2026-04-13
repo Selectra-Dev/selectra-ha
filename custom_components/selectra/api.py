@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-import logging
 from typing import Any
 
 import aiohttp
 
 from .const import API_BASE_URL
-
-_LOGGER = logging.getLogger(__name__)
 
 
 class SelectraApiError(Exception):
