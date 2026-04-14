@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.4] - 2026-04-14
+
+### Fixed
+
+- Missing `state_class` on `prix_actuel` sensor, causing Home Assistant to lose long-term statistics tracking.
+- Removed incorrect `device_class=MONETARY` (incompatible with `EUR/kWh` unit).
+
+---
+
 ## [1.1.0] - 2026-02-26
 
 ### Descriptions & email de support (2026-03-02)

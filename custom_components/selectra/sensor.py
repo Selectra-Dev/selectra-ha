@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from homeassistant.components.sensor import SensorEntity
+from homeassistant.components.sensor import SensorEntity, SensorStateClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
@@ -52,6 +52,7 @@ class SelectraBaseSensor(CoordinatorEntity[SelectraCoordinator], SensorEntity):
 class SelectraCurrentPriceSensor(SelectraBaseSensor):
     """Sensor showing the current electricity price per kWh."""
 
+    _attr_state_class = SensorStateClass.MEASUREMENT
     _attr_translation_key = "current_price"
 
     def __init__(
