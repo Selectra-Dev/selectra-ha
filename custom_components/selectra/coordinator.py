@@ -11,7 +11,7 @@ from homeassistant.components.persistent_notification import (
     async_create as pn_async_create,
     async_dismiss as pn_async_dismiss,
 )
-from homeassistant.config_entries import ConfigEntry
+from homeassistant.config_entries import ConfigEntry, ConfigEntryAuthFailed
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_point_in_time
@@ -24,6 +24,7 @@ from .api import (
     SelectraAuthError,
     SelectraRateLimitError,
     SelectraRequalificationError,
+    SelectraServerError,
 )
 from .const import (
     CONF_CATEGORY,
@@ -44,7 +45,6 @@ from .const import (
 _LOGGER = logging.getLogger(__name__)
 
 NOTIFICATION_ID = f"{DOMAIN}_requalification"
-AUTH_NOTIFICATION_ID = f"{DOMAIN}_auth_error"
 
 
 @dataclass
@@ -72,7 +72,6 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             entry.data[CONF_TOKEN], async_get_clientsession(hass)
         )
         self._details: dict[str, Any] = {}
-        self._consecutive_failures = 0
         self._next_change_unsub: CALLBACK_TYPE | None = None
 
         super().__init__(
@@ -95,14 +94,21 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
     def details(self) -> dict[str, Any]:
         return self._details
 
-    async def async_setup(self) -> None:
-        """Fetch initial details data."""
+    async def _async_setup(self) -> None:
+        """Fetch initial details data. Called once before the first poll."""
         inputs = self._entry.data[CONF_QUALIFICATION_INPUTS]
         try:
             self._details = await self._client.get_details(inputs)
+        except SelectraRateLimitError as err:
+            raise UpdateFailed(
+                "Rate limited by the Selectra API", retry_after=err.retry_after
+            ) from err
+        except SelectraServerError as err:
+            raise UpdateFailed(f"Server error {err.status}") from err
+        except SelectraAuthError as err:
+            raise ConfigEntryAuthFailed from err
         except SelectraApiError as err:
-            _LOGGER.warning("Failed to fetch initial details: %s", err)
-            self._details = {}
+            raise UpdateFailed(str(err)) from err
 
     async def _async_update_data(self) -> SelectraData:
         """Fetch price data and compute binary sensor state."""
@@ -111,7 +117,6 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
 
         try:
             price_data = await self._client.get_prices(inputs)
-            self._consecutive_failures = 0
         except SelectraRequalificationError as err:
             _LOGGER.warning("Requalification required: %s", err.reason)
             pn_async_create(
@@ -124,41 +129,28 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             data.requalification = True
             self.update_interval = timedelta(hours=1)
             return data
+        # API errors are logged at debug level: HA's DataUpdateCoordinator
+        # already emits a single warning on unavailable/recovered transitions.
         except SelectraAuthError as err:
-            _LOGGER.error("Authentication error: %s", err)
-            pn_async_create(
-                self.hass,
-                "Your Selectra API token is invalid. Please update it in the integration settings.",
-                title="Selectra: Authentication Error",
-                notification_id=AUTH_NOTIFICATION_ID,
-            )
+            _LOGGER.debug("Authentication error: %s", err)
             self._cancel_next_change_timer()
-            data.requalification = True
-            self.update_interval = None
-            return data
+            raise ConfigEntryAuthFailed from err
         except SelectraRateLimitError as err:
-            _LOGGER.warning("Rate limited by Selectra API, next retry in 24h")
-            self.update_interval = timedelta(hours=24)
-            raise UpdateFailed("Rate limited by Selectra API") from err
-        except SelectraApiError as err:
-            self._consecutive_failures += 1
-            # Backoff exponentiel : double l'intervalle a chaque echec, max 24h
-            backoff_seconds = min(
-                DEFAULT_POLL_INTERVAL_SECONDS * (2 ** self._consecutive_failures),
-                86400,
+            retry_after = err.retry_after if err.retry_after is not None else 86400
+            _LOGGER.debug(
+                "Rate limited by Selectra API, retry_after=%s", retry_after
             )
-            self.update_interval = timedelta(seconds=backoff_seconds)
-            if self._consecutive_failures >= 3:
-                _LOGGER.warning(
-                    "Selectra API unreachable for %d consecutive attempts: %s",
-                    self._consecutive_failures,
-                    err,
-                )
+            raise UpdateFailed(
+                "Rate limited by Selectra API", retry_after=retry_after
+            ) from err
+        except SelectraServerError as err:
+            _LOGGER.debug("Selectra server error %s", err.status)
+            raise UpdateFailed(f"Server error {err.status}", retry_after=1800) from err
+        except SelectraApiError as err:
             raise UpdateFailed(f"Error fetching Selectra data: {err}") from err
 
         # Dismiss any previous requalification notification on success
         pn_async_dismiss(self.hass, NOTIFICATION_ID)
-        pn_async_dismiss(self.hass, AUTH_NOTIFICATION_ID)
 
         try:
             # Parse price periods
@@ -210,7 +202,7 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
                 today_periods = _get_day_periods(data.prices, now, local_tz)
 
                 if not today_periods:
-                    _LOGGER.warning(
+                    _LOGGER.debug(
                         "No price data available for today. Binary sensor set to unknown"
                     )
                     data.binary_state = None

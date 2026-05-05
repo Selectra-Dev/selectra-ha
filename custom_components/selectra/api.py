@@ -2,11 +2,40 @@
 
 from __future__ import annotations
 
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from typing import Any
 
 import aiohttp
 
 from .const import API_BASE_URL
+
+
+def _parse_retry_after(header_value: str | None) -> int | None:
+    """Parse an HTTP Retry-After header.
+
+    Per RFC 9110 the value can be either a non-negative integer (seconds)
+    or an HTTP-date. Returns the delay in seconds, or None if unparseable.
+    """
+    if not header_value:
+        return None
+
+    value = header_value.strip()
+    if value.isdigit():
+        return int(value)
+
+    try:
+        retry_at = parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        return None
+    if retry_at is None:
+        return None
+
+    if retry_at.tzinfo is None:
+        retry_at = retry_at.replace(tzinfo=timezone.utc)
+
+    delta = (retry_at - datetime.now(timezone.utc)).total_seconds()
+    return max(0, int(delta))
 
 
 class SelectraApiError(Exception):
@@ -31,6 +60,20 @@ class SelectraRequalificationError(SelectraApiError):
 
 class SelectraRateLimitError(SelectraApiError):
     """Raised when the API returns 429 Too Many Requests."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        status: int | None = None,
+        retry_after: int | None = None,
+    ) -> None:
+        super().__init__(message, status=status)
+        self.retry_after = retry_after
+
+
+class SelectraServerError(SelectraApiError):
+    """Raised when the API returns a 5xx server error."""
 
 
 class SelectraApiClient:
@@ -68,9 +111,16 @@ class SelectraApiClient:
                         status=resp.status,
                     )
                 if resp.status == 429:
+                    retry_after = _parse_retry_after(resp.headers.get("Retry-After"))
                     raise SelectraRateLimitError(
                         "Rate limited by the Selectra API.",
                         status=429,
+                        retry_after=retry_after,
+                    )
+                if 500 <= resp.status < 600:
+                    raise SelectraServerError(
+                        f"Server error {resp.status}",
+                        status=resp.status,
                     )
                 data = await resp.json()
                 if resp.status in (400, 422):

@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.5] - 2026-04-30
+
+### Fixed
+
+- Integration spamming the Selectra API with hundreds of retries when the API is rate-limiting (429) or down (503). The initial fetch error path was swallowing exceptions and not signaling Home Assistant properly, causing the config entry to be retried in a tight loop without backoff.
+
+### Changed
+
+- Aligned error handling with Home Assistant 2025.12+ patterns. Server errors (5xx) and rate limits (429) now properly propagate as `UpdateFailed` with `retry_after`, letting Home Assistant schedule the next attempt correctly.
+- HTTP 5xx responses are now detected before attempting to parse the response body as JSON, preventing spurious `ContentTypeError` when the API returns an HTML error page.
+- Enforce minimum Home Assistant version `2025.12.0` in `hacs.json` (required for `UpdateFailed(retry_after=...)`).
+- Auth, rate-limit and server-error logs in `_async_update_data` moved from `warning`/`error` to `debug` to avoid duplicating HA's native "log once when unavailable / log once when recovered" pattern.
+- "No price data available for today" log moved from `warning` to `debug` to prevent log spam on persistent empty payloads.
+
+### Internal
+
+- Replaced the custom `async_setup()` method with the official `_async_setup()` hook of `DataUpdateCoordinator`. Home Assistant now wraps this call correctly and converts `UpdateFailed` into `ConfigEntryNotReady` with its own backoff schedule.
+- Removed manual exponential backoff (`_consecutive_failures` counter, `update_interval` override) in favor of the native `retry_after` mechanism (HA 2025.12+).
+- `SelectraRateLimitError` now parses and exposes the `Retry-After` response header.
+- `Retry-After` parsing now also accepts the HTTP-date format (RFC 9110), in addition to integer seconds.
+- New `SelectraServerError` exception class for 5xx responses, distinct from application-level 4xx errors.
+
+---
+
 ## [1.1.4] - 2026-04-14
 
 ### Fixed

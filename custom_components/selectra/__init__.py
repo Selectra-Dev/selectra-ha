@@ -26,10 +26,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     coordinator = SelectraCoordinator(hass, entry)
 
-    # Fetch initial details (offer info)
-    await coordinator.async_setup()
-
-    # Perform first data refresh
     await coordinator.async_config_entry_first_refresh()
 
     hass.data.setdefault(DOMAIN, {})
