@@ -64,11 +64,13 @@ Everything is configured through the Home Assistant UI — no YAML required. Aft
 
 1. **API token** — Paste your free Selectra API token (see [below](#-data-source--api-access)).
 2. **Qualification** — Identify your exact contract: country, postal code, electricity provider, offer, pricing option, subscribed power, and off-peak hours where applicable.
-3. **Behaviour** — Depending on your plan type, you'll then either:
-   - **pick the active periods** (multi-period plans, e.g. off-peak), or
+3. **Behaviour** — For **classic** (multi-period) and **dynamic** plans, you'll then either:
+   - **pick the active periods** (classic plans, e.g. peak / off-peak), or
    - **choose an optimization strategy** (dynamic plans).
 
-> Need to change something later? Select the integration → **Configure / Reconfigure** to re-run this flow without removing the integration.
+   **Flat-rate plans skip this step** — the integration is ready as soon as qualification is done.
+
+> Need to change something later? Select the integration → **⋮ menu → Reconfigure**. This is Home Assistant's native reconfigure flow: it reuses your existing API token and re-runs qualification — you won't be asked for the token again.
 
 ## 🧠 How it works — operating modes
 
@@ -110,6 +112,8 @@ Once configured, the integration creates the following entities:
 **`Current Price`** exposes `period_name`, `period_start`, `period_end`, and `next_update`.
 
 ## 🤖 Automation examples
+
+> **Your entity IDs may differ from the examples below.** Check the real IDs under **Settings → Devices & Services → Selectra** and adjust the automations and chart config accordingly.
 
 **Run your water heater during the planned (cheap) periods:**
 
