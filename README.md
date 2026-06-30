@@ -20,7 +20,8 @@ Turn your devices on and off based on the real-time price of electricity. Perfec
 ## ✨ Features
 
 - **Real-time electricity pricing** — Access current and upcoming electricity prices for your plan directly in Home Assistant.
-- **Smart automations** — Trigger automations based on price thresholds, off-peak windows, or cheapest upcoming hours.
+- **A ready-to-automate "Planned Run" signal** — A single binary sensor that turns `on` when it's a good time to run your devices, whatever your tariff type.
+- **Smart automations** — Trigger automations based on price thresholds, off-peak windows, or the cheapest upcoming hours.
 - **Massive coverage** — 80 countries, 2,000+ energy providers, and 16,000+ electricity plans supported today.
 - **Always free** — This integration is and will remain free to use.
 
@@ -33,6 +34,11 @@ Turn your devices on and off based on the real-time price of electricity. Perfec
 | **Electricity plans** | 16,000+ | Every residential plan |
 
 Can't find your provider or plan? [Open an issue](../../issues) and we'll look into adding it.
+
+## ✅ Requirements
+
+- **Home Assistant 2025.12.0 or newer.**
+- A **free Selectra API token** — see [Data Source & API Access](#-data-source--api-access).
 
 ## 📦 Installation
 
@@ -54,15 +60,140 @@ Can't find your provider or plan? [Open an issue](../../issues) and we'll look i
 
 ## ⚙️ Configuration
 
-After installing, add the integration through the Home Assistant UI. You will be prompted to select your country, energy provider, and electricity plan.
+Everything is configured through the Home Assistant UI — no YAML required. After adding the integration you'll go through a short guided setup:
+
+1. **API token** — Paste your free Selectra API token (see [below](#-data-source--api-access)).
+2. **Qualification** — Identify your exact contract: country, postal code, electricity provider, offer, pricing option, subscribed power, and off-peak hours where applicable.
+3. **Behaviour** — Depending on your plan type, you'll then either:
+   - **pick the active periods** (multi-period plans, e.g. off-peak), or
+   - **choose an optimization strategy** (dynamic plans).
+
+> Need to change something later? Select the integration → **Configure / Reconfigure** to re-run this flow without removing the integration.
+
+## 🧠 How it works — operating modes
+
+The integration adapts to your tariff. The **Planned Run** binary sensor turns `on` according to one of three modes:
+
+| Mode | For which plans | When `Planned Run` is `on` |
+|---|---|---|
+| **Flat** | Single flat-rate tariffs | Always `on` (the price never changes). |
+| **Classic** | Multi-period plans (e.g. peak / off-peak) | During the **periods you selected** at setup. |
+| **Dynamic** | Dynamic / spot-price plans | During the cheapest hours, based on your chosen **strategy**. |
+
+For **dynamic** plans, two strategies are available:
+
+- **Cheapest X% of the day** — the sensor is `on` during the cheapest `X%` of today's hours (e.g. the cheapest 30%).
+- **Cheapest X consecutive hours** — the sensor is `on` during the single cheapest uninterrupted window of `X` hours (great for EV charging or a dishwasher run).
+
+## 📟 Entities
+
+Once configured, the integration creates the following entities:
+
+| Entity | Type | Description |
+|---|---|---|
+| **Planned Run** | `binary_sensor` | The core entity. `on` = good time to run your devices (see modes above). |
+| **Current Price** | `sensor` | The current electricity price per kWh, in your currency. |
+| **Provider** | `sensor` *(diagnostic)* | Your electricity provider. |
+| **Offer** | `sensor` *(diagnostic)* | Your offer/plan. Carries rich attributes (category, distributor, off-peak hours, features…). |
+| **Option** | `sensor` *(diagnostic)* | Your pricing option. |
+
+> Exact entity IDs depend on your setup — check them under **Settings → Devices & Services → Selectra**. The examples below use `binary_sensor.selectra_planned_run` and `sensor.selectra_current_price`.
+
+### Useful attributes
+
+**`Planned Run`** exposes, among others:
+
+- `current_period_name`, `current_price`, `currency`
+- `next_change` — when the sensor will next switch on/off
+- `prices` — the full list of upcoming price periods, each with `name`, `price`, `start`, `end`, and `is_active`. Ideal for building charts (see [Visualization](#-visualization)).
+
+**`Current Price`** exposes `period_name`, `period_start`, `period_end`, and `next_update`.
+
+## 🤖 Automation examples
+
+**Run your water heater during the planned (cheap) periods:**
+
+```yaml
+automation:
+  - alias: "Water heater — cheap hours only"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.selectra_planned_run
+        to: "on"
+    action:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.water_heater
+  - alias: "Water heater — off outside cheap hours"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.selectra_planned_run
+        to: "off"
+    action:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.water_heater
+```
+
+**Charge the EV only when the price drops below a threshold:**
+
+```yaml
+automation:
+  - alias: "EV charging — below 0.15 /kWh"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.selectra_current_price
+        below: 0.15
+    action:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.ev_charger
+```
+
+## 📊 Visualization
+
+You can plot today's prices using the `prices` attribute of the **Planned Run** sensor — for example with the popular [ApexCharts card](https://github.com/RomRider/apexcharts-card):
+
+```yaml
+type: custom:apexcharts-card
+header:
+  title: Electricity prices today
+series:
+  - entity: binary_sensor.selectra_planned_run
+    name: Price
+    type: column
+    data_generator: |
+      return entity.attributes.prices.map(p => [new Date(p.start).getTime(), p.price]);
+```
 
 ## 📡 Data Source & API Access
 
 All electricity pricing data is provided by the Selectra Electricity Planning API.
 
-This integration requires an API token. To get one, visit the [Selectra Electricity Planning API](https://api.selectra.com/ha/register) and follow the instructions to request access.
+This integration requires an API token. To get one:
+
+1. Visit the [Selectra Electricity Planning API](https://api.selectra.com/ha/register) registration page.
+2. Follow the instructions to request your **free** API key.
+3. Paste the token during the integration's setup (first step).
 
 Need help? Contact us at **support.home-assistant@selectra.info**.
+
+## ❓ FAQ & Troubleshooting
+
+**"Reconfiguration Required" notification appears / entities show as `unavailable`.**
+Your contract details need to be refreshed (e.g. your provider changed something). Open **Settings → Devices & Services → Selectra → Reconfigure** and re-run the setup. Entities come back automatically once reconfiguration succeeds.
+
+**"Invalid or missing API key" during setup.**
+Double-check the token, or register for a free one at the [API page](https://api.selectra.com/ha/register). Still stuck? Email **support.home-assistant@selectra.info**.
+
+**"Too many requests" / rate limited.**
+The Selectra API applies rate limits. Wait a few minutes and try again — the integration also backs off automatically and retries on its own.
+
+**`Current Price` or `Planned Run` shows `unknown` / no data.**
+This can happen when no price data is available yet for the current day. The integration polls regularly and will populate the values as soon as data is published.
+
+**How often does it update?**
+Polling is dynamic: the integration follows the API's `next_update` hint (at most once a minute, ~every 15 minutes by default) and recalculates the `Planned Run` state locally at each period boundary — so transitions are on time without hammering the API.
 
 ## 🤝 Contributing
 
@@ -74,7 +205,7 @@ We welcome contributions of all kinds! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the [Apache License 2.0](LICENSE).
+This project is licensed under the [Apache License 2.0](LICENSE.txt).
 
 ---
 
