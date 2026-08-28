@@ -13,7 +13,7 @@ Turn your devices on and off based on the real-time price of electricity. Perfec
 
 ## 🚧 Beta Notice
 
-> This integration is currently in **beta**. We are actively developing new features and improving reliability. We'd love your feedback — whether it's a bug report, a feature request, or just an idea. Don't hesitate to [open an issue](../../issues) or [start a discussion](../../discussions)!
+> This integration is currently in **beta**. We are actively developing new features and improving reliability. We'd love your feedback — whether it's a bug report, a feature request, or just an idea. Don't hesitate to [open an issue](../../issues)!
 
 ---
 
@@ -23,6 +23,7 @@ Turn your devices on and off based on the real-time price of electricity. Perfec
 - **A ready-to-automate "Planned Run" signal** — A single binary sensor that turns `on` when it's a good time to run your devices, whatever your tariff type.
 - **Smart automations** — Trigger automations based on price thresholds, off-peak windows, or the cheapest upcoming hours.
 - **Feed-in tariffs** — If you have solar panels, track what your exported kWh earn you, right next to what you pay.
+- **Light on the API** — Responses are cached for as long as they stay valid, so restarting Home Assistant costs you nothing against your rate limit.
 - **Massive coverage** — 80 countries, 2,000+ energy providers, and 16,000+ electricity plans supported today.
 - **Always free** — This integration is and will remain free to use.
 
@@ -58,6 +59,27 @@ Can't find your provider or plan? [Open an issue](../../issues) and we'll look i
 2. Copy the `custom_components/selectra` folder into your Home Assistant `config/custom_components/` directory.
 3. Restart Home Assistant.
 4. Go to **Settings** → **Devices & Services** → **Add Integration** → search for **Selectra**.
+
+## 🔄 Upgrading
+
+Updating through HACS brings the new code, but **it does not re-run your setup**. Anything that depends on a question you were never asked needs a reconfiguration.
+
+**Feed-in tariffs (new in v1.2.0)** are the case in point: your contract was qualified before that question existed, so it won't appear on its own.
+
+To get it:
+
+1. **Settings** → **Devices & Services**, then open the **Selectra** entry.
+2. **⋮ menu** → **Reconfigure**.
+3. Answer the questions again — **your API token is not asked for again**, the existing one is reused.
+4. Answer **yes** to the feed-in question, then complete the follow-up questions about your installation.
+
+What to expect:
+
+- **The whole qualification runs again**, from the country onwards. That is normal — the flow is rebuilt from scratch rather than edited in place. On a **classic** plan you'll pick your active periods again; on a **dynamic** one, your strategy. Note your current settings down first if you'd rather not think about them twice.
+- **Your entities and their history are kept.** Reconfiguring updates the existing entry, so every entity keeps its identity and its recorded history. The new **Feed-in Price** sensor is simply added.
+- **No solar panels?** Answer **no**, or don't reconfigure at all. Nothing else changes.
+
+Improvements that don't depend on your answers — caching, bug fixes — apply on their own after the restart that follows an update.
 
 ## ⚙️ Configuration
 
@@ -101,7 +123,9 @@ Once configured, the integration creates the following entities:
 | **Offer** | `sensor` *(diagnostic)* | Your offer/plan. Carries rich attributes (category, distributor, off-peak hours, features…). |
 | **Option** | `sensor` *(diagnostic)* | Your pricing option. |
 
-> Exact entity IDs depend on your setup — check them under **Settings → Devices & Services → Selectra**. The examples below use `binary_sensor.selectra_planned_run` and `sensor.selectra_current_price`.
+> **⚠️ Entity IDs are built from the entity name in your Home Assistant language, with no `selectra` prefix.** On an English instance you get `binary_sensor.planned_run` and `sensor.current_price`; on a French one, `binary_sensor.marche_planifiee` and `sensor.prix_actuel`.
+>
+> The examples below use the English IDs. **Check your own** under **Settings → Devices & Services → Selectra → entities**, and adapt them — an automation pointing at an entity that doesn't exist fails silently.
 
 ### Useful attributes
 
@@ -123,6 +147,8 @@ During setup you'll be asked whether you have a feed-in tariff. Say yes and the 
 
 You then get a **Feed-in Price** sensor holding your current export rate per kWh, and every period in the `prices` attribute gains a `feed_in_price`.
 
+> **Already had the integration installed?** The question only appears when the setup runs again — see [Upgrading](#-upgrading).
+
 > **Not asked about it?** Feed-in tariffs are available on a subset of countries and API tokens. If the question doesn't appear, your token or your country isn't covered yet — [open an issue](../../issues) and we'll tell you where it stands. Saying no, or never being asked, leaves everything else unchanged.
 
 **Charge the home battery from the grid only when importing costs less than exporting pays:**
@@ -132,12 +158,12 @@ automation:
   - alias: "Battery — charge while import beats export"
     trigger:
       - platform: state
-        entity_id: sensor.selectra_current_price
+        entity_id: sensor.current_price
     condition:
       - condition: template
         value_template: >
-          {{ states('sensor.selectra_current_price') | float
-             < states('sensor.selectra_feed_in_price') | float }}
+          {{ states('sensor.current_price') | float
+             < states('sensor.feed_in_price') | float }}
     action:
       - action: switch.turn_on
         target:
@@ -155,7 +181,7 @@ automation:
   - alias: "Water heater — cheap hours only"
     trigger:
       - platform: state
-        entity_id: binary_sensor.selectra_planned_run
+        entity_id: binary_sensor.planned_run
         to: "on"
     action:
       - action: switch.turn_on
@@ -164,7 +190,7 @@ automation:
   - alias: "Water heater — off outside cheap hours"
     trigger:
       - platform: state
-        entity_id: binary_sensor.selectra_planned_run
+        entity_id: binary_sensor.planned_run
         to: "off"
     action:
       - action: switch.turn_off
@@ -179,7 +205,7 @@ automation:
   - alias: "EV charging — below 0.15 /kWh"
     trigger:
       - platform: numeric_state
-        entity_id: sensor.selectra_current_price
+        entity_id: sensor.current_price
         below: 0.15
     action:
       - action: switch.turn_on
@@ -196,7 +222,7 @@ type: custom:apexcharts-card
 header:
   title: Electricity prices today
 series:
-  - entity: binary_sensor.selectra_planned_run
+  - entity: binary_sensor.planned_run
     name: Price
     type: column
     data_generator: |
@@ -206,7 +232,7 @@ series:
 With a feed-in tariff you can plot both sides at once by adding a second series:
 
 ```yaml
-  - entity: binary_sensor.selectra_planned_run
+  - entity: binary_sensor.planned_run
     name: Feed-in
     type: line
     data_generator: |
@@ -240,6 +266,12 @@ The Selectra API applies rate limits. Wait a few minutes and try again — the i
 
 **`Current Price` or `Planned Run` shows `unknown` / no data.**
 This can happen when no price data is available yet for the current day. The integration polls regularly and will populate the values as soon as data is published.
+
+**I updated but there's no feed-in question and no Feed-in Price sensor.**
+Updating doesn't re-run your setup. Reconfigure the integration to be asked — see [Upgrading](#-upgrading). If the question still doesn't appear after reconfiguring, your token's plan or your country isn't covered yet; email **support.home-assistant@selectra.info** and we'll tell you where it stands.
+
+**My automation does nothing, even though the sensor looks right.**
+Check the entity ID. IDs are generated from the entity name in your Home Assistant language and carry no `selectra` prefix — a French instance has `binary_sensor.marche_planifiee`, not `binary_sensor.selectra_planned_run`. An automation pointing at a non-existent entity fails silently. Your real IDs are under **Settings → Devices & Services → Selectra → entities**.
 
 **How often does it update?**
 Polling is dynamic: the integration follows the API's `next_update` hint (at most once a minute, ~every 15 minutes by default) and recalculates the `Planned Run` state locally at each period boundary — so transitions are on time without hammering the API.
