@@ -1,0 +1,9 @@
+# Home Assistant's test harness. It pulls Home Assistant itself, pinned to a
+# version this release of the plugin matches.
+#
+# Home Assistant cannot run on Windows (homeassistant.runner imports fcntl),
+# so run the suite under WSL or Linux. There, `lru-dict==1.3.0` — pinned by
+# Home Assistant — has no cp313 wheel and needs a compiler; on a machine
+# without one, install with `uv pip install -r requirements-test.txt
+# --overrides <(echo lru-dict==1.4.1)`.
+pytest-homeassistant-custom-component==0.13.316

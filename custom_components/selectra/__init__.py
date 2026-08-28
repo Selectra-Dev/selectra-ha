@@ -6,6 +6,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 
+from .cache import SelectraCache
 from .const import CONF_QUALIFICATION_INPUTS, DOMAIN
 from .coordinator import SelectraCoordinator
 
@@ -42,3 +43,8 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if unload_ok:
         hass.data[DOMAIN].pop(entry.entry_id, None)
     return unload_ok
+
+
+async def async_remove_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
+    """Drop the cached API responses along with the entry."""
+    await SelectraCache(hass, entry.entry_id).async_remove()

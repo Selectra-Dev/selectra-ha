@@ -26,7 +26,10 @@ from .api import (
     SelectraRequalificationError,
     SelectraServerError,
 )
+from .cache import SelectraCache
 from .const import (
+    CACHE_DETAILS,
+    CACHE_PRICES,
     CONF_CATEGORY,
     CONF_MODE,
     CONF_QUALIFICATION_INPUTS,
@@ -35,11 +38,14 @@ from .const import (
     CONF_STRATEGY_VALUE,
     CONF_TOKEN,
     DEFAULT_POLL_INTERVAL_SECONDS,
+    DETAILS_CACHE_TTL,
     DOMAIN,
+    FEED_IN_PRICE_KEY,
     MIN_POLL_INTERVAL_SECONDS,
     MODE_CLASSIC,
     MODE_FLAT,
     STRATEGY_CHEAPEST_PERCENT,
+    extract_feed_in_fields,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -59,6 +65,7 @@ class SelectraData:
     next_change: datetime | None = None
     active_periods: list[dict[str, Any]] = field(default_factory=list)
     requalification: bool = False
+    has_feed_in: bool = False
 
 
 class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
@@ -72,6 +79,7 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             entry.data[CONF_TOKEN], async_get_clientsession(hass)
         )
         self._details: dict[str, Any] = {}
+        self._cache = SelectraCache(hass, entry.entry_id)
         self._next_change_unsub: CALLBACK_TYPE | None = None
 
         super().__init__(
@@ -97,6 +105,13 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
     async def _async_setup(self) -> None:
         """Fetch initial details data. Called once before the first poll."""
         inputs = self._entry.data[CONF_QUALIFICATION_INPUTS]
+
+        await self._cache.async_load()
+        cached = self._cache.get(CACHE_DETAILS, inputs)
+        if cached is not None:
+            self._details = cached
+            return
+
         try:
             self._details = await self._client.get_details(inputs)
         except SelectraRateLimitError as err:
@@ -110,13 +125,22 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         except SelectraApiError as err:
             raise UpdateFailed(str(err)) from err
 
+        await self._cache.async_store(
+            CACHE_DETAILS, inputs, self._details, dt_util.utcnow() + DETAILS_CACHE_TTL
+        )
+
     async def _async_update_data(self) -> SelectraData:
         """Fetch price data and compute binary sensor state."""
         inputs = self._entry.data[CONF_QUALIFICATION_INPUTS]
         data = SelectraData()
 
+        await self._cache.async_load()
+        price_data = self._cached_prices(inputs)
+        from_cache = price_data is not None
+
         try:
-            price_data = await self._client.get_prices(inputs)
+            if price_data is None:
+                price_data = await self._client.get_prices(inputs)
         except SelectraRequalificationError as err:
             _LOGGER.warning("Requalification required: %s", err.reason)
             pn_async_create(
@@ -152,11 +176,22 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         # Dismiss any previous requalification notification on success
         pn_async_dismiss(self.hass, NOTIFICATION_ID)
 
+        # `next_update` is both what paces the polling and how long the
+        # payload stays worth keeping, so it is read once for both uses.
+        next_update = _parse_api_datetime(price_data.get("next_update"))
+        if not from_cache:
+            await self._cache.async_store(
+                CACHE_PRICES, inputs, price_data, next_update
+            )
+
         try:
             # Parse price periods
             raw_prices = price_data.get("prices", [])
             data.currency = price_data.get("currency")
             data.prices = _parse_price_periods(raw_prices)
+            data.has_feed_in = any(
+                FEED_IN_PRICE_KEY in p for p in data.prices
+            )
 
             # Remplacer les noms bruts par les noms lisibles des features
             features = self._details.get("features", [])
@@ -168,14 +203,8 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             for p in data.prices:
                 p["name"] = key_to_name.get(p["name"], p["name"])
 
-            # Parse next_update and adjust poll interval
-            next_update_str = price_data.get("next_update")
-            if next_update_str:
-                try:
-                    data.next_update = datetime.fromisoformat(next_update_str)
-                except (ValueError, TypeError):
-                    data.next_update = None
-
+            # Adjust the poll interval to the API's own deadline
+            data.next_update = next_update
             self._update_poll_interval(data.next_update)
 
             # Compute binary sensor state
@@ -243,6 +272,25 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             raise UpdateFailed(f"Error processing Selectra data: {err}") from err
 
         return data
+
+    def _cached_prices(self, inputs: dict[str, Any]) -> dict[str, Any] | None:
+        """Return cached prices, unless they no longer cover the present.
+
+        `next_update` is the API's own deadline and normally falls well
+        before the series runs out. A long enough gap defeats that — Home
+        Assistant off for days on an offer that only refreshes monthly can
+        leave an unexpired payload whose every period is in the past.
+        Serving it would report `unknown` until the deadline, so refetch.
+        """
+        cached = self._cache.get(CACHE_PRICES, inputs)
+        if cached is None:
+            return None
+
+        if not _covers_now(cached.get("prices", []), dt_util.now()):
+            _LOGGER.debug("Cached prices have run out, fetching fresh ones")
+            return None
+
+        return cached
 
     def _update_poll_interval(self, next_update: datetime | None) -> None:
         """Dynamically adjust the polling interval based on next_update."""
@@ -352,6 +400,29 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         self._schedule_next_change_timer(next_boundary)
 
 
+def _parse_api_datetime(value: Any) -> datetime | None:
+    """Parse an ISO timestamp coming from the API, tolerating junk."""
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(str(value))
+    except (ValueError, TypeError):
+        return None
+
+
+def _covers_now(raw_prices: list[dict[str, Any]], now: datetime) -> bool:
+    """Tell whether any raw price period still ends in the future."""
+    for p in raw_prices:
+        end = _parse_api_datetime(p.get("end"))
+        if end is None:
+            continue
+        if end.tzinfo is None:
+            end = dt_util.as_utc(end)
+        if end > now:
+            return True
+    return False
+
+
 def _parse_price_periods(raw_prices: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Parse raw price period dicts, converting datetimes."""
     periods = []
@@ -361,12 +432,16 @@ def _parse_price_periods(raw_prices: list[dict[str, Any]]) -> list[dict[str, Any
             end = datetime.fromisoformat(p["end"])
         except (ValueError, KeyError, TypeError):
             continue
+        # Feed-in decorations are optional and country-specific: the rate
+        # itself, plus fees, scheme or free-form conditions where the market
+        # has them. Carry whatever the API sent through untouched.
         periods.append(
             {
                 "name": p.get("name", ""),
                 "price": p.get("price", 0.0),
                 "start": start,
                 "end": end,
+                **extract_feed_in_fields(p),
             }
         )
     periods.sort(key=lambda x: x["start"])

@@ -22,6 +22,7 @@ Turn your devices on and off based on the real-time price of electricity. Perfec
 - **Real-time electricity pricing** — Access current and upcoming electricity prices for your plan directly in Home Assistant.
 - **A ready-to-automate "Planned Run" signal** — A single binary sensor that turns `on` when it's a good time to run your devices, whatever your tariff type.
 - **Smart automations** — Trigger automations based on price thresholds, off-peak windows, or the cheapest upcoming hours.
+- **Feed-in tariffs** — If you have solar panels, track what your exported kWh earn you, right next to what you pay.
 - **Massive coverage** — 80 countries, 2,000+ energy providers, and 16,000+ electricity plans supported today.
 - **Always free** — This integration is and will remain free to use.
 
@@ -63,7 +64,7 @@ Can't find your provider or plan? [Open an issue](../../issues) and we'll look i
 Everything is configured through the Home Assistant UI — no YAML required. After adding the integration you'll go through a short guided setup:
 
 1. **API token** — Paste your free Selectra API token (see [below](#-data-source--api-access)).
-2. **Qualification** — Identify your exact contract: country, postal code, electricity provider, offer, pricing option, subscribed power, and off-peak hours where applicable.
+2. **Qualification** — Identify your exact contract: country, postal code, electricity provider, offer, pricing option, subscribed power, and off-peak hours where applicable. Where feed-in tariffs are available you'll also be asked whether you export solar power, and if so a few questions about your installation (see [Feed-in tariffs](#-feed-in-tariffs)).
 3. **Behaviour** — For **classic** (multi-period) and **dynamic** plans, you'll then either:
    - **pick the active periods** (classic plans, e.g. peak / off-peak), or
    - **choose an optimization strategy** (dynamic plans).
@@ -95,6 +96,7 @@ Once configured, the integration creates the following entities:
 |---|---|---|
 | **Planned Run** | `binary_sensor` | The core entity. `on` = good time to run your devices (see modes above). |
 | **Current Price** | `sensor` | The current electricity price per kWh, in your currency. |
+| **Feed-in Price** | `sensor` *(optional)* | What you are paid per kWh exported. Only created if you qualified with a feed-in tariff. |
 | **Provider** | `sensor` *(diagnostic)* | Your electricity provider. |
 | **Offer** | `sensor` *(diagnostic)* | Your offer/plan. Carries rich attributes (category, distributor, off-peak hours, features…). |
 | **Option** | `sensor` *(diagnostic)* | Your pricing option. |
@@ -107,9 +109,40 @@ Once configured, the integration creates the following entities:
 
 - `current_period_name`, `current_price`, `currency`
 - `next_change` — when the sensor will next switch on/off
-- `prices` — the full list of upcoming price periods, each with `name`, `price`, `start`, `end`, and `is_active`. Ideal for building charts (see [Visualization](#-visualization)).
+- `prices` — the full list of upcoming price periods, each with `name`, `price`, `start`, `end`, and `is_active`. Ideal for building charts (see [Visualization](#-visualization)). Periods also carry `feed_in_price` when you have a feed-in tariff.
 
 **`Current Price`** exposes `period_name`, `period_start`, `period_end`, and `next_update`.
+
+**`Feed-in Price`** exposes `period_name` plus whatever extras your market defines — grid fees (`feed_in_monthly_fee`, `feed_in_yearly_fee`, `feed_in_yearly_fee_per_kw`), the scheme or band you fall under, and any free-form conditions (`feed_in_extra_text`).
+
+## ☀️ Feed-in tariffs
+
+If you export solar power to the grid, the integration can also track what that export earns you.
+
+During setup you'll be asked whether you have a feed-in tariff. Say yes and the integration asks a few follow-up questions about your installation — which ones depends on your country: commissioning date, peak power (kWp/kWc), whether you sell your surplus or your full production, which compensation scheme applies, or simply which tariff you're on.
+
+You then get a **Feed-in Price** sensor holding your current export rate per kWh, and every period in the `prices` attribute gains a `feed_in_price`.
+
+> **Not asked about it?** Feed-in tariffs are available on a subset of countries and API tokens. If the question doesn't appear, your token or your country isn't covered yet — [open an issue](../../issues) and we'll tell you where it stands. Saying no, or never being asked, leaves everything else unchanged.
+
+**Charge the home battery from the grid only when importing costs less than exporting pays:**
+
+```yaml
+automation:
+  - alias: "Battery — charge while import beats export"
+    trigger:
+      - platform: state
+        entity_id: sensor.selectra_current_price
+    condition:
+      - condition: template
+        value_template: >
+          {{ states('sensor.selectra_current_price') | float
+             < states('sensor.selectra_feed_in_price') | float }}
+    action:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.battery_grid_charge
+```
 
 ## 🤖 Automation examples
 
@@ -170,6 +203,18 @@ series:
       return entity.attributes.prices.map(p => [new Date(p.start).getTime(), p.price]);
 ```
 
+With a feed-in tariff you can plot both sides at once by adding a second series:
+
+```yaml
+  - entity: binary_sensor.selectra_planned_run
+    name: Feed-in
+    type: line
+    data_generator: |
+      return entity.attributes.prices
+        .filter(p => p.feed_in_price != null)
+        .map(p => [new Date(p.start).getTime(), p.feed_in_price]);
+```
+
 ## 📡 Data Source & API Access
 
 All electricity pricing data is provided by the Selectra Electricity Planning API.
@@ -199,6 +244,9 @@ This can happen when no price data is available yet for the current day. The int
 **How often does it update?**
 Polling is dynamic: the integration follows the API's `next_update` hint (at most once a minute, ~every 15 minutes by default) and recalculates the `Planned Run` state locally at each period boundary — so transitions are on time without hammering the API.
 
+**Does it re-download everything when I restart Home Assistant?**
+No. Responses are cached on disk: your contract details for 48 hours, and prices until the `next_update` the API returns with them. A restart reuses what is still valid, so restarting often costs you nothing against your rate limit. Reconfiguring, or removing the integration, clears the cache.
+
 ## 🤝 Contributing
 
 We welcome contributions of all kinds! Here's how you can help:
@@ -206,6 +254,15 @@ We welcome contributions of all kinds! Here's how you can help:
 - **🐛 Report bugs** — [Open an issue](../../issues) with steps to reproduce.
 - **💡 Suggest features** — We're very open to ideas and requests. Tell us what would make this integration more useful for you.
 - **🔧 Submit a PR** — Fork the repo, make your changes, and open a pull request.
+
+Running the tests:
+
+```bash
+pip install -r requirements-test.txt
+pytest
+```
+
+> Home Assistant doesn't run on Windows — use WSL or Linux.
 
 ## 📄 License
 

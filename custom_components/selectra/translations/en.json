@@ -20,7 +20,20 @@
           "province_id": "Province / Area",
           "off_peak_hours_id": "Off-peak hours",
           "power_id": "Subscribed power",
-          "custom_off_peak_hours": "Custom off-peak hours"
+          "custom_off_peak_hours": "Custom off-peak hours",
+          "feed_in": "Solar feed-in tariff",
+          "feed_in_year": "Commissioning year",
+          "feed_in_month": "Commissioning month",
+          "feed_in_kwp": "Peak power (kWp)",
+          "feed_in_plant_type": "Installation type",
+          "feed_in_value_type": "Compensation model",
+          "feed_in_mode": "Feed-in mode",
+          "feed_in_basis": "Compensation basis",
+          "feed_in_production": "Annual production (kWh)",
+          "feed_in_price": "Feed-in rate",
+          "feed_in_tariff_id": "Feed-in tariff",
+          "feed_in_grid_id": "Feed-in tariff period",
+          "zipcode": "Postal code"
         }
       },
       "custom_off_peak": {
@@ -99,6 +112,9 @@
       },
       "option": {
         "name": "Option"
+      },
+      "feed_in_price": {
+        "name": "Feed-in Price"
       }
     }
   }

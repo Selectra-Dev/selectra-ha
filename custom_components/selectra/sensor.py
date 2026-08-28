@@ -9,7 +9,14 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN, resolve_localized_name
+from .const import (
+    CONF_QUALIFICATION_INPUTS,
+    DOMAIN,
+    FEED_IN_PRICE_KEY,
+    extract_feed_in_fields,
+    has_feed_in_opt_in,
+    resolve_localized_name,
+)
 from .coordinator import SelectraCoordinator, SelectraData
 
 
@@ -28,7 +35,24 @@ async def async_setup_entry(
         SelectraOptionSensor(coordinator, entry),
     ]
 
+    # Feed-in tariffs are optional: the sensor is only worth creating for a
+    # contract that qualified with an injection tariff. Reading the opt-in
+    # from the stored inputs (rather than from the current payload alone)
+    # keeps the entity stable across restarts and days without a rate.
+    if _entry_has_feed_in(coordinator, entry):
+        entities.append(SelectraFeedInPriceSensor(coordinator, entry))
+
     async_add_entities(entities)
+
+
+def _entry_has_feed_in(
+    coordinator: SelectraCoordinator, entry: ConfigEntry
+) -> bool:
+    """Tell whether this entry carries a feed-in tariff."""
+    if has_feed_in_opt_in(entry.data.get(CONF_QUALIFICATION_INPUTS, {})):
+        return True
+    data: SelectraData | None = coordinator.data
+    return data is not None and data.has_feed_in
 
 
 class SelectraBaseSensor(CoordinatorEntity[SelectraCoordinator], SensorEntity):
@@ -191,3 +215,48 @@ class SelectraOptionSensor(SelectraBaseSensor):
         if not details:
             return None
         return details.get("option", {}).get("name")
+
+
+class SelectraFeedInPriceSensor(SelectraBaseSensor):
+    """Sensor showing the current feed-in (injection) tariff per kWh."""
+
+    _attr_state_class = SensorStateClass.MEASUREMENT
+    _attr_translation_key = "feed_in_price"
+
+    def __init__(
+        self, coordinator: SelectraCoordinator, entry: ConfigEntry
+    ) -> None:
+        super().__init__(coordinator, entry)
+        self._attr_unique_id = f"{entry.entry_id}_feed_in_price"
+
+    @property
+    def native_value(self) -> float | None:
+        data: SelectraData | None = self.coordinator.data
+        if data is None or data.current_period is None:
+            return None
+        return data.current_period.get(FEED_IN_PRICE_KEY)
+
+    @property
+    def native_unit_of_measurement(self) -> str | None:
+        data: SelectraData | None = self.coordinator.data
+        if data is None or not data.currency:
+            return None
+        return f"{data.currency}/kWh"
+
+    @property
+    def extra_state_attributes(self) -> dict:
+        data: SelectraData | None = self.coordinator.data
+        if data is None or data.current_period is None:
+            return {}
+
+        # Every feed-in decoration except the rate itself, which is the state:
+        # grid fees, scheme, band, and the free-form conditions some markets
+        # attach. Which ones are present depends on the country.
+        attrs: dict = {
+            key: value
+            for key, value in extract_feed_in_fields(data.current_period).items()
+            if key != FEED_IN_PRICE_KEY
+        }
+        attrs["period_name"] = data.current_period.get("name")
+
+        return attrs
