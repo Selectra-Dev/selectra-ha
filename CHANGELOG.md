@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.2.0] - 2026-08-28
+
+### Added
+
+- **Feed-in (injection) tariffs.** Tokens whose team carries the feed-in feature now get an extra qualification question — "do you have solar panels / a feed-in tariff?" — followed by the country's own sub-flow (commissioning date, peak power, feed-in mode, compensation model, tariff choice...). Answering opts the contract into injection pricing; declining leaves the flow exactly as it was.
+- **`Feed-in Price` sensor**, created only for contracts that qualified with an injection tariff. State is the current feed-in rate per kWh in the contract currency; the country-specific extras the API attaches (grid fees, scheme, band, tier, free-form conditions) are exposed as attributes.
+- **`feed_in_price` on the `prices` attribute** of `Planned Run`, alongside `price`, so consumption and injection can be charted from the same series. The key is only present on periods the API priced.
+- **Responses are cached on disk.** `/planning/details` is kept for 48 hours and `/planning/prices` until the `next_update` the API itself returns. The cache survives a restart, which is where it pays: previously every Home Assistant restart re-fetched the contract details and fired a price poll immediately, however recent the last one was.
+- Question **hints** returned by the API are now shown under the label in the qualification step. The feed-in questions rely on them to explain what is being asked.
+
+### Changed
+
+- The feed-in opt-in question renders as a radio list rather than a dropdown, so both answers are visible at a glance — the same treatment custom off-peak hours already got.
+- Field labels for every feed-in question (`feed_in`, `feed_in_year`, `feed_in_month`, `feed_in_kwp`, `feed_in_plant_type`, `feed_in_value_type`, `feed_in_mode`, `feed_in_basis`, `feed_in_production`, `feed_in_price`, `feed_in_tariff_id`, `feed_in_grid_id`, `zipcode`) added to `strings.json`, `en.json` and `fr.json`. Other languages fall back to English.
+- Cache entries are keyed on a fingerprint of the qualification inputs, so reconfiguring to another contract fetches fresh data instead of serving the previous one's.
+- Removing the integration deletes its cache store; nothing is left behind in `.storage/`.
+
+### Internal
+
+- **First test suite.** `tests/` runs against real Home Assistant via `pytest-homeassistant-custom-component`, covering the feed-in config flow (question shown with its hint, opt-in sub-flow, the Germany re-stamp, opting out), the entities (rate as state, extras as attributes, no entity without an opt-in, `prices` attribute in both shapes) and the cache (both retention windows, invalidation, cleanup). A `Tests` workflow runs them on push and pull request. Home Assistant cannot run on Windows — see `requirements-test.txt`.
+- New `cache.py` wrapping one Home Assistant `Store` per config entry. Nothing secret is written to it — it holds the two API payloads, their deadline and the inputs fingerprint, never the token.
+- Cached prices are ignored when every period in them has already ended. `next_update` normally falls well before a series runs out, but an offer that only refreshes monthly plus a multi-day outage can leave an unexpired payload with nothing left to report — which would have pinned the entities to `unknown` until the deadline.
+- `_parse_price_periods()` carries every `feed_in*` key from a price row through to the entities instead of allow-listing them, so a new country decoration surfaces without a client release.
+- The config flow remembers the feed-in answer and re-stamps it onto the inputs each qualification response replaces. Germany resolves the opt-in to an `eeg_rate_id` and drops the `feed_in` flag, which would otherwise leave `/planning/prices` without the opt-in it needs to return injection rates.
+- `SelectraData` gained `has_feed_in`, set when any period in the current payload carries a rate.
+- `next_update` is parsed once per update and used both to pace the polling and to set the cache deadline.
+
+---
+
 ## [1.1.5] - 2026-04-30
 
 ### Fixed

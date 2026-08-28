@@ -11,7 +11,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
+from .const import DOMAIN, extract_feed_in_fields
 from .coordinator import SelectraCoordinator, SelectraData
 
 
@@ -71,6 +71,7 @@ class SelectraPlannedRunSensor(
         if data.current_period:
             attrs["current_period_name"] = data.current_period.get("name")
             attrs["current_price"] = data.current_period.get("price")
+            attrs.update(extract_feed_in_fields(data.current_period))
 
         if data.currency:
             attrs["currency"] = data.currency
@@ -81,6 +82,8 @@ class SelectraPlannedRunSensor(
         # Build prices list for attribute
         prices_attr = []
         for p in data.prices:
+            # Feed-in keys are only present when the contract qualified with
+            # an injection tariff, so charts can plot both series at once.
             prices_attr.append(
                 {
                     "name": p.get("name", ""),
@@ -92,6 +95,7 @@ class SelectraPlannedRunSensor(
                     if hasattr(p["end"], "isoformat")
                     else p["end"],
                     "is_active": p.get("is_active", False),
+                    **extract_feed_in_fields(p),
                 }
             )
         attrs["prices"] = prices_attr

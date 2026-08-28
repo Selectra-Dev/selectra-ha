@@ -38,6 +38,7 @@ from .const import (
     CONF_STRATEGY_VALUE,
     CONF_TOKEN,
     DOMAIN,
+    FEED_IN_FIELD,
     MODE_CLASSIC,
     MODE_DYNAMIC,
     MODE_FLAT,
@@ -50,6 +51,10 @@ _LOGGER = logging.getLogger(__name__)
 
 MAX_OFF_PEAK_SLOTS = 3
 CUSTOM_OFF_PEAK_FIELD = "custom_off_peak_hours"
+
+# Two-option questions worth showing as a radio list rather than a dropdown,
+# so both answers are visible at a glance.
+LIST_RENDERED_FIELDS = (CUSTOM_OFF_PEAK_FIELD, FEED_IN_FIELD)
 
 
 def _get_ha_language(hass: HomeAssistant) -> str:
@@ -96,6 +101,24 @@ def _clean_question_label(question: dict[str, Any]) -> str | None:
     return cleaned_label
 
 
+def _clean_question_hint(question: dict[str, Any]) -> str | None:
+    """Normalize the optional explanatory hint attached to a question.
+
+    Feed-in questions lean on hints to explain what is being asked (which
+    year counts as commissioning, what the compensation basis means...), so
+    the text is shown under the label in the step description.
+    """
+    raw_hint = question.get("hint")
+    if not raw_hint:
+        return None
+
+    return (
+        raw_hint.replace("<br>", "\n")
+        .replace("<br/>", "\n")
+        .replace("<br />", "\n")
+    )
+
+
 def _make_unique_schema_key(base_key: str, used_keys: set[str]) -> str:
     """Ensure a schema key is unique within the current HA form."""
     schema_key = base_key
@@ -129,7 +152,8 @@ def _build_schema_from_questions(
 
         # Collect the API label for display in the step description
         if cleaned_label:
-            labels.append(cleaned_label)
+            hint = _clean_question_hint(question)
+            labels.append(f"{cleaned_label}\n{hint}" if hint else cleaned_label)
 
         # Dynamic text field names such as "prices:5" have no translation
         # key in HA, so use the API label directly as the raw field label.
@@ -163,9 +187,7 @@ def _build_schema_from_questions(
                             SelectOptionDict(value=str(opt), label=str(opt))
                         )
 
-            # Custom off-peak hours: render as radio list so both
-            # options ("no" / "yes") are visible at a glance
-            if field == CUSTOM_OFF_PEAK_FIELD:
+            if field in LIST_RENDERED_FIELDS:
                 schema[vol.Required(schema_key)] = SelectSelector(
                     SelectSelectorConfig(
                         options=select_options,
@@ -227,6 +249,7 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         self._strategy: str = ""
         self._pending_qualification_input: dict[str, Any] = {}
         self._field_key_mapping: dict[str, str] = {}
+        self._feed_in_answer: str | None = None
         self._is_reconfigure: bool = False
 
     def _get_client(self) -> SelectraApiClient:
@@ -286,6 +309,9 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                     for key, value in user_input.items()
                 }
 
+            if FEED_IN_FIELD in user_input:
+                self._feed_in_answer = user_input[FEED_IN_FIELD]
+
             previous_inputs = dict(self._qualification_inputs)
 
             # Handle off-peak hours customization choice
@@ -311,12 +337,12 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                     _LOGGER.warning("Qualification API message: %s", result["message"])
                     errors["base"] = "qualification_error"
                 elif result.get("done"):
-                    self._qualification_inputs = result.get(
-                        "inputs", self._qualification_inputs
+                    self._apply_inputs(
+                        result.get("inputs", self._qualification_inputs)
                     )
                     return await self._async_step_detect_mode()
                 else:
-                    self._qualification_inputs = result.get("inputs", {})
+                    self._apply_inputs(result.get("inputs", {}))
                     self._questions = result.get("questions", [])
 
             except SelectraRateLimitError:
@@ -340,6 +366,21 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
             errors=errors,
             description_placeholders=placeholders,
         )
+
+    def _apply_inputs(self, new_inputs: dict[str, Any]) -> None:
+        """Adopt the inputs returned by the API, keeping the feed-in answer.
+
+        Each qualification response replaces the inputs wholesale. Most
+        country sub-flows echo the feed-in opt-in back, but Germany resolves
+        it to an `eeg_rate_id` and drops the flag, so re-stamp the answer:
+        /planning/prices only decorates the series with injection rates when
+        it sees the opt-in.
+        """
+        self._qualification_inputs = new_inputs
+        if self._feed_in_answer is not None:
+            self._qualification_inputs.setdefault(
+                FEED_IN_FIELD, self._feed_in_answer
+            )
 
     async def async_step_custom_off_peak(
         self, user_input: dict[str, Any] | None = None
