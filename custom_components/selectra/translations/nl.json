@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Offertekwalificatie",
-        "description": "Voer de gegevens van uw elektriciteitscontract in.",
+        "description": "Voer de gegevens van uw elektriciteitscontract in.\n\n{question_labels}",
         "data": {
           "country_code": "Land",
           "postcode": "Postcode",
@@ -49,7 +49,9 @@
       "cannot_connect": "Kan geen verbinding maken met de Selectra API. Probeer het later opnieuw.",
       "invalid_percent": "Voer een waarde in tussen 1 en 100.",
       "invalid_hours": "Voer een waarde in tussen 1 en 24.",
-      "qualification_error": "De geselecteerde optie is niet beschikbaar. Probeer een andere keuze."
+      "qualification_error": "De geselecteerde optie is niet beschikbaar. Probeer een andere keuze.",
+      "question_error": "{question_error}",
+      "invalid_answer": "Dit antwoord is niet geaccepteerd. Controleer het en probeer het opnieuw."
     },
     "abort": {
       "api_error": "Er is een fout opgetreden bij de communicatie met de Selectra API.",

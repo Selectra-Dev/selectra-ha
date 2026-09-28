@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "套餐资格确认",
-        "description": "请输入您的电力合同信息。",
+        "description": "请输入您的电力合同信息。\n\n{question_labels}",
         "data": {
           "country_code": "国家",
           "postcode": "邮政编码",
@@ -49,7 +49,9 @@
       "cannot_connect": "无法连接到 Selectra API。请稍后重试。",
       "invalid_percent": "请输入 1 到 100 之间的值。",
       "invalid_hours": "请输入 1 到 24 之间的值。",
-      "qualification_error": "所选选项不可用。请尝试其他选择。"
+      "qualification_error": "所选选项不可用。请尝试其他选择。",
+      "question_error": "{question_error}",
+      "invalid_answer": "此回答未被接受。请检查后重试。"
     },
     "abort": {
       "api_error": "与 Selectra API 通信时发生错误。",

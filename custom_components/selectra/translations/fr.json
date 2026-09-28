@@ -49,21 +49,21 @@
         }
       },
       "select_periods": {
-        "title": "S\u00e9lection des p\u00e9riodes actives",
-        "description": "Cochez les p\u00e9riodes pendant lesquelles vos appareils doivent fonctionner. Le capteur 'Marche planifi\u00e9e' sera actif pendant ces p\u00e9riodes.",
+        "title": "Sélection des périodes actives",
+        "description": "Cochez les périodes pendant lesquelles vos appareils doivent fonctionner. Le capteur 'Marche planifiée' sera actif pendant ces périodes.",
         "data": {
-          "selected_periods": "P\u00e9riodes actives"
+          "selected_periods": "Périodes actives"
         }
       },
       "strategy": {
-        "title": "Strat\u00e9gie d'optimisation",
-        "description": "Choisissez comment d\u00e9terminer le meilleur moment pour faire fonctionner vos appareils.",
+        "title": "Stratégie d'optimisation",
+        "description": "Choisissez comment déterminer le meilleur moment pour faire fonctionner vos appareils.",
         "data": {
-          "strategy": "Strat\u00e9gie"
+          "strategy": "Stratégie"
         }
       },
       "strategy_value": {
-        "title": "Configuration de la strat\u00e9gie",
+        "title": "Configuration de la stratégie",
         "description": "{value_description}",
         "data": {
           "strategy_value": "Valeur"
@@ -72,32 +72,34 @@
     },
     "error": {
       "invalid_auth": "Clé API invalide ou manquante. Inscrivez-vous sur {register_url} pour obtenir votre clé gratuite ou contactez {support_email} pour de l'aide.",
-      "cannot_connect": "Impossible de se connecter \u00e0 l'API Selectra. Veuillez r\u00e9essayer plus tard.",
+      "cannot_connect": "Impossible de se connecter à l'API Selectra. Veuillez réessayer plus tard.",
       "invalid_percent": "Veuillez entrer une valeur entre 1 et 100.",
       "invalid_hours": "Veuillez entrer une valeur entre 1 et 24.",
       "qualification_error": "L'option sélectionnée n'est pas disponible. Veuillez essayer une autre sélection.",
       "incomplete_off_peak_range": "Les heures de début et de fin doivent être renseignées pour chaque plage.",
-      "rate_limited": "Trop de requêtes vers l'API Selectra. Veuillez patienter quelques minutes et réessayer."
+      "rate_limited": "Trop de requêtes vers l'API Selectra. Veuillez patienter quelques minutes et réessayer.",
+      "question_error": "{question_error}",
+      "invalid_answer": "Cette réponse n'a pas été acceptée. Vérifiez-la et réessayez."
     },
     "abort": {
       "api_error": "Une erreur est survenue lors de la communication avec l'API Selectra.",
-      "no_questions": "Aucune question de qualification re\u00e7ue de l'API.",
-      "rate_limited": "Trop de requ\u00eates vers l'API Selectra. Veuillez patienter et r\u00e9essayer plus tard.",
-      "reconfigure_successful": "Configuration mise \u00e0 jour avec succ\u00e8s."
+      "no_questions": "Aucune question de qualification reçue de l'API.",
+      "rate_limited": "Trop de requêtes vers l'API Selectra. Veuillez patienter et réessayer plus tard.",
+      "reconfigure_successful": "Configuration mise à jour avec succès."
     }
   },
   "selector": {
     "strategy": {
       "options": {
-        "cheapest_percent": "X% les moins chers de la journ\u00e9e",
-        "cheapest_consecutive": "X heures cons\u00e9cutives les moins ch\u00e8res"
+        "cheapest_percent": "X% les moins chers de la journée",
+        "cheapest_consecutive": "X heures consécutives les moins chères"
       }
     }
   },
   "entity": {
     "binary_sensor": {
       "planned_run": {
-        "name": "Marche planifi\u00e9e"
+        "name": "Marche planifiée"
       }
     },
     "sensor": {

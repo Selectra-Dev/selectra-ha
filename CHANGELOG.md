@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.1] - 2026-09-28
+
+### Fixed
+
+- **The setup dialog showed the questions only in English and French.** The other 25 languages dropped the `{question_labels}` slot from the qualification step, so a Home Assistant set to Japanese, German, Spanish... displayed bare fields with nothing saying what they asked for. Every translation now carries it.
+- **Fields the integration has no label for showed their raw name.** The API asks for more than `strings.json` labels — `tier_id` in almost every country, `distributor_id`, `metering_system`, `city_id`... — and Home Assistant printed those keys as they are. Such fields are now labelled with the question text the API sends, already in the Home Assistant language.
+- **A rejected answer redrew the same form without a word.** When the API re-asks a question (a Japanese postcode with no distributor, for one), the reason it attaches is now shown as the form error; when it re-asks with no reason, the form says the answer was not accepted.
+- Japanese gained the strings it was missing: rate-limit errors, custom off-peak hours, the feed-in questions and the `Feed-in Price` sensor name.
+
+### Internal
+
+- The price fixtures are built around the current time. Their dates were fixed to 2026-08-28, so the entity tests failed on every later day: the period had ended and the current price was `unknown`.
+
+---
+
 ## [1.2.0] - 2026-08-28
 
 ### Added

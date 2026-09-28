@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "プラン資格確認",
-        "description": "電力契約の情報を入力してください。",
+        "description": "電力契約の情報を入力してください。\n\n{question_labels}",
         "data": {
           "country_code": "国",
           "postcode": "郵便番号",
@@ -19,7 +19,21 @@
           "option_id": "料金オプション",
           "province_id": "都道府県 / 地域",
           "off_peak_hours_id": "オフピーク時間帯",
-          "power_id": "契約電力"
+          "power_id": "契約電力",
+          "custom_off_peak_hours": "オフピーク時間帯のカスタム設定",
+          "zipcode": "郵便番号",
+          "feed_in": "太陽光発電の売電単価",
+          "feed_in_year": "運転開始年",
+          "feed_in_month": "運転開始月",
+          "feed_in_kwp": "ピーク出力（kWp）",
+          "feed_in_plant_type": "設備の種類",
+          "feed_in_value_type": "買取方式",
+          "feed_in_mode": "売電方式",
+          "feed_in_basis": "買取の基準",
+          "feed_in_production": "年間発電量（kWh）",
+          "feed_in_price": "売電単価",
+          "feed_in_tariff_id": "売電プラン",
+          "feed_in_grid_id": "売電単価の適用期間"
         }
       },
       "select_periods": {
@@ -42,6 +56,18 @@
         "data": {
           "strategy_value": "値"
         }
+      },
+      "custom_off_peak": {
+        "title": "オフピーク時間帯のカスタム設定",
+        "description": "オフピーク時間帯を入力してください。時間帯1は必須、時間帯2と3は任意です。",
+        "data": {
+          "off_peak_start_1": "時間帯1 — 開始",
+          "off_peak_end_1": "時間帯1 — 終了",
+          "off_peak_start_2": "時間帯2 — 開始（任意）",
+          "off_peak_end_2": "時間帯2 — 終了（任意）",
+          "off_peak_start_3": "時間帯3 — 開始（任意）",
+          "off_peak_end_3": "時間帯3 — 終了（任意）"
+        }
       }
     },
     "error": {
@@ -49,12 +75,17 @@
       "cannot_connect": "Selectra APIに接続できません。後でもう一度お試しください。",
       "invalid_percent": "1から100の間の値を入力してください。",
       "invalid_hours": "1から24の間の値を入力してください。",
-      "qualification_error": "選択されたオプションは利用できません。別の選択をお試しください。"
+      "qualification_error": "選択されたオプションは利用できません。別の選択をお試しください。",
+      "question_error": "{question_error}",
+      "invalid_answer": "この回答は受け付けられませんでした。内容を確認して、もう一度お試しください。",
+      "rate_limited": "Selectra APIへのリクエストが多すぎます。数分待ってから、もう一度お試しください。",
+      "incomplete_off_peak_range": "各オフピーク時間帯には、開始時刻と終了時刻の両方を入力してください。"
     },
     "abort": {
       "api_error": "Selectra APIとの通信中にエラーが発生しました。",
       "no_questions": "APIから資格確認の質問が受信されませんでした。",
-      "reconfigure_successful": "設定が正常に更新されました。"
+      "reconfigure_successful": "設定が正常に更新されました。",
+      "rate_limited": "Selectra APIへのリクエストが多すぎます。しばらく待ってから、もう一度お試しください。"
     }
   },
   "selector": {
@@ -83,6 +114,9 @@
       },
       "option": {
         "name": "オプション"
+      },
+      "feed_in_price": {
+        "name": "売電単価"
       }
     }
   }

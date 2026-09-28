@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Kualifikimi i ofertës",
-        "description": "Vendosni detajet e kontratës suaj të energjisë elektrike.",
+        "description": "Vendosni detajet e kontratës suaj të energjisë elektrike.\n\n{question_labels}",
         "data": {
           "country_code": "Shteti",
           "postcode": "Kodi postar",
@@ -49,7 +49,9 @@
       "cannot_connect": "Nuk mund të lidhet me API-në e Selectra. Provoni përsëri më vonë.",
       "invalid_percent": "Vendosni një vlerë midis 1 dhe 100.",
       "invalid_hours": "Vendosni një vlerë midis 1 dhe 24.",
-      "qualification_error": "Opsioni i zgjedhur nuk është i disponueshëm. Ju lutem provoni një zgjedhje tjetër."
+      "qualification_error": "Opsioni i zgjedhur nuk është i disponueshëm. Ju lutem provoni një zgjedhje tjetër.",
+      "question_error": "{question_error}",
+      "invalid_answer": "Kjo përgjigje nuk u pranua. Ju lutemi kontrollojeni dhe provoni përsëri."
     },
     "abort": {
       "api_error": "Ndodhi një gabim gjatë komunikimit me API-në e Selectra.",

@@ -77,7 +77,9 @@
       "invalid_hours": "Please enter a value between 1 and 24.",
       "qualification_error": "The selected option is not available. Please try a different selection.",
       "incomplete_off_peak_range": "Both start and end times must be provided for each off-peak range.",
-      "rate_limited": "Too many requests to the Selectra API. Please wait a few minutes and try again."
+      "rate_limited": "Too many requests to the Selectra API. Please wait a few minutes and try again.",
+      "question_error": "{question_error}",
+      "invalid_answer": "This answer was not accepted. Please check it and try again."
     },
     "abort": {
       "api_error": "An error occurred while communicating with the Selectra API.",
