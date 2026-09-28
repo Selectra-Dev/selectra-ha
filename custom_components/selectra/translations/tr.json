@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Teklif Yeterliliği",
-        "description": "Elektrik sözleşmenizin bilgilerini girin.",
+        "description": "Elektrik sözleşmenizin bilgilerini girin.\n\n{question_labels}",
         "data": {
           "country_code": "Ülke",
           "postcode": "Posta kodu",
@@ -49,7 +49,9 @@
       "cannot_connect": "Selectra API'sine bağlanılamıyor. Lütfen daha sonra tekrar deneyin.",
       "invalid_percent": "Lütfen 1 ile 100 arasında bir değer girin.",
       "invalid_hours": "Lütfen 1 ile 24 arasında bir değer girin.",
-      "qualification_error": "Seçilen seçenek mevcut değil. Lütfen farklı bir seçim deneyin."
+      "qualification_error": "Seçilen seçenek mevcut değil. Lütfen farklı bir seçim deneyin.",
+      "question_error": "{question_error}",
+      "invalid_answer": "Bu yanıt kabul edilmedi. Lütfen kontrol edip tekrar deneyin."
     },
     "abort": {
       "api_error": "Selectra API ile iletişim sırasında bir hata oluştu.",

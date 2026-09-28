@@ -56,6 +56,37 @@ CUSTOM_OFF_PEAK_FIELD = "custom_off_peak_hours"
 # so both answers are visible at a glance.
 LIST_RENDERED_FIELDS = (CUSTOM_OFF_PEAK_FIELD, FEED_IN_FIELD)
 
+# Fields with a label in strings.json. Any other field the API asks for
+# (tier_id, distributor_id, metering_system...) has no translation key, and
+# Home Assistant would print its raw name, so it is keyed on the API label
+# instead — which the API already localizes to the HA language.
+TRANSLATED_FIELDS = frozenset(
+    {
+        "country_code",
+        "postcode",
+        "zipcode",
+        "provider_id",
+        "offer_id",
+        "option_id",
+        "province_id",
+        "off_peak_hours_id",
+        "power_id",
+        CUSTOM_OFF_PEAK_FIELD,
+        FEED_IN_FIELD,
+        "feed_in_year",
+        "feed_in_month",
+        "feed_in_kwp",
+        "feed_in_plant_type",
+        "feed_in_value_type",
+        "feed_in_mode",
+        "feed_in_basis",
+        "feed_in_production",
+        "feed_in_price",
+        "feed_in_tariff_id",
+        "feed_in_grid_id",
+    }
+)
+
 
 def _get_ha_language(hass: HomeAssistant) -> str:
     """Get the 2-letter language code from HA config."""
@@ -155,9 +186,9 @@ def _build_schema_from_questions(
             hint = _clean_question_hint(question)
             labels.append(f"{cleaned_label}\n{hint}" if hint else cleaned_label)
 
-        # Dynamic text field names such as "prices:5" have no translation
-        # key in HA, so use the API label directly as the raw field label.
-        if q_type not in ("select", "checkbox") and ":" in field and cleaned_label:
+        # Fields without a translation key (including dynamic ones such as
+        # "prices:5") use the API label directly as the raw field label.
+        if field not in TRANSLATED_FIELDS and cleaned_label:
             schema_key = cleaned_label
 
         schema_key = _make_unique_schema_key(schema_key, used_schema_keys)
@@ -207,6 +238,19 @@ def _build_schema_from_questions(
 
     placeholders = {"question_labels": "\n".join(labels)}
     return vol.Schema(schema), placeholders, field_key_mapping
+
+
+def _question_error(questions: list[dict[str, Any]]) -> str | None:
+    """Return the first error the API attached to a question, if any.
+
+    The API re-asks a question it rejected (a postcode with no distributor,
+    for one) and explains why in the question's `error`.
+    """
+    for question in questions:
+        error = question.get("error")
+        if error:
+            return str(error)
+    return None
 
 
 def _cast_select_values(
@@ -342,8 +386,18 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
                     )
                     return await self._async_step_detect_mode()
                 else:
+                    answered = set(user_input)
                     self._apply_inputs(result.get("inputs", {}))
                     self._questions = result.get("questions", [])
+                    asked = {q.get("field") for q in self._questions}
+
+                    # The API re-asks what it rejected: say so, rather than
+                    # redrawing the same form as if nothing happened.
+                    question_error = _question_error(self._questions)
+                    if question_error:
+                        errors["base"] = "question_error"
+                    elif asked and asked <= answered:
+                        errors["base"] = "invalid_answer"
 
             except SelectraRateLimitError:
                 self._qualification_inputs = previous_inputs
@@ -359,6 +413,8 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
         schema, placeholders, self._field_key_mapping = _build_schema_from_questions(
             self._questions
         )
+        if errors.get("base") == "question_error":
+            placeholders["question_error"] = _question_error(self._questions) or ""
 
         return self.async_show_form(
             step_id="qualification",

@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "คุณสมบัติแผนราคา",
-        "description": "กรอกข้อมูลสัญญาไฟฟ้าของคุณ",
+        "description": "กรอกข้อมูลสัญญาไฟฟ้าของคุณ\n\n{question_labels}",
         "data": {
           "country_code": "ประเทศ",
           "postcode": "รหัสไปรษณีย์",
@@ -49,7 +49,9 @@
       "cannot_connect": "ไม่สามารถเชื่อมต่อกับ API ของ Selectra ได้ กรุณาลองใหม่ภายหลัง",
       "invalid_percent": "กรุณากรอกค่าระหว่าง 1 ถึง 100",
       "invalid_hours": "กรุณากรอกค่าระหว่าง 1 ถึง 24",
-      "qualification_error": "ตัวเลือกที่เลือกไม่พร้อมใช้งาน กรุณาลองเลือกตัวเลือกอื่น"
+      "qualification_error": "ตัวเลือกที่เลือกไม่พร้อมใช้งาน กรุณาลองเลือกตัวเลือกอื่น",
+      "question_error": "{question_error}",
+      "invalid_answer": "คำตอบนี้ไม่ได้รับการยอมรับ โปรดตรวจสอบและลองอีกครั้ง"
     },
     "abort": {
       "api_error": "เกิดข้อผิดพลาดขณะสื่อสารกับ API ของ Selectra",

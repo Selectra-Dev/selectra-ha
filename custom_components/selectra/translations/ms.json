@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Kelayakan Tawaran",
-        "description": "Masukkan butiran kontrak elektrik anda.",
+        "description": "Masukkan butiran kontrak elektrik anda.\n\n{question_labels}",
         "data": {
           "country_code": "Negara",
           "postcode": "Poskod",
@@ -49,7 +49,9 @@
       "cannot_connect": "Tidak dapat menyambung ke API Selectra. Sila cuba lagi kemudian.",
       "invalid_percent": "Sila masukkan nilai antara 1 dan 100.",
       "invalid_hours": "Sila masukkan nilai antara 1 dan 24.",
-      "qualification_error": "Pilihan yang dipilih tidak tersedia. Sila cuba pilihan lain."
+      "qualification_error": "Pilihan yang dipilih tidak tersedia. Sila cuba pilihan lain.",
+      "question_error": "{question_error}",
+      "invalid_answer": "Jawapan ini tidak diterima. Sila semak dan cuba lagi."
     },
     "abort": {
       "api_error": "Ralat berlaku semasa berkomunikasi dengan API Selectra.",

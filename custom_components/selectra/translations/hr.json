@@ -10,7 +10,7 @@
       },
       "qualification": {
         "title": "Kvalifikacija ponude",
-        "description": "Unesite podatke o svom ugovoru za električnu energiju.",
+        "description": "Unesite podatke o svom ugovoru za električnu energiju.\n\n{question_labels}",
         "data": {
           "country_code": "Država",
           "postcode": "Poštanski broj",
@@ -49,7 +49,9 @@
       "cannot_connect": "Nije moguće povezati se sa Selectra API-jem. Pokušajte ponovno kasnije.",
       "invalid_percent": "Unesite vrijednost između 1 i 100.",
       "invalid_hours": "Unesite vrijednost između 1 i 24.",
-      "qualification_error": "Odabrana opcija nije dostupna. Molimo pokušajte s drugim odabirom."
+      "qualification_error": "Odabrana opcija nije dostupna. Molimo pokušajte s drugim odabirom.",
+      "question_error": "{question_error}",
+      "invalid_answer": "Ovaj odgovor nije prihvaćen. Provjerite ga i pokušajte ponovno."
     },
     "abort": {
       "api_error": "Došlo je do pogreške pri komunikaciji sa Selectra API-jem.",
