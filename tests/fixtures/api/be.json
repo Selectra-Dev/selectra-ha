@@ -1,0 +1,761 @@
+{
+  "scenario": "be",
+  "recorded_from": "http://energy-core.test/api",
+  "recorded_at": "2026-09-29T13:42:36Z",
+  "lang": "fr",
+  "time_zone": "Europe/Brussels",
+  "expect": {
+    "category": "flat_rate"
+  },
+  "qualification": [
+    {
+      "request": {
+        "lang": "fr"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "country_code",
+            "options": {
+              "af": "Afghanistan",
+              "al": "Albania",
+              "dz": "Algeria",
+              "ad": "Andorra",
+              "ao": "Angola",
+              "ai": "Anguilla",
+              "ag": "Antigua and Barbuda",
+              "ar": "Argentina",
+              "am": "Armenia",
+              "aw": "Aruba",
+              "au": "Australia",
+              "at": "Austria",
+              "az": "Azerbaijan",
+              "bs": "Bahamas",
+              "bh": "Bahrain",
+              "bd": "Bangladesh",
+              "bb": "Barbados",
+              "by": "Belarus",
+              "be": "Belgium",
+              "bz": "Belize",
+              "bj": "Benin",
+              "bm": "Bermuda",
+              "bt": "Bhutan",
+              "bo": "Bolivia",
+              "ba": "Bosnia and Herzegovina",
+              "bw": "Botswana",
+              "br": "Brazil",
+              "vg": "British Virgin Islands",
+              "bn": "Brunei",
+              "bg": "Bulgaria",
+              "bf": "Burkina Faso",
+              "bi": "Burundi",
+              "kh": "Cambodia",
+              "cm": "Cameroon",
+              "ca": "Canada",
+              "cv": "Cape Verde",
+              "bq": "Caribbean Netherlands",
+              "ky": "Cayman Islands",
+              "cf": "Central African Republic",
+              "td": "Chad",
+              "cl": "Chile",
+              "cn": "China",
+              "co": "Colombia",
+              "km": "Comoros",
+              "cg": "Congo",
+              "ck": "Cook Islands",
+              "cr": "Costa Rica",
+              "hr": "Croatia",
+              "cu": "Cuba",
+              "cw": "Curaçao",
+              "cy": "Cyprus",
+              "cz": "Czech Republic",
+              "cd": "Democratic Republic of the Congo",
+              "dk": "Denmark",
+              "dj": "Djibouti",
+              "dm": "Dominica",
+              "do": "Dominican Republic",
+              "ec": "Ecuador",
+              "eg": "Egypt",
+              "sv": "El Salvador",
+              "gq": "Equatorial Guinea",
+              "ee": "Estonia",
+              "sz": "Eswatini",
+              "et": "Ethiopia",
+              "fj": "Fiji",
+              "fi": "Finland",
+              "fr": "France",
+              "pf": "French Polynesia",
+              "ga": "Gabon",
+              "gm": "Gambia",
+              "ge": "Georgia",
+              "de": "Germany",
+              "gh": "Ghana",
+              "gi": "Gibraltar",
+              "gr": "Greece",
+              "gl": "Greenland",
+              "gd": "Grenada",
+              "gt": "Guatemala",
+              "gn": "Guinea",
+              "gw": "Guinea-Bissau",
+              "gy": "Guyana",
+              "ht": "Haiti",
+              "hn": "Honduras",
+              "hk": "Hong Kong",
+              "hu": "Hungary",
+              "is": "Iceland",
+              "in": "India",
+              "id": "Indonesia",
+              "ir": "Iran",
+              "iq": "Iraq",
+              "ie": "Ireland",
+              "il": "Israel",
+              "it": "Italy",
+              "ci": "Ivory Coast",
+              "jm": "Jamaica",
+              "jp": "Japan",
+              "jo": "Jordan",
+              "kz": "Kazakhstan",
+              "ke": "Kenya",
+              "ki": "Kiribati",
+              "xk": "Kosovo",
+              "kw": "Kuwait",
+              "kg": "Kyrgyzstan",
+              "la": "Laos",
+              "lv": "Latvia",
+              "lb": "Lebanon",
+              "ls": "Lesotho",
+              "lr": "Liberia",
+              "ly": "Libya",
+              "li": "Liechtenstein",
+              "lt": "Lithuania",
+              "lu": "Luxembourg",
+              "mo": "Macau",
+              "mg": "Madagascar",
+              "mw": "Malawi",
+              "my": "Malaysia",
+              "mv": "Maldives",
+              "ml": "Mali",
+              "mt": "Malta",
+              "mh": "Marshall Islands",
+              "mr": "Mauritania",
+              "mu": "Mauritius",
+              "mx": "Mexico",
+              "fm": "Micronesia",
+              "md": "Moldova",
+              "mc": "Monaco",
+              "mn": "Mongolia",
+              "me": "Montenegro",
+              "ms": "Montserrat",
+              "ma": "Morocco",
+              "mz": "Mozambique",
+              "mm": "Myanmar",
+              "na": "Namibia",
+              "nr": "Nauru",
+              "np": "Nepal",
+              "nl": "Netherlands",
+              "nc": "New Caledonia",
+              "nz": "New Zealand",
+              "ni": "Nicaragua",
+              "ne": "Niger",
+              "ng": "Nigeria",
+              "nu": "Niue",
+              "mk": "North Macedonia",
+              "no": "Norway",
+              "om": "Oman",
+              "pk": "Pakistan",
+              "pw": "Palau",
+              "ps": "Palestine",
+              "pa": "Panama",
+              "pg": "Papua New Guinea",
+              "py": "Paraguay",
+              "pe": "Peru",
+              "ph": "Philippines",
+              "pl": "Poland",
+              "pt": "Portugal",
+              "qa": "Qatar",
+              "ro": "Romania",
+              "rw": "Rwanda",
+              "kn": "Saint Kitts and Nevis",
+              "lc": "Saint Lucia",
+              "vc": "Saint Vincent and the Grenadines",
+              "ws": "Samoa",
+              "sm": "San Marino",
+              "st": "Sao Tome and Principe",
+              "sa": "Saudi Arabia",
+              "sn": "Senegal",
+              "rs": "Serbia",
+              "sc": "Seychelles",
+              "sl": "Sierra Leone",
+              "sg": "Singapore",
+              "sx": "Sint Maarten",
+              "sk": "Slovakia",
+              "si": "Slovenia",
+              "sb": "Solomon Islands",
+              "za": "South Africa",
+              "kr": "South Korea",
+              "ss": "South Sudan",
+              "es": "Spain",
+              "lk": "Sri Lanka",
+              "sd": "Sudan",
+              "sr": "Suriname",
+              "se": "Sweden",
+              "ch": "Switzerland",
+              "sy": "Syria",
+              "tw": "Taiwan",
+              "tj": "Tajikistan",
+              "tz": "Tanzania",
+              "th": "Thailand",
+              "tl": "Timor-Leste",
+              "tg": "Togo",
+              "to": "Tonga",
+              "tt": "Trinidad and Tobago",
+              "tn": "Tunisia",
+              "tr": "Turkey",
+              "tm": "Turkmenistan",
+              "tc": "Turks and Caicos Islands",
+              "tv": "Tuvalu",
+              "ug": "Uganda",
+              "ua": "Ukraine",
+              "ae": "United Arab Emirates",
+              "uk": "United Kingdom",
+              "us": "United States",
+              "uy": "Uruguay",
+              "uz": "Uzbekistan",
+              "vu": "Vanuatu",
+              "vn": "Vietnam",
+              "ye": "Yemen",
+              "zm": "Zambia",
+              "zw": "Zimbabwe"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": null
+        }
+      },
+      "answers": {
+        "country_code": "be"
+      }
+    },
+    {
+      "request": {
+        "country_code": "be",
+        "lang": "fr"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "input",
+            "field": "postcode",
+            "label": "Votre code postal",
+            "placeholder": "e.g. 1000"
+          }
+        ],
+        "inputs": {
+          "country_code": "be",
+          "postcode": null
+        }
+      },
+      "answers": {
+        "postcode": "1000"
+      }
+    },
+    {
+      "request": {
+        "country_code": "be",
+        "postcode": "1000",
+        "lang": "fr"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "provider_id",
+            "label": "Votre fournisseur",
+            "options": {
+              "7577": "Bolt Energie",
+              "7590": "Luminus",
+              "7588": "ENGIE Electrabel",
+              "7597": "TotalEnergies",
+              "7591": "Mega",
+              "7578": "Brusol",
+              "7595": "Tarif Social",
+              "7592": "OCTA+"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "be",
+          "postcode": "1000",
+          "city_id": 451461,
+          "region_id": 220,
+          "lang": "fr",
+          "distributor_id": 2535,
+          "provider_id": null
+        }
+      },
+      "answers": {
+        "provider_id": "7577"
+      }
+    },
+    {
+      "request": {
+        "country_code": "be",
+        "postcode": "1000",
+        "city_id": 451461,
+        "region_id": 220,
+        "lang": "fr",
+        "distributor_id": 2535,
+        "provider_id": 7577
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "offer_id",
+            "label": "Votre offre",
+            "options": {
+              "87059": "Bolt Variable Bruxelles Résidentiel",
+              "109678": "Bolt Plenty Variable Bruxelles Résidentiel",
+              "271485": "Bolt Plenty Variabel Online Dynamisch Résidentiel",
+              "271486": "Bolt Plenty Variable Dynamique Résidentiel",
+              "271982": "Bolt Variabel Dynamique Résidentiel"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "be",
+          "postcode": "1000",
+          "city_id": 451461,
+          "region_id": 220,
+          "lang": "fr",
+          "distributor_id": 2535,
+          "provider_id": 7577,
+          "offer_id": null
+        }
+      },
+      "answers": {
+        "offer_id": "87059"
+      }
+    },
+    {
+      "request": {
+        "country_code": "be",
+        "postcode": "1000",
+        "city_id": 451461,
+        "region_id": 220,
+        "lang": "fr",
+        "distributor_id": 2535,
+        "provider_id": 7577,
+        "offer_id": 87059
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "option_id",
+            "label": "Votre option tarifaire",
+            "options": {
+              "131": "Simple",
+              "132": "Double",
+              "133": "Exclusif Nuit"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "be",
+          "postcode": "1000",
+          "city_id": 451461,
+          "region_id": 220,
+          "lang": "fr",
+          "distributor_id": 2535,
+          "provider_id": 7577,
+          "offer_id": 87059,
+          "option_id": null
+        }
+      },
+      "answers": {
+        "option_id": "131"
+      }
+    },
+    {
+      "request": {
+        "country_code": "be",
+        "postcode": "1000",
+        "city_id": 451461,
+        "region_id": 220,
+        "lang": "fr",
+        "distributor_id": 2535,
+        "provider_id": 7577,
+        "offer_id": 87059,
+        "option_id": 131
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "distributor_option",
+            "label": "Votre option de tarif réseau",
+            "options": {
+              "simple": "Simple",
+              "double": "Double"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "be",
+          "postcode": "1000",
+          "city_id": 451461,
+          "region_id": 220,
+          "lang": "fr",
+          "distributor_id": 2535,
+          "provider_id": 7577,
+          "offer_id": 87059,
+          "option_id": 131,
+          "distributor_option": null
+        }
+      },
+      "answers": {
+        "distributor_option": "simple"
+      }
+    },
+    {
+      "request": {
+        "country_code": "be",
+        "postcode": "1000",
+        "city_id": 451461,
+        "region_id": 220,
+        "lang": "fr",
+        "distributor_id": 2535,
+        "provider_id": 7577,
+        "offer_id": 87059,
+        "option_id": 131,
+        "distributor_option": "simple"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "custom_prices",
+            "label": "kWh price : 18,3800 €/kWh",
+            "options": {
+              "no": "Oui, ces prix me vont",
+              "yes": "Non, je souhaite saisir mes prix"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "be",
+          "postcode": "1000",
+          "city_id": 451461,
+          "region_id": 220,
+          "lang": "fr",
+          "distributor_id": 2535,
+          "provider_id": 7577,
+          "offer_id": 87059,
+          "option_id": 131,
+          "distributor_option": "simple",
+          "metering_system": null,
+          "custom_prices": null
+        }
+      },
+      "answers": {
+        "custom_prices": "no"
+      }
+    },
+    {
+      "request": {
+        "country_code": "be",
+        "postcode": "1000",
+        "city_id": 451461,
+        "region_id": 220,
+        "lang": "fr",
+        "distributor_id": 2535,
+        "provider_id": 7577,
+        "offer_id": 87059,
+        "option_id": 131,
+        "distributor_option": "simple",
+        "metering_system": null,
+        "custom_prices": "no"
+      },
+      "response": {
+        "done": true,
+        "questions": [],
+        "inputs": {
+          "country_code": "be",
+          "postcode": "1000",
+          "city_id": 451461,
+          "region_id": 220,
+          "lang": "fr",
+          "distributor_id": 2535,
+          "provider_id": 7577,
+          "offer_id": 87059,
+          "option_id": 131,
+          "distributor_option": "simple",
+          "metering_system": null,
+          "custom_prices": "no"
+        }
+      }
+    }
+  ],
+  "details": {
+    "request": {
+      "country_code": "be",
+      "postcode": "1000",
+      "city_id": 451461,
+      "region_id": 220,
+      "lang": "fr",
+      "distributor_id": 2535,
+      "provider_id": 7577,
+      "offer_id": 87059,
+      "option_id": 131,
+      "distributor_option": "simple",
+      "metering_system": null,
+      "custom_prices": "no"
+    },
+    "response": {
+      "schema_version": "1.0",
+      "country_code": "be",
+      "category": "flat_rate",
+      "currency": "EUR",
+      "vat_mode": "incl",
+      "generated_at": "2026-09-29T15:42:35+02:00",
+      "next_update_at": null,
+      "offer": {
+        "name": {
+          "fr": "Bolt Variable Bruxelles",
+          "nl": "Bolt Variabel Brussel"
+        },
+        "type": "Variable",
+        "slug": null,
+        "provider": {
+          "name": "Bolt Energie",
+          "slug": "bolt",
+          "logo": "https://images.selectra.com/be-energy/logos/bolt-xs.png"
+        }
+      },
+      "option": {
+        "name": "Simple",
+        "slug": "simple",
+        "description": null,
+        "period_set_name": null
+      },
+      "tier": null,
+      "supply": {
+        "features": [
+          {
+            "key": "Subscription",
+            "name": "Subscription",
+            "type": "subscription",
+            "value": 107.88,
+            "unit": "€/year",
+            "period_names": [],
+            "display_order": 1,
+            "weight": 0
+          },
+          {
+            "key": "price per kwh",
+            "name": "kWh price",
+            "type": "consumption",
+            "value": 18.38,
+            "unit": "c€/kWh",
+            "period_names": [],
+            "display_order": 2,
+            "weight": 1
+          }
+        ]
+      },
+      "network": {
+        "name": "Sibelga",
+        "features": [
+          {
+            "key": "data-management-cost",
+            "name": "Data management cost",
+            "type": "subscription",
+            "value": 14.73,
+            "unit": "€/year",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "capacity-fee",
+            "name": "Capacity fee",
+            "type": "subscription",
+            "value": 0,
+            "unit": "€/kW/year",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "flat-fee",
+            "name": "Flat fee",
+            "type": "consumption",
+            "value": 9.96,
+            "unit": "c€/kWh",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          }
+        ]
+      },
+      "country_prices": {
+        "features": [
+          {
+            "key": "belgium-electricity-vat",
+            "name": "Belgium electricity vat",
+            "type": "consumption",
+            "value": 0.06,
+            "unit": "%",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "belgium-electricity-energy-contribution",
+            "name": "Belgium electricity energy contribution",
+            "type": "consumption",
+            "value": 0,
+            "unit": "c€/kWh",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "belgium-electricity-federal-contribution",
+            "name": "Belgium electricity federal contribution",
+            "type": "consumption",
+            "value": 4.6,
+            "unit": "c€/kWh",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "belgium-electricity-federal-contribution",
+            "name": "Belgium electricity federal contribution",
+            "type": "consumption",
+            "value": 4.6,
+            "unit": "c€/kWh",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "belgium-electricity-federal-contribution",
+            "name": "Belgium electricity federal contribution",
+            "type": "consumption",
+            "value": 4.6,
+            "unit": "c€/kWh",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "average-belpex",
+            "name": "Average BELPEX",
+            "type": "consumption",
+            "value": 133.9905,
+            "unit": "€/MWh",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "belgium-electricity-energy-fund-contribution",
+            "name": "Belgium electricity energy fund contribution",
+            "type": "consumption",
+            "value": 10.07,
+            "unit": "€/month",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "green-energy",
+            "name": "Green Energy",
+            "type": "consumption",
+            "value": 0.0269,
+            "unit": "€/kWh",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          }
+        ]
+      },
+      "region_prices": {
+        "features": [
+          {
+            "key": "belgium-region-bruxelles-capitale-electricity-transport",
+            "name": "Belgium Région Bruxelles-Capitale electricity transport",
+            "type": "consumption",
+            "value": 0.0227,
+            "unit": "€/kWh",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          },
+          {
+            "key": "belgium-region-bruxelles-capitale-electricity-osp",
+            "name": "Belgium Région Bruxelles-Capitale electricity osp",
+            "type": "consumption",
+            "value": 20.99,
+            "unit": "€/year",
+            "period_names": [],
+            "display_order": null,
+            "weight": null
+          }
+        ]
+      },
+      "province_prices": {
+        "features": []
+      },
+      "area_prices": {
+        "features": []
+      },
+      "city_prices": {
+        "features": []
+      },
+      "demand_response": null,
+      "meta": []
+    }
+  },
+  "prices": {
+    "request": {
+      "country_code": "be",
+      "postcode": "1000",
+      "city_id": 451461,
+      "region_id": 220,
+      "lang": "fr",
+      "distributor_id": 2535,
+      "provider_id": 7577,
+      "offer_id": 87059,
+      "option_id": 131,
+      "distributor_option": "simple",
+      "metering_system": null,
+      "custom_prices": "no"
+    },
+    "response": {
+      "prices": [
+        {
+          "start": "2026-09-29T00:00:00+02:00",
+          "end": "2026-12-28T00:00:00+01:00",
+          "name": "kWh price",
+          "price": 0.379
+        }
+      ],
+      "next_update": "2026-10-03T02:00:00+02:00",
+      "currency": "EUR",
+      "requalification_reason": null
+    }
+  }
+}

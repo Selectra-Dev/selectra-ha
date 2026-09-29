@@ -1,0 +1,625 @@
+{
+  "scenario": "de",
+  "recorded_from": "http://energy-core.test/api",
+  "recorded_at": "2026-09-29T13:42:17Z",
+  "lang": "de",
+  "time_zone": "Europe/Berlin",
+  "expect": {
+    "category": "flat_rate"
+  },
+  "qualification": [
+    {
+      "request": {
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "country_code",
+            "options": {
+              "af": "Afghanistan",
+              "al": "Albania",
+              "dz": "Algeria",
+              "ad": "Andorra",
+              "ao": "Angola",
+              "ai": "Anguilla",
+              "ag": "Antigua and Barbuda",
+              "ar": "Argentina",
+              "am": "Armenia",
+              "aw": "Aruba",
+              "au": "Australia",
+              "at": "Austria",
+              "az": "Azerbaijan",
+              "bs": "Bahamas",
+              "bh": "Bahrain",
+              "bd": "Bangladesh",
+              "bb": "Barbados",
+              "by": "Belarus",
+              "be": "Belgium",
+              "bz": "Belize",
+              "bj": "Benin",
+              "bm": "Bermuda",
+              "bt": "Bhutan",
+              "bo": "Bolivia",
+              "ba": "Bosnia and Herzegovina",
+              "bw": "Botswana",
+              "br": "Brazil",
+              "vg": "British Virgin Islands",
+              "bn": "Brunei",
+              "bg": "Bulgaria",
+              "bf": "Burkina Faso",
+              "bi": "Burundi",
+              "kh": "Cambodia",
+              "cm": "Cameroon",
+              "ca": "Canada",
+              "cv": "Cape Verde",
+              "bq": "Caribbean Netherlands",
+              "ky": "Cayman Islands",
+              "cf": "Central African Republic",
+              "td": "Chad",
+              "cl": "Chile",
+              "cn": "China",
+              "co": "Colombia",
+              "km": "Comoros",
+              "cg": "Congo",
+              "ck": "Cook Islands",
+              "cr": "Costa Rica",
+              "hr": "Croatia",
+              "cu": "Cuba",
+              "cw": "Curaçao",
+              "cy": "Cyprus",
+              "cz": "Czech Republic",
+              "cd": "Democratic Republic of the Congo",
+              "dk": "Denmark",
+              "dj": "Djibouti",
+              "dm": "Dominica",
+              "do": "Dominican Republic",
+              "ec": "Ecuador",
+              "eg": "Egypt",
+              "sv": "El Salvador",
+              "gq": "Equatorial Guinea",
+              "ee": "Estonia",
+              "sz": "Eswatini",
+              "et": "Ethiopia",
+              "fj": "Fiji",
+              "fi": "Finland",
+              "fr": "France",
+              "pf": "French Polynesia",
+              "ga": "Gabon",
+              "gm": "Gambia",
+              "ge": "Georgia",
+              "de": "Germany",
+              "gh": "Ghana",
+              "gi": "Gibraltar",
+              "gr": "Greece",
+              "gl": "Greenland",
+              "gd": "Grenada",
+              "gt": "Guatemala",
+              "gn": "Guinea",
+              "gw": "Guinea-Bissau",
+              "gy": "Guyana",
+              "ht": "Haiti",
+              "hn": "Honduras",
+              "hk": "Hong Kong",
+              "hu": "Hungary",
+              "is": "Iceland",
+              "in": "India",
+              "id": "Indonesia",
+              "ir": "Iran",
+              "iq": "Iraq",
+              "ie": "Ireland",
+              "il": "Israel",
+              "it": "Italy",
+              "ci": "Ivory Coast",
+              "jm": "Jamaica",
+              "jp": "Japan",
+              "jo": "Jordan",
+              "kz": "Kazakhstan",
+              "ke": "Kenya",
+              "ki": "Kiribati",
+              "xk": "Kosovo",
+              "kw": "Kuwait",
+              "kg": "Kyrgyzstan",
+              "la": "Laos",
+              "lv": "Latvia",
+              "lb": "Lebanon",
+              "ls": "Lesotho",
+              "lr": "Liberia",
+              "ly": "Libya",
+              "li": "Liechtenstein",
+              "lt": "Lithuania",
+              "lu": "Luxembourg",
+              "mo": "Macau",
+              "mg": "Madagascar",
+              "mw": "Malawi",
+              "my": "Malaysia",
+              "mv": "Maldives",
+              "ml": "Mali",
+              "mt": "Malta",
+              "mh": "Marshall Islands",
+              "mr": "Mauritania",
+              "mu": "Mauritius",
+              "mx": "Mexico",
+              "fm": "Micronesia",
+              "md": "Moldova",
+              "mc": "Monaco",
+              "mn": "Mongolia",
+              "me": "Montenegro",
+              "ms": "Montserrat",
+              "ma": "Morocco",
+              "mz": "Mozambique",
+              "mm": "Myanmar",
+              "na": "Namibia",
+              "nr": "Nauru",
+              "np": "Nepal",
+              "nl": "Netherlands",
+              "nc": "New Caledonia",
+              "nz": "New Zealand",
+              "ni": "Nicaragua",
+              "ne": "Niger",
+              "ng": "Nigeria",
+              "nu": "Niue",
+              "mk": "North Macedonia",
+              "no": "Norway",
+              "om": "Oman",
+              "pk": "Pakistan",
+              "pw": "Palau",
+              "ps": "Palestine",
+              "pa": "Panama",
+              "pg": "Papua New Guinea",
+              "py": "Paraguay",
+              "pe": "Peru",
+              "ph": "Philippines",
+              "pl": "Poland",
+              "pt": "Portugal",
+              "qa": "Qatar",
+              "ro": "Romania",
+              "rw": "Rwanda",
+              "kn": "Saint Kitts and Nevis",
+              "lc": "Saint Lucia",
+              "vc": "Saint Vincent and the Grenadines",
+              "ws": "Samoa",
+              "sm": "San Marino",
+              "st": "Sao Tome and Principe",
+              "sa": "Saudi Arabia",
+              "sn": "Senegal",
+              "rs": "Serbia",
+              "sc": "Seychelles",
+              "sl": "Sierra Leone",
+              "sg": "Singapore",
+              "sx": "Sint Maarten",
+              "sk": "Slovakia",
+              "si": "Slovenia",
+              "sb": "Solomon Islands",
+              "za": "South Africa",
+              "kr": "South Korea",
+              "ss": "South Sudan",
+              "es": "Spain",
+              "lk": "Sri Lanka",
+              "sd": "Sudan",
+              "sr": "Suriname",
+              "se": "Sweden",
+              "ch": "Switzerland",
+              "sy": "Syria",
+              "tw": "Taiwan",
+              "tj": "Tajikistan",
+              "tz": "Tanzania",
+              "th": "Thailand",
+              "tl": "Timor-Leste",
+              "tg": "Togo",
+              "to": "Tonga",
+              "tt": "Trinidad and Tobago",
+              "tn": "Tunisia",
+              "tr": "Turkey",
+              "tm": "Turkmenistan",
+              "tc": "Turks and Caicos Islands",
+              "tv": "Tuvalu",
+              "ug": "Uganda",
+              "ua": "Ukraine",
+              "ae": "United Arab Emirates",
+              "uk": "United Kingdom",
+              "us": "United States",
+              "uy": "Uruguay",
+              "uz": "Uzbekistan",
+              "vu": "Vanuatu",
+              "vn": "Vietnam",
+              "ye": "Yemen",
+              "zm": "Zambia",
+              "zw": "Zimbabwe"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": null
+        }
+      },
+      "answers": {
+        "country_code": "de"
+      }
+    },
+    {
+      "request": {
+        "country_code": "de",
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "input",
+            "field": "postcode",
+            "label": "Ihre Postleitzahl",
+            "placeholder": "e.g. 10115",
+            "validation": "regex:/^\\d{5}$/"
+          }
+        ],
+        "inputs": {
+          "country_code": "de",
+          "option_id": null,
+          "postcode": null
+        }
+      },
+      "answers": {
+        "postcode": "10115"
+      }
+    },
+    {
+      "request": {
+        "country_code": "de",
+        "option_id": null,
+        "postcode": "10115",
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "provider_id",
+            "label": "Ihr Stromanbieter",
+            "options": {
+              "10839": "Vattenfall Europe Sales",
+              "9573": "123energie",
+              "9617": "Aras Energy",
+              "9574": "badenova Energie",
+              "135675": "badenova Energie GmbH",
+              "9589": "Berg Energie",
+              "9588": "Berliner Stadtwerke EnergiePartner",
+              "10920": "Bewag",
+              "10915": "Bodensee Energie",
+              "9641": "Bürgerwerke",
+              "9594": "E WIE EINFACH",
+              "9615": "E.ON Energie Deutschland",
+              "9626": "eins energie in sachsen",
+              "9603": "Elektrizitätswerke Schönau Vertriebs",
+              "9585": "EMB Energie Brandenburg",
+              "9596": "Energie und Wasser Potsdam",
+              "9583": "eprimo",
+              "10665": "friesenenergie",
+              "9587": "GASAG",
+              "9609": "GGEW, Gruppen-Gas- und Elektrizitätswerk Bergstraße",
+              "9584": "goldstrom",
+              "9582": "Green Planet Energy",
+              "9570": "Grünwelt Wärmestrom",
+              "9599": "grüüün",
+              "9598": "Gut & Grün",
+              "9623": "HALBERSTADTWERKE",
+              "9637": "Havelstrom Zehdenick",
+              "10957": "HEW",
+              "9612": "immergrün",
+              "9601": "KlickEnergie",
+              "9590": "Knauber Erdgas",
+              "9631": "Lechwerke",
+              "9566": "LogoEnergie",
+              "9610": "Mainova",
+              "9568": "MONTANA Energieversorgung",
+              "9597": "NaturStromHandel",
+              "9606": "Octopus Energy Germany",
+              "9619": "PLAN-B NET ZERO ENERGY",
+              "9579": "Polarstern",
+              "147025": "primavolt",
+              "9640": "proefa",
+              "9577": "R(H)EINPOWER",
+              "9581": "RABOT Energy DE",
+              "9593": "schwarzwald energy",
+              "9576": "SE SAUBER ENERGIE",
+              "9633": "sonnen eServices",
+              "9638": "Stadt- und Überlandwerke GmbH Luckau-Lübbenau",
+              "9627": "STADTWERK AM SEE",
+              "9624": "Stadtwerke Bad Langensalza",
+              "10858": "Stadtwerke Bochum",
+              "9607": "Stadtwerke Düsseldorf",
+              "9616": "Stadtwerke Eisenhüttenstadt",
+              "9643": "Stadtwerke Energie Jena-Pößneck",
+              "9571": "Stadtwerke Flensburg",
+              "9591": "Stadtwerke Forst",
+              "9613": "Stadtwerke Haltern am See",
+              "9575": "Stadtwerke Lutherstadt Wittenberg",
+              "9572": "Stadtwerke Merseburg",
+              "9604": "Stadtwerke Münster",
+              "9639": "Stadtwerke Prenzlau",
+              "9614": "Stadtwerke Rostock",
+              "9622": "Stadtwerke Schwerin",
+              "9723": "Stadtwerke Strausberg",
+              "9630": "Stadtwerke Torgau",
+              "9592": "Stromversorgung Angermünde",
+              "9618": "SWM Stadtwerke München",
+              "9621": "SWU Energie",
+              "9595": "Tchibo Energy",
+              "9636": "TEAG Thüringer Energie",
+              "9578": "team energie",
+              "9642": "Technische Werke Schussental",
+              "9580": "Tibber Deutschland",
+              "9569": "TURBINE",
+              "9586": "Vereinigte Wertach-Elektrizitätswerke",
+              "9600": "vivi-power",
+              "9567": "WEMAG",
+              "9605": "Yello Strom"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "de",
+          "option_id": null,
+          "postcode": "10115",
+          "city": "Berlin",
+          "area_id": 911,
+          "provider_id": null
+        }
+      },
+      "answers": {
+        "provider_id": "10839"
+      }
+    },
+    {
+      "request": {
+        "country_code": "de",
+        "option_id": null,
+        "postcode": "10115",
+        "city": "Berlin",
+        "area_id": 911,
+        "provider_id": 10839,
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "offer_id",
+            "label": "Ihr Tarif",
+            "options": {
+              "242689": "Berlin Basis Privatstrom Privat",
+              "209103": "ÖkoStrom12 Standard Privat",
+              "209114": "ÖkoStrom24 Standard Privat",
+              "209169": "ÖkoStrom12 Privat",
+              "247793": "ÖkoStrom18 Privat",
+              "209165": "ÖkoStrom24 Privat",
+              "209171": "ÖkoStrom12 Smart Privat",
+              "209166": "ÖkoStrom24 Smart Privat"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "de",
+          "option_id": null,
+          "postcode": "10115",
+          "city": "Berlin",
+          "area_id": 911,
+          "provider_id": 10839,
+          "offer_id": null
+        }
+      },
+      "answers": {
+        "offer_id": "242689"
+      }
+    },
+    {
+      "request": {
+        "country_code": "de",
+        "option_id": null,
+        "postcode": "10115",
+        "city": "Berlin",
+        "area_id": 911,
+        "provider_id": 10839,
+        "offer_id": 242689,
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "network_module",
+            "label": "Modul nach §14a EnWG",
+            "hint": "Ist eine Wärmepumpe, Wallbox oder ein Batteriespeicher als steuerbare Verbrauchseinrichtung angemeldet (§14a EnWG)? Welches Netzentgelt-Modul nutzt Ihr Zähler?",
+            "options": {
+              "none": "Kein Modul",
+              "modul_1": "Modul 1",
+              "modul_2": "Modul 2",
+              "modul_3": "Modul 3"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "de",
+          "option_id": null,
+          "postcode": "10115",
+          "city": "Berlin",
+          "area_id": 911,
+          "provider_id": 10839,
+          "offer_id": 242689,
+          "tier_id": null,
+          "period_set_id": null,
+          "network_module": null
+        }
+      },
+      "answers": {
+        "network_module": "none"
+      }
+    },
+    {
+      "request": {
+        "country_code": "de",
+        "option_id": null,
+        "postcode": "10115",
+        "city": "Berlin",
+        "area_id": 911,
+        "provider_id": 10839,
+        "offer_id": 242689,
+        "tier_id": null,
+        "period_set_id": null,
+        "network_module": "none",
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "custom_prices",
+            "label": "Arbeitspreis : 37.93 ct/kWh",
+            "options": {
+              "no": "Ja, diese Preise stimmen",
+              "yes": "Nein, ich möchte meine Preise eingeben"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "de",
+          "option_id": null,
+          "postcode": "10115",
+          "city": "Berlin",
+          "area_id": 911,
+          "provider_id": 10839,
+          "offer_id": 242689,
+          "tier_id": null,
+          "period_set_id": null,
+          "network_module": "none",
+          "custom_prices": null
+        }
+      },
+      "answers": {
+        "custom_prices": "no"
+      }
+    },
+    {
+      "request": {
+        "country_code": "de",
+        "option_id": null,
+        "postcode": "10115",
+        "city": "Berlin",
+        "area_id": 911,
+        "provider_id": 10839,
+        "offer_id": 242689,
+        "tier_id": null,
+        "period_set_id": null,
+        "network_module": "none",
+        "custom_prices": "no",
+        "lang": "de"
+      },
+      "response": {
+        "done": true,
+        "questions": [],
+        "inputs": {
+          "country_code": "de",
+          "option_id": null,
+          "postcode": "10115",
+          "city": "Berlin",
+          "area_id": 911,
+          "provider_id": 10839,
+          "offer_id": 242689,
+          "tier_id": null,
+          "period_set_id": null,
+          "network_module": "none",
+          "custom_prices": "no"
+        }
+      }
+    }
+  ],
+  "details": {
+    "request": {
+      "country_code": "de",
+      "option_id": null,
+      "postcode": "10115",
+      "city": "Berlin",
+      "area_id": 911,
+      "provider_id": 10839,
+      "offer_id": 242689,
+      "tier_id": null,
+      "period_set_id": null,
+      "network_module": "none",
+      "custom_prices": "no"
+    },
+    "response": {
+      "category": "flat_rate",
+      "offer": {
+        "name": {
+          "de": "Berlin Basis Privatstrom"
+        },
+        "type": "Regular",
+        "provider_name": "Vattenfall Europe Sales",
+        "logo": "https://images.selectra.com/de-energy/logos/vattenfall-europe-sales-gmbh-8853-xs.png"
+      },
+      "option": {
+        "name": "standard",
+        "slug": null,
+        "period_set_name": null,
+        "description": null
+      },
+      "tier": null,
+      "features": [
+        {
+          "name": "Grundpreis",
+          "key": "subscription",
+          "type": "subscription",
+          "value": 172.64,
+          "weight": null,
+          "unit": "€/year",
+          "display_order": 1,
+          "period_names": []
+        },
+        {
+          "name": "Preis pro kWh",
+          "key": "peak",
+          "type": "consumption",
+          "value": 0.3793,
+          "weight": null,
+          "unit": "€/kWh",
+          "display_order": 2,
+          "period_names": []
+        }
+      ]
+    }
+  },
+  "prices": {
+    "request": {
+      "country_code": "de",
+      "option_id": null,
+      "postcode": "10115",
+      "city": "Berlin",
+      "area_id": 911,
+      "provider_id": 10839,
+      "offer_id": 242689,
+      "tier_id": null,
+      "period_set_id": null,
+      "network_module": "none",
+      "custom_prices": "no"
+    },
+    "response": {
+      "prices": [
+        {
+          "start": "2026-09-29T00:00:00+02:00",
+          "end": "2026-12-28T00:00:00+01:00",
+          "name": "24-hr",
+          "price": 0.3793
+        }
+      ],
+      "next_update": "2026-10-03T02:00:00+02:00",
+      "currency": "EUR",
+      "requalification_reason": null
+    }
+  }
+}

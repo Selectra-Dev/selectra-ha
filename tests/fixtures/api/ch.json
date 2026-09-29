@@ -1,0 +1,2320 @@
+{
+  "scenario": "ch",
+  "recorded_from": "http://energy-core.test/api",
+  "recorded_at": "2026-09-29T13:42:23Z",
+  "lang": "de",
+  "time_zone": "Europe/Zurich",
+  "expect": {
+    "category": "time_of_use"
+  },
+  "qualification": [
+    {
+      "request": {
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "country_code",
+            "options": {
+              "af": "Afghanistan",
+              "al": "Albania",
+              "dz": "Algeria",
+              "ad": "Andorra",
+              "ao": "Angola",
+              "ai": "Anguilla",
+              "ag": "Antigua and Barbuda",
+              "ar": "Argentina",
+              "am": "Armenia",
+              "aw": "Aruba",
+              "au": "Australia",
+              "at": "Austria",
+              "az": "Azerbaijan",
+              "bs": "Bahamas",
+              "bh": "Bahrain",
+              "bd": "Bangladesh",
+              "bb": "Barbados",
+              "by": "Belarus",
+              "be": "Belgium",
+              "bz": "Belize",
+              "bj": "Benin",
+              "bm": "Bermuda",
+              "bt": "Bhutan",
+              "bo": "Bolivia",
+              "ba": "Bosnia and Herzegovina",
+              "bw": "Botswana",
+              "br": "Brazil",
+              "vg": "British Virgin Islands",
+              "bn": "Brunei",
+              "bg": "Bulgaria",
+              "bf": "Burkina Faso",
+              "bi": "Burundi",
+              "kh": "Cambodia",
+              "cm": "Cameroon",
+              "ca": "Canada",
+              "cv": "Cape Verde",
+              "bq": "Caribbean Netherlands",
+              "ky": "Cayman Islands",
+              "cf": "Central African Republic",
+              "td": "Chad",
+              "cl": "Chile",
+              "cn": "China",
+              "co": "Colombia",
+              "km": "Comoros",
+              "cg": "Congo",
+              "ck": "Cook Islands",
+              "cr": "Costa Rica",
+              "hr": "Croatia",
+              "cu": "Cuba",
+              "cw": "Curaçao",
+              "cy": "Cyprus",
+              "cz": "Czech Republic",
+              "cd": "Democratic Republic of the Congo",
+              "dk": "Denmark",
+              "dj": "Djibouti",
+              "dm": "Dominica",
+              "do": "Dominican Republic",
+              "ec": "Ecuador",
+              "eg": "Egypt",
+              "sv": "El Salvador",
+              "gq": "Equatorial Guinea",
+              "ee": "Estonia",
+              "sz": "Eswatini",
+              "et": "Ethiopia",
+              "fj": "Fiji",
+              "fi": "Finland",
+              "fr": "France",
+              "pf": "French Polynesia",
+              "ga": "Gabon",
+              "gm": "Gambia",
+              "ge": "Georgia",
+              "de": "Germany",
+              "gh": "Ghana",
+              "gi": "Gibraltar",
+              "gr": "Greece",
+              "gl": "Greenland",
+              "gd": "Grenada",
+              "gt": "Guatemala",
+              "gn": "Guinea",
+              "gw": "Guinea-Bissau",
+              "gy": "Guyana",
+              "ht": "Haiti",
+              "hn": "Honduras",
+              "hk": "Hong Kong",
+              "hu": "Hungary",
+              "is": "Iceland",
+              "in": "India",
+              "id": "Indonesia",
+              "ir": "Iran",
+              "iq": "Iraq",
+              "ie": "Ireland",
+              "il": "Israel",
+              "it": "Italy",
+              "ci": "Ivory Coast",
+              "jm": "Jamaica",
+              "jp": "Japan",
+              "jo": "Jordan",
+              "kz": "Kazakhstan",
+              "ke": "Kenya",
+              "ki": "Kiribati",
+              "xk": "Kosovo",
+              "kw": "Kuwait",
+              "kg": "Kyrgyzstan",
+              "la": "Laos",
+              "lv": "Latvia",
+              "lb": "Lebanon",
+              "ls": "Lesotho",
+              "lr": "Liberia",
+              "ly": "Libya",
+              "li": "Liechtenstein",
+              "lt": "Lithuania",
+              "lu": "Luxembourg",
+              "mo": "Macau",
+              "mg": "Madagascar",
+              "mw": "Malawi",
+              "my": "Malaysia",
+              "mv": "Maldives",
+              "ml": "Mali",
+              "mt": "Malta",
+              "mh": "Marshall Islands",
+              "mr": "Mauritania",
+              "mu": "Mauritius",
+              "mx": "Mexico",
+              "fm": "Micronesia",
+              "md": "Moldova",
+              "mc": "Monaco",
+              "mn": "Mongolia",
+              "me": "Montenegro",
+              "ms": "Montserrat",
+              "ma": "Morocco",
+              "mz": "Mozambique",
+              "mm": "Myanmar",
+              "na": "Namibia",
+              "nr": "Nauru",
+              "np": "Nepal",
+              "nl": "Netherlands",
+              "nc": "New Caledonia",
+              "nz": "New Zealand",
+              "ni": "Nicaragua",
+              "ne": "Niger",
+              "ng": "Nigeria",
+              "nu": "Niue",
+              "mk": "North Macedonia",
+              "no": "Norway",
+              "om": "Oman",
+              "pk": "Pakistan",
+              "pw": "Palau",
+              "ps": "Palestine",
+              "pa": "Panama",
+              "pg": "Papua New Guinea",
+              "py": "Paraguay",
+              "pe": "Peru",
+              "ph": "Philippines",
+              "pl": "Poland",
+              "pt": "Portugal",
+              "qa": "Qatar",
+              "ro": "Romania",
+              "rw": "Rwanda",
+              "kn": "Saint Kitts and Nevis",
+              "lc": "Saint Lucia",
+              "vc": "Saint Vincent and the Grenadines",
+              "ws": "Samoa",
+              "sm": "San Marino",
+              "st": "Sao Tome and Principe",
+              "sa": "Saudi Arabia",
+              "sn": "Senegal",
+              "rs": "Serbia",
+              "sc": "Seychelles",
+              "sl": "Sierra Leone",
+              "sg": "Singapore",
+              "sx": "Sint Maarten",
+              "sk": "Slovakia",
+              "si": "Slovenia",
+              "sb": "Solomon Islands",
+              "za": "South Africa",
+              "kr": "South Korea",
+              "ss": "South Sudan",
+              "es": "Spain",
+              "lk": "Sri Lanka",
+              "sd": "Sudan",
+              "sr": "Suriname",
+              "se": "Sweden",
+              "ch": "Switzerland",
+              "sy": "Syria",
+              "tw": "Taiwan",
+              "tj": "Tajikistan",
+              "tz": "Tanzania",
+              "th": "Thailand",
+              "tl": "Timor-Leste",
+              "tg": "Togo",
+              "to": "Tonga",
+              "tt": "Trinidad and Tobago",
+              "tn": "Tunisia",
+              "tr": "Turkey",
+              "tm": "Turkmenistan",
+              "tc": "Turks and Caicos Islands",
+              "tv": "Tuvalu",
+              "ug": "Uganda",
+              "ua": "Ukraine",
+              "ae": "United Arab Emirates",
+              "uk": "United Kingdom",
+              "us": "United States",
+              "uy": "Uruguay",
+              "uz": "Uzbekistan",
+              "vu": "Vanuatu",
+              "vn": "Vietnam",
+              "ye": "Yemen",
+              "zm": "Zambia",
+              "zw": "Zimbabwe"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": null
+        }
+      },
+      "answers": {
+        "country_code": "ch"
+      }
+    },
+    {
+      "request": {
+        "country_code": "ch",
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "province_id",
+            "label": "Your area",
+            "options": {
+              "10297": "Aargau / Argovia",
+              "10298": "Appenzell Ausserrhoden / Appenzell Outer-Rhodes",
+              "10299": "Appenzell Innerrhoden / Appenzell Inner-Rhodes",
+              "10300": "Basel-Landschaft / Basle-Country",
+              "10301": "Basel-Stadt / Basle-City",
+              "10302": "Bern / Berne",
+              "10303": "Fribourg / Freiburg",
+              "10304": "Genève",
+              "10305": "Glarus",
+              "10306": "Graubünden / Grischun / Grigioni",
+              "10307": "Jura",
+              "10308": "Luzern / Lucerne",
+              "10309": "Neuchâtel",
+              "10310": "Nidwalden / Nidwald",
+              "10311": "Obwalden / Obwald",
+              "10312": "Schaffhausen / Schaffhouse",
+              "10313": "Schwyz",
+              "10314": "Solothurn / Soleure",
+              "10315": "St. Gallen / St Gall",
+              "10316": "Thurgau / Thurgovia",
+              "10317": "Ticino / Tessin",
+              "10318": "Uri",
+              "10319": "Valais / Wallis",
+              "10320": "Vaud",
+              "10321": "Zug / Zoug",
+              "10322": "Zürich"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "ch",
+          "province_id": null
+        }
+      },
+      "answers": {
+        "province_id": "10297"
+      }
+    },
+    {
+      "request": {
+        "country_code": "ch",
+        "province_id": 10297,
+        "lang": "de"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "city_id",
+            "label": "Ihre Stadt",
+            "options": {
+              "658328": "Aarau",
+              "658330": "Aarburg",
+              "658332": "Abtwil",
+              "658376": "Ammerswil",
+              "658395": "Aristau",
+              "658399": "Arni",
+              "658412": "Auenstein",
+              "658417": "Auw",
+              "658429": "Baden",
+              "658464": "Beinwil (Freiamt)",
+              "658465": "Beinwil am See",
+              "658469": "Bellikon",
+              "658485": "Bergdietikon",
+              "658487": "Berikon",
+              "658496": "Besenbüren",
+              "658503": "Bettwil",
+              "658508": "Biberstein",
+              "658521": "Birmenstorf",
+              "658522": "Birr",
+              "658523": "Birrhard",
+              "658524": "Birrwil",
+              "658549": "Boniswil",
+              "658557": "Boswil",
+              "658559": "Bottenwil",
+              "658563": "Böttstein",
+              "658574": "Bözberg",
+              "658575": "Böztal",
+              "658582": "Bremgarten",
+              "658594": "Brittnau",
+              "658597": "Brugg",
+              "658599": "Brunegg",
+              "658614": "Buchs",
+              "658624": "Bünzen",
+              "658647": "Büttikon",
+              "658649": "Buttwil",
+              "658800": "Densbüren",
+              "658813": "Dietwil",
+              "658815": "Dintikon",
+              "658828": "Dottikon",
+              "658829": "Döttingen",
+              "658840": "Dürrenäsch",
+              "658853": "Eggenwil",
+              "658858": "Egliswil",
+              "658861": "Ehrendingen",
+              "658864": "Eiken",
+              "658875": "Endingen",
+              "658877": "Ennetbaden",
+              "658893": "Erlinsbach",
+              "658920": "Fahrwangen",
+              "658949": "Fischbach-Göslikon",
+              "658952": "Fisibach",
+              "658953": "Fislisbach",
+              "658975": "Freienwil",
+              "658979": "Frick",
+              "658983": "Full-Reuenthal",
+              "658998": "Gansingen",
+              "658999": "Gebenstorf",
+              "659001": "Geltwil",
+              "659019": "Gipf-Oberfrick",
+              "659036": "Gontenschwil",
+              "659057": "Gränichen",
+              "659097": "Habsburg",
+              "659102": "Hägglingen",
+              "659105": "Hallwil",
+              "659113": "Hausen",
+              "659130": "Hellikon",
+              "659134": "Hendschiken",
+              "659149": "Herznach-Ueken",
+              "659157": "Hirschthal",
+              "659168": "Holderbank",
+              "659171": "Holziken",
+              "659187": "Hunzenschwil",
+              "659209": "Islisberg",
+              "659219": "Jonen",
+              "659227": "Kaiseraugst",
+              "659228": "Kaisten",
+              "659229": "Kallern",
+              "659251": "Killwangen",
+              "659256": "Kirchleerau",
+              "659261": "Klingnau",
+              "659266": "Koblenz",
+              "659267": "Kölliken",
+              "659279": "Künten",
+              "659282": "Küttigen",
+              "659328": "Laufenburg",
+              "659355": "Leibstadt",
+              "659356": "Leimbach",
+              "659359": "Lengnau",
+              "659364": "Lenzburg",
+              "659374": "Leuggern",
+              "659377": "Leutwil",
+              "659415": "Lupfig",
+              "659435": "Magden",
+              "659436": "Mägenwil",
+              "659444": "Mandach",
+              "659480": "Meisterschwanden",
+              "659483": "Mellikon",
+              "659484": "Mellingen",
+              "659489": "Menziken",
+              "659492": "Merenschwand",
+              "659499": "Mettauertal",
+              "659514": "Möhlin",
+              "659530": "Mönthal",
+              "659536": "Moosleerau",
+              "659543": "Möriken-Wildegg",
+              "659552": "Muhen",
+              "659553": "Mühlau",
+              "659556": "Mülligen",
+              "659558": "Mumpf",
+              "659562": "Münchwilen",
+              "659572": "Murgenthal",
+              "659573": "Muri",
+              "659592": "Neuenhof",
+              "659610": "Niederlenz",
+              "659614": "Niederrohrdorf",
+              "659616": "Niederwil",
+              "659643": "Oberentfelden",
+              "659649": "Oberhof",
+              "659654": "Oberkulm",
+              "659656": "Oberlunkhofen",
+              "659657": "Obermumpf",
+              "659661": "Oberrohrdorf",
+              "659662": "Oberrüti",
+              "659664": "Obersiggenthal",
+              "659671": "Oberwil-Lieli",
+              "659677": "Oeschgen",
+              "659680": "Oftringen",
+              "659683": "Olsberg",
+              "659708": "Othmarsingen",
+              "659792": "Reinach",
+              "659795": "Reitnau",
+              "659797": "Remetschwil",
+              "659798": "Remigen",
+              "659807": "Rheinfelden",
+              "659826": "Riniken",
+              "659867": "Rothrist",
+              "659868": "Rottenschwil",
+              "659875": "Rudolfstetten-Friedlisberg",
+              "659881": "Rüfenach",
+              "659887": "Rupperswil",
+              "659906": "Safenwil",
+              "659941": "Sarmenstorf",
+              "659955": "Schafisheim",
+              "659965": "Schinznach",
+              "659973": "Schlossrued",
+              "659976": "Schmiedrued",
+              "659979": "Schneisingen",
+              "659982": "Schöftland",
+              "659990": "Schupfart",
+              "659993": "Schwaderloch",
+              "660010": "Seengen",
+              "660021": "Seon",
+              "660030": "Siglistorf",
+              "660039": "Sins",
+              "660045": "Sisseln",
+              "660061": "Spreitenbach",
+              "660072": "Staffelbach",
+              "660080": "Staufen",
+              "660084": "Stein",
+              "660092": "Stetten",
+              "660097": "Strengelbach",
+              "660103": "Suhr",
+              "660115": "Tägerig",
+              "660124": "Tegerfelden",
+              "660131": "Teufenthal",
+              "660135": "Thalheim",
+              "918810": "Ueken",
+              "660190": "Uerkheim",
+              "660194": "Uezwil",
+              "660202": "Unterentfelden",
+              "660204": "Unterkulm",
+              "660206": "Unterlunkhofen",
+              "660210": "Untersiggenthal",
+              "660250": "Veltheim",
+              "660278": "Villigen",
+              "660279": "Villmergen",
+              "660280": "Villnachern",
+              "660291": "Vordemwald",
+              "660319": "Wallbach",
+              "660324": "Waltenschwil",
+              "660341": "Wegenstetten",
+              "660351": "Wettingen",
+              "660355": "Widen",
+              "660373": "Wiliberg",
+              "660377": "Windisch",
+              "660386": "Wittnau",
+              "660387": "Wohlen",
+              "660389": "Wohlenschwil",
+              "660392": "Wölflinswil",
+              "660400": "Würenlingen",
+              "660401": "Würenlos",
+              "660411": "Zeihen",
+              "660412": "Zeiningen",
+              "660418": "Zetzwil",
+              "660424": "Zofingen",
+              "660428": "Zufikon",
+              "660435": "Zurzach",
+              "660436": "Zuzgen"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "ch",
+          "province_id": 10297,
+          "lang": "de",
+          "city_id": null
+        }
+      },
+      "answers": {
+        "city_id": "658328"
+      }
+    },
+    {
+      "request": {
+        "country_code": "ch",
+        "province_id": 10297,
+        "lang": "de",
+        "city_id": 658328
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "offer_id",
+            "label": "Ihr Tarif",
+            "options": {
+              "201382": "Haushalt und Kleingewerbe - Eniwa Naturstrom Schweiz",
+              "215841": "Haushalt und Kleingewerbe - Eniwa Naturstrom Regio"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "ch",
+          "province_id": 10297,
+          "lang": "de",
+          "city_id": 658328,
+          "distributor_id": 4039,
+          "provider_id": 8490,
+          "offer_id": null
+        }
+      },
+      "answers": {
+        "offer_id": "201382"
+      }
+    },
+    {
+      "request": {
+        "country_code": "ch",
+        "province_id": 10297,
+        "lang": "de",
+        "city_id": 658328,
+        "distributor_id": 4039,
+        "provider_id": 8490,
+        "offer_id": 201382
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "custom_prices",
+            "label": "High Tariff : 0,1090 CHF/kWh<br>Low Tariff : 0,0910 CHF/kWh",
+            "options": {
+              "no": "Ja, diese Preise stimmen",
+              "yes": "Nein, ich möchte meine Preise eingeben"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "ch",
+          "province_id": 10297,
+          "lang": "de",
+          "city_id": 658328,
+          "distributor_id": 4039,
+          "provider_id": 8490,
+          "offer_id": 201382,
+          "option_id": 673,
+          "distributor_option_id": 18,
+          "tier_id": 544,
+          "custom_prices": null
+        }
+      },
+      "answers": {
+        "custom_prices": "no"
+      }
+    },
+    {
+      "request": {
+        "country_code": "ch",
+        "province_id": 10297,
+        "lang": "de",
+        "city_id": 658328,
+        "distributor_id": 4039,
+        "provider_id": 8490,
+        "offer_id": 201382,
+        "option_id": 673,
+        "distributor_option_id": 18,
+        "tier_id": 544,
+        "custom_prices": "no"
+      },
+      "response": {
+        "done": true,
+        "questions": [],
+        "inputs": {
+          "country_code": "ch",
+          "province_id": 10297,
+          "lang": "de",
+          "city_id": 658328,
+          "distributor_id": 4039,
+          "provider_id": 8490,
+          "offer_id": 201382,
+          "option_id": 673,
+          "distributor_option_id": 18,
+          "tier_id": 544,
+          "custom_prices": "no"
+        }
+      }
+    }
+  ],
+  "details": {
+    "request": {
+      "country_code": "ch",
+      "province_id": 10297,
+      "lang": "de",
+      "city_id": 658328,
+      "distributor_id": 4039,
+      "provider_id": 8490,
+      "offer_id": 201382,
+      "option_id": 673,
+      "distributor_option_id": 18,
+      "tier_id": 544,
+      "custom_prices": "no"
+    },
+    "response": {
+      "category": "time_of_use",
+      "offer": {
+        "name": {
+          "de": "Haushalt und Kleingewerbe - Eniwa Naturstrom Schweiz",
+          "fr": "Haushalt und Kleingewerbe - Eniwa Naturstrom Schweiz",
+          "it": "Haushalt und Kleingewerbe - Eniwa Naturstrom Schweiz"
+        },
+        "type": "Fixed",
+        "provider_name": "Eniwa AG",
+        "logo": "https://images.selectra.com/ch-energy/logos/eniwa-ag-xs.png"
+      },
+      "option": {
+        "name": "TOU - Eniwa AG",
+        "slug": "tou-eniwa-ag",
+        "period_set_name": "Eniwa AG",
+        "description": null
+      },
+      "tier": null,
+      "features": [
+        {
+          "name": "Standing charge",
+          "key": "Standing charge",
+          "type": "subscription",
+          "value": 0,
+          "weight": 1,
+          "unit": "CHF/month",
+          "display_order": 1,
+          "period_names": []
+        },
+        {
+          "name": "High Tariff",
+          "key": "High Tariff",
+          "type": "consumption",
+          "value": 0.109,
+          "weight": 0.3,
+          "unit": "CHF/kWh",
+          "display_order": 2,
+          "period_names": [
+            "Eniwa AG HT Weekdays 07-12 & 17-22"
+          ]
+        },
+        {
+          "name": "Low Tariff",
+          "key": "Low Tariff",
+          "type": "consumption",
+          "value": 0.091,
+          "weight": 0.7,
+          "unit": "CHF/kWh",
+          "display_order": 3,
+          "period_names": [
+            "Eniwa AG NT Weekdays 00-07 & 12-17 & 22-24",
+            "Eniwa AG NT Weekends All Day"
+          ]
+        }
+      ],
+      "country_costs": [
+        {
+          "name": "VAT",
+          "value": 8.1,
+          "unit": "%"
+        },
+        {
+          "name": "Federal supplement",
+          "value": 2.3,
+          "unit": "Rp./kWh"
+        },
+        {
+          "name": "Reserve",
+          "value": 0.41,
+          "unit": "Rp./kWh"
+        },
+        {
+          "name": "SwissGrid - SDL",
+          "value": 0.27,
+          "unit": "Rp./kWh"
+        },
+        {
+          "name": "Solidarity",
+          "value": 0.05,
+          "unit": "Rp./kWh"
+        }
+      ],
+      "city_costs": [
+        {
+          "name": "Gemeindeabgabe",
+          "value": 0.85,
+          "unit": "Rp./kWh"
+        }
+      ],
+      "distributor": {
+        "name": "Eniwa AG",
+        "prices": [
+          {
+            "name": "Monthly standing charge",
+            "price": 11.2,
+            "unit": "CHF/month",
+            "type": "subscription"
+          },
+          {
+            "name": "Peak",
+            "price": 0.129,
+            "unit": "CHF/kWh",
+            "type": "consumption"
+          },
+          {
+            "name": "Off-peak",
+            "price": 0.091,
+            "unit": "CHF/kWh",
+            "type": "consumption"
+          }
+        ]
+      }
+    }
+  },
+  "prices": {
+    "request": {
+      "country_code": "ch",
+      "province_id": 10297,
+      "lang": "de",
+      "city_id": 658328,
+      "distributor_id": 4039,
+      "provider_id": 8490,
+      "offer_id": 201382,
+      "option_id": 673,
+      "distributor_option_id": 18,
+      "tier_id": 544,
+      "custom_prices": "no"
+    },
+    "response": {
+      "prices": [
+        {
+          "start": "2026-09-29T00:00:00+02:00",
+          "end": "2026-09-29T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-09-29T07:00:00+02:00",
+          "end": "2026-09-29T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-09-29T12:00:00+02:00",
+          "end": "2026-09-29T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-09-29T17:00:00+02:00",
+          "end": "2026-09-29T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-09-29T22:00:00+02:00",
+          "end": "2026-09-30T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-09-30T07:00:00+02:00",
+          "end": "2026-09-30T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-09-30T12:00:00+02:00",
+          "end": "2026-09-30T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-09-30T17:00:00+02:00",
+          "end": "2026-09-30T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-09-30T22:00:00+02:00",
+          "end": "2026-10-01T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-01T07:00:00+02:00",
+          "end": "2026-10-01T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-01T12:00:00+02:00",
+          "end": "2026-10-01T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-01T17:00:00+02:00",
+          "end": "2026-10-01T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-01T22:00:00+02:00",
+          "end": "2026-10-02T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-02T07:00:00+02:00",
+          "end": "2026-10-02T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-02T12:00:00+02:00",
+          "end": "2026-10-02T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-02T17:00:00+02:00",
+          "end": "2026-10-02T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-02T22:00:00+02:00",
+          "end": "2026-10-05T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-05T07:00:00+02:00",
+          "end": "2026-10-05T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-05T12:00:00+02:00",
+          "end": "2026-10-05T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-05T17:00:00+02:00",
+          "end": "2026-10-05T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-05T22:00:00+02:00",
+          "end": "2026-10-06T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-06T07:00:00+02:00",
+          "end": "2026-10-06T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-06T12:00:00+02:00",
+          "end": "2026-10-06T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-06T17:00:00+02:00",
+          "end": "2026-10-06T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-06T22:00:00+02:00",
+          "end": "2026-10-07T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-07T07:00:00+02:00",
+          "end": "2026-10-07T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-07T12:00:00+02:00",
+          "end": "2026-10-07T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-07T17:00:00+02:00",
+          "end": "2026-10-07T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-07T22:00:00+02:00",
+          "end": "2026-10-08T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-08T07:00:00+02:00",
+          "end": "2026-10-08T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-08T12:00:00+02:00",
+          "end": "2026-10-08T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-08T17:00:00+02:00",
+          "end": "2026-10-08T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-08T22:00:00+02:00",
+          "end": "2026-10-09T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-09T07:00:00+02:00",
+          "end": "2026-10-09T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-09T12:00:00+02:00",
+          "end": "2026-10-09T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-09T17:00:00+02:00",
+          "end": "2026-10-09T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-09T22:00:00+02:00",
+          "end": "2026-10-12T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-12T07:00:00+02:00",
+          "end": "2026-10-12T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-12T12:00:00+02:00",
+          "end": "2026-10-12T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-12T17:00:00+02:00",
+          "end": "2026-10-12T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-12T22:00:00+02:00",
+          "end": "2026-10-13T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-13T07:00:00+02:00",
+          "end": "2026-10-13T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-13T12:00:00+02:00",
+          "end": "2026-10-13T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-13T17:00:00+02:00",
+          "end": "2026-10-13T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-13T22:00:00+02:00",
+          "end": "2026-10-14T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-14T07:00:00+02:00",
+          "end": "2026-10-14T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-14T12:00:00+02:00",
+          "end": "2026-10-14T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-14T17:00:00+02:00",
+          "end": "2026-10-14T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-14T22:00:00+02:00",
+          "end": "2026-10-15T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-15T07:00:00+02:00",
+          "end": "2026-10-15T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-15T12:00:00+02:00",
+          "end": "2026-10-15T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-15T17:00:00+02:00",
+          "end": "2026-10-15T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-15T22:00:00+02:00",
+          "end": "2026-10-16T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-16T07:00:00+02:00",
+          "end": "2026-10-16T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-16T12:00:00+02:00",
+          "end": "2026-10-16T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-16T17:00:00+02:00",
+          "end": "2026-10-16T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-16T22:00:00+02:00",
+          "end": "2026-10-19T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-19T07:00:00+02:00",
+          "end": "2026-10-19T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-19T12:00:00+02:00",
+          "end": "2026-10-19T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-19T17:00:00+02:00",
+          "end": "2026-10-19T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-19T22:00:00+02:00",
+          "end": "2026-10-20T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-20T07:00:00+02:00",
+          "end": "2026-10-20T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-20T12:00:00+02:00",
+          "end": "2026-10-20T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-20T17:00:00+02:00",
+          "end": "2026-10-20T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-20T22:00:00+02:00",
+          "end": "2026-10-21T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-21T07:00:00+02:00",
+          "end": "2026-10-21T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-21T12:00:00+02:00",
+          "end": "2026-10-21T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-21T17:00:00+02:00",
+          "end": "2026-10-21T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-21T22:00:00+02:00",
+          "end": "2026-10-22T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-22T07:00:00+02:00",
+          "end": "2026-10-22T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-22T12:00:00+02:00",
+          "end": "2026-10-22T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-22T17:00:00+02:00",
+          "end": "2026-10-22T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-22T22:00:00+02:00",
+          "end": "2026-10-23T07:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-23T07:00:00+02:00",
+          "end": "2026-10-23T12:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-23T12:00:00+02:00",
+          "end": "2026-10-23T17:00:00+02:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-23T17:00:00+02:00",
+          "end": "2026-10-23T22:00:00+02:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-23T22:00:00+02:00",
+          "end": "2026-10-26T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-26T07:00:00+01:00",
+          "end": "2026-10-26T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-26T12:00:00+01:00",
+          "end": "2026-10-26T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-26T17:00:00+01:00",
+          "end": "2026-10-26T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-26T22:00:00+01:00",
+          "end": "2026-10-27T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-27T07:00:00+01:00",
+          "end": "2026-10-27T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-27T12:00:00+01:00",
+          "end": "2026-10-27T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-27T17:00:00+01:00",
+          "end": "2026-10-27T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-27T22:00:00+01:00",
+          "end": "2026-10-28T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-28T07:00:00+01:00",
+          "end": "2026-10-28T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-28T12:00:00+01:00",
+          "end": "2026-10-28T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-28T17:00:00+01:00",
+          "end": "2026-10-28T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-28T22:00:00+01:00",
+          "end": "2026-10-29T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-29T07:00:00+01:00",
+          "end": "2026-10-29T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-29T12:00:00+01:00",
+          "end": "2026-10-29T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-29T17:00:00+01:00",
+          "end": "2026-10-29T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-29T22:00:00+01:00",
+          "end": "2026-10-30T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-30T07:00:00+01:00",
+          "end": "2026-10-30T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-30T12:00:00+01:00",
+          "end": "2026-10-30T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-10-30T17:00:00+01:00",
+          "end": "2026-10-30T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-10-30T22:00:00+01:00",
+          "end": "2026-11-02T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-02T07:00:00+01:00",
+          "end": "2026-11-02T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-02T12:00:00+01:00",
+          "end": "2026-11-02T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-02T17:00:00+01:00",
+          "end": "2026-11-02T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-02T22:00:00+01:00",
+          "end": "2026-11-03T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-03T07:00:00+01:00",
+          "end": "2026-11-03T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-03T12:00:00+01:00",
+          "end": "2026-11-03T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-03T17:00:00+01:00",
+          "end": "2026-11-03T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-03T22:00:00+01:00",
+          "end": "2026-11-04T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-04T07:00:00+01:00",
+          "end": "2026-11-04T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-04T12:00:00+01:00",
+          "end": "2026-11-04T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-04T17:00:00+01:00",
+          "end": "2026-11-04T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-04T22:00:00+01:00",
+          "end": "2026-11-05T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-05T07:00:00+01:00",
+          "end": "2026-11-05T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-05T12:00:00+01:00",
+          "end": "2026-11-05T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-05T17:00:00+01:00",
+          "end": "2026-11-05T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-05T22:00:00+01:00",
+          "end": "2026-11-06T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-06T07:00:00+01:00",
+          "end": "2026-11-06T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-06T12:00:00+01:00",
+          "end": "2026-11-06T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-06T17:00:00+01:00",
+          "end": "2026-11-06T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-06T22:00:00+01:00",
+          "end": "2026-11-09T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-09T07:00:00+01:00",
+          "end": "2026-11-09T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-09T12:00:00+01:00",
+          "end": "2026-11-09T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-09T17:00:00+01:00",
+          "end": "2026-11-09T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-09T22:00:00+01:00",
+          "end": "2026-11-10T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-10T07:00:00+01:00",
+          "end": "2026-11-10T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-10T12:00:00+01:00",
+          "end": "2026-11-10T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-10T17:00:00+01:00",
+          "end": "2026-11-10T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-10T22:00:00+01:00",
+          "end": "2026-11-11T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-11T07:00:00+01:00",
+          "end": "2026-11-11T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-11T12:00:00+01:00",
+          "end": "2026-11-11T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-11T17:00:00+01:00",
+          "end": "2026-11-11T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-11T22:00:00+01:00",
+          "end": "2026-11-12T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-12T07:00:00+01:00",
+          "end": "2026-11-12T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-12T12:00:00+01:00",
+          "end": "2026-11-12T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-12T17:00:00+01:00",
+          "end": "2026-11-12T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-12T22:00:00+01:00",
+          "end": "2026-11-13T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-13T07:00:00+01:00",
+          "end": "2026-11-13T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-13T12:00:00+01:00",
+          "end": "2026-11-13T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-13T17:00:00+01:00",
+          "end": "2026-11-13T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-13T22:00:00+01:00",
+          "end": "2026-11-16T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-16T07:00:00+01:00",
+          "end": "2026-11-16T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-16T12:00:00+01:00",
+          "end": "2026-11-16T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-16T17:00:00+01:00",
+          "end": "2026-11-16T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-16T22:00:00+01:00",
+          "end": "2026-11-17T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-17T07:00:00+01:00",
+          "end": "2026-11-17T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-17T12:00:00+01:00",
+          "end": "2026-11-17T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-17T17:00:00+01:00",
+          "end": "2026-11-17T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-17T22:00:00+01:00",
+          "end": "2026-11-18T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-18T07:00:00+01:00",
+          "end": "2026-11-18T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-18T12:00:00+01:00",
+          "end": "2026-11-18T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-18T17:00:00+01:00",
+          "end": "2026-11-18T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-18T22:00:00+01:00",
+          "end": "2026-11-19T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-19T07:00:00+01:00",
+          "end": "2026-11-19T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-19T12:00:00+01:00",
+          "end": "2026-11-19T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-19T17:00:00+01:00",
+          "end": "2026-11-19T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-19T22:00:00+01:00",
+          "end": "2026-11-20T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-20T07:00:00+01:00",
+          "end": "2026-11-20T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-20T12:00:00+01:00",
+          "end": "2026-11-20T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-20T17:00:00+01:00",
+          "end": "2026-11-20T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-20T22:00:00+01:00",
+          "end": "2026-11-23T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-23T07:00:00+01:00",
+          "end": "2026-11-23T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-23T12:00:00+01:00",
+          "end": "2026-11-23T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-23T17:00:00+01:00",
+          "end": "2026-11-23T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-23T22:00:00+01:00",
+          "end": "2026-11-24T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-24T07:00:00+01:00",
+          "end": "2026-11-24T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-24T12:00:00+01:00",
+          "end": "2026-11-24T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-24T17:00:00+01:00",
+          "end": "2026-11-24T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-24T22:00:00+01:00",
+          "end": "2026-11-25T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-25T07:00:00+01:00",
+          "end": "2026-11-25T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-25T12:00:00+01:00",
+          "end": "2026-11-25T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-25T17:00:00+01:00",
+          "end": "2026-11-25T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-25T22:00:00+01:00",
+          "end": "2026-11-26T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-26T07:00:00+01:00",
+          "end": "2026-11-26T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-26T12:00:00+01:00",
+          "end": "2026-11-26T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-26T17:00:00+01:00",
+          "end": "2026-11-26T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-26T22:00:00+01:00",
+          "end": "2026-11-27T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-27T07:00:00+01:00",
+          "end": "2026-11-27T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-27T12:00:00+01:00",
+          "end": "2026-11-27T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-27T17:00:00+01:00",
+          "end": "2026-11-27T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-27T22:00:00+01:00",
+          "end": "2026-11-30T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-30T07:00:00+01:00",
+          "end": "2026-11-30T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-30T12:00:00+01:00",
+          "end": "2026-11-30T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-11-30T17:00:00+01:00",
+          "end": "2026-11-30T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-11-30T22:00:00+01:00",
+          "end": "2026-12-01T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-01T07:00:00+01:00",
+          "end": "2026-12-01T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-01T12:00:00+01:00",
+          "end": "2026-12-01T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-01T17:00:00+01:00",
+          "end": "2026-12-01T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-01T22:00:00+01:00",
+          "end": "2026-12-02T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-02T07:00:00+01:00",
+          "end": "2026-12-02T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-02T12:00:00+01:00",
+          "end": "2026-12-02T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-02T17:00:00+01:00",
+          "end": "2026-12-02T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-02T22:00:00+01:00",
+          "end": "2026-12-03T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-03T07:00:00+01:00",
+          "end": "2026-12-03T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-03T12:00:00+01:00",
+          "end": "2026-12-03T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-03T17:00:00+01:00",
+          "end": "2026-12-03T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-03T22:00:00+01:00",
+          "end": "2026-12-04T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-04T07:00:00+01:00",
+          "end": "2026-12-04T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-04T12:00:00+01:00",
+          "end": "2026-12-04T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-04T17:00:00+01:00",
+          "end": "2026-12-04T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-04T22:00:00+01:00",
+          "end": "2026-12-07T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-07T07:00:00+01:00",
+          "end": "2026-12-07T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-07T12:00:00+01:00",
+          "end": "2026-12-07T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-07T17:00:00+01:00",
+          "end": "2026-12-07T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-07T22:00:00+01:00",
+          "end": "2026-12-08T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-08T07:00:00+01:00",
+          "end": "2026-12-08T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-08T12:00:00+01:00",
+          "end": "2026-12-08T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-08T17:00:00+01:00",
+          "end": "2026-12-08T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-08T22:00:00+01:00",
+          "end": "2026-12-09T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-09T07:00:00+01:00",
+          "end": "2026-12-09T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-09T12:00:00+01:00",
+          "end": "2026-12-09T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-09T17:00:00+01:00",
+          "end": "2026-12-09T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-09T22:00:00+01:00",
+          "end": "2026-12-10T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-10T07:00:00+01:00",
+          "end": "2026-12-10T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-10T12:00:00+01:00",
+          "end": "2026-12-10T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-10T17:00:00+01:00",
+          "end": "2026-12-10T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-10T22:00:00+01:00",
+          "end": "2026-12-11T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-11T07:00:00+01:00",
+          "end": "2026-12-11T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-11T12:00:00+01:00",
+          "end": "2026-12-11T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-11T17:00:00+01:00",
+          "end": "2026-12-11T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-11T22:00:00+01:00",
+          "end": "2026-12-14T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-14T07:00:00+01:00",
+          "end": "2026-12-14T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-14T12:00:00+01:00",
+          "end": "2026-12-14T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-14T17:00:00+01:00",
+          "end": "2026-12-14T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-14T22:00:00+01:00",
+          "end": "2026-12-15T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-15T07:00:00+01:00",
+          "end": "2026-12-15T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-15T12:00:00+01:00",
+          "end": "2026-12-15T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-15T17:00:00+01:00",
+          "end": "2026-12-15T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-15T22:00:00+01:00",
+          "end": "2026-12-16T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-16T07:00:00+01:00",
+          "end": "2026-12-16T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-16T12:00:00+01:00",
+          "end": "2026-12-16T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-16T17:00:00+01:00",
+          "end": "2026-12-16T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-16T22:00:00+01:00",
+          "end": "2026-12-17T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-17T07:00:00+01:00",
+          "end": "2026-12-17T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-17T12:00:00+01:00",
+          "end": "2026-12-17T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-17T17:00:00+01:00",
+          "end": "2026-12-17T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-17T22:00:00+01:00",
+          "end": "2026-12-18T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-18T07:00:00+01:00",
+          "end": "2026-12-18T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-18T12:00:00+01:00",
+          "end": "2026-12-18T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-18T17:00:00+01:00",
+          "end": "2026-12-18T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-18T22:00:00+01:00",
+          "end": "2026-12-21T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-21T07:00:00+01:00",
+          "end": "2026-12-21T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-21T12:00:00+01:00",
+          "end": "2026-12-21T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-21T17:00:00+01:00",
+          "end": "2026-12-21T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-21T22:00:00+01:00",
+          "end": "2026-12-22T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-22T07:00:00+01:00",
+          "end": "2026-12-22T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-22T12:00:00+01:00",
+          "end": "2026-12-22T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-22T17:00:00+01:00",
+          "end": "2026-12-22T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-22T22:00:00+01:00",
+          "end": "2026-12-23T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-23T07:00:00+01:00",
+          "end": "2026-12-23T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-23T12:00:00+01:00",
+          "end": "2026-12-23T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-23T17:00:00+01:00",
+          "end": "2026-12-23T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-23T22:00:00+01:00",
+          "end": "2026-12-24T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-24T07:00:00+01:00",
+          "end": "2026-12-24T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-24T12:00:00+01:00",
+          "end": "2026-12-24T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-24T17:00:00+01:00",
+          "end": "2026-12-24T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-24T22:00:00+01:00",
+          "end": "2026-12-25T07:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-25T07:00:00+01:00",
+          "end": "2026-12-25T12:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-25T12:00:00+01:00",
+          "end": "2026-12-25T17:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        },
+        {
+          "start": "2026-12-25T17:00:00+01:00",
+          "end": "2026-12-25T22:00:00+01:00",
+          "name": "High Tariff",
+          "price": 0.29922
+        },
+        {
+          "start": "2026-12-25T22:00:00+01:00",
+          "end": "2026-12-28T00:00:00+01:00",
+          "name": "Low Tariff",
+          "price": 0.23868
+        }
+      ],
+      "next_update": "2026-10-03T02:00:00+02:00",
+      "currency": "CHF",
+      "requalification_reason": null
+    }
+  }
+}

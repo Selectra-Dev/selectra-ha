@@ -99,3 +99,37 @@ async def test_select_periods_lists_v2_consumption_features(
 
     assert result["type"] is FlowResultType.CREATE_ENTRY
     assert result["title"] == "Fixture Denki - Night Plan"
+
+
+async def test_select_periods_falls_back_to_keys_for_unnamed_features(
+    hass: HomeAssistant,
+) -> None:
+    """A feature with no display name is listed by its key.
+
+    Australian catalogues leave `display_name` NULL; a `None` option value
+    made Home Assistant reject the form, so setup could not go on.
+    """
+    details = _v2_time_of_use_details()
+    for feature in details["supply"]["features"]:
+        feature["name"] = None
+
+    client = AsyncMock()
+    client.qualify = AsyncMock(
+        return_value={"done": True, "inputs": {"country_code": "au", "offer_id": 1}}
+    )
+    client.get_details = AsyncMock(return_value=normalize_details(details))
+
+    with patch(
+        "custom_components.selectra.config_flow.SelectraApiClient",
+        return_value=client,
+    ):
+        result = await hass.config_entries.flow.async_init(
+            DOMAIN, context={"source": "user"}
+        )
+        result = await hass.config_entries.flow.async_configure(
+            result["flow_id"], {"token": "fixture-token"}
+        )
+
+    assert result["step_id"] == "select_periods"
+    selector = result["data_schema"].schema["selected_periods"]
+    assert [o["value"] for o in selector.config["options"]] == ["day", "night"]

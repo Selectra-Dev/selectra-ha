@@ -1,0 +1,565 @@
+{
+  "scenario": "uk",
+  "recorded_from": "http://energy-core.test/api",
+  "recorded_at": "2026-09-29T13:43:21Z",
+  "lang": "en",
+  "time_zone": "Europe/London",
+  "expect": {
+    "category": "flat_rate"
+  },
+  "qualification": [
+    {
+      "request": {
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "country_code",
+            "options": {
+              "af": "Afghanistan",
+              "al": "Albania",
+              "dz": "Algeria",
+              "ad": "Andorra",
+              "ao": "Angola",
+              "ai": "Anguilla",
+              "ag": "Antigua and Barbuda",
+              "ar": "Argentina",
+              "am": "Armenia",
+              "aw": "Aruba",
+              "au": "Australia",
+              "at": "Austria",
+              "az": "Azerbaijan",
+              "bs": "Bahamas",
+              "bh": "Bahrain",
+              "bd": "Bangladesh",
+              "bb": "Barbados",
+              "by": "Belarus",
+              "be": "Belgium",
+              "bz": "Belize",
+              "bj": "Benin",
+              "bm": "Bermuda",
+              "bt": "Bhutan",
+              "bo": "Bolivia",
+              "ba": "Bosnia and Herzegovina",
+              "bw": "Botswana",
+              "br": "Brazil",
+              "vg": "British Virgin Islands",
+              "bn": "Brunei",
+              "bg": "Bulgaria",
+              "bf": "Burkina Faso",
+              "bi": "Burundi",
+              "kh": "Cambodia",
+              "cm": "Cameroon",
+              "ca": "Canada",
+              "cv": "Cape Verde",
+              "bq": "Caribbean Netherlands",
+              "ky": "Cayman Islands",
+              "cf": "Central African Republic",
+              "td": "Chad",
+              "cl": "Chile",
+              "cn": "China",
+              "co": "Colombia",
+              "km": "Comoros",
+              "cg": "Congo",
+              "ck": "Cook Islands",
+              "cr": "Costa Rica",
+              "hr": "Croatia",
+              "cu": "Cuba",
+              "cw": "Curaçao",
+              "cy": "Cyprus",
+              "cz": "Czech Republic",
+              "cd": "Democratic Republic of the Congo",
+              "dk": "Denmark",
+              "dj": "Djibouti",
+              "dm": "Dominica",
+              "do": "Dominican Republic",
+              "ec": "Ecuador",
+              "eg": "Egypt",
+              "sv": "El Salvador",
+              "gq": "Equatorial Guinea",
+              "ee": "Estonia",
+              "sz": "Eswatini",
+              "et": "Ethiopia",
+              "fj": "Fiji",
+              "fi": "Finland",
+              "fr": "France",
+              "pf": "French Polynesia",
+              "ga": "Gabon",
+              "gm": "Gambia",
+              "ge": "Georgia",
+              "de": "Germany",
+              "gh": "Ghana",
+              "gi": "Gibraltar",
+              "gr": "Greece",
+              "gl": "Greenland",
+              "gd": "Grenada",
+              "gt": "Guatemala",
+              "gn": "Guinea",
+              "gw": "Guinea-Bissau",
+              "gy": "Guyana",
+              "ht": "Haiti",
+              "hn": "Honduras",
+              "hk": "Hong Kong",
+              "hu": "Hungary",
+              "is": "Iceland",
+              "in": "India",
+              "id": "Indonesia",
+              "ir": "Iran",
+              "iq": "Iraq",
+              "ie": "Ireland",
+              "il": "Israel",
+              "it": "Italy",
+              "ci": "Ivory Coast",
+              "jm": "Jamaica",
+              "jp": "Japan",
+              "jo": "Jordan",
+              "kz": "Kazakhstan",
+              "ke": "Kenya",
+              "ki": "Kiribati",
+              "xk": "Kosovo",
+              "kw": "Kuwait",
+              "kg": "Kyrgyzstan",
+              "la": "Laos",
+              "lv": "Latvia",
+              "lb": "Lebanon",
+              "ls": "Lesotho",
+              "lr": "Liberia",
+              "ly": "Libya",
+              "li": "Liechtenstein",
+              "lt": "Lithuania",
+              "lu": "Luxembourg",
+              "mo": "Macau",
+              "mg": "Madagascar",
+              "mw": "Malawi",
+              "my": "Malaysia",
+              "mv": "Maldives",
+              "ml": "Mali",
+              "mt": "Malta",
+              "mh": "Marshall Islands",
+              "mr": "Mauritania",
+              "mu": "Mauritius",
+              "mx": "Mexico",
+              "fm": "Micronesia",
+              "md": "Moldova",
+              "mc": "Monaco",
+              "mn": "Mongolia",
+              "me": "Montenegro",
+              "ms": "Montserrat",
+              "ma": "Morocco",
+              "mz": "Mozambique",
+              "mm": "Myanmar",
+              "na": "Namibia",
+              "nr": "Nauru",
+              "np": "Nepal",
+              "nl": "Netherlands",
+              "nc": "New Caledonia",
+              "nz": "New Zealand",
+              "ni": "Nicaragua",
+              "ne": "Niger",
+              "ng": "Nigeria",
+              "nu": "Niue",
+              "mk": "North Macedonia",
+              "no": "Norway",
+              "om": "Oman",
+              "pk": "Pakistan",
+              "pw": "Palau",
+              "ps": "Palestine",
+              "pa": "Panama",
+              "pg": "Papua New Guinea",
+              "py": "Paraguay",
+              "pe": "Peru",
+              "ph": "Philippines",
+              "pl": "Poland",
+              "pt": "Portugal",
+              "qa": "Qatar",
+              "ro": "Romania",
+              "rw": "Rwanda",
+              "kn": "Saint Kitts and Nevis",
+              "lc": "Saint Lucia",
+              "vc": "Saint Vincent and the Grenadines",
+              "ws": "Samoa",
+              "sm": "San Marino",
+              "st": "Sao Tome and Principe",
+              "sa": "Saudi Arabia",
+              "sn": "Senegal",
+              "rs": "Serbia",
+              "sc": "Seychelles",
+              "sl": "Sierra Leone",
+              "sg": "Singapore",
+              "sx": "Sint Maarten",
+              "sk": "Slovakia",
+              "si": "Slovenia",
+              "sb": "Solomon Islands",
+              "za": "South Africa",
+              "kr": "South Korea",
+              "ss": "South Sudan",
+              "es": "Spain",
+              "lk": "Sri Lanka",
+              "sd": "Sudan",
+              "sr": "Suriname",
+              "se": "Sweden",
+              "ch": "Switzerland",
+              "sy": "Syria",
+              "tw": "Taiwan",
+              "tj": "Tajikistan",
+              "tz": "Tanzania",
+              "th": "Thailand",
+              "tl": "Timor-Leste",
+              "tg": "Togo",
+              "to": "Tonga",
+              "tt": "Trinidad and Tobago",
+              "tn": "Tunisia",
+              "tr": "Turkey",
+              "tm": "Turkmenistan",
+              "tc": "Turks and Caicos Islands",
+              "tv": "Tuvalu",
+              "ug": "Uganda",
+              "ua": "Ukraine",
+              "ae": "United Arab Emirates",
+              "uk": "United Kingdom",
+              "us": "United States",
+              "uy": "Uruguay",
+              "uz": "Uzbekistan",
+              "vu": "Vanuatu",
+              "vn": "Vietnam",
+              "ye": "Yemen",
+              "zm": "Zambia",
+              "zw": "Zimbabwe"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": null
+        }
+      },
+      "answers": {
+        "country_code": "uk"
+      }
+    },
+    {
+      "request": {
+        "country_code": "uk",
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "text",
+            "field": "postcode",
+            "label": "Your postcode"
+          }
+        ],
+        "inputs": {
+          "country_code": "uk",
+          "postcode": null
+        }
+      },
+      "answers": {
+        "postcode": "SW1A 1AA"
+      }
+    },
+    {
+      "request": {
+        "country_code": "uk",
+        "postcode": "SW1A 1AA",
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "provider_id",
+            "label": "Your electricity provider",
+            "options": {
+              "9346": "100Green",
+              "9158": "British Gas",
+              "147018": "E",
+              "147014": "Ecotricity",
+              "9156": "EDF Energy",
+              "9159": "E.ON Next",
+              "147016": "Fuse Energy",
+              "147015": "Good Energy",
+              "9157": "Octopus Energy",
+              "147013": "Outfox Energy",
+              "9160": "OVO Energy",
+              "9161": "Scottish Power",
+              "147012": "So Energy",
+              "147017": "Tulo Energy",
+              "9349": "Utilita",
+              "9348": "Utility Warehouse"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "uk",
+          "postcode": "SW1A 1AA",
+          "distributor_code": "_C",
+          "distributor_id": 4772,
+          "provider_id": null
+        }
+      },
+      "answers": {
+        "provider_id": "9346"
+      }
+    },
+    {
+      "request": {
+        "country_code": "uk",
+        "postcode": "SW1A 1AA",
+        "distributor_code": "_C",
+        "distributor_id": 4772,
+        "provider_id": 9346,
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "offer_id",
+            "label": "Your offer",
+            "options": {
+              "204330": "Sparkling Guarantee",
+              "204331": "Sparkling Variable",
+              "204332": "Eko",
+              "204333": "Tide EV",
+              "204335": "TIde Lifestyle",
+              "204336": "Tide Smart"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "uk",
+          "postcode": "SW1A 1AA",
+          "distributor_code": "_C",
+          "provider_id": 9346,
+          "distributor_id": 4772,
+          "offer_id": null
+        }
+      },
+      "answers": {
+        "offer_id": "204330"
+      }
+    },
+    {
+      "request": {
+        "country_code": "uk",
+        "postcode": "SW1A 1AA",
+        "distributor_code": "_C",
+        "provider_id": 9346,
+        "distributor_id": 4772,
+        "offer_id": 204330,
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "option_id",
+            "label": "Your electricity option",
+            "options": {
+              "61": "24-hour",
+              "237": "Economy 7"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "uk",
+          "postcode": "SW1A 1AA",
+          "distributor_code": "_C",
+          "provider_id": 9346,
+          "distributor_id": 4772,
+          "offer_id": 204330,
+          "option_id": null
+        }
+      },
+      "answers": {
+        "option_id": "61"
+      }
+    },
+    {
+      "request": {
+        "country_code": "uk",
+        "postcode": "SW1A 1AA",
+        "distributor_code": "_C",
+        "provider_id": 9346,
+        "distributor_id": 4772,
+        "offer_id": 204330,
+        "option_id": 61,
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "custom_prices",
+            "label": "kWh price : 29,2425 p/kWh",
+            "options": {
+              "no": "Yes, these prices are correct",
+              "yes": "No, I want to enter my prices"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "uk",
+          "postcode": "SW1A 1AA",
+          "distributor_code": "_C",
+          "provider_id": 9346,
+          "distributor_id": 4772,
+          "offer_id": 204330,
+          "option_id": 61,
+          "tier_id": 329,
+          "custom_prices": null
+        }
+      },
+      "answers": {
+        "custom_prices": "no"
+      }
+    },
+    {
+      "request": {
+        "country_code": "uk",
+        "postcode": "SW1A 1AA",
+        "distributor_code": "_C",
+        "provider_id": 9346,
+        "distributor_id": 4772,
+        "offer_id": 204330,
+        "option_id": 61,
+        "tier_id": 329,
+        "custom_prices": "no",
+        "lang": "en"
+      },
+      "response": {
+        "done": true,
+        "questions": [],
+        "inputs": {
+          "country_code": "uk",
+          "postcode": "SW1A 1AA",
+          "distributor_code": "_C",
+          "provider_id": 9346,
+          "distributor_id": 4772,
+          "offer_id": 204330,
+          "option_id": 61,
+          "tier_id": 329,
+          "custom_prices": "no"
+        }
+      }
+    }
+  ],
+  "details": {
+    "request": {
+      "country_code": "uk",
+      "postcode": "SW1A 1AA",
+      "distributor_code": "_C",
+      "provider_id": 9346,
+      "distributor_id": 4772,
+      "offer_id": 204330,
+      "option_id": 61,
+      "tier_id": 329,
+      "custom_prices": "no"
+    },
+    "response": {
+      "schema_version": "1.0",
+      "country_code": "uk",
+      "category": "flat_rate",
+      "currency": "GBP",
+      "vat_mode": "incl",
+      "generated_at": "2026-09-29T15:43:20+02:00",
+      "next_update_at": null,
+      "offer": {
+        "name": {
+          "en": "Sparkling Guarantee"
+        },
+        "type": "Fixed",
+        "slug": null,
+        "provider": {
+          "name": "100Green",
+          "slug": "100green",
+          "logo": "https://images.selectra.com/uk-energy/logos/100green-xs.png"
+        }
+      },
+      "option": {
+        "name": "24-hour",
+        "slug": "24-hour",
+        "description": null,
+        "period_set_name": null
+      },
+      "tier": null,
+      "supply": {
+        "features": [
+          {
+            "key": "Subscription Base",
+            "name": "Standing charge",
+            "type": "subscription",
+            "value": 45.06,
+            "unit": "pence per day",
+            "period_names": [],
+            "display_order": 1,
+            "weight": 1
+          },
+          {
+            "key": "Consumption Base",
+            "name": "kWh price",
+            "type": "consumption",
+            "value": 29.2425,
+            "unit": "pence per kWh",
+            "period_names": [],
+            "display_order": 2,
+            "weight": 1
+          }
+        ]
+      },
+      "network": null,
+      "country_prices": {
+        "features": []
+      },
+      "region_prices": {
+        "features": []
+      },
+      "province_prices": {
+        "features": []
+      },
+      "area_prices": {
+        "features": []
+      },
+      "city_prices": {
+        "features": []
+      },
+      "demand_response": null,
+      "meta": []
+    }
+  },
+  "prices": {
+    "request": {
+      "country_code": "uk",
+      "postcode": "SW1A 1AA",
+      "distributor_code": "_C",
+      "provider_id": 9346,
+      "distributor_id": 4772,
+      "offer_id": 204330,
+      "option_id": 61,
+      "tier_id": 329,
+      "custom_prices": "no"
+    },
+    "response": {
+      "prices": [
+        {
+          "start": "2026-09-29T00:00:00+01:00",
+          "end": "2026-12-28T00:00:00+00:00",
+          "name": "kWh price",
+          "price": 0.29243
+        }
+      ],
+      "next_update": "2026-10-03T02:00:00+01:00",
+      "currency": "GBP",
+      "requalification_reason": null
+    }
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "scenario": "jp",
+  "recorded_from": "http://energy-core.test/api",
+  "recorded_at": "2026-09-29T13:42:28Z",
+  "lang": "ja",
+  "time_zone": "Asia/Tokyo",
+  "expect": {
+    "category": "time_of_use"
+  },
+  "qualification": [
+    {
+      "request": {
+        "lang": "ja"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "country_code",
+            "options": {
+              "af": "Afghanistan",
+              "al": "Albania",
+              "dz": "Algeria",
+              "ad": "Andorra",
+              "ao": "Angola",
+              "ai": "Anguilla",
+              "ag": "Antigua and Barbuda",
+              "ar": "Argentina",
+              "am": "Armenia",
+              "aw": "Aruba",
+              "au": "Australia",
+              "at": "Austria",
+              "az": "Azerbaijan",
+              "bs": "Bahamas",
+              "bh": "Bahrain",
+              "bd": "Bangladesh",
+              "bb": "Barbados",
+              "by": "Belarus",
+              "be": "Belgium",
+              "bz": "Belize",
+              "bj": "Benin",
+              "bm": "Bermuda",
+              "bt": "Bhutan",
+              "bo": "Bolivia",
+              "ba": "Bosnia and Herzegovina",
+              "bw": "Botswana",
+              "br": "Brazil",
+              "vg": "British Virgin Islands",
+              "bn": "Brunei",
+              "bg": "Bulgaria",
+              "bf": "Burkina Faso",
+              "bi": "Burundi",
+              "kh": "Cambodia",
+              "cm": "Cameroon",
+              "ca": "Canada",
+              "cv": "Cape Verde",
+              "bq": "Caribbean Netherlands",
+              "ky": "Cayman Islands",
+              "cf": "Central African Republic",
+              "td": "Chad",
+              "cl": "Chile",
+              "cn": "China",
+              "co": "Colombia",
+              "km": "Comoros",
+              "cg": "Congo",
+              "ck": "Cook Islands",
+              "cr": "Costa Rica",
+              "hr": "Croatia",
+              "cu": "Cuba",
+              "cw": "Curaçao",
+              "cy": "Cyprus",
+              "cz": "Czech Republic",
+              "cd": "Democratic Republic of the Congo",
+              "dk": "Denmark",
+              "dj": "Djibouti",
+              "dm": "Dominica",
+              "do": "Dominican Republic",
+              "ec": "Ecuador",
+              "eg": "Egypt",
+              "sv": "El Salvador",
+              "gq": "Equatorial Guinea",
+              "ee": "Estonia",
+              "sz": "Eswatini",
+              "et": "Ethiopia",
+              "fj": "Fiji",
+              "fi": "Finland",
+              "fr": "France",
+              "pf": "French Polynesia",
+              "ga": "Gabon",
+              "gm": "Gambia",
+              "ge": "Georgia",
+              "de": "Germany",
+              "gh": "Ghana",
+              "gi": "Gibraltar",
+              "gr": "Greece",
+              "gl": "Greenland",
+              "gd": "Grenada",
+              "gt": "Guatemala",
+              "gn": "Guinea",
+              "gw": "Guinea-Bissau",
+              "gy": "Guyana",
+              "ht": "Haiti",
+              "hn": "Honduras",
+              "hk": "Hong Kong",
+              "hu": "Hungary",
+              "is": "Iceland",
+              "in": "India",
+              "id": "Indonesia",
+              "ir": "Iran",
+              "iq": "Iraq",
+              "ie": "Ireland",
+              "il": "Israel",
+              "it": "Italy",
+              "ci": "Ivory Coast",
+              "jm": "Jamaica",
+              "jp": "Japan",
+              "jo": "Jordan",
+              "kz": "Kazakhstan",
+              "ke": "Kenya",
+              "ki": "Kiribati",
+              "xk": "Kosovo",
+              "kw": "Kuwait",
+              "kg": "Kyrgyzstan",
+              "la": "Laos",
+              "lv": "Latvia",
+              "lb": "Lebanon",
+              "ls": "Lesotho",
+              "lr": "Liberia",
+              "ly": "Libya",
+              "li": "Liechtenstein",
+              "lt": "Lithuania",
+              "lu": "Luxembourg",
+              "mo": "Macau",
+              "mg": "Madagascar",
+              "mw": "Malawi",
+              "my": "Malaysia",
+              "mv": "Maldives",
+              "ml": "Mali",
+              "mt": "Malta",
+              "mh": "Marshall Islands",
+              "mr": "Mauritania",
+              "mu": "Mauritius",
+              "mx": "Mexico",
+              "fm": "Micronesia",
+              "md": "Moldova",
+              "mc": "Monaco",
+              "mn": "Mongolia",
+              "me": "Montenegro",
+              "ms": "Montserrat",
+              "ma": "Morocco",
+              "mz": "Mozambique",
+              "mm": "Myanmar",
+              "na": "Namibia",
+              "nr": "Nauru",
+              "np": "Nepal",
+              "nl": "Netherlands",
+              "nc": "New Caledonia",
+              "nz": "New Zealand",
+              "ni": "Nicaragua",
+              "ne": "Niger",
+              "ng": "Nigeria",
+              "nu": "Niue",
+              "mk": "North Macedonia",
+              "no": "Norway",
+              "om": "Oman",
+              "pk": "Pakistan",
+              "pw": "Palau",
+              "ps": "Palestine",
+              "pa": "Panama",
+              "pg": "Papua New Guinea",
+              "py": "Paraguay",
+              "pe": "Peru",
+              "ph": "Philippines",
+              "pl": "Poland",
+              "pt": "Portugal",
+              "qa": "Qatar",
+              "ro": "Romania",
+              "rw": "Rwanda",
+              "kn": "Saint Kitts and Nevis",
+              "lc": "Saint Lucia",
+              "vc": "Saint Vincent and the Grenadines",
+              "ws": "Samoa",
+              "sm": "San Marino",
+              "st": "Sao Tome and Principe",
+              "sa": "Saudi Arabia",
+              "sn": "Senegal",
+              "rs": "Serbia",
+              "sc": "Seychelles",
+              "sl": "Sierra Leone",
+              "sg": "Singapore",
+              "sx": "Sint Maarten",
+              "sk": "Slovakia",
+              "si": "Slovenia",
+              "sb": "Solomon Islands",
+              "za": "South Africa",
+              "kr": "South Korea",
+              "ss": "South Sudan",
+              "es": "Spain",
+              "lk": "Sri Lanka",
+              "sd": "Sudan",
+              "sr": "Suriname",
+              "se": "Sweden",
+              "ch": "Switzerland",
+              "sy": "Syria",
+              "tw": "Taiwan",
+              "tj": "Tajikistan",
+              "tz": "Tanzania",
+              "th": "Thailand",
+              "tl": "Timor-Leste",
+              "tg": "Togo",
+              "to": "Tonga",
+              "tt": "Trinidad and Tobago",
+              "tn": "Tunisia",
+              "tr": "Turkey",
+              "tm": "Turkmenistan",
+              "tc": "Turks and Caicos Islands",
+              "tv": "Tuvalu",
+              "ug": "Uganda",
+              "ua": "Ukraine",
+              "ae": "United Arab Emirates",
+              "uk": "United Kingdom",
+              "us": "United States",
+              "uy": "Uruguay",
+              "uz": "Uzbekistan",
+              "vu": "Vanuatu",
+              "vn": "Vietnam",
+              "ye": "Yemen",
+              "zm": "Zambia",
+              "zw": "Zimbabwe"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": null
+        }
+      },
+      "answers": {
+        "country_code": "jp"
+      }
+    },
+    {
+      "request": {
+        "country_code": "jp",
+        "lang": "ja"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "input",
+            "validation": "regex:/^\\d{3}-?\\d{4}$/",
+            "field": "postcode",
+            "label": "郵便番号"
+          }
+        ],
+        "inputs": {
+          "country_code": "jp",
+          "distributor_id": null
+        }
+      },
+      "answers": {
+        "postcode": "100-0001"
+      }
+    },
+    {
+      "request": {
+        "country_code": "jp",
+        "distributor_id": null,
+        "postcode": "100-0001",
+        "lang": "ja"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "provider_id",
+            "label": "ご契約の電力会社",
+            "options": {
+              "326": "auでんき",
+              "277": "武州ガス",
+              "611": "CDエナジーダイレクト",
+              "134": "中国電力",
+              "696": "コスモでんき",
+              "276": "大東ガス （DAITOでんき）",
+              "694": "ドコモでんき",
+              "617": "ドリームでんき・ガス",
+              "239": "エネワンでんき",
+              "330": "ENEOSでんき",
+              "691": "enひかり電気",
+              "677": "エバーグリーン・リテイリング",
+              "136": "北海道電力",
+              "332": "HTBエナジー",
+              "625": "JAPAN電力",
+              "243": "京葉ガス",
+              "8390": "九電ネクスト",
+              "233": "まちエネ",
+              "460": "レモンガス",
+              "235": "Looopでんき",
+              "237": "丸紅新電力",
+              "229": "ミツウロコでんき",
+              "416": "ニチガス",
+              "8313": "のむシリカ電力",
+              "606": "NUROでんき",
+              "680": "オクトパスエナジー",
+              "684": "ONEでんき",
+              "674": "PinTでんき",
+              "725": "Pontaでんき",
+              "744": "Q.ENESTでんき",
+              "9137": "楽々でんき",
+              "259": "楽天エナジー",
+              "137": "北陸電力",
+              "278": "サーラeエナジー",
+              "636": "新日本エネルギー",
+              "750": "しろくま電力",
+              "282": "静岡ガス",
+              "234": "idemitsuでんき",
+              "185": "ソフトバンクでんき",
+              "286": "シン・エナジー",
+              "129": "東京電力エナジーパートナー",
+              "724": "TERASELでんき",
+              "132": "東北電力",
+              "141": "東京ガス",
+              "226": "東急でんき＆ガス",
+              "8312": "U-POWER"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "jp",
+          "distributor_id": 3884,
+          "provider_id": null
+        }
+      },
+      "answers": {
+        "provider_id": "326"
+      }
+    },
+    {
+      "request": {
+        "country_code": "jp",
+        "distributor_id": 3884,
+        "provider_id": 326,
+        "lang": "ja"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "tier_id",
+            "label": "ご使用量の区分",
+            "options": {
+              "57": "1 - 120 kWh / 月",
+              "58": "121 - 280 kWh / 月",
+              "59": "281 - 10000 kWh / 月"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "jp",
+          "distributor_id": 3884,
+          "provider_id": 326,
+          "offer_id": 202854,
+          "option_id": 203,
+          "tier_id": null
+        }
+      },
+      "answers": {
+        "tier_id": "57"
+      }
+    },
+    {
+      "request": {
+        "country_code": "jp",
+        "distributor_id": 3884,
+        "provider_id": 326,
+        "offer_id": 202854,
+        "option_id": 203,
+        "tier_id": 57,
+        "lang": "ja"
+      },
+      "response": {
+        "done": true,
+        "questions": [],
+        "inputs": {
+          "country_code": "jp",
+          "distributor_id": 3884,
+          "provider_id": 326,
+          "offer_id": 202854,
+          "option_id": 203,
+          "tier_id": 57,
+          "custom_prices": null
+        }
+      }
+    }
+  ],
+  "details": {
+    "request": {
+      "country_code": "jp",
+      "distributor_id": 3884,
+      "provider_id": 326,
+      "offer_id": 202854,
+      "option_id": 203,
+      "tier_id": 57,
+      "custom_prices": null
+    },
+    "response": {
+      "schema_version": "1.0",
+      "country_code": "jp",
+      "category": "time_of_use",
+      "currency": "JPY",
+      "vat_mode": "incl",
+      "generated_at": "2026-09-29T15:42:27+02:00",
+      "next_update_at": null,
+      "offer": {
+        "name": {
+          "ja": "でんきMプラン"
+        },
+        "type": "Variable",
+        "slug": null,
+        "provider": {
+          "name": "auでんき",
+          "slug": "audenki",
+          "logo": "https://images.selectra.com/jp-energy/logos/audenki-xs.png"
+        }
+      },
+      "option": {
+        "name": "Electricity Basic",
+        "slug": "electricity-basic",
+        "description": null,
+        "period_set_name": null
+      },
+      "tier": {
+        "label": "1 - 120 kWh / 月"
+      },
+      "supply": {
+        "features": [
+          {
+            "key": "Amperage Cost",
+            "name": "基本料金",
+            "type": "subscription",
+            "value": 311.74,
+            "unit": "円 / 月 *10A=1kVAあたり",
+            "period_names": [],
+            "display_order": 1,
+            "weight": 1
+          },
+          {
+            "key": "Monthly fixed flat rate",
+            "name": "最低料金",
+            "type": "subscription",
+            "value": 0,
+            "unit": "円 / 月",
+            "period_names": [],
+            "display_order": 2,
+            "weight": 1
+          },
+          {
+            "key": "kWh price",
+            "name": "従量料金",
+            "type": "consumption",
+            "value": 0,
+            "unit": "円 / kWh",
+            "period_names": [],
+            "display_order": 3,
+            "weight": 1
+          },
+          {
+            "key": "Monthly Fixed Consumption Rate",
+            "name": "従量料金（定額）",
+            "type": "consumption",
+            "value": 0,
+            "unit": "円 / 月",
+            "period_names": [],
+            "display_order": 4,
+            "weight": 0
+          },
+          {
+            "key": "Fuel Cost Adjustment",
+            "name": "燃料費調整",
+            "type": "consumption",
+            "value": -7.69,
+            "unit": "円 / kWh",
+            "period_names": [],
+            "display_order": 5,
+            "weight": 1
+          }
+        ]
+      },
+      "network": null,
+      "country_prices": {
+        "features": []
+      },
+      "region_prices": {
+        "features": []
+      },
+      "province_prices": {
+        "features": []
+      },
+      "area_prices": {
+        "features": []
+      },
+      "city_prices": {
+        "features": []
+      },
+      "demand_response": null,
+      "meta": []
+    }
+  },
+  "prices": {
+    "request": {
+      "country_code": "jp",
+      "distributor_id": 3884,
+      "provider_id": 326,
+      "offer_id": 202854,
+      "option_id": 203,
+      "tier_id": 57,
+      "custom_prices": null
+    },
+    "response": {
+      "prices": [
+        {
+          "start": "2026-09-29T00:00:00+09:00",
+          "end": "2026-12-28T00:00:00+09:00",
+          "name": "kWh price",
+          "distributor_reference": null,
+          "price": 39.86
+        }
+      ],
+      "next_update": "2026-10-03T02:00:00+09:00",
+      "currency": "JPY",
+      "requalification_reason": null
+    }
+  }
+}

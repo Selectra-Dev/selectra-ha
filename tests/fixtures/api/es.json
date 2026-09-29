@@ -1,0 +1,659 @@
+{
+  "scenario": "es",
+  "recorded_from": "http://energy-core.test/api",
+  "recorded_at": "2026-09-29T13:42:42Z",
+  "lang": "es",
+  "time_zone": "Europe/Madrid",
+  "expect": {
+    "category": "flat_rate"
+  },
+  "qualification": [
+    {
+      "request": {
+        "lang": "es"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "country_code",
+            "options": {
+              "af": "Afghanistan",
+              "al": "Albania",
+              "dz": "Algeria",
+              "ad": "Andorra",
+              "ao": "Angola",
+              "ai": "Anguilla",
+              "ag": "Antigua and Barbuda",
+              "ar": "Argentina",
+              "am": "Armenia",
+              "aw": "Aruba",
+              "au": "Australia",
+              "at": "Austria",
+              "az": "Azerbaijan",
+              "bs": "Bahamas",
+              "bh": "Bahrain",
+              "bd": "Bangladesh",
+              "bb": "Barbados",
+              "by": "Belarus",
+              "be": "Belgium",
+              "bz": "Belize",
+              "bj": "Benin",
+              "bm": "Bermuda",
+              "bt": "Bhutan",
+              "bo": "Bolivia",
+              "ba": "Bosnia and Herzegovina",
+              "bw": "Botswana",
+              "br": "Brazil",
+              "vg": "British Virgin Islands",
+              "bn": "Brunei",
+              "bg": "Bulgaria",
+              "bf": "Burkina Faso",
+              "bi": "Burundi",
+              "kh": "Cambodia",
+              "cm": "Cameroon",
+              "ca": "Canada",
+              "cv": "Cape Verde",
+              "bq": "Caribbean Netherlands",
+              "ky": "Cayman Islands",
+              "cf": "Central African Republic",
+              "td": "Chad",
+              "cl": "Chile",
+              "cn": "China",
+              "co": "Colombia",
+              "km": "Comoros",
+              "cg": "Congo",
+              "ck": "Cook Islands",
+              "cr": "Costa Rica",
+              "hr": "Croatia",
+              "cu": "Cuba",
+              "cw": "Curaçao",
+              "cy": "Cyprus",
+              "cz": "Czech Republic",
+              "cd": "Democratic Republic of the Congo",
+              "dk": "Denmark",
+              "dj": "Djibouti",
+              "dm": "Dominica",
+              "do": "Dominican Republic",
+              "ec": "Ecuador",
+              "eg": "Egypt",
+              "sv": "El Salvador",
+              "gq": "Equatorial Guinea",
+              "ee": "Estonia",
+              "sz": "Eswatini",
+              "et": "Ethiopia",
+              "fj": "Fiji",
+              "fi": "Finland",
+              "fr": "France",
+              "pf": "French Polynesia",
+              "ga": "Gabon",
+              "gm": "Gambia",
+              "ge": "Georgia",
+              "de": "Germany",
+              "gh": "Ghana",
+              "gi": "Gibraltar",
+              "gr": "Greece",
+              "gl": "Greenland",
+              "gd": "Grenada",
+              "gt": "Guatemala",
+              "gn": "Guinea",
+              "gw": "Guinea-Bissau",
+              "gy": "Guyana",
+              "ht": "Haiti",
+              "hn": "Honduras",
+              "hk": "Hong Kong",
+              "hu": "Hungary",
+              "is": "Iceland",
+              "in": "India",
+              "id": "Indonesia",
+              "ir": "Iran",
+              "iq": "Iraq",
+              "ie": "Ireland",
+              "il": "Israel",
+              "it": "Italy",
+              "ci": "Ivory Coast",
+              "jm": "Jamaica",
+              "jp": "Japan",
+              "jo": "Jordan",
+              "kz": "Kazakhstan",
+              "ke": "Kenya",
+              "ki": "Kiribati",
+              "xk": "Kosovo",
+              "kw": "Kuwait",
+              "kg": "Kyrgyzstan",
+              "la": "Laos",
+              "lv": "Latvia",
+              "lb": "Lebanon",
+              "ls": "Lesotho",
+              "lr": "Liberia",
+              "ly": "Libya",
+              "li": "Liechtenstein",
+              "lt": "Lithuania",
+              "lu": "Luxembourg",
+              "mo": "Macau",
+              "mg": "Madagascar",
+              "mw": "Malawi",
+              "my": "Malaysia",
+              "mv": "Maldives",
+              "ml": "Mali",
+              "mt": "Malta",
+              "mh": "Marshall Islands",
+              "mr": "Mauritania",
+              "mu": "Mauritius",
+              "mx": "Mexico",
+              "fm": "Micronesia",
+              "md": "Moldova",
+              "mc": "Monaco",
+              "mn": "Mongolia",
+              "me": "Montenegro",
+              "ms": "Montserrat",
+              "ma": "Morocco",
+              "mz": "Mozambique",
+              "mm": "Myanmar",
+              "na": "Namibia",
+              "nr": "Nauru",
+              "np": "Nepal",
+              "nl": "Netherlands",
+              "nc": "New Caledonia",
+              "nz": "New Zealand",
+              "ni": "Nicaragua",
+              "ne": "Niger",
+              "ng": "Nigeria",
+              "nu": "Niue",
+              "mk": "North Macedonia",
+              "no": "Norway",
+              "om": "Oman",
+              "pk": "Pakistan",
+              "pw": "Palau",
+              "ps": "Palestine",
+              "pa": "Panama",
+              "pg": "Papua New Guinea",
+              "py": "Paraguay",
+              "pe": "Peru",
+              "ph": "Philippines",
+              "pl": "Poland",
+              "pt": "Portugal",
+              "qa": "Qatar",
+              "ro": "Romania",
+              "rw": "Rwanda",
+              "kn": "Saint Kitts and Nevis",
+              "lc": "Saint Lucia",
+              "vc": "Saint Vincent and the Grenadines",
+              "ws": "Samoa",
+              "sm": "San Marino",
+              "st": "Sao Tome and Principe",
+              "sa": "Saudi Arabia",
+              "sn": "Senegal",
+              "rs": "Serbia",
+              "sc": "Seychelles",
+              "sl": "Sierra Leone",
+              "sg": "Singapore",
+              "sx": "Sint Maarten",
+              "sk": "Slovakia",
+              "si": "Slovenia",
+              "sb": "Solomon Islands",
+              "za": "South Africa",
+              "kr": "South Korea",
+              "ss": "South Sudan",
+              "es": "Spain",
+              "lk": "Sri Lanka",
+              "sd": "Sudan",
+              "sr": "Suriname",
+              "se": "Sweden",
+              "ch": "Switzerland",
+              "sy": "Syria",
+              "tw": "Taiwan",
+              "tj": "Tajikistan",
+              "tz": "Tanzania",
+              "th": "Thailand",
+              "tl": "Timor-Leste",
+              "tg": "Togo",
+              "to": "Tonga",
+              "tt": "Trinidad and Tobago",
+              "tn": "Tunisia",
+              "tr": "Turkey",
+              "tm": "Turkmenistan",
+              "tc": "Turks and Caicos Islands",
+              "tv": "Tuvalu",
+              "ug": "Uganda",
+              "ua": "Ukraine",
+              "ae": "United Arab Emirates",
+              "uk": "United Kingdom",
+              "us": "United States",
+              "uy": "Uruguay",
+              "uz": "Uzbekistan",
+              "vu": "Vanuatu",
+              "vn": "Vietnam",
+              "ye": "Yemen",
+              "zm": "Zambia",
+              "zw": "Zimbabwe"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": null
+        }
+      },
+      "answers": {
+        "country_code": "es"
+      }
+    },
+    {
+      "request": {
+        "country_code": "es",
+        "lang": "es"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "province_id",
+            "label": "Tu zona",
+            "options": {
+              "112": "A Coruña",
+              "138": "Álava",
+              "136": "Albacete",
+              "106": "Alicante",
+              "123": "Almería",
+              "114": "Asturias",
+              "148": "Ávila",
+              "125": "Badajoz",
+              "103": "Barcelona",
+              "110": "Bizkaia",
+              "137": "Burgos",
+              "135": "Cáceres",
+              "109": "Cádiz",
+              "128": "Cantabria",
+              "129": "Castellón",
+              "152": "Ceuta",
+              "132": "Ciudad Real",
+              "120": "Córdoba",
+              "145": "Cuenca",
+              "122": "Gipuzkoa",
+              "121": "Girona",
+              "118": "Granada",
+              "143": "Guadalajara",
+              "130": "Huelva",
+              "144": "Huesca",
+              "111": "Islas Baleares",
+              "127": "Jaén",
+              "141": "La Rioja",
+              "113": "Las Palmas",
+              "133": "León",
+              "134": "Lleida",
+              "140": "Lugo",
+              "102": "Madrid",
+              "107": "Málaga",
+              "153": "Melilla",
+              "108": "Murcia",
+              "126": "Navarra",
+              "142": "Ourense",
+              "147": "Palencia",
+              "117": "Pontevedra",
+              "139": "Salamanca",
+              "115": "Santa Cruz de Tenerife",
+              "149": "Segovia",
+              "105": "Sevilla",
+              "151": "Soria",
+              "119": "Tarragona",
+              "150": "Teruel",
+              "124": "Toledo",
+              "104": "Valencia",
+              "131": "Valladolid",
+              "146": "Zamora",
+              "116": "Zaragoza"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "es",
+          "province_id": null
+        }
+      },
+      "answers": {
+        "province_id": "112"
+      }
+    },
+    {
+      "request": {
+        "country_code": "es",
+        "province_id": 112,
+        "lang": "es"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "provider_id",
+            "label": "Tu proveedor de electricidad",
+            "options": {
+              "7838": "A tu lado Energía",
+              "7840": "Acciona Energía",
+              "542": "Acsol",
+              "7830": "Adelfas Energía",
+              "7828": "Aduriz Energía",
+              "7908": "ADX Energía",
+              "7855": "AED Energía",
+              "7601": "Agrienergía",
+              "482": "Alcanzia",
+              "7803": "Alumbra Energía",
+              "7829": "Aracan Energía",
+              "173": "Audax Renovables",
+              "7804": "Barcelona Energía",
+              "7602": "Bassols Energía",
+              "7812": "Bon Preu Esclat",
+              "8368": "Bualá",
+              "7603": "Catgas / Catllum",
+              "521": "CHC Energía",
+              "7766": "Chippio",
+              "7825": "Cima",
+              "7805": "Clarity Energy",
+              "524": "Comercializadora Eléctrica de Cádiz",
+              "7731": "Comercializadoras de Referencia PVPC",
+              "594": "Contigo Energía",
+              "9153": "Contigo Energía Solar",
+              "7806": "Crea Energía",
+              "7831": "Cye Energía",
+              "7843": "Electra Alto Miño",
+              "7822": "Electra Avellana",
+              "7617": "Electra Caldense",
+              "7853": "Electra Centelles",
+              "7839": "Eléctrica de Alginet",
+              "7620": "Eléctrica Serosense",
+              "8373": "Eleia Energía",
+              "303": "Endesa",
+              "7868": "Endesa Solar",
+              "7609": "Energía El Corte Inglés",
+              "7837": "Energía Nufri",
+              "7857": "Energiarea",
+              "7847": "Energías del Mediterráneo",
+              "54": "Enérgya VM",
+              "7844": "Epresa Energía",
+              "7604": "Eres Energía",
+              "7605": "Estabanell Energía",
+              "576": "Factor Energía",
+              "522": "Feníe Energía",
+              "283": "Fortuluz",
+              "7606": "Fox Energía",
+              "498": "Gana Energía",
+              "7607": "Goiener",
+              "7817": "Helioelec",
+              "7834": "Helios Energía",
+              "128": "Holaluz",
+              "7816": "HS Comercializadora",
+              "51": "Iberdrola",
+              "7873": "Iberdrola Solar",
+              "7824": "Ibereléctrica",
+              "7814": "Imagina Energía",
+              "9152": "Imagina Energía Solar",
+              "7608": "Iner Energía",
+              "7610": "Integra Energía",
+              "7611": "Iris Energía",
+              "7835": "Lidera Energía",
+              "7813": "Logos Energía",
+              "7850": "Love Energy",
+              "569": "Lucera",
+              "7851": "Lumio",
+              "7612": "Lumisa Energías",
+              "9155": "Lumisa Solar",
+              "7845": "Lux forum",
+              "7768": "Máis Enerxía Galega",
+              "722": "Másmóvil Energía",
+              "7846": "Megara Energía",
+              "7619": "MET Energía",
+              "7874": "MET Energía Solar",
+              "7613": "Nabalia Energía",
+              "52": "Naturgy",
+              "7872": "Naturgy Solar",
+              "540": "Nexus Energía",
+              "8198": "Niba",
+              "7836": "Nordy",
+              "7827": "Nosa Enerxia",
+              "723": "Octopus Energy",
+              "7869": "Octopus Solar",
+              "251": "ODF Energía",
+              "655": "Pepeenergy",
+              "7614": "Peusa",
+              "369": "Plenitude",
+              "359": "Podo",
+              "9151": "Podo Solar",
+              "8081": "Próxima Energía Solar",
+              "304": "Repsol",
+              "7870": "Repsol Solar",
+              "675": "TotalEnergies",
+              "8080": "TotalEnergies Solar",
+              "7821": "U Energía",
+              "523": "Unieléctrica",
+              "7811": "Visalia",
+              "7823": "Voltiva Energy",
+              "535": "Watium",
+              "609": "Xenera Energía",
+              "721": "Yoigo Luz y Gas"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "es",
+          "province_id": 112,
+          "distributor_id": 3999,
+          "provider_id": null
+        }
+      },
+      "answers": {
+        "provider_id": "7838"
+      }
+    },
+    {
+      "request": {
+        "country_code": "es",
+        "province_id": 112,
+        "distributor_id": 3999,
+        "provider_id": 7838,
+        "lang": "es"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "offer_id",
+            "label": "Tu oferta",
+            "options": {
+              "83430": "Tarifa Milenial",
+              "83431": "Tarifa de Discriminación Horaria"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "es",
+          "province_id": 112,
+          "distributor_id": 3999,
+          "provider_id": 7838,
+          "offer_id": null
+        }
+      },
+      "answers": {
+        "offer_id": "83430"
+      }
+    },
+    {
+      "request": {
+        "country_code": "es",
+        "province_id": 112,
+        "distributor_id": 3999,
+        "provider_id": 7838,
+        "offer_id": 83430,
+        "lang": "es"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "custom_prices",
+            "label": "Precio energía 24h : 0,1360 €/kWh",
+            "options": {
+              "no": "Sí, estos precios son correctos",
+              "yes": "No, quiero introducir mis precios"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "es",
+          "province_id": 112,
+          "distributor_id": 3999,
+          "provider_id": 7838,
+          "offer_id": 83430,
+          "option_id": 26,
+          "custom_prices": null
+        }
+      },
+      "answers": {
+        "custom_prices": "no"
+      }
+    },
+    {
+      "request": {
+        "country_code": "es",
+        "province_id": 112,
+        "distributor_id": 3999,
+        "provider_id": 7838,
+        "offer_id": 83430,
+        "option_id": 26,
+        "custom_prices": "no",
+        "lang": "es"
+      },
+      "response": {
+        "done": true,
+        "questions": [],
+        "inputs": {
+          "country_code": "es",
+          "province_id": 112,
+          "distributor_id": 3999,
+          "provider_id": 7838,
+          "offer_id": 83430,
+          "option_id": 26,
+          "custom_prices": "no"
+        }
+      }
+    }
+  ],
+  "details": {
+    "request": {
+      "country_code": "es",
+      "province_id": 112,
+      "distributor_id": 3999,
+      "provider_id": 7838,
+      "offer_id": 83430,
+      "option_id": 26,
+      "custom_prices": "no"
+    },
+    "response": {
+      "schema_version": "1.0",
+      "country_code": "es",
+      "category": "flat_rate",
+      "currency": "EUR",
+      "vat_mode": "incl",
+      "generated_at": "2026-09-29T15:42:41+02:00",
+      "next_update_at": null,
+      "offer": {
+        "name": {
+          "es": "Tarifa Milenial"
+        },
+        "type": "Variable",
+        "slug": null,
+        "provider": {
+          "name": "A tu lado Energía",
+          "slug": "a-tu-lado",
+          "logo": "https://images.selectra.com/es-energy/logos/a-tu-lado-xs.png"
+        }
+      },
+      "option": {
+        "name": "1 price",
+        "slug": "1-price-spain",
+        "description": null,
+        "period_set_name": null
+      },
+      "tier": null,
+      "supply": {
+        "features": [
+          {
+            "key": "subscription 1 price p1",
+            "name": "Termino fijo punta",
+            "type": "subscription",
+            "value": 0.10372,
+            "unit": "€/kW/dia",
+            "period_names": [],
+            "display_order": 1,
+            "weight": 1
+          },
+          {
+            "key": "subscription 1 price p2",
+            "name": "Termino fijo valle",
+            "type": "subscription",
+            "value": 0.04162,
+            "unit": "€/kW/dia",
+            "period_names": [],
+            "display_order": 2,
+            "weight": 1
+          },
+          {
+            "key": "consumption 1 price",
+            "name": "Precio energía 24h",
+            "type": "consumption",
+            "value": 0.13596,
+            "unit": "€/kWh",
+            "period_names": [],
+            "display_order": 3,
+            "weight": 1
+          }
+        ]
+      },
+      "network": null,
+      "country_prices": {
+        "features": []
+      },
+      "region_prices": {
+        "features": []
+      },
+      "province_prices": {
+        "features": []
+      },
+      "area_prices": {
+        "features": []
+      },
+      "city_prices": {
+        "features": []
+      },
+      "demand_response": null,
+      "meta": []
+    }
+  },
+  "prices": {
+    "request": {
+      "country_code": "es",
+      "province_id": 112,
+      "distributor_id": 3999,
+      "provider_id": 7838,
+      "offer_id": 83430,
+      "option_id": 26,
+      "custom_prices": "no"
+    },
+    "response": {
+      "prices": [
+        {
+          "start": "2026-09-29T00:00:00+02:00",
+          "end": "2026-12-28T00:00:00+01:00",
+          "name": "Precio energía 24h",
+          "price": 0.17292
+        }
+      ],
+      "next_update": "2026-10-03T02:00:00+02:00",
+      "currency": "EUR",
+      "requalification_reason": null
+    }
+  }
+}
