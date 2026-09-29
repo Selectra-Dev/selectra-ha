@@ -11,6 +11,32 @@ import aiohttp
 from .const import API_BASE_URL
 
 
+def normalize_details(details: dict[str, Any]) -> dict[str, Any]:
+    """Give a /planning/details payload the legacy keys the integration reads.
+
+    FR, CH and DE still answer in the legacy shape. Every other country
+    answers in the v2 envelope, where the features live under
+    `supply.features`, the provider under `offer.provider` and the
+    distributor under `network`. Read as legacy, a v2 offer had no
+    features, so the period step showed no choices and could not be
+    submitted. Keys already present are left alone, so this is idempotent.
+    """
+    supply = details.get("supply")
+    if "features" not in details and isinstance(supply, dict):
+        details["features"] = supply.get("features") or []
+
+    offer = details.get("offer")
+    provider = offer.get("provider") if isinstance(offer, dict) else None
+    if isinstance(provider, dict):
+        offer.setdefault("provider_name", provider.get("name"))
+        offer.setdefault("logo", provider.get("logo"))
+
+    if "distributor" not in details and isinstance(details.get("network"), dict):
+        details["distributor"] = details["network"]
+
+    return details
+
+
 def _parse_retry_after(header_value: str | None) -> int | None:
     """Parse an HTTP Retry-After header.
 
@@ -148,7 +174,9 @@ class SelectraApiClient:
 
         Returns offer details including features.
         """
-        return await self._request("POST", "/planning/details", json_data=inputs)
+        return normalize_details(
+            await self._request("POST", "/planning/details", json_data=inputs)
+        )
 
     async def get_prices(self, inputs: dict[str, Any]) -> dict[str, Any]:
         """Call POST /planning/prices with qualification inputs.
