@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.2] - 2026-09-29
+
+### Fixed
+
+- **The "Select active periods" step had nothing to tick and could not be submitted** for time-of-use offers outside France, Switzerland and Germany (reported on a Japanese contract). Since July, the API answers those countries' `/planning/details` in its v2 envelope, which moves the features under `supply.features`. The integration still read the top-level `features`, found none, and showed a required field with no choices. The v2 keys are now mapped back to the ones the integration reads, and the same change brings back the provider name (and so the entry title), the logo and the distributor for those countries. Details already cached on disk are mapped on load.
+
+---
+
 ## [1.2.1] - 2026-09-28
 
 ### Fixed

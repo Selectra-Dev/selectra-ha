@@ -25,6 +25,7 @@ from .api import (
     SelectraRateLimitError,
     SelectraRequalificationError,
     SelectraServerError,
+    normalize_details,
 )
 from .cache import SelectraCache
 from .const import (
@@ -109,7 +110,8 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         await self._cache.async_load()
         cached = self._cache.get(CACHE_DETAILS, inputs)
         if cached is not None:
-            self._details = cached
+            # Entries cached before normalization still hold the raw v2 shape.
+            self._details = normalize_details(cached)
             return
 
         try:
