@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.2.3] - 2026-09-29
 
 ### Fixed
 
@@ -10,6 +10,8 @@
 
 - **Replay tests against real API responses.** `scripts/record_api_fixtures.py` walks the setup dialog of each scenario in `tests/fixtures/api/scenarios.json` against the API and records every exchange; `tests/test_api_replay.py` plays them through the real config flow, coordinator and entities. Each scenario must finish setup, list at least one period that matches a priced one, and come up with the provider name and a current price.
 - **Nightly contract check.** The `API contract` workflow re-records from the production API and replays, so a change on the API side fails CI within a day instead of reaching users. It needs the `SELECTRA_API_TOKEN` repository secret.
+
+---
 
 ## [1.2.2] - 2026-09-29
 
