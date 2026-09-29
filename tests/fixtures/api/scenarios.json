@@ -1,0 +1,163 @@
+{
+  "fr": {
+    "country_code": "fr",
+    "lang": "fr",
+    "time_zone": "Europe/Paris",
+    "answers": {
+      "postcode": "75001"
+    },
+    "expect": {
+      "category": "flat_rate"
+    }
+  },
+  "fr-hphc": {
+    "country_code": "fr",
+    "lang": "fr",
+    "time_zone": "Europe/Paris",
+    "answers": {
+      "postcode": "67000",
+      "provider_id": "8316",
+      "option_id": "2"
+    },
+    "expect": {
+      "category": "time_of_use"
+    }
+  },
+  "fr-tempo": {
+    "country_code": "fr",
+    "lang": "fr",
+    "time_zone": "Europe/Paris",
+    "answers": {
+      "postcode": "75001",
+      "provider_id": "16",
+      "offer_id": "7",
+      "option_id": "3"
+    },
+    "expect": {
+      "category": "demand_response"
+    }
+  },
+  "de": {
+    "country_code": "de",
+    "lang": "de",
+    "time_zone": "Europe/Berlin",
+    "answers": {
+      "postcode": "10115"
+    },
+    "expect": {
+      "category": "flat_rate"
+    }
+  },
+  "ch": {
+    "country_code": "ch",
+    "lang": "de",
+    "time_zone": "Europe/Zurich",
+    "answers": {
+      "postcode": "8001"
+    },
+    "expect": {
+      "category": "time_of_use"
+    }
+  },
+  "jp": {
+    "country_code": "jp",
+    "lang": "ja",
+    "time_zone": "Asia/Tokyo",
+    "answers": {
+      "postcode": "100-0001"
+    },
+    "expect": {
+      "category": "time_of_use"
+    }
+  },
+  "be": {
+    "country_code": "be",
+    "lang": "fr",
+    "time_zone": "Europe/Brussels",
+    "answers": {
+      "postcode": "1000"
+    },
+    "expect": {
+      "category": "flat_rate"
+    }
+  },
+  "es": {
+    "country_code": "es",
+    "lang": "es",
+    "time_zone": "Europe/Madrid",
+    "answers": {
+      "postcode": "28001"
+    },
+    "expect": {
+      "category": "flat_rate"
+    }
+  },
+  "it": {
+    "country_code": "it",
+    "lang": "it",
+    "time_zone": "Europe/Rome",
+    "answers": {
+      "postcode": "00118"
+    },
+    "expect": {
+      "category": "time_of_use"
+    }
+  },
+  "nl": {
+    "country_code": "nl",
+    "lang": "nl",
+    "time_zone": "Europe/Amsterdam",
+    "answers": {
+      "postcode": "1011"
+    },
+    "expect": {
+      "category": "dynamic"
+    }
+  },
+  "dk": {
+    "country_code": "dk",
+    "lang": "da",
+    "time_zone": "Europe/Copenhagen",
+    "answers": {
+      "postcode": "1050"
+    },
+    "expect": {
+      "category": "dynamic"
+    }
+  },
+  "se": {
+    "country_code": "se",
+    "lang": "sv",
+    "time_zone": "Europe/Stockholm",
+    "answers": {
+      "postcode": "11120"
+    },
+    "expect": {
+      "category": "flat_rate"
+    }
+  },
+  "au": {
+    "country_code": "au",
+    "lang": "en",
+    "time_zone": "Australia/Sydney",
+    "answers": {
+      "postcode": "2000",
+      "provider_id": "7999",
+      "option_id": "48"
+    },
+    "expect": {
+      "category": "time_of_use"
+    }
+  },
+  "uk": {
+    "country_code": "uk",
+    "lang": "en",
+    "time_zone": "Europe/London",
+    "answers": {
+      "postcode": "SW1A 1AA"
+    },
+    "expect": {
+      "category": "flat_rate"
+    }
+  }
+}

@@ -1,0 +1,526 @@
+{
+  "scenario": "it",
+  "recorded_from": "http://energy-core.test/api",
+  "recorded_at": "2026-09-29T13:42:47Z",
+  "lang": "it",
+  "time_zone": "Europe/Rome",
+  "expect": {
+    "category": "time_of_use"
+  },
+  "qualification": [
+    {
+      "request": {
+        "lang": "it"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "country_code",
+            "options": {
+              "af": "Afghanistan",
+              "al": "Albania",
+              "dz": "Algeria",
+              "ad": "Andorra",
+              "ao": "Angola",
+              "ai": "Anguilla",
+              "ag": "Antigua and Barbuda",
+              "ar": "Argentina",
+              "am": "Armenia",
+              "aw": "Aruba",
+              "au": "Australia",
+              "at": "Austria",
+              "az": "Azerbaijan",
+              "bs": "Bahamas",
+              "bh": "Bahrain",
+              "bd": "Bangladesh",
+              "bb": "Barbados",
+              "by": "Belarus",
+              "be": "Belgium",
+              "bz": "Belize",
+              "bj": "Benin",
+              "bm": "Bermuda",
+              "bt": "Bhutan",
+              "bo": "Bolivia",
+              "ba": "Bosnia and Herzegovina",
+              "bw": "Botswana",
+              "br": "Brazil",
+              "vg": "British Virgin Islands",
+              "bn": "Brunei",
+              "bg": "Bulgaria",
+              "bf": "Burkina Faso",
+              "bi": "Burundi",
+              "kh": "Cambodia",
+              "cm": "Cameroon",
+              "ca": "Canada",
+              "cv": "Cape Verde",
+              "bq": "Caribbean Netherlands",
+              "ky": "Cayman Islands",
+              "cf": "Central African Republic",
+              "td": "Chad",
+              "cl": "Chile",
+              "cn": "China",
+              "co": "Colombia",
+              "km": "Comoros",
+              "cg": "Congo",
+              "ck": "Cook Islands",
+              "cr": "Costa Rica",
+              "hr": "Croatia",
+              "cu": "Cuba",
+              "cw": "Curaçao",
+              "cy": "Cyprus",
+              "cz": "Czech Republic",
+              "cd": "Democratic Republic of the Congo",
+              "dk": "Denmark",
+              "dj": "Djibouti",
+              "dm": "Dominica",
+              "do": "Dominican Republic",
+              "ec": "Ecuador",
+              "eg": "Egypt",
+              "sv": "El Salvador",
+              "gq": "Equatorial Guinea",
+              "ee": "Estonia",
+              "sz": "Eswatini",
+              "et": "Ethiopia",
+              "fj": "Fiji",
+              "fi": "Finland",
+              "fr": "France",
+              "pf": "French Polynesia",
+              "ga": "Gabon",
+              "gm": "Gambia",
+              "ge": "Georgia",
+              "de": "Germany",
+              "gh": "Ghana",
+              "gi": "Gibraltar",
+              "gr": "Greece",
+              "gl": "Greenland",
+              "gd": "Grenada",
+              "gt": "Guatemala",
+              "gn": "Guinea",
+              "gw": "Guinea-Bissau",
+              "gy": "Guyana",
+              "ht": "Haiti",
+              "hn": "Honduras",
+              "hk": "Hong Kong",
+              "hu": "Hungary",
+              "is": "Iceland",
+              "in": "India",
+              "id": "Indonesia",
+              "ir": "Iran",
+              "iq": "Iraq",
+              "ie": "Ireland",
+              "il": "Israel",
+              "it": "Italy",
+              "ci": "Ivory Coast",
+              "jm": "Jamaica",
+              "jp": "Japan",
+              "jo": "Jordan",
+              "kz": "Kazakhstan",
+              "ke": "Kenya",
+              "ki": "Kiribati",
+              "xk": "Kosovo",
+              "kw": "Kuwait",
+              "kg": "Kyrgyzstan",
+              "la": "Laos",
+              "lv": "Latvia",
+              "lb": "Lebanon",
+              "ls": "Lesotho",
+              "lr": "Liberia",
+              "ly": "Libya",
+              "li": "Liechtenstein",
+              "lt": "Lithuania",
+              "lu": "Luxembourg",
+              "mo": "Macau",
+              "mg": "Madagascar",
+              "mw": "Malawi",
+              "my": "Malaysia",
+              "mv": "Maldives",
+              "ml": "Mali",
+              "mt": "Malta",
+              "mh": "Marshall Islands",
+              "mr": "Mauritania",
+              "mu": "Mauritius",
+              "mx": "Mexico",
+              "fm": "Micronesia",
+              "md": "Moldova",
+              "mc": "Monaco",
+              "mn": "Mongolia",
+              "me": "Montenegro",
+              "ms": "Montserrat",
+              "ma": "Morocco",
+              "mz": "Mozambique",
+              "mm": "Myanmar",
+              "na": "Namibia",
+              "nr": "Nauru",
+              "np": "Nepal",
+              "nl": "Netherlands",
+              "nc": "New Caledonia",
+              "nz": "New Zealand",
+              "ni": "Nicaragua",
+              "ne": "Niger",
+              "ng": "Nigeria",
+              "nu": "Niue",
+              "mk": "North Macedonia",
+              "no": "Norway",
+              "om": "Oman",
+              "pk": "Pakistan",
+              "pw": "Palau",
+              "ps": "Palestine",
+              "pa": "Panama",
+              "pg": "Papua New Guinea",
+              "py": "Paraguay",
+              "pe": "Peru",
+              "ph": "Philippines",
+              "pl": "Poland",
+              "pt": "Portugal",
+              "qa": "Qatar",
+              "ro": "Romania",
+              "rw": "Rwanda",
+              "kn": "Saint Kitts and Nevis",
+              "lc": "Saint Lucia",
+              "vc": "Saint Vincent and the Grenadines",
+              "ws": "Samoa",
+              "sm": "San Marino",
+              "st": "Sao Tome and Principe",
+              "sa": "Saudi Arabia",
+              "sn": "Senegal",
+              "rs": "Serbia",
+              "sc": "Seychelles",
+              "sl": "Sierra Leone",
+              "sg": "Singapore",
+              "sx": "Sint Maarten",
+              "sk": "Slovakia",
+              "si": "Slovenia",
+              "sb": "Solomon Islands",
+              "za": "South Africa",
+              "kr": "South Korea",
+              "ss": "South Sudan",
+              "es": "Spain",
+              "lk": "Sri Lanka",
+              "sd": "Sudan",
+              "sr": "Suriname",
+              "se": "Sweden",
+              "ch": "Switzerland",
+              "sy": "Syria",
+              "tw": "Taiwan",
+              "tj": "Tajikistan",
+              "tz": "Tanzania",
+              "th": "Thailand",
+              "tl": "Timor-Leste",
+              "tg": "Togo",
+              "to": "Tonga",
+              "tt": "Trinidad and Tobago",
+              "tn": "Tunisia",
+              "tr": "Turkey",
+              "tm": "Turkmenistan",
+              "tc": "Turks and Caicos Islands",
+              "tv": "Tuvalu",
+              "ug": "Uganda",
+              "ua": "Ukraine",
+              "ae": "United Arab Emirates",
+              "uk": "United Kingdom",
+              "us": "United States",
+              "uy": "Uruguay",
+              "uz": "Uzbekistan",
+              "vu": "Vanuatu",
+              "vn": "Vietnam",
+              "ye": "Yemen",
+              "zm": "Zambia",
+              "zw": "Zimbabwe"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": null
+        }
+      },
+      "answers": {
+        "country_code": "it"
+      }
+    },
+    {
+      "request": {
+        "country_code": "it",
+        "lang": "it"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "provider_id",
+            "label": "Il tuo fornitore",
+            "options": {
+              "302": "A2A Energia",
+              "301": "Acea Energia",
+              "8045": "Acinque",
+              "70": "AGSM AIM Energia",
+              "8162": "Ajò Energia",
+              "7574": "Alperia Energia",
+              "8166": "Argos Energia",
+              "8037": "Bluenergy",
+              "8041": "CVA Energie",
+              "8038": "Duferco",
+              "69": "E.ON",
+              "65": "Edison",
+              "57": "Enel Energia",
+              "8039": "Enercom",
+              "8365": "Energia Verde Italia",
+              "8044": "Energit",
+              "519": "Engie",
+              "63": "Eni Plenitude",
+              "654": "Estra",
+              "7571": "Fastweb Energia",
+              "8164": "Gasway",
+              "8165": "Gelsia",
+              "8048": "Global Power",
+              "572": "Green Network",
+              "305": "HeraComm",
+              "624": "Iberdrola",
+              "74": "Illumia",
+              "292": "Iren",
+              "8050": "Levigas",
+              "8366": "Lifegate Energy",
+              "8369": "Lirenas",
+              "10664": "Magis Energia",
+              "635": "NeN",
+              "705": "Octopus Energy",
+              "7819": "OV Energy",
+              "7687": "Poste Energia",
+              "640": "Pulsee",
+              "10561": "Reset",
+              "8170": "Segnoverde",
+              "8362": "Simecom",
+              "8171": "Sinergas",
+              "8055": "Sinergy",
+              "281": "Sorgenia",
+              "637": "Tate",
+              "8168": "Umbria Energy",
+              "8035": "VIVI Energia",
+              "247": "Wekiwi",
+              "7820": "Wind Tre Luce e Gas"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "it",
+          "distributor_id": null,
+          "provider_id": null
+        }
+      },
+      "answers": {
+        "provider_id": "302"
+      }
+    },
+    {
+      "request": {
+        "country_code": "it",
+        "distributor_id": null,
+        "provider_id": 302,
+        "lang": "it"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "offer_id",
+            "label": "La tua offerta",
+            "options": {
+              "7191": "Easy Luce",
+              "7476": "Smart Casa Luce più",
+              "8265": "Click Luce",
+              "8267": "A2A Start Luce",
+              "83043": "Smart Business Luce",
+              "109304": "Smart Casa Luce",
+              "109750": "Full Luce",
+              "185239": "Prezzo Sicuro A2A Business Luce",
+              "215619": "Ready 12 luce"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "it",
+          "distributor_id": null,
+          "provider_id": 302,
+          "offer_id": null
+        }
+      },
+      "answers": {
+        "offer_id": "7191"
+      }
+    },
+    {
+      "request": {
+        "country_code": "it",
+        "distributor_id": null,
+        "provider_id": 302,
+        "offer_id": 7191,
+        "lang": "it"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "custom_prices",
+            "label": "Quota aggiuntiva : 0,0240 €/kWh",
+            "options": {
+              "no": "Sì, questi prezzi sono corretti",
+              "yes": "No, voglio inserire i miei prezzi"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "it",
+          "distributor_id": null,
+          "provider_id": 302,
+          "offer_id": 7191,
+          "option_id": 186,
+          "custom_prices": null
+        }
+      },
+      "answers": {
+        "custom_prices": "no"
+      }
+    },
+    {
+      "request": {
+        "country_code": "it",
+        "distributor_id": null,
+        "provider_id": 302,
+        "offer_id": 7191,
+        "option_id": 186,
+        "custom_prices": "no",
+        "lang": "it"
+      },
+      "response": {
+        "done": true,
+        "questions": [],
+        "inputs": {
+          "country_code": "it",
+          "distributor_id": null,
+          "provider_id": 302,
+          "offer_id": 7191,
+          "option_id": 186,
+          "custom_prices": "no"
+        }
+      }
+    }
+  ],
+  "details": {
+    "request": {
+      "country_code": "it",
+      "distributor_id": null,
+      "provider_id": 302,
+      "offer_id": 7191,
+      "option_id": 186,
+      "custom_prices": "no"
+    },
+    "response": {
+      "schema_version": "1.0",
+      "country_code": "it",
+      "category": "time_of_use",
+      "currency": "EUR",
+      "vat_mode": "incl",
+      "generated_at": "2026-09-29T15:42:46+02:00",
+      "next_update_at": null,
+      "offer": {
+        "name": {
+          "it": "Easy Luce"
+        },
+        "type": "Variable",
+        "slug": null,
+        "provider": {
+          "name": "A2A Energia",
+          "slug": "a2a",
+          "logo": "https://images.selectra.com/it-energy/logos/a2a-xs.png"
+        }
+      },
+      "option": {
+        "name": "Indicizzata",
+        "slug": "indicizzata",
+        "description": null,
+        "period_set_name": null
+      },
+      "tier": null,
+      "supply": {
+        "features": [
+          {
+            "key": "Quota fissa",
+            "name": "Quota fissa",
+            "type": "subscription",
+            "value": 12.5,
+            "unit": "€/mese",
+            "period_names": [],
+            "display_order": 1,
+            "weight": 0
+          },
+          {
+            "key": "Spread",
+            "name": "Spread",
+            "type": "consumption",
+            "value": 0,
+            "unit": "€/kWh",
+            "period_names": [],
+            "display_order": 2,
+            "weight": 0
+          },
+          {
+            "key": "Quota aggiuntiva",
+            "name": "Quota aggiuntiva",
+            "type": "consumption",
+            "value": 0.024,
+            "unit": "€/kWh",
+            "period_names": [],
+            "display_order": 3,
+            "weight": 0
+          }
+        ]
+      },
+      "network": null,
+      "country_prices": {
+        "features": []
+      },
+      "region_prices": {
+        "features": []
+      },
+      "province_prices": {
+        "features": []
+      },
+      "area_prices": {
+        "features": []
+      },
+      "city_prices": {
+        "features": []
+      },
+      "demand_response": null,
+      "meta": []
+    }
+  },
+  "prices": {
+    "request": {
+      "country_code": "it",
+      "distributor_id": null,
+      "provider_id": 302,
+      "offer_id": 7191,
+      "option_id": 186,
+      "custom_prices": "no"
+    },
+    "response": {
+      "prices": [
+        {
+          "start": "2026-09-29T00:00:00+02:00",
+          "end": "2030-10-02T00:00:00+02:00",
+          "name": "Spread",
+          "distributor_reference": null,
+          "price": 0.2252
+        }
+      ],
+      "next_update": "2030-10-01T01:59:59+02:00",
+      "currency": "EUR",
+      "requalification_reason": null
+    }
+  }
+}

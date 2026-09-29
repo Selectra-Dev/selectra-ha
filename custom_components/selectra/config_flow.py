@@ -522,13 +522,13 @@ class SelectraConfigFlow(ConfigFlow, domain=DOMAIN):
             selected = user_input.get("selected_periods", [])
             return await self._create_entry(selected_periods=selected)
 
-        period_options = [
-            SelectOptionDict(
-                value=f["name"],
-                label=f["name"],
-            )
-            for f in self._consumption_features
-        ]
+        # Some catalogues leave a feature unnamed (display_name NULL, in
+        # Australia for one): fall back to its key, or the form cannot render.
+        period_options: list[SelectOptionDict] = []
+        for f in self._consumption_features:
+            name = f.get("name") or f.get("key")
+            if name and name not in {o["value"] for o in period_options}:
+                period_options.append(SelectOptionDict(value=name, label=name))
 
         return self.async_show_form(
             step_id="select_periods",

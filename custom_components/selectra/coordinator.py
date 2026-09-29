@@ -198,9 +198,9 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             # Remplacer les noms bruts par les noms lisibles des features
             features = self._details.get("features", [])
             key_to_name = {
-                f["key"]: f["name"]
+                f["key"]: f.get("name") or f["key"]
                 for f in features
-                if "key" in f and "name" in f
+                if f.get("key")
             }
             for p in data.prices:
                 p["name"] = key_to_name.get(p["name"], p["name"])
@@ -350,9 +350,9 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         elif self.mode == MODE_CLASSIC:
             selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
             key_to_name = {
-                f["key"]: f["name"]
+                f["key"]: f.get("name") or f["key"]
                 for f in self._details.get("features", [])
-                if "key" in f and "name" in f
+                if f.get("key")
             }
             resolved = [key_to_name.get(s, s) for s in selected]
             if data.current_period:

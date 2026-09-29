@@ -1,0 +1,42 @@
+name: API contract
+# Re-record the replay fixtures against the production API and play them
+# through the integration. The regular test run replays the recordings
+# committed in the repo; this one catches the API changing under them (a
+# new response shape, a country whose setup no longer finishes) before users
+# do. The fresh recordings are uploaded, so a failure can be reproduced by
+# dropping them into tests/fixtures/api/.
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+permissions: {}
+jobs:
+  contract:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+          cache-dependency-path: "requirements-test.txt"
+      - name: Record from the production API
+        env:
+          SELECTRA_API_TOKEN: ${{ secrets.SELECTRA_API_TOKEN }}
+        run: |
+          if [ -z "$SELECTRA_API_TOKEN" ]; then
+            echo "::error::Set the SELECTRA_API_TOKEN repository secret to run the contract check."
+            exit 1
+          fi
+          python scripts/record_api_fixtures.py
+      - name: Install test dependencies
+        if: ${{ !cancelled() }}
+        run: pip install -r requirements-test.txt
+      - name: Replay the recordings
+        if: ${{ !cancelled() }}
+        run: pytest tests/test_api_replay.py
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: api-recordings
+          path: tests/fixtures/api/
