@@ -34,6 +34,12 @@ SCENARIOS = FIXTURES / "scenarios.json"
 
 BASE_URL = os.environ.get("SELECTRA_API_URL", "https://api.selectra.com/api").rstrip("/")
 TOKEN = os.environ.get("SELECTRA_API_TOKEN", "")
+# Cloudflare in front of the API bans urllib's default "Python-urllib/x.y"
+# signature (error 1010), so name the client explicitly.
+VERSION = json.loads(
+    (ROOT / "custom_components" / "selectra" / "manifest.json").read_text(encoding="utf-8")
+)["version"]
+USER_AGENT = f"selectra-ha/{VERSION} (contract recorder)"
 
 # Questions a user answers "no" to, so the walk stays on the plain path.
 DECLINED_FIELDS = ("feed_in", "custom_off_peak_hours")
@@ -45,7 +51,11 @@ class RecordError(Exception):
 
 
 def _post(path: str, payload: dict[str, Any]) -> Any:
-    headers = {"Content-Type": "application/json", "Accept": "application/json"}
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "User-Agent": USER_AGENT,
+    }
     if TOKEN:
         headers["Authorization"] = f"Bearer {TOKEN}"
     request = urllib.request.Request(
