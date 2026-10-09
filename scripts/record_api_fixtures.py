@@ -175,10 +175,14 @@ def record(name: str, scenario: dict[str, Any]) -> dict[str, Any]:
     prices = _post("/planning/prices", final_inputs)
     # The integration shows nothing but a requalification error for this, so
     # the recording would test nothing; and upstream, it is worth a look.
-    if prices.get("requalification_reason"):
-        raise RecordError(f"/prices asks to requalify: {prices['requalification_reason']}")
-    if not prices.get("prices"):
-        raise RecordError("/prices returned no periods")
+    if prices.get("requalification_reason") or not prices.get("prices"):
+        reason = prices.get("requalification_reason") or "no periods"
+        offer = ((details.get("offer") or {}).get("name") or {}).get(lang)
+        option = (details.get("option") or {}).get("name")
+        raise RecordError(
+            f"/prices: {reason} (offer {offer!r}, option {option!r}, "
+            f"category {details.get('category')!r}, inputs {json.dumps(final_inputs)})"
+        )
 
     return {
         "scenario": name,
