@@ -143,10 +143,25 @@
     "answers": {
       "postcode": "2000",
       "provider_id": "7999",
+      "offer_id": "229544",
       "option_id": "48"
     },
     "expect": {
       "category": "flat_rate"
+    }
+  },
+  "au-tou": {
+    "country_code": "au",
+    "lang": "en",
+    "time_zone": "Australia/Sydney",
+    "answers": {
+      "postcode": "2000",
+      "provider_id": "7999",
+      "offer_id": "229544",
+      "option_id": "50"
+    },
+    "expect": {
+      "category": "time_of_use"
     }
   },
   "uk": {
