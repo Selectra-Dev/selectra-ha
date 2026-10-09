@@ -31,6 +31,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 FIXTURES = ROOT / "tests" / "fixtures" / "api"
 SCENARIOS = FIXTURES / "scenarios.json"
+FAILED = FIXTURES / "failed"
 
 BASE_URL = os.environ.get("SELECTRA_API_URL", "https://api.selectra.com/api").rstrip("/")
 TOKEN = os.environ.get("SELECTRA_API_TOKEN", "")
@@ -127,12 +128,18 @@ def _cast(field: str, value: Any) -> Any:
     return value
 
 
-def record(name: str, scenario: dict[str, Any]) -> dict[str, Any]:
-    """Walk one scenario and return its recording."""
+def record(
+    name: str, scenario: dict[str, Any], steps: list[dict[str, Any]] | None = None
+) -> dict[str, Any]:
+    """Walk one scenario and return its recording.
+
+    The qualification calls go into `steps` as they happen, so a caller can
+    keep how far a failed walk got.
+    """
     lang = scenario.get("lang", "en")
     answers = {"country_code": scenario["country_code"], **scenario.get("answers", {})}
 
-    steps: list[dict[str, Any]] = []
+    steps = [] if steps is None else steps
     inputs: dict[str, Any] = {}
     feed_in_answer = None
 
@@ -207,11 +214,20 @@ def main(argv: list[str]) -> int:
 
     failed = 0
     for name in names:
+        steps: list[dict[str, Any]] = []
         try:
-            recording = record(name, scenarios[name])
+            recording = record(name, scenarios[name], steps)
         except RecordError as err:
             failed += 1
             print(f"FAIL {name}: {err}", file=sys.stderr)
+            # Kept out of the replay (it globs the top level only) but uploaded
+            # with the recordings, to see which options the walk was offered.
+            FAILED.mkdir(exist_ok=True)
+            (FAILED / f"{name}.json").write_text(
+                json.dumps({"error": str(err), "qualification": steps}, ensure_ascii=False, indent=2)
+                + "\n",
+                encoding="utf-8",
+            )
             continue
         path = FIXTURES / f"{name}.json"
         path.write_text(

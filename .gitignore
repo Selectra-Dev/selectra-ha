@@ -25,3 +25,6 @@ README_EN.md
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Walks the API recorder could not finish
+tests/fixtures/api/failed/
