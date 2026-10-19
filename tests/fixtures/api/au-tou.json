@@ -1,0 +1,1679 @@
+{
+  "scenario": "au-tou",
+  "recorded_from": "https://api.selectra.com/api",
+  "recorded_at": "2026-10-19T15:06:37Z",
+  "lang": "en",
+  "time_zone": "Australia/Sydney",
+  "expect": {
+    "category": "time_of_use"
+  },
+  "qualification": [
+    {
+      "request": {
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "country_code",
+            "label": "Your country",
+            "options": {
+              "af": "Afghanistan",
+              "al": "Albania",
+              "dz": "Algeria",
+              "ad": "Andorra",
+              "ao": "Angola",
+              "ai": "Anguilla",
+              "ag": "Antigua & Barbuda",
+              "ar": "Argentina",
+              "am": "Armenia",
+              "aw": "Aruba",
+              "au": "Australia",
+              "at": "Austria",
+              "az": "Azerbaijan",
+              "bs": "Bahamas",
+              "bh": "Bahrain",
+              "bd": "Bangladesh",
+              "bb": "Barbados",
+              "by": "Belarus",
+              "be": "Belgium",
+              "bz": "Belize",
+              "bj": "Benin",
+              "bm": "Bermuda",
+              "bt": "Bhutan",
+              "bo": "Bolivia",
+              "ba": "Bosnia & Herzegovina",
+              "bw": "Botswana",
+              "br": "Brazil",
+              "vg": "British Virgin Islands",
+              "bn": "Brunei",
+              "bg": "Bulgaria",
+              "bf": "Burkina Faso",
+              "bi": "Burundi",
+              "kh": "Cambodia",
+              "cm": "Cameroon",
+              "ca": "Canada",
+              "cv": "Cape Verde",
+              "bq": "Caribbean Netherlands",
+              "ky": "Cayman Islands",
+              "cf": "Central African Republic",
+              "td": "Chad",
+              "cl": "Chile",
+              "cn": "China",
+              "co": "Colombia",
+              "km": "Comoros",
+              "cg": "Congo - Brazzaville",
+              "cd": "Congo - Kinshasa",
+              "ck": "Cook Islands",
+              "cr": "Costa Rica",
+              "ci": "Côte d’Ivoire",
+              "hr": "Croatia",
+              "cu": "Cuba",
+              "cw": "Curaçao",
+              "cy": "Cyprus",
+              "cz": "Czechia",
+              "dk": "Denmark",
+              "dj": "Djibouti",
+              "dm": "Dominica",
+              "do": "Dominican Republic",
+              "ec": "Ecuador",
+              "eg": "Egypt",
+              "sv": "El Salvador",
+              "gq": "Equatorial Guinea",
+              "ee": "Estonia",
+              "sz": "Eswatini",
+              "et": "Ethiopia",
+              "fj": "Fiji",
+              "fi": "Finland",
+              "fr": "France",
+              "pf": "French Polynesia",
+              "ga": "Gabon",
+              "gm": "Gambia",
+              "ge": "Georgia",
+              "de": "Germany",
+              "gh": "Ghana",
+              "gi": "Gibraltar",
+              "gr": "Greece",
+              "gl": "Greenland",
+              "gd": "Grenada",
+              "gt": "Guatemala",
+              "gn": "Guinea",
+              "gw": "Guinea-Bissau",
+              "gy": "Guyana",
+              "ht": "Haiti",
+              "hn": "Honduras",
+              "hk": "Hong Kong SAR China",
+              "hu": "Hungary",
+              "is": "Iceland",
+              "in": "India",
+              "id": "Indonesia",
+              "ir": "Iran",
+              "iq": "Iraq",
+              "ie": "Ireland",
+              "il": "Israel",
+              "it": "Italy",
+              "jm": "Jamaica",
+              "jp": "Japan",
+              "jo": "Jordan",
+              "kz": "Kazakhstan",
+              "ke": "Kenya",
+              "ki": "Kiribati",
+              "xk": "Kosovo",
+              "kw": "Kuwait",
+              "kg": "Kyrgyzstan",
+              "la": "Laos",
+              "lv": "Latvia",
+              "lb": "Lebanon",
+              "ls": "Lesotho",
+              "lr": "Liberia",
+              "ly": "Libya",
+              "li": "Liechtenstein",
+              "lt": "Lithuania",
+              "lu": "Luxembourg",
+              "mo": "Macao SAR China",
+              "mg": "Madagascar",
+              "mw": "Malawi",
+              "my": "Malaysia",
+              "mv": "Maldives",
+              "ml": "Mali",
+              "mt": "Malta",
+              "mh": "Marshall Islands",
+              "mr": "Mauritania",
+              "mu": "Mauritius",
+              "mx": "Mexico",
+              "fm": "Micronesia",
+              "md": "Moldova",
+              "mc": "Monaco",
+              "mn": "Mongolia",
+              "me": "Montenegro",
+              "ms": "Montserrat",
+              "ma": "Morocco",
+              "mz": "Mozambique",
+              "mm": "Myanmar (Burma)",
+              "na": "Namibia",
+              "nr": "Nauru",
+              "np": "Nepal",
+              "nl": "Netherlands",
+              "nc": "New Caledonia",
+              "nz": "New Zealand",
+              "ni": "Nicaragua",
+              "ne": "Niger",
+              "ng": "Nigeria",
+              "nu": "Niue",
+              "mk": "North Macedonia",
+              "no": "Norway",
+              "om": "Oman",
+              "pk": "Pakistan",
+              "pw": "Palau",
+              "ps": "Palestinian Territories",
+              "pa": "Panama",
+              "pg": "Papua New Guinea",
+              "py": "Paraguay",
+              "pe": "Peru",
+              "ph": "Philippines",
+              "pl": "Poland",
+              "pt": "Portugal",
+              "qa": "Qatar",
+              "ro": "Romania",
+              "rw": "Rwanda",
+              "ws": "Samoa",
+              "sm": "San Marino",
+              "st": "São Tomé & Príncipe",
+              "sa": "Saudi Arabia",
+              "sn": "Senegal",
+              "rs": "Serbia",
+              "sc": "Seychelles",
+              "sl": "Sierra Leone",
+              "sg": "Singapore",
+              "sx": "Sint Maarten",
+              "sk": "Slovakia",
+              "si": "Slovenia",
+              "sb": "Solomon Islands",
+              "za": "South Africa",
+              "kr": "South Korea",
+              "ss": "South Sudan",
+              "es": "Spain",
+              "lk": "Sri Lanka",
+              "kn": "St. Kitts & Nevis",
+              "lc": "St. Lucia",
+              "vc": "St. Vincent & Grenadines",
+              "sd": "Sudan",
+              "sr": "Suriname",
+              "se": "Sweden",
+              "ch": "Switzerland",
+              "sy": "Syria",
+              "tw": "Taiwan",
+              "tj": "Tajikistan",
+              "tz": "Tanzania",
+              "th": "Thailand",
+              "tl": "Timor-Leste",
+              "tg": "Togo",
+              "to": "Tonga",
+              "tt": "Trinidad & Tobago",
+              "tn": "Tunisia",
+              "tr": "Türkiye",
+              "tm": "Turkmenistan",
+              "tc": "Turks & Caicos Islands",
+              "tv": "Tuvalu",
+              "ug": "Uganda",
+              "ua": "Ukraine",
+              "ae": "United Arab Emirates",
+              "uk": "United Kingdom",
+              "us": "United States",
+              "uy": "Uruguay",
+              "uz": "Uzbekistan",
+              "vu": "Vanuatu",
+              "vn": "Vietnam",
+              "ye": "Yemen",
+              "zm": "Zambia",
+              "zw": "Zimbabwe"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": null,
+          "lang": "en"
+        }
+      },
+      "answers": {
+        "country_code": "au"
+      }
+    },
+    {
+      "request": {
+        "country_code": "au",
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "text",
+            "field": "postcode",
+            "label": "Your postcode"
+          }
+        ],
+        "inputs": {
+          "country_code": "au",
+          "postcode": null,
+          "lang": "en"
+        }
+      },
+      "answers": {
+        "postcode": "2000"
+      }
+    },
+    {
+      "request": {
+        "country_code": "au",
+        "postcode": "2000",
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "provider_id",
+            "label": "Your electricity provider",
+            "options": {
+              "7996": "1st Energy",
+              "7999": "AGL",
+              "8000": "Alinta Energy",
+              "8002": "Amber Electric",
+              "8004": "Blue NRG",
+              "8005": "CovaU",
+              "8006": "Diamond Energy",
+              "8008": "Dodo Power & Gas",
+              "8012": "EnergyAustralia",
+              "8013": "ENGIE",
+              "8215": "Flipped Energy",
+              "8179": "Flow Power",
+              "8016": "Future X Power",
+              "8218": "GEE Energy",
+              "8017": "Globird Energy",
+              "8019": "Kogan Energy",
+              "8021": "Momentum Energy",
+              "8022": "Nectr",
+              "8181": "Next Business Energy",
+              "8023": "Origin Energy",
+              "8024": "OVO Energy",
+              "8025": "Powershop",
+              "8027": "Red Energy",
+              "8188": "Sumo Power",
+              "8031": "Tango Energy"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "au",
+          "postcode": "2000",
+          "distributor_id": 2719,
+          "provider_id": null,
+          "lang": "en"
+        }
+      },
+      "answers": {
+        "provider_id": "7999"
+      }
+    },
+    {
+      "request": {
+        "country_code": "au",
+        "postcode": "2000",
+        "distributor_id": 2719,
+        "provider_id": 7999,
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "offer_id",
+            "label": "Your offer",
+            "options": {
+              "229514": "Residential Smart Saver - BP Fuel New To AGL Residential",
+              "229517": "Residential Smart Saver - BP Fuel Residential",
+              "229520": "Residential Smart Saver - Velocity New To AGL Residential",
+              "229525": "Residential Smart Saver - Westpac New to AGL Residential",
+              "229529": "Residential Smart Saver - 3rd Party Residential",
+              "229531": "Residential Solar Savers - 3rd Party Residential",
+              "229534": "Residential Solar Savers - New To AGL Residential",
+              "229536": "Residential Netflix Plan - New To AGL Residential",
+              "229537": "Residential Smart Saver - New To AGL Residential",
+              "229540": "Residential Smart Saver - Velocity Residential",
+              "229541": "Residential Seniors Saver - New To AGL Residential",
+              "229542": "Residential Netflix Plan - 3rd Party Residential",
+              "229544": "Residential Smart Saver Residential",
+              "229545": "Residential Smart Saver - Westpac Residential",
+              "229546": "Residential Netflix Plan Residential",
+              "229547": "Residential Seniors Saver Residential",
+              "229548": "Residential Solar Savers Residential",
+              "229549": "Business Smart Saver - 3rd Party Business",
+              "229553": "Business Smart Saver Business",
+              "263143": "Business Multi Property Business",
+              "301504": "Residential Three for Free Residential"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "au",
+          "postcode": "2000",
+          "distributor_id": 2719,
+          "provider_id": 7999,
+          "offer_id": null,
+          "lang": "en"
+        }
+      },
+      "answers": {
+        "offer_id": "229544"
+      }
+    },
+    {
+      "request": {
+        "country_code": "au",
+        "postcode": "2000",
+        "distributor_id": 2719,
+        "provider_id": 7999,
+        "offer_id": 229544,
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "option_id",
+            "label": "Your electricity option",
+            "options": {
+              "48": "Single Rate",
+              "49": "Single Rate Cont Load",
+              "50": "Time of Use",
+              "51": "Time of Use Cont Load"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "au",
+          "postcode": "2000",
+          "distributor_id": 2719,
+          "provider_id": 7999,
+          "offer_id": 229544,
+          "option_id": null,
+          "lang": "en"
+        }
+      },
+      "answers": {
+        "option_id": "50"
+      }
+    },
+    {
+      "request": {
+        "country_code": "au",
+        "postcode": "2000",
+        "distributor_id": 2719,
+        "provider_id": 7999,
+        "offer_id": 229544,
+        "option_id": 50,
+        "lang": "en"
+      },
+      "response": {
+        "done": false,
+        "questions": [
+          {
+            "type": "select",
+            "field": "custom_prices",
+            "label": "Peak : 0,4925 AUD/kWh<br>Off-Peak : 0,1967 AUD/kWh",
+            "options": {
+              "no": "Yes, these prices are correct",
+              "yes": "No, I want to enter my prices"
+            }
+          }
+        ],
+        "inputs": {
+          "country_code": "au",
+          "postcode": "2000",
+          "distributor_id": 2719,
+          "provider_id": 7999,
+          "offer_id": 229544,
+          "option_id": 50,
+          "custom_prices": null,
+          "lang": "en"
+        }
+      },
+      "answers": {
+        "custom_prices": "no"
+      }
+    },
+    {
+      "request": {
+        "country_code": "au",
+        "postcode": "2000",
+        "distributor_id": 2719,
+        "provider_id": 7999,
+        "offer_id": 229544,
+        "option_id": 50,
+        "custom_prices": "no",
+        "lang": "en"
+      },
+      "response": {
+        "done": true,
+        "questions": [],
+        "inputs": {
+          "country_code": "au",
+          "postcode": "2000",
+          "distributor_id": 2719,
+          "provider_id": 7999,
+          "offer_id": 229544,
+          "option_id": 50,
+          "custom_prices": "no",
+          "lang": "en"
+        }
+      }
+    }
+  ],
+  "details": {
+    "request": {
+      "country_code": "au",
+      "postcode": "2000",
+      "distributor_id": 2719,
+      "provider_id": 7999,
+      "offer_id": 229544,
+      "option_id": 50,
+      "custom_prices": "no",
+      "lang": "en"
+    },
+    "response": {
+      "schema_version": "1.0",
+      "country_code": "au",
+      "category": "time_of_use",
+      "currency": "AUD",
+      "vat_mode": "incl",
+      "generated_at": "2026-10-19T17:06:37+02:00",
+      "next_update_at": null,
+      "offer": {
+        "name": {
+          "en": "Residential Smart Saver"
+        },
+        "type": "Variable",
+        "slug": null,
+        "provider": {
+          "name": "AGL",
+          "slug": "agl",
+          "logo": "https://images.selectra.com/au-energy/logos/agl-xs.png"
+        }
+      },
+      "option": {
+        "name": "Time of Use",
+        "slug": "time-of-use",
+        "description": "The price per kWh depends on the time of day, with 2 different rates. Useful if you can shift consumption to the cheaper hours. Plus a fixed standing charge, whatever you use.",
+        "period_set_name": "AU Peak 15:00–21:00 every day #5b6c210ee3"
+      },
+      "tier": null,
+      "supply": {
+        "features": [
+          {
+            "key": "daily supply charge",
+            "name": "Daily supply charge",
+            "type": "subscription",
+            "value": 1.44213,
+            "unit": "$/day",
+            "period_names": [],
+            "display_order": 1,
+            "weight": 1
+          },
+          {
+            "key": "peak unit price",
+            "name": "Peak",
+            "type": "consumption",
+            "value": 0.49252,
+            "unit": "$/kWh",
+            "period_names": [
+              "Peak every day"
+            ],
+            "display_order": 2,
+            "weight": 1
+          },
+          {
+            "key": "off-peak unit price",
+            "name": "Off-Peak",
+            "type": "consumption",
+            "value": 0.19668,
+            "unit": "$/kWh",
+            "period_names": [
+              "Off-Peak every day"
+            ],
+            "display_order": 3,
+            "weight": 1
+          }
+        ]
+      },
+      "network": null,
+      "country_prices": {
+        "features": []
+      },
+      "region_prices": {
+        "features": []
+      },
+      "province_prices": {
+        "features": []
+      },
+      "area_prices": {
+        "features": []
+      },
+      "city_prices": {
+        "features": []
+      },
+      "demand_response": null,
+      "meta": []
+    }
+  },
+  "prices": {
+    "request": {
+      "country_code": "au",
+      "postcode": "2000",
+      "distributor_id": 2719,
+      "provider_id": 7999,
+      "offer_id": 229544,
+      "option_id": 50,
+      "custom_prices": "no",
+      "lang": "en"
+    },
+    "response": {
+      "prices": [
+        {
+          "start": "2026-10-20T00:00:00+11:00",
+          "end": "2026-10-20T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-20T15:00:00+11:00",
+          "end": "2026-10-20T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-20T21:00:00+11:00",
+          "end": "2026-10-21T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-21T15:00:00+11:00",
+          "end": "2026-10-21T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-21T21:00:00+11:00",
+          "end": "2026-10-22T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-22T15:00:00+11:00",
+          "end": "2026-10-22T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-22T21:00:00+11:00",
+          "end": "2026-10-23T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-23T15:00:00+11:00",
+          "end": "2026-10-23T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-23T21:00:00+11:00",
+          "end": "2026-10-24T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-24T15:00:00+11:00",
+          "end": "2026-10-24T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-24T21:00:00+11:00",
+          "end": "2026-10-25T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-25T15:00:00+11:00",
+          "end": "2026-10-25T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-25T21:00:00+11:00",
+          "end": "2026-10-26T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-26T15:00:00+11:00",
+          "end": "2026-10-26T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-26T21:00:00+11:00",
+          "end": "2026-10-27T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-27T15:00:00+11:00",
+          "end": "2026-10-27T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-27T21:00:00+11:00",
+          "end": "2026-10-28T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-28T15:00:00+11:00",
+          "end": "2026-10-28T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-28T21:00:00+11:00",
+          "end": "2026-10-29T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-29T15:00:00+11:00",
+          "end": "2026-10-29T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-29T21:00:00+11:00",
+          "end": "2026-10-30T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-30T15:00:00+11:00",
+          "end": "2026-10-30T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-30T21:00:00+11:00",
+          "end": "2026-10-31T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-10-31T15:00:00+11:00",
+          "end": "2026-10-31T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-10-31T21:00:00+11:00",
+          "end": "2026-11-01T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-01T15:00:00+11:00",
+          "end": "2026-11-01T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-01T21:00:00+11:00",
+          "end": "2026-11-02T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-02T15:00:00+11:00",
+          "end": "2026-11-02T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-02T21:00:00+11:00",
+          "end": "2026-11-03T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-03T15:00:00+11:00",
+          "end": "2026-11-03T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-03T21:00:00+11:00",
+          "end": "2026-11-04T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-04T15:00:00+11:00",
+          "end": "2026-11-04T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-04T21:00:00+11:00",
+          "end": "2026-11-05T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-05T15:00:00+11:00",
+          "end": "2026-11-05T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-05T21:00:00+11:00",
+          "end": "2026-11-06T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-06T15:00:00+11:00",
+          "end": "2026-11-06T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-06T21:00:00+11:00",
+          "end": "2026-11-07T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-07T15:00:00+11:00",
+          "end": "2026-11-07T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-07T21:00:00+11:00",
+          "end": "2026-11-08T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-08T15:00:00+11:00",
+          "end": "2026-11-08T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-08T21:00:00+11:00",
+          "end": "2026-11-09T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-09T15:00:00+11:00",
+          "end": "2026-11-09T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-09T21:00:00+11:00",
+          "end": "2026-11-10T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-10T15:00:00+11:00",
+          "end": "2026-11-10T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-10T21:00:00+11:00",
+          "end": "2026-11-11T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-11T15:00:00+11:00",
+          "end": "2026-11-11T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-11T21:00:00+11:00",
+          "end": "2026-11-12T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-12T15:00:00+11:00",
+          "end": "2026-11-12T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-12T21:00:00+11:00",
+          "end": "2026-11-13T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-13T15:00:00+11:00",
+          "end": "2026-11-13T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-13T21:00:00+11:00",
+          "end": "2026-11-14T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-14T15:00:00+11:00",
+          "end": "2026-11-14T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-14T21:00:00+11:00",
+          "end": "2026-11-15T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-15T15:00:00+11:00",
+          "end": "2026-11-15T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-15T21:00:00+11:00",
+          "end": "2026-11-16T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-16T15:00:00+11:00",
+          "end": "2026-11-16T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-16T21:00:00+11:00",
+          "end": "2026-11-17T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-17T15:00:00+11:00",
+          "end": "2026-11-17T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-17T21:00:00+11:00",
+          "end": "2026-11-18T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-18T15:00:00+11:00",
+          "end": "2026-11-18T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-18T21:00:00+11:00",
+          "end": "2026-11-19T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-19T15:00:00+11:00",
+          "end": "2026-11-19T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-19T21:00:00+11:00",
+          "end": "2026-11-20T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-20T15:00:00+11:00",
+          "end": "2026-11-20T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-20T21:00:00+11:00",
+          "end": "2026-11-21T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-21T15:00:00+11:00",
+          "end": "2026-11-21T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-21T21:00:00+11:00",
+          "end": "2026-11-22T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-22T15:00:00+11:00",
+          "end": "2026-11-22T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-22T21:00:00+11:00",
+          "end": "2026-11-23T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-23T15:00:00+11:00",
+          "end": "2026-11-23T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-23T21:00:00+11:00",
+          "end": "2026-11-24T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-24T15:00:00+11:00",
+          "end": "2026-11-24T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-24T21:00:00+11:00",
+          "end": "2026-11-25T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-25T15:00:00+11:00",
+          "end": "2026-11-25T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-25T21:00:00+11:00",
+          "end": "2026-11-26T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-26T15:00:00+11:00",
+          "end": "2026-11-26T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-26T21:00:00+11:00",
+          "end": "2026-11-27T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-27T15:00:00+11:00",
+          "end": "2026-11-27T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-27T21:00:00+11:00",
+          "end": "2026-11-28T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-28T15:00:00+11:00",
+          "end": "2026-11-28T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-28T21:00:00+11:00",
+          "end": "2026-11-29T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-29T15:00:00+11:00",
+          "end": "2026-11-29T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-29T21:00:00+11:00",
+          "end": "2026-11-30T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-11-30T15:00:00+11:00",
+          "end": "2026-11-30T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-11-30T21:00:00+11:00",
+          "end": "2026-12-01T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-01T15:00:00+11:00",
+          "end": "2026-12-01T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-01T21:00:00+11:00",
+          "end": "2026-12-02T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-02T15:00:00+11:00",
+          "end": "2026-12-02T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-02T21:00:00+11:00",
+          "end": "2026-12-03T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-03T15:00:00+11:00",
+          "end": "2026-12-03T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-03T21:00:00+11:00",
+          "end": "2026-12-04T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-04T15:00:00+11:00",
+          "end": "2026-12-04T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-04T21:00:00+11:00",
+          "end": "2026-12-05T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-05T15:00:00+11:00",
+          "end": "2026-12-05T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-05T21:00:00+11:00",
+          "end": "2026-12-06T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-06T15:00:00+11:00",
+          "end": "2026-12-06T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-06T21:00:00+11:00",
+          "end": "2026-12-07T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-07T15:00:00+11:00",
+          "end": "2026-12-07T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-07T21:00:00+11:00",
+          "end": "2026-12-08T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-08T15:00:00+11:00",
+          "end": "2026-12-08T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-08T21:00:00+11:00",
+          "end": "2026-12-09T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-09T15:00:00+11:00",
+          "end": "2026-12-09T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-09T21:00:00+11:00",
+          "end": "2026-12-10T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-10T15:00:00+11:00",
+          "end": "2026-12-10T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-10T21:00:00+11:00",
+          "end": "2026-12-11T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-11T15:00:00+11:00",
+          "end": "2026-12-11T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-11T21:00:00+11:00",
+          "end": "2026-12-12T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-12T15:00:00+11:00",
+          "end": "2026-12-12T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-12T21:00:00+11:00",
+          "end": "2026-12-13T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-13T15:00:00+11:00",
+          "end": "2026-12-13T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-13T21:00:00+11:00",
+          "end": "2026-12-14T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-14T15:00:00+11:00",
+          "end": "2026-12-14T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-14T21:00:00+11:00",
+          "end": "2026-12-15T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-15T15:00:00+11:00",
+          "end": "2026-12-15T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-15T21:00:00+11:00",
+          "end": "2026-12-16T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-16T15:00:00+11:00",
+          "end": "2026-12-16T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-16T21:00:00+11:00",
+          "end": "2026-12-17T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-17T15:00:00+11:00",
+          "end": "2026-12-17T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-17T21:00:00+11:00",
+          "end": "2026-12-18T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-18T15:00:00+11:00",
+          "end": "2026-12-18T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-18T21:00:00+11:00",
+          "end": "2026-12-19T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-19T15:00:00+11:00",
+          "end": "2026-12-19T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-19T21:00:00+11:00",
+          "end": "2026-12-20T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-20T15:00:00+11:00",
+          "end": "2026-12-20T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-20T21:00:00+11:00",
+          "end": "2026-12-21T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-21T15:00:00+11:00",
+          "end": "2026-12-21T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-21T21:00:00+11:00",
+          "end": "2026-12-22T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-22T15:00:00+11:00",
+          "end": "2026-12-22T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-22T21:00:00+11:00",
+          "end": "2026-12-23T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-23T15:00:00+11:00",
+          "end": "2026-12-23T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-23T21:00:00+11:00",
+          "end": "2026-12-24T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-24T15:00:00+11:00",
+          "end": "2026-12-24T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-24T21:00:00+11:00",
+          "end": "2026-12-25T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-25T15:00:00+11:00",
+          "end": "2026-12-25T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-25T21:00:00+11:00",
+          "end": "2026-12-26T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-26T15:00:00+11:00",
+          "end": "2026-12-26T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-26T21:00:00+11:00",
+          "end": "2026-12-27T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-27T15:00:00+11:00",
+          "end": "2026-12-27T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-27T21:00:00+11:00",
+          "end": "2026-12-28T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-28T15:00:00+11:00",
+          "end": "2026-12-28T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-28T21:00:00+11:00",
+          "end": "2026-12-29T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-29T15:00:00+11:00",
+          "end": "2026-12-29T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-29T21:00:00+11:00",
+          "end": "2026-12-30T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-30T15:00:00+11:00",
+          "end": "2026-12-30T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-30T21:00:00+11:00",
+          "end": "2026-12-31T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2026-12-31T15:00:00+11:00",
+          "end": "2026-12-31T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2026-12-31T21:00:00+11:00",
+          "end": "2027-01-01T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-01T15:00:00+11:00",
+          "end": "2027-01-01T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-01T21:00:00+11:00",
+          "end": "2027-01-02T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-02T15:00:00+11:00",
+          "end": "2027-01-02T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-02T21:00:00+11:00",
+          "end": "2027-01-03T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-03T15:00:00+11:00",
+          "end": "2027-01-03T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-03T21:00:00+11:00",
+          "end": "2027-01-04T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-04T15:00:00+11:00",
+          "end": "2027-01-04T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-04T21:00:00+11:00",
+          "end": "2027-01-05T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-05T15:00:00+11:00",
+          "end": "2027-01-05T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-05T21:00:00+11:00",
+          "end": "2027-01-06T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-06T15:00:00+11:00",
+          "end": "2027-01-06T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-06T21:00:00+11:00",
+          "end": "2027-01-07T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-07T15:00:00+11:00",
+          "end": "2027-01-07T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-07T21:00:00+11:00",
+          "end": "2027-01-08T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-08T15:00:00+11:00",
+          "end": "2027-01-08T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-08T21:00:00+11:00",
+          "end": "2027-01-09T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-09T15:00:00+11:00",
+          "end": "2027-01-09T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-09T21:00:00+11:00",
+          "end": "2027-01-10T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-10T15:00:00+11:00",
+          "end": "2027-01-10T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-10T21:00:00+11:00",
+          "end": "2027-01-11T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-11T15:00:00+11:00",
+          "end": "2027-01-11T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-11T21:00:00+11:00",
+          "end": "2027-01-12T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-12T15:00:00+11:00",
+          "end": "2027-01-12T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-12T21:00:00+11:00",
+          "end": "2027-01-13T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-13T15:00:00+11:00",
+          "end": "2027-01-13T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-13T21:00:00+11:00",
+          "end": "2027-01-14T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-14T15:00:00+11:00",
+          "end": "2027-01-14T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-14T21:00:00+11:00",
+          "end": "2027-01-15T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-15T15:00:00+11:00",
+          "end": "2027-01-15T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-15T21:00:00+11:00",
+          "end": "2027-01-16T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-16T15:00:00+11:00",
+          "end": "2027-01-16T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-16T21:00:00+11:00",
+          "end": "2027-01-17T15:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        },
+        {
+          "start": "2027-01-17T15:00:00+11:00",
+          "end": "2027-01-17T21:00:00+11:00",
+          "name": "Peak",
+          "price": 0.49252
+        },
+        {
+          "start": "2027-01-17T21:00:00+11:00",
+          "end": "2027-01-18T00:00:00+11:00",
+          "name": "Off-Peak",
+          "price": 0.19668
+        }
+      ],
+      "next_update": "2026-10-31T02:00:00+11:00",
+      "currency": "AUD",
+      "requalification_reason": null
+    }
+  }
+}
