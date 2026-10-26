@@ -67,7 +67,7 @@
       "postcode": "100-0001"
     },
     "expect": {
-      "category": "time_of_use"
+      "category": "flat_rate"
     }
   },
   "be": {
@@ -100,7 +100,7 @@
       "postcode": "00118"
     },
     "expect": {
-      "category": "time_of_use"
+      "category": "flat_rate"
     }
   },
   "nl": {
