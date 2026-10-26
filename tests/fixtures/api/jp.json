@@ -1,11 +1,11 @@
 {
   "scenario": "jp",
   "recorded_from": "https://api.selectra.com/api",
-  "recorded_at": "2026-10-22T10:18:50Z",
+  "recorded_at": "2026-10-26T05:31:02Z",
   "lang": "ja",
   "time_zone": "Asia/Tokyo",
   "expect": {
-    "category": "time_of_use"
+    "category": "flat_rate"
   },
   "qualification": [
     {
@@ -456,10 +456,11 @@
     "response": {
       "schema_version": "1.0",
       "country_code": "jp",
-      "category": "time_of_use",
+      "category": "flat_rate",
+      "network_category": null,
       "currency": "JPY",
       "vat_mode": "incl",
-      "generated_at": "2026-10-22T12:18:49+02:00",
+      "generated_at": "2026-10-26T06:31:01+01:00",
       "next_update_at": null,
       "offer": {
         "name": {
@@ -492,17 +493,8 @@
             "unit": "￥/A/月",
             "period_names": [],
             "display_order": 1,
-            "weight": 1
-          },
-          {
-            "key": "Monthly fixed flat rate",
-            "name": "最低料金",
-            "type": "subscription",
-            "value": 0,
-            "unit": "￥/月",
-            "period_names": [],
-            "display_order": 2,
-            "weight": 1
+            "weight": 1,
+            "in_prices": false
           },
           {
             "key": "kWh price",
@@ -582,7 +574,7 @@
     "response": {
       "prices": [
         {
-          "start": "2026-10-22T00:00:00+09:00",
+          "start": "2026-10-26T00:00:00+09:00",
           "end": "2026-11-01T00:00:00+09:00",
           "name": "kWh price",
           "distributor_reference": null,
@@ -591,7 +583,7 @@
         },
         {
           "start": "2026-11-01T00:00:00+09:00",
-          "end": "2027-01-20T00:00:00+09:00",
+          "end": "2027-01-24T00:00:00+09:00",
           "name": "kWh price",
           "distributor_reference": null,
           "price": 34.02,
