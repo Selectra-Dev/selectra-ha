@@ -230,7 +230,10 @@ async def test_recorded_scenario_sets_up(hass: HomeAssistant, path: Path) -> Non
             entity_id = registry.async_get_entity_id(
                 "binary_sensor", DOMAIN, f"{entry.entry_id}_planned_run"
             )
-            priced = {p["name"] for p in hass.states.get(entity_id).attributes["prices"]}
+            priced = {
+                p["key"] or p["name"]
+                for p in hass.states.get(entity_id).attributes["prices"]
+            }
             assert priced & set(selectable), (
                 f"no selectable period {selectable} matches a priced one {priced}"
             )

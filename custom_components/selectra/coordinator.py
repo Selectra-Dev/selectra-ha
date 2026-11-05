@@ -195,15 +195,9 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
                 FEED_IN_PRICE_KEY in p for p in data.prices
             )
 
-            # Remplacer les noms bruts par les noms lisibles des features
+            # Name each slot after the /details line it is priced by
             features = self._details.get("features", [])
-            key_to_name = {
-                f["key"]: f.get("name") or f["key"]
-                for f in features
-                if f.get("key")
-            }
-            for p in data.prices:
-                p["name"] = key_to_name.get(p["name"], p["name"])
+            _match_lines(data.prices, features)
 
             # Adjust the poll interval to the API's own deadline
             data.next_update = next_update
@@ -217,12 +211,10 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
                 data.binary_state = True
                 data.active_periods = list(data.prices)
             elif self.mode == MODE_CLASSIC:
-                selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
-                # selected peut contenir des cles (ancien format) ou des noms lisibles
-                resolved = [key_to_name.get(s, s) for s in selected]
-                data.active_periods = _compute_classic_active(data.prices, resolved)
+                selected = self._selected_keys(features)
+                data.active_periods = _compute_classic_active(data.prices, selected)
                 if data.current_period:
-                    data.binary_state = data.current_period["name"] in resolved
+                    data.binary_state = _is_selected(data.current_period, selected)
                 else:
                     data.binary_state = False
             else:
@@ -274,6 +266,23 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
             raise UpdateFailed(f"Error processing Selectra data: {err}") from err
 
         return data
+
+    def _selected_keys(self, features: list[dict[str, Any]]) -> list[str]:
+        """The chosen periods as line keys, stored that way once resolved.
+
+        A choice saved as display names stops matching the day a name is
+        translated or corrected; once every name resolves to a line, the
+        entry keeps the keys instead, so that cannot happen again.
+        """
+        selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
+        keys = _selected_to_keys(selected, features)
+        names = _line_names(features)
+        if keys != selected and all(k in names for k in keys):
+            self.hass.config_entries.async_update_entry(
+                self._entry,
+                data={**self._entry.data, CONF_SELECTED_PERIODS: keys},
+            )
+        return keys
 
     def _cached_prices(self, inputs: dict[str, Any]) -> dict[str, Any] | None:
         """Return cached prices, unless they no longer cover the present.
@@ -348,15 +357,9 @@ class SelectraCoordinator(DataUpdateCoordinator[SelectraData]):
         if self.mode == MODE_FLAT:
             data.binary_state = True
         elif self.mode == MODE_CLASSIC:
-            selected = self._entry.data.get(CONF_SELECTED_PERIODS, [])
-            key_to_name = {
-                f["key"]: f.get("name") or f["key"]
-                for f in self._details.get("features", [])
-                if f.get("key")
-            }
-            resolved = [key_to_name.get(s, s) for s in selected]
+            selected = self._selected_keys(self._details.get("features", []))
             if data.current_period:
-                data.binary_state = data.current_period["name"] in resolved
+                data.binary_state = _is_selected(data.current_period, selected)
             else:
                 data.binary_state = False
         else:
@@ -440,6 +443,9 @@ def _parse_price_periods(raw_prices: list[dict[str, Any]]) -> list[dict[str, Any
         periods.append(
             {
                 "name": p.get("name", ""),
+                # The /details line this slot is priced by, and its name in
+                # the request's language; see _match_lines.
+                **{k: p[k] for k in ("key", "label") if p.get(k)},
                 "price": p.get("price", 0.0),
                 "start": start,
                 "end": end,
@@ -460,11 +466,69 @@ def _find_current_period(
     return None
 
 
+def _match_lines(
+    periods: list[dict[str, Any]], features: list[dict[str, Any]]
+) -> None:
+    """Give each price slot the key and name of the /details line behind it.
+
+    The API names a slot by the line's stored display name, while /details
+    translates line names into the request's language: a Swiss contract set
+    up in German got "Tarif haut" slots and "Hochtarif" lines, so nothing
+    matched and Planned Run never turned on. Each slot now carries the key
+    of its line, which no language changes. Responses without one (cached
+    before the API sent it) are matched as before, by a name that is a line
+    key, then by the slot's translated label or name against the line names.
+    """
+    names = _line_names(features)
+    keys_by_name = _line_keys_by_name(names)
+    for p in periods:
+        key = p.get("key")
+        if key not in names:
+            key = p["name"] if p["name"] in names else (
+                keys_by_name.get(p.get("label")) or keys_by_name.get(p["name"])
+            )
+        if key is not None:
+            p["key"] = key
+            p["name"] = names[key]
+
+
+def _line_names(features: list[dict[str, Any]]) -> dict[str, str]:
+    """Each /details line's display name, by its key."""
+    return {f["key"]: f.get("name") or f["key"] for f in features if f.get("key")}
+
+
+def _line_keys_by_name(names: dict[str, str]) -> dict[str, str]:
+    """Each line's key by its display name; the first line wins a shared name."""
+    keys: dict[str, str] = {}
+    for key, name in names.items():
+        keys.setdefault(name, key)
+    return keys
+
+
+def _selected_to_keys(
+    selected: list[str], features: list[dict[str, Any]]
+) -> list[str]:
+    """The user's chosen periods as line keys.
+
+    Entries are line keys since 1.2.4. Older ones hold the display name
+    shown at setup (and before that, keys again), so a name is turned into
+    the key of the line it names; one no line has is kept as it is.
+    """
+    names = _line_names(features)
+    keys_by_name = _line_keys_by_name(names)
+    return [s if s in names else keys_by_name.get(s, s) for s in selected]
+
+
+def _is_selected(period: dict[str, Any], selected: list[str]) -> bool:
+    """Whether a slot belongs to a chosen period, by its line key or name."""
+    return period.get("key", period["name"]) in selected or period["name"] in selected
+
+
 def _compute_classic_active(
-    periods: list[dict[str, Any]], selected_names: list[str]
+    periods: list[dict[str, Any]], selected: list[str]
 ) -> list[dict[str, Any]]:
-    """Mark periods whose name is in the selected list as active."""
-    return [p for p in periods if p["name"] in selected_names]
+    """Mark periods whose line the user selected as active."""
+    return [p for p in periods if _is_selected(p, selected)]
 
 
 def _get_day_periods(

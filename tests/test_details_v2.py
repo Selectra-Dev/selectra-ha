@@ -87,14 +87,15 @@ async def test_select_periods_lists_v2_consumption_features(
         assert result["type"] is FlowResultType.FORM
         assert result["step_id"] == "select_periods"
         selector = result["data_schema"].schema["selected_periods"]
-        values = [o["value"] for o in selector.config["options"]]
-        assert values == ["Day", "Night"]
+        options = selector.config["options"]
+        assert [o["value"] for o in options] == ["day", "night"]
+        assert [o["label"] for o in options] == ["Day", "Night"]
 
         with patch(
             "custom_components.selectra.async_setup_entry", return_value=True
         ):
             result = await hass.config_entries.flow.async_configure(
-                result["flow_id"], {"selected_periods": ["Night"]}
+                result["flow_id"], {"selected_periods": ["night"]}
             )
 
     assert result["type"] is FlowResultType.CREATE_ENTRY

@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.4] - 2026-11-05
+
+### Fixed
+
+- **Planned Run never turned on when the contract was set up in another language than the country's.** `/planning/prices` names each slot by the stored line name ("Tarif haut" on a Swiss contract), while `/planning/details`, which the period step lists, translates it ("Hochtarif" in German); the two never matched. Slots are now matched to their line by the `key` the API gives both, which no language changes. Responses without a slot key are matched by its translated `label`.
+- **The chosen periods are stored as line keys.** A choice saved as names stopped matching the day a name was translated or corrected. Existing choices are converted the first time the entry refreshes; nothing needs reconfiguring.
+
+### Changed
+
+- The Planned Run sensor's `prices` attribute carries each slot's `key`.
+
+---
+
 ## [1.2.3] - 2026-09-29
 
 ### Fixed
