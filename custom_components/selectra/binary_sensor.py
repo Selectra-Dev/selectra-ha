@@ -87,6 +87,7 @@ class SelectraPlannedRunSensor(
             prices_attr.append(
                 {
                     "name": p.get("name", ""),
+                    "key": p.get("key"),
                     "price": p.get("price", 0.0),
                     "start": p["start"].isoformat()
                     if hasattr(p["start"], "isoformat")
