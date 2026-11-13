@@ -24,16 +24,16 @@ Turn your devices on and off based on the real-time price of electricity. Perfec
 - **Smart automations** — Trigger automations based on price thresholds, off-peak windows, or the cheapest upcoming hours.
 - **Feed-in tariffs** — If you have solar panels, track what your exported kWh earn you, right next to what you pay.
 - **Light on the API** — Responses are cached for as long as they stay valid, so restarting Home Assistant costs you nothing against your rate limit.
-- **Massive coverage** — 80 countries, 2,000+ energy providers, and 16,000+ electricity plans supported today.
+- **Massive coverage** — 209 countries and territories, 4,500+ energy providers, and 25,000+ electricity plans supported today.
 - **Always free** — This integration is and will remain free to use.
 
 ## 🌍 Coverage
 
 | | Current | Goal (end of 2026) |
 |---|---|---|
-| **Countries** | 80 | Worldwide |
-| **Energy providers** | 2,000+ | All residential providers |
-| **Electricity plans** | 16,000+ | Every residential plan |
+| **Countries** | 209 | Worldwide |
+| **Energy providers** | 4,500+ | All residential providers |
+| **Electricity plans** | 25,000+ | Every residential plan |
 
 Can't find your provider or plan? [Open an issue](../../issues) and we'll look into adding it.
 
