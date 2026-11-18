@@ -33,6 +33,7 @@ class SelectraPlannedRunSensor(
     _attr_device_class = BinarySensorDeviceClass.POWER
     _attr_has_entity_name = True
     _attr_translation_key = "planned_run"
+    _unrecorded_attributes = frozenset({"prices"})
 
     def __init__(
         self, coordinator: SelectraCoordinator, entry: ConfigEntry
