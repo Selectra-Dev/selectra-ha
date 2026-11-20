@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased]
+
+### Fixed
+
+- **The Recorder no longer warns that Planned Run's attributes exceed 16,384 bytes** ([#16](https://github.com/Selectra-Dev/selectra-ha/issues/16)). The `prices` attribute holds the whole upcoming series, which can run past 36 KB; the Recorder then dropped every attribute of the entity from history, not just that one. `prices` is now excluded from the Recorder, so `current_price`, `next_change` and the other attributes are recorded again. It is still on the live state, so dashboards, templates and the ApexCharts example keep working unchanged.
+
+---
+
 ## [1.2.4] - 2026-11-05
 
 ### Fixed
