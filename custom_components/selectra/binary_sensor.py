@@ -33,6 +33,11 @@ class SelectraPlannedRunSensor(
     _attr_device_class = BinarySensorDeviceClass.POWER
     _attr_has_entity_name = True
     _attr_translation_key = "planned_run"
+    # The price series runs well past the Recorder's 16 KB attribute cap,
+    # which then drops every attribute from history, and its `is_active`
+    # flags would write a fresh copy at each period boundary anyway. It stays
+    # in the live state for dashboards and templates.
+    _unrecorded_attributes = frozenset({"prices"})
 
     def __init__(
         self, coordinator: SelectraCoordinator, entry: ConfigEntry
