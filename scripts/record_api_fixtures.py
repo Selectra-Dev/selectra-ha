@@ -13,7 +13,8 @@ instead of reaching users.
 
     SELECTRA_API_TOKEN=... python scripts/record_api_fixtures.py [scenario ...]
 
-SELECTRA_API_URL overrides the base URL (a local energy-core, for instance).
+SELECTRA_API_URL points the recorder at another instance of the API; the
+recordings then say "custom" instead of naming it.
 Standard library only, so the nightly job has nothing to install.
 """
 
@@ -33,7 +34,8 @@ FIXTURES = ROOT / "tests" / "fixtures" / "api"
 SCENARIOS = FIXTURES / "scenarios.json"
 FAILED = FIXTURES / "failed"
 
-BASE_URL = os.environ.get("SELECTRA_API_URL", "https://api.selectra.com/api").rstrip("/")
+PRODUCTION_URL = "https://api.selectra.com/api"
+BASE_URL = os.environ.get("SELECTRA_API_URL", PRODUCTION_URL).rstrip("/")
 TOKEN = os.environ.get("SELECTRA_API_TOKEN", "")
 # Cloudflare in front of the API bans urllib's default "Python-urllib/x.y"
 # signature (error 1010), so name the client explicitly.
@@ -56,9 +58,8 @@ def _post(path: str, payload: dict[str, Any]) -> Any:
         "Content-Type": "application/json",
         "Accept": "application/json",
         "User-Agent": USER_AGENT,
+        "Authorization": f"Bearer {TOKEN}",
     }
-    if TOKEN:
-        headers["Authorization"] = f"Bearer {TOKEN}"
     request = urllib.request.Request(
         f"{BASE_URL}{path}",
         data=json.dumps(payload).encode(),
@@ -193,7 +194,9 @@ def record(
 
     return {
         "scenario": name,
-        "recorded_from": BASE_URL,
+        # Only production is named, so a recording never publishes the
+        # address of another instance.
+        "recorded_from": BASE_URL if BASE_URL == PRODUCTION_URL else "custom",
         "recorded_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "lang": lang,
         "time_zone": scenario["time_zone"],
@@ -205,6 +208,10 @@ def record(
 
 
 def main(argv: list[str]) -> int:
+    if not TOKEN:
+        print("SELECTRA_API_TOKEN is not set.", file=sys.stderr)
+        return 2
+
     scenarios: dict[str, Any] = json.loads(SCENARIOS.read_text(encoding="utf-8"))
     names = argv or list(scenarios)
     unknown = [n for n in names if n not in scenarios]
