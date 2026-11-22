@@ -1,6 +1,6 @@
 {
   "scenario": "uk",
-  "recorded_from": "http://energy-core.test/api",
+  "recorded_from": "custom",
   "recorded_at": "2026-09-29T13:43:21Z",
   "lang": "en",
   "time_zone": "Europe/London",
